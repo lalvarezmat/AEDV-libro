@@ -685,15 +685,15 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 ## ℹ Please use &lt;ggplot&gt; + x instead.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Vemos que la media de ingresos proporciona una primera comparativa útil entre países. Sin embargo, el uso exclusivo de la media, aunque ofrece información valiosa, oculta matices relevantes de la realidad, como los niveles de igualdad en la distribución de los ingresos dentro de cada país. Por ejemplo, Estados Unidos presenta una media de ingresos significativamente superior a la de Noruega. Sin embargo, si dividimos el nivel salarial en diez grupos (deciles) y comparamos los resultados para ambos países, obtenemos:</p>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <div class="resultado">
 <p><strong class="bloque-titulo">Conclusión clave: los datos admiten múltiples interpretaciones válidas</strong></p>
 <p>es decir, en Estados Unidos hay un 10 % de la población que gana más de 158 dólares diarios y, en el extremo opuesto, otro 10 % que gana menos de 23 dólares. En Noruega, en cambio, el decil superior supera los 116 dólares, mientras que el inferior no baja de 34 dólares: se trata, por tanto, de un país con una desigualdad de ingresos sensiblemente menor. Lo que eleva la media de Estados Unidos por encima de la de Noruega es que los ingresos de los más ricos son notablemente superiores. Utilizando la mediana (decile5), en lugar de la media, se observa que los ingresos diarios en Noruega (64 dolares) son superiores a los de Estados Unidos (62 dolares). De esta forma, la pregunta <em>¿en cuál de los dos países la población tiene un mayor nivel de ingresos?</em> puede tener respuestas distintas dependiendo del indicador elegido. En el análisis de datos, <strong>una misma cuestión puede admitir respuestas aparentemente contradictorias, siendo ambas coherentes y bien fundamentadas en función de los datos, los indicadores utilizados y su interpretación</strong>. Las conclusiones que extraemos no son una verdad absoluta; a lo más que podemos aspirar es a que sean coherentes con los datos analizados y con los criterios metodológicos utilizados.</p>
 </div>
 <p>Volviendo al ejemplo de los ingresos, otro aspecto relevante es la variabilidad geográfica dentro de un mismo país. Si examinamos la distribución del salario medio bruto mensual por comunidades autónomas en España en 2022 ordenadas de menor a mayor para facilitar la comparación:</p>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>observamos que, mientras en el País Vasco el salario medio asciende a 2.546 euros mensuales, en Canarias se sitúa en 1.869 euros, lo que refleja realidades económicas muy dispares que quedan ocultas cuando se observa únicamente el promedio nacional.</p>
 <p>El objetivo de este análisis es mostrar cómo el científico de datos debe ir más allá de la tendencia al pensamiento binario y a la simplificación de la realidad, y esforzarse por mostrar, a partir de los datos, toda la riqueza de matices que estos contienen.</p>
 </div>
@@ -3262,7 +3262,7 @@ Spain
 <h4>Tipos de join<a href="#tipos-de-join" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Además de <code>left_join</code>, existen otros tipos de combinación que conviene conocer. Cada uno conserva registros distintos en función de si aparecen en una tabla, en la otra, o en ambas:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:tipos-join"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/tipos-join-1.png" alt="Tipos de join y los registros que conservan" width="768" />
+<img src="AEDV_book_files/figure-html/tipos-join-1.png" alt="Tipos de join y los registros que conservan" width="768" />
 <p class="caption">
 Figure 3.1: Tipos de join y los registros que conservan
 </p>
@@ -3682,7 +3682,7 @@ Alemania
 <h4>Esquema visual de <code>pivot_longer</code> y <code>pivot_wider</code><a href="#esquema-visual-de-pivot_longer-y-pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Las funciones <code>pivot_longer</code> y <code>pivot_wider</code> son transformaciones inversas entre sí. El siguiente esquema ilustra cómo operan:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagrama-pivot"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/diagrama-pivot-1.png" alt="Esquema visual de pivot_longer y pivot_wider" width="864" />
+<img src="AEDV_book_files/figure-html/diagrama-pivot-1.png" alt="Esquema visual de pivot_longer y pivot_wider" width="864" />
 <p class="caption">
 Figure 3.2: Esquema visual de pivot_longer y pivot_wider
 </p>
@@ -4104,7 +4104,7 @@ los campos y hacemos un <code>pivot_wider</code></p>
 <div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="#cb363-1" tabindex="-1"></a>owid_country <span class="sc">|&gt;</span></span>
 <span id="cb363-2"><a href="#cb363-2" tabindex="-1"></a>  <span class="fu">gg_miss_var</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:gg-miss-var"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/gg-miss-var-1.png" alt="Valores faltantes por variable en la tabla `owid_country` usando `naniar`" width="672" />
+<img src="AEDV_book_files/figure-html/gg-miss-var-1.png" alt="Valores faltantes por variable en la tabla `owid_country` usando `naniar`" width="672" />
 <p class="caption">
 Figure 3.3: Valores faltantes por variable en la tabla <code>owid_country</code> usando <code>naniar</code>
 </p>
@@ -4302,7 +4302,7 @@ Figure 3.3: Valores faltantes por variable en la tabla <code>owid_country</code>
 <span id="cb368-21"><a href="#cb368-21" tabindex="-1"></a></span>
 <span id="cb368-22"><a href="#cb368-22" tabindex="-1"></a><span class="fu">wrap_plots</span>(p1, p2, p3, p4, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:anatomia-ggplot"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/anatomia-ggplot-1.png" alt="Construcción de un gráfico por capas: (1) lienzo con aes, (2) + geom_point, (3) + escala logarítmica, (4) + títulos y tema" width="672" />
+<img src="AEDV_book_files/figure-html/anatomia-ggplot-1.png" alt="Construcción de un gráfico por capas: (1) lienzo con aes, (2) + geom_point, (3) + escala logarítmica, (4) + títulos y tema" width="672" />
 <p class="caption">
 Figure 4.1: Construcción de un gráfico por capas: (1) lienzo con aes, (2) + geom_point, (3) + escala logarítmica, (4) + títulos y tema
 </p>
@@ -4322,7 +4322,7 @@ Figure 4.1: Construcción de un gráfico por capas: (1) lienzo con aes, (2) + ge
 <span id="cb369-5"><a href="#cb369-5" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb369-6"><a href="#cb369-6" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-bar"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-bar-1.png" alt="Diagrama de barras usando `geom_col`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-bar-1.png" alt="Diagrama de barras usando `geom_col`" width="672" />
 <p class="caption">
 Figure 4.2: Diagrama de barras usando <code>geom_col</code>
 </p>
@@ -4338,7 +4338,7 @@ a las barras. Al final del capítulo se verán en detalle estas cuestiones de di
 <span id="cb370-7"><a href="#cb370-7" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb370-8"><a href="#cb370-8" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-bar-reorder"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-bar-reorder-1.png" alt="Diagrama de barras usando `geom_col` con orden personalizado" width="672" />
+<img src="AEDV_book_files/figure-html/geom-bar-reorder-1.png" alt="Diagrama de barras usando `geom_col` con orden personalizado" width="672" />
 <p class="caption">
 Figure 4.3: Diagrama de barras usando <code>geom_col</code> con orden personalizado
 </p>
@@ -4356,7 +4356,7 @@ Figure 4.3: Diagrama de barras usando <code>geom_col</code> con orden personaliz
 <span id="cb371-7"><a href="#cb371-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent,<span class="at">y=</span>smokers,<span class="at">fill=</span>sex)) <span class="sc">+</span></span>
 <span id="cb371-8"><a href="#cb371-8" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-bar-apilado01"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-bar-apilado01-1.png" alt="Diagrama de barras apilado usando `geom_bar`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-bar-apilado01-1.png" alt="Diagrama de barras apilado usando `geom_bar`" width="672" />
 <p class="caption">
 Figure 4.4: Diagrama de barras apilado usando <code>geom_bar</code>
 </p>
@@ -4371,7 +4371,7 @@ Figure 4.4: Diagrama de barras apilado usando <code>geom_bar</code>
 <span id="cb372-7"><a href="#cb372-7" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent,<span class="at">y=</span>smokers,<span class="at">fill=</span>sex)) <span class="sc">+</span></span>
 <span id="cb372-8"><a href="#cb372-8" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>,<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-bar-dodge"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-bar-dodge-1.png" alt="Diagrama de barras alineadas usando `geom_bar`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-bar-dodge-1.png" alt="Diagrama de barras alineadas usando `geom_bar`" width="672" />
 <p class="caption">
 Figure 4.5: Diagrama de barras alineadas usando <code>geom_bar</code>
 </p>
@@ -4388,7 +4388,7 @@ Figure 4.5: Diagrama de barras alineadas usando <code>geom_bar</code>
 <span id="cb373-9"><a href="#cb373-9" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="co"># giramos el gráfico 90 grados </span></span>
 <span id="cb373-10"><a href="#cb373-10" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span> abs) <span class="co"># valores del eje en valor absoluto </span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-bar-flip"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-bar-flip-1.png" alt="Diagrama de barras horizontal para comparar 2 variables usando `geom_col`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-bar-flip-1.png" alt="Diagrama de barras horizontal para comparar 2 variables usando `geom_col`" width="672" />
 <p class="caption">
 Figure 4.6: Diagrama de barras horizontal para comparar 2 variables usando <code>geom_col</code>
 </p>
@@ -4409,7 +4409,7 @@ por continentes:</p>
 <span id="cb374-7"><a href="#cb374-7" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">1.6</span>,<span class="at">label =</span> labels),<span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> </span>
 <span id="cb374-8"><a href="#cb374-8" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-col"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-col-1.png" alt="Gráfico circular usando `geom_col`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-col-1.png" alt="Gráfico circular usando `geom_col`" width="672" />
 <p class="caption">
 Figure 4.7: Gráfico circular usando <code>geom_col</code>
 </p>
@@ -4425,7 +4425,7 @@ Figure 4.7: Gráfico circular usando <code>geom_col</code>
 <span id="cb375-8"><a href="#cb375-8" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>,<span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb375-9"><a href="#cb375-9" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;x&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-bar-sectores"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-bar-sectores-1.png" alt="Diagrama de barras apilado transformado en sectores circulares usando `coord_polar`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-bar-sectores-1.png" alt="Diagrama de barras apilado transformado en sectores circulares usando `coord_polar`" width="672" />
 <p class="caption">
 Figure 4.8: Diagrama de barras apilado transformado en sectores circulares usando <code>coord_polar</code>
 </p>
@@ -4448,7 +4448,7 @@ Figure 4.8: Diagrama de barras apilado transformado en sectores circulares usand
 <span id="cb376-9"><a href="#cb376-9" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
 <span id="cb376-10"><a href="#cb376-10" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, hsize <span class="sc">+</span> <span class="fl">0.5</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-col-donuts"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-col-donuts-1.png" alt="Gráfico de donuts usando `geom_col`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-col-donuts-1.png" alt="Gráfico de donuts usando `geom_col`" width="672" />
 <p class="caption">
 Figure 4.9: Gráfico de donuts usando <code>geom_col</code>
 </p>
@@ -4461,7 +4461,7 @@ Figure 4.9: Gráfico de donuts usando <code>geom_col</code>
 <span id="cb377-2"><a href="#cb377-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gdp_per_capit)) <span class="sc">+</span> </span>
 <span id="cb377-3"><a href="#cb377-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-histogram"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-histogram-1.png" alt="Gráfico de histograma usando `geom_histogram()`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-histogram-1.png" alt="Gráfico de histograma usando `geom_histogram()`" width="672" />
 <p class="caption">
 Figure 4.10: Gráfico de histograma usando <code>geom_histogram()</code>
 </p>
@@ -4472,7 +4472,7 @@ Figure 4.10: Gráfico de histograma usando <code>geom_histogram()</code>
 <span id="cb378-3"><a href="#cb378-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density))) <span class="sc">+</span></span>
 <span id="cb378-4"><a href="#cb378-4" tabindex="-1"></a>    <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.6</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-density"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-density-1.png" alt="Histograma y función de densidad con `geom_histogram` y `geom_density`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-density-1.png" alt="Histograma y función de densidad con `geom_histogram` y `geom_density`" width="672" />
 <p class="caption">
 Figure 4.11: Histograma y función de densidad con <code>geom_histogram</code> y <code>geom_density</code>
 </p>
@@ -4483,7 +4483,7 @@ Figure 4.11: Histograma y función de densidad con <code>geom_histogram</code> y
 <span id="cb379-3"><a href="#cb379-3" tabindex="-1"></a>    <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb379-4"><a href="#cb379-4" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>continent)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:facet-wrap"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/facet-wrap-1.png" alt="Dibujo de una cuadrícula con los histogramas de `gdp_per_capit` organizados por continentes usando `facet_wrap` " width="672" />
+<img src="AEDV_book_files/figure-html/facet-wrap-1.png" alt="Dibujo de una cuadrícula con los histogramas de `gdp_per_capit` organizados por continentes usando `facet_wrap` " width="672" />
 <p class="caption">
 Figure 4.12: Dibujo de una cuadrícula con los histogramas de <code>gdp_per_capit</code> organizados por continentes usando <code>facet_wrap</code>
 </p>
@@ -4497,7 +4497,7 @@ Figure 4.12: Dibujo de una cuadrícula con los histogramas de <code>gdp_per_capi
 <span id="cb380-4"><a href="#cb380-4" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb380-5"><a href="#cb380-5" tabindex="-1"></a>    <span class="fu">facet_grid</span>(continent <span class="sc">~</span> ., <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:facet-grid"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/facet-grid-1.png" alt="Comparación de histogramas con escalas independientes usando `facet_grid` y `scales='free'`" width="672" />
+<img src="AEDV_book_files/figure-html/facet-grid-1.png" alt="Comparación de histogramas con escalas independientes usando `facet_grid` y `scales='free'`" width="672" />
 <p class="caption">
 Figure 4.13: Comparación de histogramas con escalas independientes usando <code>facet_grid</code> y <code>scales='free'</code>
 </p>
@@ -4515,7 +4515,7 @@ la media y los percentiles 0.25, 0.5 (la mediana) y 0.75.</p>
 <span id="cb381-8"><a href="#cb381-8" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">quantile</span>(population,<span class="fl">0.5</span>)),<span class="at">linetype=</span><span class="st">&quot;solid&quot;</span>) <span class="sc">+</span></span>
 <span id="cb381-9"><a href="#cb381-9" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">quantile</span>(population,<span class="fl">0.75</span>)),<span class="at">linetype=</span><span class="st">&quot;solid&quot;</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-vline"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-vline-1.png" alt="Histograma usando una escala logarítmica para los ejes incluyendo líneas verticales en la posición de la media y percentiles principales usando `geom_vline`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-vline-1.png" alt="Histograma usando una escala logarítmica para los ejes incluyendo líneas verticales en la posición de la media y percentiles principales usando `geom_vline`" width="672" />
 <p class="caption">
 Figure 4.14: Histograma usando una escala logarítmica para los ejes incluyendo líneas verticales en la posición de la media y percentiles principales usando <code>geom_vline</code>
 </p>
@@ -4539,7 +4539,7 @@ Figure 4.14: Histograma usando una escala logarítmica para los ejes incluyendo 
 <span id="cb382-3"><a href="#cb382-3" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb382-4"><a href="#cb382-4" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-boxplot"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-boxplot-1.png" alt="Diagrama de cajas usando `geom_boxplot`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-boxplot-1.png" alt="Diagrama de cajas usando `geom_boxplot`" width="672" />
 <p class="caption">
 Figure 4.15: Diagrama de cajas usando <code>geom_boxplot</code>
 </p>
@@ -4551,7 +4551,7 @@ Figure 4.15: Diagrama de cajas usando <code>geom_boxplot</code>
 <span id="cb383-4"><a href="#cb383-4" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">shape=</span><span class="dv">16</span>, <span class="at">position=</span><span class="fu">position_jitter</span>(<span class="fl">0.2</span>)) <span class="sc">+</span></span>
 <span id="cb383-5"><a href="#cb383-5" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-jitter01"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-jitter01-1.png" alt="Diagrama de cajas que incluye todos los valores como puntos, usando `geom_jitter`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-jitter01-1.png" alt="Diagrama de cajas que incluye todos los valores como puntos, usando `geom_jitter`" width="672" />
 <p class="caption">
 Figure 4.16: Diagrama de cajas que incluye todos los valores como puntos, usando <code>geom_jitter</code>
 </p>
@@ -4562,7 +4562,7 @@ Figure 4.16: Diagrama de cajas que incluye todos los valores como puntos, usando
 <span id="cb384-3"><a href="#cb384-3" tabindex="-1"></a>    <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
 <span id="cb384-4"><a href="#cb384-4" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-violin"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-violin-1.png" alt="Diagrama en forma de violín usando `geom_violin`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-violin-1.png" alt="Diagrama en forma de violín usando `geom_violin`" width="672" />
 <p class="caption">
 Figure 4.17: Diagrama en forma de violín usando <code>geom_violin</code>
 </p>
@@ -4577,7 +4577,7 @@ Figure 4.17: Diagrama en forma de violín usando <code>geom_violin</code>
 <span id="cb385-4"><a href="#cb385-4" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">transform =</span> <span class="st">&#39;log2&#39;</span>) <span class="sc">+</span> <span class="co"># se transforma la variable x con log</span></span>
 <span id="cb385-5"><a href="#cb385-5" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="co"># dibujo recta de regresión </span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-point01"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-point01-1.png" alt="Diagrama de dispersión usando `geom_point` y con el eje x en escala logarítmica" width="672" />
+<img src="AEDV_book_files/figure-html/geom-point01-1.png" alt="Diagrama de dispersión usando `geom_point` y con el eje x en escala logarítmica" width="672" />
 <p class="caption">
 Figure 4.18: Diagrama de dispersión usando <code>geom_point</code> y con el eje x en escala logarítmica
 </p>
@@ -4589,7 +4589,7 @@ Figure 4.18: Diagrama de dispersión usando <code>geom_point</code> y con el eje
 <span id="cb386-4"><a href="#cb386-4" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">transform =</span> <span class="st">&#39;log2&#39;</span>) <span class="sc">+</span></span>
 <span id="cb386-5"><a href="#cb386-5" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-point2"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-point2-1.png" alt="Diagrama de dispersión agrupado por continentes con rectas de regresión" width="672" />
+<img src="AEDV_book_files/figure-html/geom-point2-1.png" alt="Diagrama de dispersión agrupado por continentes con rectas de regresión" width="672" />
 <p class="caption">
 Figure 4.19: Diagrama de dispersión agrupado por continentes con rectas de regresión
 </p>
@@ -4615,7 +4615,7 @@ de la parte inferior de la cuadrícula</p>
 <span id="cb387-6"><a href="#cb387-6" tabindex="-1"></a>  <span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="co"># columnas del tibble que se compararán </span></span>
 <span id="cb387-7"><a href="#cb387-7" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">color =</span> continent,<span class="at">alpha=</span><span class="fl">0.5</span>)) <span class="co"># colorea por continente </span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ggpairs"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ggpairs-1.png" alt="Comparación de variables usando `ggpairs`" width="672" />
+<img src="AEDV_book_files/figure-html/ggpairs-1.png" alt="Comparación de variables usando `ggpairs`" width="672" />
 <p class="caption">
 Figure 4.20: Comparación de variables usando <code>ggpairs</code>
 </p>
@@ -4639,7 +4639,7 @@ Figure 4.20: Comparación de variables usando <code>ggpairs</code>
 <span id="cb388-10"><a href="#cb388-10" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span> <span class="co"># generamos gráfico de línea</span></span>
 <span id="cb388-11"><a href="#cb388-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># ponemos el background a blanco</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-line1"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-line1-1.png" alt="Gráfico de líneas usando `geom_line`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-line1-1.png" alt="Gráfico de líneas usando `geom_line`" width="672" />
 <p class="caption">
 Figure 4.21: Gráfico de líneas usando <code>geom_line</code>
 </p>
@@ -4662,7 +4662,7 @@ Figure 4.21: Gráfico de líneas usando <code>geom_line</code>
 <span id="cb389-15"><a href="#cb389-15" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
 <span id="cb389-16"><a href="#cb389-16" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-line2"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-line2-1.png" alt="Se añade al gráfico anterior zonas coloreadas con la función  `geom_rect`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-line2-1.png" alt="Se añade al gráfico anterior zonas coloreadas con la función  `geom_rect`" width="672" />
 <p class="caption">
 Figure 4.22: Se añade al gráfico anterior zonas coloreadas con la función <code>geom_rect</code>
 </p>
@@ -4688,7 +4688,7 @@ Figure 4.22: Se añade al gráfico anterior zonas coloreadas con la función <co
 <span id="cb390-15"><a href="#cb390-15" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Fallecidos diarios por COVID-19 en Francia&quot;</span>,</span>
 <span id="cb390-16"><a href="#cb390-16" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Banda: ±20% como ejemplo de intervalo de incertidumbre&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-area-ejemplo"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-area-ejemplo-1.png" alt="Gráfico de área con `geom_area` y banda de incertidumbre con `geom_ribbon`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-area-ejemplo-1.png" alt="Gráfico de área con `geom_area` y banda de incertidumbre con `geom_ribbon`" width="672" />
 <p class="caption">
 Figure 4.23: Gráfico de área con <code>geom_area</code> y banda de incertidumbre con <code>geom_ribbon</code>
 </p>
@@ -4732,7 +4732,7 @@ Figure 4.23: Gráfico de área con <code>geom_area</code> y banda de incertidumb
 <span id="cb392-5"><a href="#cb392-5" tabindex="-1"></a></span>
 <span id="cb392-6"><a href="#cb392-6" tabindex="-1"></a><span class="fu">DrawDualAxes</span>(data,<span class="st">&quot;fecha&quot;</span>,<span class="st">&quot;incidencia&quot;</span>,<span class="st">&quot;red&quot;</span>,<span class="st">&quot;fallecidos&quot;</span>,<span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-line3"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-line3-1.png" alt="Gráfico de líneas con doble eje vértical" width="672" />
+<img src="AEDV_book_files/figure-html/geom-line3-1.png" alt="Gráfico de líneas con doble eje vértical" width="672" />
 <p class="caption">
 Figure 4.24: Gráfico de líneas con doble eje vértical
 </p>
@@ -4766,7 +4766,7 @@ Figure 4.24: Gráfico de líneas con doble eje vértical
 <span id="cb393-21"><a href="#cb393-21" tabindex="-1"></a>    <span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">length=</span><span class="fu">unit</span>(<span class="dv">2</span>,<span class="st">&quot;mm&quot;</span>),<span class="at">angle=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;closed&quot;</span>)  </span>
 <span id="cb393-22"><a href="#cb393-22" tabindex="-1"></a>  )  </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-line4"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-line4-1.png" alt="Gráfico de líneas con anotaciones" width="672" />
+<img src="AEDV_book_files/figure-html/geom-line4-1.png" alt="Gráfico de líneas con anotaciones" width="672" />
 <p class="caption">
 Figure 4.25: Gráfico de líneas con anotaciones
 </p>
@@ -4783,7 +4783,7 @@ Figure 4.25: Gráfico de líneas con anotaciones
 <span id="cb394-6"><a href="#cb394-6" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">transform =</span> <span class="st">&#39;log2&#39;</span>) <span class="sc">+</span></span>
 <span id="cb394-7"><a href="#cb394-7" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;PIB per cápita (escala log)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Esperanza de vida&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-text-ejemplo"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-text-ejemplo-1.png" alt="Diagrama de dispersión con etiquetas usando `geom_text`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-text-ejemplo-1.png" alt="Diagrama de dispersión con etiquetas usando `geom_text`" width="672" />
 <p class="caption">
 Figure 4.26: Diagrama de dispersión con etiquetas usando <code>geom_text</code>
 </p>
@@ -4797,7 +4797,7 @@ Figure 4.26: Diagrama de dispersión con etiquetas usando <code>geom_text</code>
 <span id="cb395-6"><a href="#cb395-6" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">transform =</span> <span class="st">&#39;log2&#39;</span>) <span class="sc">+</span></span>
 <span id="cb395-7"><a href="#cb395-7" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;PIB per cápita (escala log)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Esperanza de vida&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geom-repel-ejemplo"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/geom-repel-ejemplo-1.png" alt="Etiquetas sin solapamiento usando `geom_text_repel` de la librería `ggrepel`" width="672" />
+<img src="AEDV_book_files/figure-html/geom-repel-ejemplo-1.png" alt="Etiquetas sin solapamiento usando `geom_text_repel` de la librería `ggrepel`" width="672" />
 <p class="caption">
 Figure 4.27: Etiquetas sin solapamiento usando <code>geom_text_repel</code> de la librería <code>ggrepel</code>
 </p>
@@ -4833,7 +4833,7 @@ del tibble <code>owid_country</code></p>
 <span id="cb396-20"><a href="#cb396-20" tabindex="-1"></a></span>
 <span id="cb396-21"><a href="#cb396-21" tabindex="-1"></a><span class="fu">wrap_plots</span>(p1, p2, p3, p4, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:wrap-plots"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/wrap-plots-1.png" alt="Combinación de gráficos usando `wrap_plots`" width="672" />
+<img src="AEDV_book_files/figure-html/wrap-plots-1.png" alt="Combinación de gráficos usando `wrap_plots`" width="672" />
 <p class="caption">
 Figure 4.28: Combinación de gráficos usando <code>wrap_plots</code>
 </p>
@@ -4860,7 +4860,7 @@ los campos que intervienen en el mapa de calor y se normalizan</p>
 <span id="cb398-7"><a href="#cb398-7" tabindex="-1"></a>    <span class="fu">scale_fill_gradientn</span>(<span class="at">colors =</span> <span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&#39;YlOrRd&#39;</span>))<span class="sc">+</span></span>
 <span id="cb398-8"><a href="#cb398-8" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,<span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:heatmap"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/heatmap-1.png" alt="Mapa de calor, usando la paleta `YlOrRd`,  de algunos indicadores europeos normalizados diviendo por su máximo" width="90%" />
+<img src="AEDV_book_files/figure-html/heatmap-1.png" alt="Mapa de calor, usando la paleta `YlOrRd`,  de algunos indicadores europeos normalizados diviendo por su máximo" width="90%" />
 <p class="caption">
 Figure 4.29: Mapa de calor, usando la paleta <code>YlOrRd</code>, de algunos indicadores europeos normalizados diviendo por su máximo
 </p>
@@ -4886,7 +4886,7 @@ Figure 4.29: Mapa de calor, usando la paleta <code>YlOrRd</code>, de algunos ind
 <span id="cb399-18"><a href="#cb399-18" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> value), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
 <span id="cb399-19"><a href="#cb399-19" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,<span class="at">hjust=</span><span class="dv">1</span>),<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:heatmap2"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/heatmap2-1.png" alt="Mapa de calor similar al anterior, cambiando la paleta, normalizando para colorear y poniendo etiquetas con los valores" width="90%" />
+<img src="AEDV_book_files/figure-html/heatmap2-1.png" alt="Mapa de calor similar al anterior, cambiando la paleta, normalizando para colorear y poniendo etiquetas con los valores" width="90%" />
 <p class="caption">
 Figure 4.30: Mapa de calor similar al anterior, cambiando la paleta, normalizando para colorear y poniendo etiquetas con los valores
 </p>
@@ -4898,7 +4898,7 @@ Figure 4.30: Mapa de calor similar al anterior, cambiando la paleta, normalizand
 <div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="#cb400-1" tabindex="-1"></a>  <span class="fu">wordcloud</span>(<span class="at">words =</span> sel_owid_country<span class="sc">$</span>location, <span class="at">freq =</span> sel_owid_country<span class="sc">$</span>gdp_per_capit, <span class="at">min.freq =</span> <span class="dv">0</span>,</span>
 <span id="cb400-2"><a href="#cb400-2" tabindex="-1"></a>          <span class="at">max.words=</span><span class="dv">200</span>, <span class="at">random.order=</span><span class="cn">FALSE</span>, <span class="at">colors=</span><span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:wordcloud"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/wordcloud-1.png" alt="Wordcloud de los países europeos usando su PIB por habitante con la paleta de colores `Dark2`" width="672" />
+<img src="AEDV_book_files/figure-html/wordcloud-1.png" alt="Wordcloud de los países europeos usando su PIB por habitante con la paleta de colores `Dark2`" width="672" />
 <p class="caption">
 Figure 4.31: Wordcloud de los países europeos usando su PIB por habitante con la paleta de colores <code>Dark2</code>
 </p>
@@ -4923,7 +4923,7 @@ podemos definir un color utilizando su nombre o su código <code>HEX</code>. En
 de colores con su nombre y código <code>HEX</code>. A continuación se muestra
 una selección de colores con sus nombres asociados.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:colors-name"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/colors-name-1.png" alt="Tabla con una selección de colores con sus nombre asociados" width="90%" />
+<img src="AEDV_book_files/figure-html/colors-name-1.png" alt="Tabla con una selección de colores con sus nombre asociados" width="90%" />
 <p class="caption">
 Figure 4.32: Tabla con una selección de colores con sus nombre asociados
 </p>
@@ -4940,7 +4940,7 @@ de barras</p>
 <span id="cb401-4"><a href="#cb401-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>continent,<span class="at">y=</span>population)) <span class="sc">+</span></span>
 <span id="cb401-5"><a href="#cb401-5" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightblue&quot;</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:color1"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/color1-1.png" alt="Diagrama de barras definiendo un solo color en `geom_bar`" width="672" />
+<img src="AEDV_book_files/figure-html/color1-1.png" alt="Diagrama de barras definiendo un solo color en `geom_bar`" width="672" />
 <p class="caption">
 Figure 4.33: Diagrama de barras definiendo un solo color en <code>geom_bar</code>
 </p>
@@ -4952,7 +4952,7 @@ Figure 4.33: Diagrama de barras definiendo un solo color en <code>geom_bar</code
 <span id="cb402-5"><a href="#cb402-5" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
 <span id="cb402-6"><a href="#cb402-6" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:color2"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/color2-1.png" alt="Diagrama de barras con colores generados automáticamente en el `aes` de `ggplot` " width="672" />
+<img src="AEDV_book_files/figure-html/color2-1.png" alt="Diagrama de barras con colores generados automáticamente en el `aes` de `ggplot` " width="672" />
 <p class="caption">
 Figure 4.34: Diagrama de barras con colores generados automáticamente en el <code>aes</code> de <code>ggplot</code>
 </p>
@@ -4965,14 +4965,14 @@ Figure 4.34: Diagrama de barras con colores generados automáticamente en el <co
 <span id="cb403-6"><a href="#cb403-6" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;black&quot;</span>,<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;yellow&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb403-7"><a href="#cb403-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:color3"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/color3-1.png" alt="Diagrama de barras con colores asignados manualmente usando `scale_fill_manual`" width="672" />
+<img src="AEDV_book_files/figure-html/color3-1.png" alt="Diagrama de barras con colores asignados manualmente usando `scale_fill_manual`" width="672" />
 <p class="caption">
 Figure 4.35: Diagrama de barras con colores asignados manualmente usando <code>scale_fill_manual</code>
 </p>
 </div>
 <p>Otra forma de definir colores es usando paletas. La librería <code>RColorBrewer</code> suministra las siguientes paletas de colores:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:brewer"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/brewer-1.png" alt="Paletas de colores de la librería `RColorBrewer`" width="80%" />
+<img src="AEDV_book_files/figure-html/brewer-1.png" alt="Paletas de colores de la librería `RColorBrewer`" width="80%" />
 <p class="caption">
 Figure 4.36: Paletas de colores de la librería <code>RColorBrewer</code>
 </p>
@@ -4992,7 +4992,7 @@ Figure 4.36: Paletas de colores de la librería <code>RColorBrewer</code>
 <span id="cb404-6"><a href="#cb404-6" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>) <span class="sc">+</span></span>
 <span id="cb404-7"><a href="#cb404-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:color-brewer"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/color-brewer-1.png" alt="Diagrama de barras con colores usando `scale_fill_brewer`" width="672" />
+<img src="AEDV_book_files/figure-html/color-brewer-1.png" alt="Diagrama de barras con colores usando `scale_fill_brewer`" width="672" />
 <p class="caption">
 Figure 4.37: Diagrama de barras con colores usando <code>scale_fill_brewer</code>
 </p>
@@ -5009,7 +5009,7 @@ Figure 4.37: Diagrama de barras con colores usando <code>scale_fill_brewer</code
 <span id="cb405-9"><a href="#cb405-9" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
 <span id="cb405-10"><a href="#cb405-10" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:color-brewer-interpolation"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/color-brewer-interpolation-1.png" alt="Diagrama de barras con interpolación de colores `brewer` usando `colorRampPalette`" width="672" />
+<img src="AEDV_book_files/figure-html/color-brewer-interpolation-1.png" alt="Diagrama de barras con interpolación de colores `brewer` usando `colorRampPalette`" width="672" />
 <p class="caption">
 Figure 4.38: Diagrama de barras con interpolación de colores <code>brewer</code> usando <code>colorRampPalette</code>
 </p>
@@ -5024,7 +5024,7 @@ Figure 4.38: Diagrama de barras con interpolación de colores <code>brewer</code
 <span id="cb406-5"><a href="#cb406-5" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span>  <span class="co"># _d para variables discretas, _c para continuas</span></span>
 <span id="cb406-6"><a href="#cb406-6" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;PIB per cápita (escala log)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Esperanza de vida&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:color-viridis"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/color-viridis-1.png" alt="Diagrama de dispersión usando la escala de color `viridis` accesible para daltónicos" width="672" />
+<img src="AEDV_book_files/figure-html/color-viridis-1.png" alt="Diagrama de dispersión usando la escala de color `viridis` accesible para daltónicos" width="672" />
 <p class="caption">
 Figure 4.39: Diagrama de dispersión usando la escala de color <code>viridis</code> accesible para daltónicos
 </p>
@@ -5045,7 +5045,7 @@ un gráfico :</p>
 <span id="cb407-5"><a href="#cb407-5" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">transform =</span> <span class="st">&#39;log2&#39;</span>) <span class="sc">+</span> </span>
 <span id="cb407-6"><a href="#cb407-6" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Distribución, por continentes, del PIB por habitante &quot;</span>,<span class="at">x=</span><span class="st">&quot;gdp_per_capit&quot;</span>, <span class="at">y =</span> <span class="st">&quot;life_expectancy&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:theme1"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/theme1-1.png" alt="Usando el  `theme` `theme_bw`" width="672" />
+<img src="AEDV_book_files/figure-html/theme1-1.png" alt="Usando el  `theme` `theme_bw`" width="672" />
 <p class="caption">
 Figure 4.40: Usando el <code>theme</code> <code>theme_bw</code>
 </p>
@@ -5071,7 +5071,7 @@ A continuación se muestran algunos atributos que se pueden configurar con la ca
 <span id="cb408-15"><a href="#cb408-15" tabindex="-1"></a>      <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>) <span class="co"># modifica el tamaño de la letra </span></span>
 <span id="cb408-16"><a href="#cb408-16" tabindex="-1"></a>    )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:theme2"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/theme2-1.png" alt="Algunas opciones de `theme`" width="672" />
+<img src="AEDV_book_files/figure-html/theme2-1.png" alt="Algunas opciones de `theme`" width="672" />
 <p class="caption">
 Figure 4.41: Algunas opciones de <code>theme</code>
 </p>
@@ -5093,7 +5093,7 @@ Figure 4.41: Algunas opciones de <code>theme</code>
 <span id="cb410-10"><a href="#cb410-10" tabindex="-1"></a>                       <span class="at">n.breaks =</span> <span class="dv">10</span>, <span class="co"># número cortes eje x</span></span>
 <span id="cb410-11"><a href="#cb410-11" tabindex="-1"></a>                       ) <span class="sc">+</span></span>
 <span id="cb410-12"><a href="#cb410-12" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">10</span>) <span class="co"># número cortes eje y</span></span></code></pre></div>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/titulos-ejes-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/titulos-ejes-1.png" width="672" /></p>
 <div id="coord_cartesian-vs.-ylim-para-hacer-zoom" class="section level4 unnumbered hasAnchor">
 <h4><code>coord_cartesian</code> vs. <code>ylim</code> para hacer zoom<a href="#coord_cartesian-vs.-ylim-para-hacer-zoom" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Cuando queremos hacer zoom en una región del gráfico, es importante distinguir entre dos métodos:</p>
@@ -5119,7 +5119,7 @@ Figure 4.41: Algunas opciones de <code>theme</code>
 <span id="cb411-16"><a href="#cb411-16" tabindex="-1"></a></span>
 <span id="cb411-17"><a href="#cb411-17" tabindex="-1"></a><span class="fu">wrap_plots</span>(p1, p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:coord-cartesian"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/coord-cartesian-1.png" alt="Comparación entre `ylim` (izquierda, datos eliminados) y `coord_cartesian` (derecha, solo zoom)" width="672" />
+<img src="AEDV_book_files/figure-html/coord-cartesian-1.png" alt="Comparación entre `ylim` (izquierda, datos eliminados) y `coord_cartesian` (derecha, solo zoom)" width="672" />
 <p class="caption">
 Figure 4.42: Comparación entre <code>ylim</code> (izquierda, datos eliminados) y <code>coord_cartesian</code> (derecha, solo zoom)
 </p>
@@ -5154,7 +5154,7 @@ Figure 4.42: Comparación entre <code>ylim</code> (izquierda, datos eliminados) 
 <span id="cb412-21"><a href="#cb412-21" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
 <span id="cb412-22"><a href="#cb412-22" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;bold&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:grafico-pulido"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/grafico-pulido-1.png" alt="Ejemplo de gráfico pulido, listo para un informe" width="672" />
+<img src="AEDV_book_files/figure-html/grafico-pulido-1.png" alt="Ejemplo de gráfico pulido, listo para un informe" width="672" />
 <p class="caption">
 Figure 4.43: Ejemplo de gráfico pulido, listo para un informe
 </p>
@@ -5886,7 +5886,7 @@ Figure 4.43: Ejemplo de gráfico pulido, listo para un informe
 <div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="#cb421-1" tabindex="-1"></a>owid_population <span class="sc">|&gt;</span> </span>
 <span id="cb421-2"><a href="#cb421-2" tabindex="-1"></a><span class="fu">autoplot</span>(population) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/owid-population-1.png" alt="Dibujo de la evolución de la población en el mundo, Africa, Asia y Europa usando `autoplot`" width="672" />
+<img src="AEDV_book_files/figure-html/owid-population-1.png" alt="Dibujo de la evolución de la población en el mundo, Africa, Asia y Europa usando `autoplot`" width="672" />
 <p class="caption">
 Figure 5.1: Dibujo de la evolución de la población en el mundo, Africa, Asia y Europa usando <code>autoplot</code>
 </p>
@@ -5895,7 +5895,7 @@ Figure 5.1: Dibujo de la evolución de la población en el mundo, Africa, Asia y
 <div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="#cb422-1" tabindex="-1"></a>owid_population <span class="sc">|&gt;</span> </span>
 <span id="cb422-2"><a href="#cb422-2" tabindex="-1"></a><span class="fu">gg_subseries</span>(population) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-subseries"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/owid-population-subseries-1.png" alt="Dibujo por separado de la evolución de la población en el mundo, Africa, Asia y Europa usando `gg_subseries`" width="672" />
+<img src="AEDV_book_files/figure-html/owid-population-subseries-1.png" alt="Dibujo por separado de la evolución de la población en el mundo, Africa, Asia y Europa usando `gg_subseries`" width="672" />
 <p class="caption">
 Figure 5.2: Dibujo por separado de la evolución de la población en el mundo, Africa, Asia y Europa usando <code>gg_subseries</code>
 </p>
@@ -5911,7 +5911,7 @@ Figure 5.2: Dibujo por separado de la evolución de la población en el mundo, A
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
 ## generated.</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-facet"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/owid-population-facet-1.png" alt="Dibujo por separado, en una cuadrícula, de la evolución  de la población en el mundo, Africa, Asia y Europa usando `facet_wrap`" width="672" />
+<img src="AEDV_book_files/figure-html/owid-population-facet-1.png" alt="Dibujo por separado, en una cuadrícula, de la evolución  de la población en el mundo, Africa, Asia y Europa usando `facet_wrap`" width="672" />
 <p class="caption">
 Figure 5.3: Dibujo por separado, en una cuadrícula, de la evolución de la población en el mundo, Africa, Asia y Europa usando <code>facet_wrap</code>
 </p>
@@ -5921,7 +5921,7 @@ Figure 5.3: Dibujo por separado, en una cuadrícula, de la evolución de la pobl
 <span id="cb425-2"><a href="#cb425-2" tabindex="-1"></a><span class="fu">pivot_wider</span>(<span class="at">values_from=</span>population, <span class="at">names_from=</span>location) <span class="sc">|&gt;</span></span>
 <span id="cb425-3"><a href="#cb425-3" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-ggpairs"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/owid-population-ggpairs-1.png" alt="Ilustración de la relación entre la evolución de la población en el mundo, Africa, Asia y Europa usando la función `ggpairs`" width="672" />
+<img src="AEDV_book_files/figure-html/owid-population-ggpairs-1.png" alt="Ilustración de la relación entre la evolución de la población en el mundo, Africa, Asia y Europa usando la función `ggpairs`" width="672" />
 <p class="caption">
 Figure 5.4: Ilustración de la relación entre la evolución de la población en el mundo, Africa, Asia y Europa usando la función <code>ggpairs</code>
 </p>
@@ -5994,7 +5994,7 @@ Figure 5.4: Ilustración de la relación entre la evolución de la población en
 <div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="#cb432-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span> </span>
 <span id="cb432-2"><a href="#cb432-2" tabindex="-1"></a><span class="fu">autoplot</span>(pasajeros) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-1.png" alt="Evolución de la llegada de pasajeros a Canarias" width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-1.png" alt="Evolución de la llegada de pasajeros a Canarias" width="672" />
 <p class="caption">
 Figure 5.5: Evolución de la llegada de pasajeros a Canarias
 </p>
@@ -6003,7 +6003,7 @@ Figure 5.5: Evolución de la llegada de pasajeros a Canarias
 <div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="#cb433-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span> </span>
 <span id="cb433-2"><a href="#cb433-2" tabindex="-1"></a><span class="fu">gg_season</span>(pasajeros, <span class="at">period =</span> <span class="st">&quot;year&quot;</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-season"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-season-1.png" alt="Para la serie de llegada de pasajeros a Canarias, se representa cada serie anual como una curva independiente" width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-season-1.png" alt="Para la serie de llegada de pasajeros a Canarias, se representa cada serie anual como una curva independiente" width="672" />
 <p class="caption">
 Figure 5.6: Para la serie de llegada de pasajeros a Canarias, se representa cada serie anual como una curva independiente
 </p>
@@ -6012,7 +6012,7 @@ Figure 5.6: Para la serie de llegada de pasajeros a Canarias, se representa cada
 <div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="#cb434-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span> </span>
 <span id="cb434-2"><a href="#cb434-2" tabindex="-1"></a><span class="fu">gg_subseries</span>(pasajeros, <span class="at">period =</span> <span class="st">&quot;year&quot;</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-gg-subseries"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-gg-subseries-1.png" alt="Para la serie de llegada de pasajeros a Canarias se representa la evolución por meses" width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-gg-subseries-1.png" alt="Para la serie de llegada de pasajeros a Canarias se representa la evolución por meses" width="672" />
 <p class="caption">
 Figure 5.7: Para la serie de llegada de pasajeros a Canarias se representa la evolución por meses
 </p>
@@ -6022,7 +6022,7 @@ Figure 5.7: Para la serie de llegada de pasajeros a Canarias se representa la ev
 <div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="#cb435-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span> </span>
 <span id="cb435-2"><a href="#cb435-2" tabindex="-1"></a><span class="fu">gg_lag</span>(pasajeros, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>,<span class="at">lags =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-gg-lag"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-gg-lag-1.png" alt="Para la serie de llegada de pasajeros a Canarias $y_t$, se representan los puntos $(y_{t},y_{t-l})$" width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-gg-lag-1.png" alt="Para la serie de llegada de pasajeros a Canarias $y_t$, se representan los puntos $(y_{t},y_{t-l})$" width="672" />
 <p class="caption">
 Figure 5.8: Para la serie de llegada de pasajeros a Canarias <span class="math inline">\(y_t\)</span>, se representan los puntos <span class="math inline">\((y_{t},y_{t-l})\)</span>
 </p>
@@ -6072,7 +6072,7 @@ r=\frac{\sum_{k=1}^m(x_{k}-\bar x)(y_{k}-\bar y)}
 <span id="cb440-2"><a href="#cb440-2" tabindex="-1"></a>  <span class="fu">ACF</span>(pasajeros, <span class="at">lag_max =</span> <span class="dv">36</span>) <span class="sc">|&gt;</span></span>
 <span id="cb440-3"><a href="#cb440-3" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:acf-aeropuertos"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/acf-aeropuertos-1.png" alt="Función de autocorrelación (ACF) de la serie de llegadas de pasajeros a Canarias" width="672" />
+<img src="AEDV_book_files/figure-html/acf-aeropuertos-1.png" alt="Función de autocorrelación (ACF) de la serie de llegadas de pasajeros a Canarias" width="672" />
 <p class="caption">
 Figure 5.9: Función de autocorrelación (ACF) de la serie de llegadas de pasajeros a Canarias
 </p>
@@ -6094,7 +6094,7 @@ donde <span class="math inline">\(L_t\)</span> representa una curva de tendencia
 <span id="cb441-6"><a href="#cb441-6" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">|&gt;</span></span>
 <span id="cb441-7"><a href="#cb441-7" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-STL"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-STL-1.png" alt="Descomposición de una serie temporal usando el método STL" width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-STL-1.png" alt="Descomposición de una serie temporal usando el método STL" width="672" />
 <p class="caption">
 Figure 5.10: Descomposición de una serie temporal usando el método STL
 </p>
@@ -6126,7 +6126,7 @@ Figure 5.10: Descomposición de una serie temporal usando el método STL
 <span id="cb443-2"><a href="#cb443-2" tabindex="-1"></a>   <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-12-15&quot;</span>) <span class="sc">&amp;</span> date<span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2023-03-15&quot;</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb443-3"><a href="#cb443-3" tabindex="-1"></a>   <span class="fu">autoplot</span>(value)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ine-comercio-diario-1.png" alt="Datos de ventas de comercio en España en un periodo de 3 meses" width="672" />
+<img src="AEDV_book_files/figure-html/ine-comercio-diario-1.png" alt="Datos de ventas de comercio en España en un periodo de 3 meses" width="672" />
 <p class="caption">
 Figure 5.11: Datos de ventas de comercio en España en un periodo de 3 meses
 </p>
@@ -6140,7 +6140,7 @@ Figure 5.11: Datos de ventas de comercio en España en un periodo de 3 meses
 <span id="cb444-6"><a href="#cb444-6" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">|&gt;</span></span>
 <span id="cb444-7"><a href="#cb444-7" tabindex="-1"></a>  <span class="fu">autoplot</span>() </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario-STL"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ine-comercio-diario-STL-1.png" alt="Cálculo de la descomposición *STL* con doble estacionalidad" width="672" />
+<img src="AEDV_book_files/figure-html/ine-comercio-diario-STL-1.png" alt="Cálculo de la descomposición *STL* con doble estacionalidad" width="672" />
 <p class="caption">
 Figure 5.12: Cálculo de la descomposición <em>STL</em> con doble estacionalidad
 </p>
@@ -6281,7 +6281,7 @@ de la predicción se dibuja el valor observado de la población posterior al añ
 <div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="#cb449-1" tabindex="-1"></a><span class="fu">dibujar_prediccion</span>(prediccion, </span>
 <span id="cb449-2"><a href="#cb449-2" tabindex="-1"></a>                   owid_population <span class="sc">|&gt;</span> <span class="fu">filter</span>(location<span class="sc">==</span><span class="st">&quot;World&quot;</span> <span class="sc">&amp;</span> date<span class="sc">&gt;=</span> <span class="fu">year</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2000-01-01&quot;</span>))))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-ets"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/owid-population-ets-1.png" alt="Predicción a 20 años de la población mundial usando el modelo de suavizado exponencial" width="672" />
+<img src="AEDV_book_files/figure-html/owid-population-ets-1.png" alt="Predicción a 20 años de la población mundial usando el modelo de suavizado exponencial" width="672" />
 <p class="caption">
 Figure 5.13: Predicción a 20 años de la población mundial usando el modelo de suavizado exponencial
 </p>
@@ -6297,7 +6297,7 @@ Figure 5.13: Predicción a 20 años de la población mundial usando el modelo de
 <span id="cb450-5"><a href="#cb450-5" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb450-6"><a href="#cb450-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Residuos&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Residuos del modelo ETS&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ets-residuos"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ets-residuos-1.png" alt="Diagnóstico de residuos del modelo ETS para la población mundial" width="672" />
+<img src="AEDV_book_files/figure-html/ets-residuos-1.png" alt="Diagnóstico de residuos del modelo ETS para la población mundial" width="672" />
 <p class="caption">
 Figure 5.14: Diagnóstico de residuos del modelo ETS para la población mundial
 </p>
@@ -6306,7 +6306,7 @@ Figure 5.14: Diagnóstico de residuos del modelo ETS para la población mundial
 <span id="cb451-2"><a href="#cb451-2" tabindex="-1"></a>  <span class="fu">ACF</span>(.innov, <span class="at">lag_max =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
 <span id="cb451-3"><a href="#cb451-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;ACF de los residuos&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ets-residuos-acf"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ets-residuos-acf-1.png" alt="ACF de los residuos del modelo ETS" width="672" />
+<img src="AEDV_book_files/figure-html/ets-residuos-acf-1.png" alt="ACF de los residuos del modelo ETS" width="672" />
 <p class="caption">
 Figure 5.15: ACF de los residuos del modelo ETS
 </p>
@@ -6316,7 +6316,7 @@ Figure 5.15: ACF de los residuos del modelo ETS
 <span id="cb452-3"><a href="#cb452-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
 <span id="cb452-4"><a href="#cb452-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Residuos&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Histograma de los residuos&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ets-residuos-hist"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ets-residuos-hist-1.png" alt="Histograma de los residuos del modelo ETS" width="672" />
+<img src="AEDV_book_files/figure-html/ets-residuos-hist-1.png" alt="Histograma de los residuos del modelo ETS" width="672" />
 <p class="caption">
 Figure 5.16: Histograma de los residuos del modelo ETS
 </p>
@@ -6381,7 +6381,7 @@ de evolución, la fiabilidad de la predicción se puede deteriorar mucho.</p>
 <div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="#cb459-1" tabindex="-1"></a><span class="fu">dibujar_prediccion</span>(prediccion,</span>
 <span id="cb459-2"><a href="#cb459-2" tabindex="-1"></a>                   istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">yearmonth</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2017-01-01&quot;</span>))))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-ets"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-ets-1.png" alt="Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo de suavizado exponencial" width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-ets-1.png" alt="Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo de suavizado exponencial" width="672" />
 <p class="caption">
 Figure 5.17: Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo de suavizado exponencial
 </p>
@@ -6392,7 +6392,7 @@ descomposición:</p>
 <span id="cb460-2"><a href="#cb460-2" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb460-3"><a href="#cb460-3" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-descomp"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-descomp-1.png" alt="Descomposición de la serie temporal de llegadas a las aeropuertos canarios usando el modelo de suavizado exponencial." width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-descomp-1.png" alt="Descomposición de la serie temporal de llegadas a las aeropuertos canarios usando el modelo de suavizado exponencial." width="672" />
 <p class="caption">
 Figure 5.18: Descomposición de la serie temporal de llegadas a las aeropuertos canarios usando el modelo de suavizado exponencial.
 </p>
@@ -6416,7 +6416,7 @@ Figure 5.18: Descomposición de la serie temporal de llegadas a las aeropuertos 
 <span id="cb461-13"><a href="#cb461-13" tabindex="-1"></a><span class="fu">dibujar_prediccion</span>(prediccion_comercio,</span>
 <span id="cb461-14"><a href="#cb461-14" tabindex="-1"></a>                   ine_comercio_diario <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>)))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario-ETS"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ine-comercio-diario-ETS-1.png" alt="Predicción usando la descomposición STL y el suavizado exponencial." width="672" />
+<img src="AEDV_book_files/figure-html/ine-comercio-diario-ETS-1.png" alt="Predicción usando la descomposición STL y el suavizado exponencial." width="672" />
 <p class="caption">
 Figure 5.19: Predicción usando la descomposición STL y el suavizado exponencial.
 </p>
@@ -6505,7 +6505,7 @@ Por tanto, con esta notación, la derivada de orden <span class="math inline">\(
 <span id="cb468-11"><a href="#cb468-11" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(derivada_3) </span>
 <span id="cb468-12"><a href="#cb468-12" tabindex="-1"></a><span class="fu">wrap_plots</span>(p1, p2, p3, p4, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:derivadas"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/derivadas-1.png" alt="Serie temporal de la población mundial y sus derivadas" width="672" />
+<img src="AEDV_book_files/figure-html/derivadas-1.png" alt="Serie temporal de la población mundial y sus derivadas" width="672" />
 <p class="caption">
 Figure 5.20: Serie temporal de la población mundial y sus derivadas
 </p>
@@ -6599,7 +6599,7 @@ los valores de AIC, AICc y BIC son ligeramente inferiores a los obtenidos usando
 <span id="cb471-5"><a href="#cb471-5" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb471-6"><a href="#cb471-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Residuos&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Residuos del modelo ARIMA&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arima-world-residuos"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/arima-world-residuos-1.png" alt="Diagnóstico de residuos del modelo ARIMA para la población mundial" width="672" />
+<img src="AEDV_book_files/figure-html/arima-world-residuos-1.png" alt="Diagnóstico de residuos del modelo ARIMA para la población mundial" width="672" />
 <p class="caption">
 Figure 5.21: Diagnóstico de residuos del modelo ARIMA para la población mundial
 </p>
@@ -6608,7 +6608,7 @@ Figure 5.21: Diagnóstico de residuos del modelo ARIMA para la población mundia
 <span id="cb472-2"><a href="#cb472-2" tabindex="-1"></a>  <span class="fu">ACF</span>(.innov, <span class="at">lag_max =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
 <span id="cb472-3"><a href="#cb472-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;ACF de los residuos&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arima-residuos-acf"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/arima-residuos-acf-1.png" alt="ACF de los residuos del modelo ARIMA" width="672" />
+<img src="AEDV_book_files/figure-html/arima-residuos-acf-1.png" alt="ACF de los residuos del modelo ARIMA" width="672" />
 <p class="caption">
 Figure 5.22: ACF de los residuos del modelo ARIMA
 </p>
@@ -6618,7 +6618,7 @@ Figure 5.22: ACF de los residuos del modelo ARIMA
 <span id="cb473-3"><a href="#cb473-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
 <span id="cb473-4"><a href="#cb473-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Residuos&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Histograma de los residuos&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:arima-residuos-hist"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/arima-residuos-hist-1.png" alt="Histograma de los residuos del modelo ARIMA" width="672" />
+<img src="AEDV_book_files/figure-html/arima-residuos-hist-1.png" alt="Histograma de los residuos del modelo ARIMA" width="672" />
 <p class="caption">
 Figure 5.23: Histograma de los residuos del modelo ARIMA
 </p>
@@ -6663,7 +6663,7 @@ confianza junto a la serie observada desde el año 2000. Visualmente observamos 
 <div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="#cb478-1" tabindex="-1"></a><span class="fu">dibujar_prediccion</span>(prediccion,</span>
 <span id="cb478-2"><a href="#cb478-2" tabindex="-1"></a>                   owid_population <span class="sc">|&gt;</span> <span class="fu">filter</span>(location<span class="sc">==</span><span class="st">&quot;World&quot;</span> <span class="sc">&amp;</span> date<span class="sc">&gt;=</span> <span class="fu">year</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2000-01-01&quot;</span>))))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-arima"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/owid-population-arima-1.png" alt="Predicción a 20 años de la población mundial usando el modelo ARIMA" width="672" />
+<img src="AEDV_book_files/figure-html/owid-population-arima-1.png" alt="Predicción a 20 años de la población mundial usando el modelo ARIMA" width="672" />
 <p class="caption">
 Figure 5.24: Predicción a 20 años de la población mundial usando el modelo ARIMA
 </p>
@@ -6698,7 +6698,7 @@ con la predicción, los intervalos de confianza y los datos observados desde 201
 <div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="#cb482-1" tabindex="-1"></a><span class="fu">dibujar_prediccion</span>(prediccion,</span>
 <span id="cb482-2"><a href="#cb482-2" tabindex="-1"></a>                   istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">yearmonth</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2017-01-01&quot;</span>))))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-arima"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/istac-aeropuertos-arima-1.png" alt="Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo ARIMA" width="672" />
+<img src="AEDV_book_files/figure-html/istac-aeropuertos-arima-1.png" alt="Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo ARIMA" width="672" />
 <p class="caption">
 Figure 5.25: Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo ARIMA
 </p>
@@ -6735,7 +6735,7 @@ Figure 5.25: Predicción a 2 años de la llegada de pasajeros a Canarias usando 
 <div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="#cb485-1" tabindex="-1"></a>nacimientos <span class="sc">|&gt;</span></span>
 <span id="cb485-2"><a href="#cb485-2" tabindex="-1"></a>  <span class="fu">autoplot</span>(nacimientos)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-serie"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/nacimientos-serie-1.png" alt="Evolución del número de nacimientos en España de madres españolas" width="672" />
+<img src="AEDV_book_files/figure-html/nacimientos-serie-1.png" alt="Evolución del número de nacimientos en España de madres españolas" width="672" />
 <p class="caption">
 Figure 5.26: Evolución del número de nacimientos en España de madres españolas
 </p>
@@ -6784,7 +6784,7 @@ Figure 5.26: Evolución del número de nacimientos en España de madres español
 <span id="cb490-2"><a href="#cb490-2" tabindex="-1"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">&quot;26 years&quot;</span>) <span class="co"># horizonte hasta 2050</span></span></code></pre></div>
 <div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="#cb491-1" tabindex="-1"></a><span class="fu">dibujar_prediccion</span>(prediccion_log, nacimientos)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-arima-pred"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/nacimientos-arima-pred-1.png" alt="Predicción hasta 2050 del número de nacimientos de madres españolas usando ARIMA sobre la serie logarítmica" width="672" />
+<img src="AEDV_book_files/figure-html/nacimientos-arima-pred-1.png" alt="Predicción hasta 2050 del número de nacimientos de madres españolas usando ARIMA sobre la serie logarítmica" width="672" />
 <p class="caption">
 Figure 5.27: Predicción hasta 2050 del número de nacimientos de madres españolas usando ARIMA sobre la serie logarítmica
 </p>
@@ -6796,7 +6796,7 @@ Figure 5.27: Predicción hasta 2050 del número de nacimientos de madres españo
 <span id="cb493-2"><a href="#cb493-2" tabindex="-1"></a>  <span class="co"># Línea horizontal en 0 para resaltar el cruce por cero</span></span>
 <span id="cb493-3"><a href="#cb493-3" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-arima-pred-lin"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/nacimientos-arima-pred-lin-1.png" alt="Predicción hasta 2050 usando ARIMA sobre la serie sin transformar: la media y los intervalos cruzan el cero (valores negativos imposibles)" width="672" />
+<img src="AEDV_book_files/figure-html/nacimientos-arima-pred-lin-1.png" alt="Predicción hasta 2050 usando ARIMA sobre la serie sin transformar: la media y los intervalos cruzan el cero (valores negativos imposibles)" width="672" />
 <p class="caption">
 Figure 5.28: Predicción hasta 2050 usando ARIMA sobre la serie sin transformar: la media y los intervalos cruzan el cero (valores negativos imposibles)
 </p>
@@ -6835,7 +6835,7 @@ w_t = \log\!\left(\frac{y_t - a}{b - y_t}\right), \qquad\qquad y_t = a + \frac{(
 <span id="cb495-2"><a href="#cb495-2" tabindex="-1"></a>  <span class="co"># Dibujamos las cotas inferior (a) y superior (b) del intervalo</span></span>
 <span id="cb495-3"><a href="#cb495-3" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">100000</span>, <span class="dv">400000</span>), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-logit-pred"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/nacimientos-logit-pred-1.png" alt="Predicción hasta 2050 acotada al intervalo [100000, 400000] mediante una transformación logit escalada" width="672" />
+<img src="AEDV_book_files/figure-html/nacimientos-logit-pred-1.png" alt="Predicción hasta 2050 acotada al intervalo [100000, 400000] mediante una transformación logit escalada" width="672" />
 <p class="caption">
 Figure 5.29: Predicción hasta 2050 acotada al intervalo [100000, 400000] mediante una transformación logit escalada
 </p>
@@ -6863,7 +6863,7 @@ Las series de Fourier son una forma clásica en Análisis Matemático de aproxim
 <span id="cb496-11"><a href="#cb496-11" tabindex="-1"></a> <span class="fu">dibujar_prediccion</span>(prediccion_fourier,</span>
 <span id="cb496-12"><a href="#cb496-12" tabindex="-1"></a>                    ine_comercio_diario <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>)))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario-arima"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/ine-comercio-diario-arima-1.png" alt="Predicción con doble estacionalidad usando series de Fourier y el modelo ARIMA" width="672" />
+<img src="AEDV_book_files/figure-html/ine-comercio-diario-arima-1.png" alt="Predicción con doble estacionalidad usando series de Fourier y el modelo ARIMA" width="672" />
 <p class="caption">
 Figure 5.30: Predicción con doble estacionalidad usando series de Fourier y el modelo ARIMA
 </p>
@@ -7014,7 +7014,7 @@ El modelo ARIMA, asume, que una vez compensada la estacionalidad, alguna derivad
 <span id="cb499-4"><a href="#cb499-4" tabindex="-1"></a>  <span class="fu">as_tsibble</span>(<span class="at">index =</span> mes,<span class="at">key=</span>aeropuerto)</span>
 <span id="cb499-5"><a href="#cb499-5" tabindex="-1"></a>istac_aeropuertos2 <span class="sc">|&gt;</span></span>
 <span id="cb499-6"><a href="#cb499-6" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
 <p>observamos que hay un periodo de tiempo muy afectado por la pandemia, para estudiar como hubiesen sido las series temporales si no hubiese existido la pandemia vamos a proceder en primer lugar a eliminar de las series los datos afectados y posteriormente cubrir, con la función <code>fill_gaps</code>, los huecos creados con valores <code>NA</code>:</p>
 <div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="#cb500-1" tabindex="-1"></a>istac_aeropuertos2 <span class="ot">&lt;-</span> istac_aeropuertos2 <span class="sc">|&gt;</span></span>
 <span id="cb500-2"><a href="#cb500-2" tabindex="-1"></a>  <span class="fu">filter</span>(mes<span class="sc">&gt;=</span><span class="fu">as.Date</span>(<span class="st">&quot;2022-06-01&quot;</span>) <span class="sc">|</span> mes<span class="sc">&lt;</span><span class="fu">as.Date</span>(<span class="st">&quot;2020-02-01&quot;</span>) ) <span class="sc">|&gt;</span> </span>
@@ -7022,14 +7022,14 @@ El modelo ARIMA, asume, que una vez compensada la estacionalidad, alguna derivad
 <span id="cb500-4"><a href="#cb500-4" tabindex="-1"></a></span>
 <span id="cb500-5"><a href="#cb500-5" tabindex="-1"></a>istac_aeropuertos2 <span class="sc">|&gt;</span> </span>
 <span id="cb500-6"><a href="#cb500-6" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
 <p>como se aprecia en la gráfica anterior, ya no aparecen los datos anómalos en las series temporales. Ahora lo que haremos es rellenar los huecos creados construyendo un modelo ARIMA con los datos existentes e interpolando los valores ausentes con el modelo ARIMA :</p>
 <div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="#cb501-1" tabindex="-1"></a>istac_aeropuertos2 <span class="sc">|&gt;</span></span>
 <span id="cb501-2"><a href="#cb501-2" tabindex="-1"></a>  <span class="fu">model</span>(<span class="fu">ARIMA</span>(llegadas)) <span class="sc">|&gt;</span> </span>
 <span id="cb501-3"><a href="#cb501-3" tabindex="-1"></a>  <span class="fu">interpolate</span>(istac_aeropuertos2) <span class="sc">|&gt;</span></span>
 <span id="cb501-4"><a href="#cb501-4" tabindex="-1"></a>  <span class="fu">autoplot</span>()  <span class="sc">+</span></span>
 <span id="cb501-5"><a href="#cb501-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Rellenado de huecos usando un modelo ARIMA&quot;</span>)</span></code></pre></div>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
 <p>Una manera más sencilla de rellenar los huecos es utilizar la función <code>na.approx</code> que utiliza interpolación lineal para rellenar los huecos dentro de la serie. Este método básico funciona bien cuando los huecos son pequeños y no hay estacionalidad. Si lo aplicamos a la serie anterior observamos que el resultado es mucho peor que rellenar usando un modelo ARIMA.</p>
 <div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="#cb502-1" tabindex="-1"></a>istac_aeropuertos2 <span class="sc">|&gt;</span></span>
 <span id="cb502-2"><a href="#cb502-2" tabindex="-1"></a>  <span class="fu">group_by</span>(aeropuerto) <span class="sc">|&gt;</span></span>
@@ -7037,7 +7037,7 @@ El modelo ARIMA, asume, que una vez compensada la estacionalidad, alguna derivad
 <span id="cb502-4"><a href="#cb502-4" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb502-5"><a href="#cb502-5" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span></span>
 <span id="cb502-6"><a href="#cb502-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Rellenado de huecos con interpolación lineal&quot;</span>)</span></code></pre></div>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
 <blockquote>
 <p><strong>Alternativa: <code>imputeTS</code>.</strong> La librería <code>imputeTS</code> ofrece la función <code>na_seadec()</code> que combina descomposición estacional con interpolación, proporcionando resultados superiores a <code>na.approx</code> sin necesidad de ajustar un modelo ARIMA completo. Es una buena opción intermedia entre la interpolación lineal y la interpolación con ARIMA, especialmente cuando la serie tiene estacionalidad clara.</p>
 </blockquote>
@@ -7055,14 +7055,14 @@ El modelo ARIMA, asume, que una vez compensada la estacionalidad, alguna derivad
 <span id="cb503-11"><a href="#cb503-11" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb503-12"><a href="#cb503-12" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> </span>
 <span id="cb503-13"><a href="#cb503-13" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;STL con ARIMA para rellenar huecos&quot;</span>)</span></code></pre></div>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-165-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-165-1.png" width="672" /></p>
 <div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="#cb504-1" tabindex="-1"></a>  ts <span class="sc">|&gt;</span> </span>
 <span id="cb504-2"><a href="#cb504-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">llegadas=</span><span class="fu">na.approx</span>(llegadas,<span class="at">na.rm=</span><span class="cn">FALSE</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb504-3"><a href="#cb504-3" tabindex="-1"></a>  <span class="fu">model</span>(<span class="fu">STL</span>(llegadas,<span class="at">robust =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb504-4"><a href="#cb504-4" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb504-5"><a href="#cb504-5" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> </span>
 <span id="cb504-6"><a href="#cb504-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;STL con interpolación lineal para rellenar huecos&quot;</span>)</span></code></pre></div>
-<p><img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
 </div>
 <div id="tendencia-anual" class="section level2 hasAnchor" number="5.15">
 <h2><span class="header-section-number">5.15</span> Predicción de la tendencia en series anuales erráticas<a href="#tendencia-anual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -7166,7 +7166,7 @@ El modelo ARIMA, asume, que una vez compensada la estacionalidad, alguna derivad
 <span id="cb507-6"><a href="#cb507-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;PIB (miles de millones de US$ corrientes)&quot;</span>,</span>
 <span id="cb507-7"><a href="#cb507-7" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;PIB anual de España&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pib-espana-datos"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/pib-espana-datos-1.png" alt="Evolución anual del PIB de España (Banco Mundial, US$ corrientes)" width="672" />
+<img src="AEDV_book_files/figure-html/pib-espana-datos-1.png" alt="Evolución anual del PIB de España (Banco Mundial, US$ corrientes)" width="672" />
 <p class="caption">
 Figure 5.31: Evolución anual del PIB de España (Banco Mundial, US$ corrientes)
 </p>
@@ -7197,7 +7197,7 @@ Figure 5.31: Evolución anual del PIB de España (Banco Mundial, US$ corrientes)
 <span id="cb510-4"><a href="#cb510-4" tabindex="-1"></a>  <span class="at">y_lab  =</span> <span class="st">&quot;PIB (miles de millones de US$ corrientes)&quot;</span></span>
 <span id="cb510-5"><a href="#cb510-5" tabindex="-1"></a>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pib-espana-prediccion"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/pib-espana-prediccion-1.png" alt="Predicción de la tendencia del PIB de España combinando suavizado loess y ARIMA, con intervalo de confianza que une el error proyectado del ARIMA y la dispersión de los residuos del loess" width="672" />
+<img src="AEDV_book_files/figure-html/pib-espana-prediccion-1.png" alt="Predicción de la tendencia del PIB de España combinando suavizado loess y ARIMA, con intervalo de confianza que une el error proyectado del ARIMA y la dispersión de los residuos del loess" width="672" />
 <p class="caption">
 Figure 5.32: Predicción de la tendencia del PIB de España combinando suavizado loess y ARIMA, con intervalo de confianza que une el error proyectado del ARIMA y la dispersión de los residuos del loess
 </p>
@@ -8142,7 +8142,7 @@ Figure 6.26: Gráfico de barras animado con la evolución de la población en la
 <span id="cb568-14"><a href="#cb568-14" tabindex="-1"></a><span class="co">#class(INE.poblacion$Periodo)</span></span>
 <span id="cb568-15"><a href="#cb568-15" tabindex="-1"></a><span class="fu">animate</span>(p,<span class="at">fps =</span> <span class="dv">10</span>,<span class="at">end_pause =</span> <span class="dv">40</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:animate2"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/animate2-1.gif" alt="Gráfico de líneas animado con la evolución del porcentaje de población extranjera en España por sexos"  />
+<img src="AEDV_book_files/figure-html/animate2-1.gif" alt="Gráfico de líneas animado con la evolución del porcentaje de población extranjera en España por sexos"  />
 <p class="caption">
 Figure 6.27: Gráfico de líneas animado con la evolución del porcentaje de población extranjera en España por sexos
 </p>
@@ -8166,7 +8166,7 @@ Figure 6.27: Gráfico de líneas animado con la evolución del porcentaje de pob
 <span id="cb569-9"><a href="#cb569-9" tabindex="-1"></a></span>
 <span id="cb569-10"><a href="#cb569-10" tabindex="-1"></a><span class="fu">animate</span>(p, <span class="at">fps =</span> <span class="dv">10</span>, <span class="at">end_pause =</span> <span class="dv">30</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:animate-states"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/animate-states-1.gif" alt="Animación con `transition_states` y `shadow_mark` mostrando la distribución del PIB per cápita por continentes"  />
+<img src="AEDV_book_files/figure-html/animate-states-1.gif" alt="Animación con `transition_states` y `shadow_mark` mostrando la distribución del PIB per cápita por continentes"  />
 <p class="caption">
 Figure 6.28: Animación con <code>transition_states</code> y <code>shadow_mark</code> mostrando la distribución del PIB per cápita por continentes
 </p>
@@ -8316,7 +8316,7 @@ Figure 6.29: Gráfico de dispersión con las emisiones de CO2 per capita debidas
 <h4>El modelo reactivo de Shiny<a href="#el-modelo-reactivo-de-shiny" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El flujo de datos en un cuadro de mando dinámico sigue un modelo reactivo que se puede esquematizar de la siguiente forma:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagrama-reactivo"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/diagrama-reactivo-1.png" alt="Esquema del modelo reactivo de Shiny" width="864" />
+<img src="AEDV_book_files/figure-html/diagrama-reactivo-1.png" alt="Esquema del modelo reactivo de Shiny" width="864" />
 <p class="caption">
 Figure 7.1: Esquema del modelo reactivo de Shiny
 </p>
@@ -8918,7 +8918,7 @@ Figure 8.1: Gráfica de la transformada de Yeo-Johnson para diferentes valores d
 <span id="cb596-6"><a href="#cb596-6" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">paste0</span>(<span class="st">&quot;Yeo-Johnson(gdp_per_capit, lambda = &quot;</span>, lambda_opt, <span class="st">&quot;)&quot;</span>),</span>
 <span id="cb596-7"><a href="#cb596-7" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">&quot;life_expectancy&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:yeo-johnson-plot"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/yeo-johnson-plot-1.png" alt="Relación entre esperanza de vida y PIB per cápita tras la transformación de Yeo-Johnson" width="672" />
+<img src="AEDV_book_files/figure-html/yeo-johnson-plot-1.png" alt="Relación entre esperanza de vida y PIB per cápita tras la transformación de Yeo-Johnson" width="672" />
 <p class="caption">
 Figure 8.2: Relación entre esperanza de vida y PIB per cápita tras la transformación de Yeo-Johnson
 </p>
@@ -9368,7 +9368,7 @@ Figure 8.7: Porcentaje varianza explicada por cada componente principal usando <
 <div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="#cb617-1" tabindex="-1"></a><span class="fu">fviz_contrib</span>(pca2, <span class="at">choice =</span> <span class="st">&quot;var&quot;</span>, <span class="at">axes =</span> <span class="dv">1</span>, <span class="at">top =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
 <span id="cb617-2"><a href="#cb617-2" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Contribución a PC1&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:contrib-pc1"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/contrib-pc1-1.png" alt="Contribución de cada variable a la primera componente principal" width="672" />
+<img src="AEDV_book_files/figure-html/contrib-pc1-1.png" alt="Contribución de cada variable a la primera componente principal" width="672" />
 <p class="caption">
 Figure 8.8: Contribución de cada variable a la primera componente principal
 </p>
@@ -9394,7 +9394,7 @@ Figure 8.9: Gráfica ilustrativa de las dos primeras componentes principales usa
 <span id="cb619-6"><a href="#cb619-6" tabindex="-1"></a>                <span class="at">arrowsize =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb619-7"><a href="#cb619-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Biplot ACP - Indicadores mundiales por países&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:biplot-factoextra"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/biplot-factoextra-1.png" alt="Biplot del ACP usando `factoextra`" width="864" />
+<img src="AEDV_book_files/figure-html/biplot-factoextra-1.png" alt="Biplot del ACP usando `factoextra`" width="864" />
 <p class="caption">
 Figure 8.10: Biplot del ACP usando <code>factoextra</code>
 </p>
@@ -9418,7 +9418,7 @@ Figure 8.10: Biplot del ACP usando <code>factoextra</code>
 <span id="cb620-5"><a href="#cb620-5" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>, <span class="at">labelsize =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
 <span id="cb620-6"><a href="#cb620-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Países agrupados con k-means sobre PC1 y PC2&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:kmeans-pca"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/kmeans-pca-1.png" alt="Agrupación k-means de los países sobre las dos primeras componentes principales" width="864" />
+<img src="AEDV_book_files/figure-html/kmeans-pca-1.png" alt="Agrupación k-means de los países sobre las dos primeras componentes principales" width="864" />
 <p class="caption">
 Figure 8.11: Agrupación k-means de los países sobre las dos primeras componentes principales
 </p>
@@ -9727,7 +9727,7 @@ r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}
 <span id="cb636-4"><a href="#cb636-4" tabindex="-1"></a>    geom_col()</span>
 <span id="cb636-5"><a href="#cb636-5" tabindex="-1"></a>``` </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:chunk-label"></span>
-<img src="An%C3%A1lisis-de-Datos-y-Visualizaci%C3%B3n_files/figure-html/chunk-label-1.png" alt="Leyenda figura" width="50%" />
+<img src="AEDV_book_files/figure-html/chunk-label-1.png" alt="Leyenda figura" width="50%" />
 <p class="caption">
 Figure 8.12: Leyenda figura
 </p>
