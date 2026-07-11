@@ -1,0 +1,102 @@
+/* ============================================================
+   ESTILOS GLOBALES — Análisis Exploratorio de Datos y Visualización
+   Referenciado desde index.Rmd mediante: css: estilos.css
+   ============================================================ */
+
+/* --- Tamaños de fuente ---------------------------------------- */
+h1.title { font-size: 24px; }
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+body { font-size: 14px; }
+p { font-size: 14px; margin-bottom: 10px; }
+
+/* ============================================================
+   BLOQUES DE COLOR PARA RESALTAR CONTENIDO
+   Uso:  <div class="metodo"> ... </div>
+   Tipos disponibles: metodo | discusion | resultado | nota
+   ============================================================ */
+
+/* Azul — técnicas, metodología, procedimientos, sintaxis */
+.metodo {
+  background-color: #eef4fb;
+  border-left: 5px solid #2971b0;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.metodo strong.bloque-titulo::before { content: "⚙️ "; }
+.metodo strong.bloque-titulo {
+  display: block;
+  color: #1a4f7a;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+/* Naranja — discusión, reflexión crítica, interpretación */
+.discusion {
+  background-color: #fff8f0;
+  border-left: 5px solid #d4720a;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.discusion strong.bloque-titulo::before { content: "💬 "; }
+.discusion strong.bloque-titulo {
+  display: block;
+  color: #8a4800;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+/* Verde — resultados destacados, hallazgos clave */
+.resultado {
+  background-color: #f0faf3;
+  border-left: 5px solid #2a8c4a;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.resultado strong.bloque-titulo::before { content: "✅ "; }
+.resultado strong.bloque-titulo {
+  display: block;
+  color: #1a5c30;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+/* ============================================================
+   TABLAS ANCHAS CON SCROLL HORIZONTAL
+   Uso:  <div class="tabla-scroll"> (chunk con salida ancha) </div>
+   Evita que salidas con muchas columnas (p. ej. skim()) se
+   corten por el borde derecho de la página en el gitbook.
+   ============================================================ */
+.tabla-scroll { overflow-x: auto; }
+.book .book-body .page-wrapper .page-inner section.normal .tabla-scroll table {
+  width: auto;       /* la tabla crece según su contenido... */
+  min-width: 100%;   /* ...sin quedar más estrecha que la página */
+}
+.book .book-body .page-wrapper .page-inner section.normal .tabla-scroll table td,
+.book .book-body .page-wrapper .page-inner section.normal .tabla-scroll table th {
+  white-space: nowrap; /* las celdas no parten números ni mini-histogramas */
+}
+
+/* Gris — notas aclaratorias, avisos, observaciones */
+.nota {
+  background-color: #f5f5f5;
+  border-left: 5px solid #888888;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.nota strong.bloque-titulo::before { content: "📝 "; }
+.nota strong.bloque-titulo {
+  display: block;
+  color: #444444;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
