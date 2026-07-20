@@ -18,6 +18,7 @@ fig:geom-bar-dodge
 fig:geom-bar-flip
 fig:geom-col
 fig:geom-bar-sectores
+fig:ghg-pareto-pie
 fig:geom-col-donuts
 fig:geom-histogram
 fig:geom-density
@@ -63,6 +64,9 @@ fig:istac-aeropuertos-gg-subseries
 fig:istac-aeropuertos-gg-lag
 fig:acf-aeropuertos
 fig:istac-aeropuertos-STL
+fig:stl-remainder
+fig:stl-acf-remainder
+fig:stl-residuos-hist
 fig:ine-comercio-diario
 fig:ine-comercio-diario-STL
 fig:owid-population-ets
@@ -71,7 +75,6 @@ fig:ets-residuos-acf
 fig:ets-residuos-hist
 fig:istac-aeropuertos-ets
 fig:istac-aeropuertos-descomp
-fig:ine-comercio-diario-ETS
 fig:derivadas
 fig:arima-world-residuos
 fig:arima-residuos-acf
@@ -82,8 +85,12 @@ fig:nacimientos-serie
 fig:nacimientos-arima-pred
 fig:nacimientos-arima-pred-lin
 fig:nacimientos-logit-pred
+fig:ine-comercio-diario-ETS
 fig:ine-comercio-diario-arima
+fig:cv-horizonte
+fig:cv-intervalos-noparam
 tab:tabla-ets-arima
+fig:comercio-hueco-arima
 fig:pib-espana-datos
 fig:pib-espana-prediccion
 fig:geom-bar-apilado
@@ -121,6 +128,7 @@ fig:YeoJohnson
 fig:yeo-johnson-plot
 fig:cor
 fig:cor2
+fig:cor-spearman
 fig:var-explicada1
 fig:pca1-dispersion
 fig:var-explicada2
@@ -194,13 +202,14 @@ correlacion
 acf
 descomposición-stl
 predicción
-suavizado-exponencial
+suavizado-exponencial-ets
 el-modelo-arima
+doble-estacionalidad
 cv-temporal
 comparativa-ets-vs.-arima
-resumen-modelos-de-predicción
-rellenar-huecos-en-una-serie-temporal-y-sustituir-datos-anómalos.
+rellenar-huecos
 tendencia-anual
+guia-practica
 visualización-dinámica
 diagramas-de-barras-interactivos
 gráficos-circulares-interactivos
