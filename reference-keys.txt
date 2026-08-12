@@ -137,7 +137,7 @@ fig:contrib-pc1
 fig:pca2-dispersion
 fig:biplot-factoextra
 fig:kmeans-pca
-tab:unnamed-chunk-216
+tab:unnamed-chunk-219
 fig:chunk-label
 introducción
 fases-de-un-análisis-exploratorio-de-datos
@@ -234,6 +234,7 @@ cuadro-de-mandos-con-hchart
 cuadro-de-mandos-con-leaflet
 cuadro-de-mandos-con-plotly
 opciones-de-configuración
+exploración-de-datos-multidimensionales
 rendimiento-de-los-cuadros-de-mando
 publicar-un-cuadro-de-mando
 análisis-de-atributos
