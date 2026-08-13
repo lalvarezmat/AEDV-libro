@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Análisis Exploratorio de Datos y Visualización</title>
+  <title>Page not found | Análisis Exploratorio de Datos y Visualización</title>
   <meta name="description" content="En este libro se estudia el análisis exploratorio de datos y su visualización en el contexto de un grado universitario en Ciencias de Datos" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Análisis Exploratorio de Datos y Visualización" />
+  <meta property="og:title" content="Page not found | Análisis Exploratorio de Datos y Visualización" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="En este libro se estudia el análisis exploratorio de datos y su visualización en el contexto de un grado universitario en Ciencias de Datos" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Análisis Exploratorio de Datos y Visualización" />
+  <meta name="twitter:title" content="Page not found | Análisis Exploratorio de Datos y Visualización" />
   
   <meta name="twitter:description" content="En este libro se estudia el análisis exploratorio de datos y su visualización en el contexto de un grado universitario en Ciencias de Datos" />
   
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="aspectos-básicos-de-r.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -513,386 +513,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <script src="fuse/fuse.min.js"></script>
-<div id="header">
-<h1 class="title">Análisis Exploratorio de Datos y Visualización</h1>
-<p class="author"><em>Luis Alvarez</em></p>
-<p class="date"><em>2026-08-13</em></p>
-</div>
-<div id="introducción" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Introducción<a href="index.html#introducci%C3%B3n" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Este libro recoge los contenidos de un curso introductorio sobre análisis exploratorio de datos y visualización, diseñado para estudiantes universitarios de Ciencias de Datos. El análisis exploratorio de datos es un campo muy amplio, y no es posible abordar, en un solo curso, todos sus aspectos con la profundidad que merecen. Este curso, de carácter introductorio, tiene como objetivo proporcionar una base sólida en las herramientas más relevantes del campo. Cualquiera de los temas tratados puede dar lugar a un estudio mucho más detallado del que aquí se presenta, y se anima al lector a profundizar en aquellos que despierten su interés.</p>
-<div id="fases-de-un-análisis-exploratorio-de-datos" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Fases de un análisis exploratorio de datos<a href="index.html#fases-de-un-an%C3%A1lisis-exploratorio-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="metodo">
-<p><strong class="bloque-titulo">Fases del análisis exploratorio de datos</strong></p>
-<p>El análisis exploratorio de una colección de datos pasa por las siguientes fases :</p>
-<ol style="list-style-type: decimal">
-<li><p>Establecer los objetivos de nuestro análisis de datos.</p></li>
-<li><p>Buscar los datos necesarios para nuestro estudio e importarlos a nuestro entorno de trabajo.</p></li>
-<li><p>Entender la información que contienen los datos y cómo están organizados.</p></li>
-<li><p>Seleccionar las herramientas adecuadas para procesar y visualizar la información suministrada por los datos.</p></li>
-<li><p>Transformar y ordenar los datos en función de los objetivos del estudio y los requerimientos de las herramientas que vamos a usar.</p></li>
-<li><p>Aplicar modelos para establecer relaciones entre los datos o hacer predicciones</p></li>
-<li><p>Comunicar los resultados de nuestro análisis de datos explicando las conclusiones, justificando los resultados de forma eficiente con gráficos atractivos.</p></li>
-</ol>
-</div>
-<p>Todas estas fases interactúan entre sí: por ejemplo, a la vista de los resultados obtenidos puede ser necesario incorporar nuevos datos para completar o confirmar conclusiones. El proceso ha de entenderse, por tanto, como un ciclo iterativo y no como una secuencia lineal de pasos.</p>
-</div>
-<div id="contenido-del-curso" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Contenido del curso<a href="index.html#contenido-del-curso" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El contenido del curso se organiza de la siguiente forma :</p>
-<ul>
-<li><p><strong>Tema 1 : Introducción</strong>. Se presentan las fases de un análisis exploratorio de datos, un resumen del contenido del curso, la justificación razonada de la elección de <code>R</code> como entorno unificado de desarrollo y otras cuestiones generales sobre el trabajo como científico de datos.</p></li>
-<li><p><strong>Tema 2 : Aspectos básicos de <code>R</code></strong>. Se hará un repaso de los tipos y estructuras de datos que usaremos y de las funciones en <code>R</code>.</p></li>
-<li><p><strong>Tema 3 : Procesado de datos</strong>. Se introducirán las bases de datos que usaremos, el manejo de los formatos habituales de almacenamiento de datos y las herramientas de manipulación de datos que suministra la librería <code>dplyr</code>.</p></li>
-<li><p><strong>Tema 4 : Visualización estática de datos</strong>. Se abordará la gramática de los gráficos, su implementación en el contexto de la potente librería <code>ggplot</code> y su uso para la generación de gráficos estáticos.</p></li>
-<li><p><strong>Tema 5 : Series temporales</strong>. Por su importancia práctica, se estudia, en este tema, el caso particular del análisis exploratorio de series temporales incluyendo modelos de predicción.</p></li>
-<li><p><strong>Tema 6 : Visualización dinámica</strong>. A través del uso de las librerías <code>ggplotly</code>, <code>highcharter</code> y <code>leaflet</code> se introducen potentes herramientas de visualización interactiva donde el usuario puede interactuar con los gráficos o generar animaciones.</p></li>
-<li><p><strong>Tema 7 : Cuadros de mando</strong>. A través del uso de las librerías <code>shiny</code> y <code>flexdashboard</code> se introduce el diseño e implementación de cuadros de mandos que permiten representar, de forma dinámica, atractiva y coherente, los indicadores principales de nuestra exploración de datos.</p></li>
-<li><p><strong>Tema 8 : Análisis de atributos</strong>. Se estudia la relación que puede existir entre diferentes variables a través, por ejemplo, de la correlación entre pares de variables, y cómo reducir el número de variables usando combinaciones lineales entre ellas a través del método del análisis de componentes principales.</p></li>
-</ul>
-</div>
-<div id="la-elección-de-r" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> La elección de <code>R</code><a href="index.html#la-elecci%C3%B3n-de-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El entorno de trabajo que vamos a usar se basa en la habitual combinación de <code>R</code>, <code>Rstudio</code> y <code>RMarkdown</code>. En este curso, supondremos que el estudiante está mínimamente familiarizado con estas herramientas. Se recomiendan los siguientes tutoriales: <a href="https://estadistica-dma.ulpgc.es/cursoR4ULPGC/">tutorial 1</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook/getting-started.html#installing-r-packages">tutorial 2</a> y <a href="https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown">tutorial 3</a> como introducción básica al uso combinado de estas herramientas. También pueden ser útiles la <a href="https://posit.co/wp-content/uploads/2022/10/rstudio-ide-1.pdf">ficha resumen de Rstudio</a> y la <a href="https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf">ficha resumen de Markdown</a>. En cualquier caso, el tema 1 se dedica a repasar el uso básico de <code>R</code> y se ha añadido el <a href="apendice-markdown.html#apendice-markdown">Apéndice 1</a> con la sintaxis básica de <code>RMarkdown</code>, que conviene consultar desde el primer momento en que se escriba un fichero <code>.Rmd</code>.</p>
-<p>De entre las diferentes posibilidades de plataformas de desarrollo utilizables en Ciencias de Datos se ha decidido unificar todo el contenido del curso alrededor de <code>R</code> por los siguientes motivos :</p>
-<ul>
-<li><p><code>R</code> es un entorno libre de desarrollo de aplicaciones estadísticas y análisis de datos que ha tenido un enorme éxito e implantación a nivel mundial. Funciona muy bien, es robusto, es decir genera muy pocos fallos inesperados y se instala y gestiona fácilmente.</p></li>
-<li><p>Al ser <code>R</code> la plataforma de referencia para el análisis de datos, para cualquier librería importante relacionada con el tema que se implemente en otros lenguajes como <code>python</code>, <code>javascript</code>, etc.., aparecen paquetes en <code>R</code> que sirven de interfaz para estas librerías. Esto es algo que se usa intensamente en este curso y tiene como efecto que la curva de aprendizaje de esas herramientas es mucho menor dado que se realiza todo desde el mismo entorno de desarrollo. Esto permite, en particular, abordar en un solo curso una gran colección de potentes herramientas que si se estudiaran cada una en sus particulares entornos de desarrollo, el aprendizaje sería mucho más complejo y sería imposible abordarlas en un solo curso.</p></li>
-<li><p>Unificar todas las herramientas alrededor de <code>R</code> nos permite concentrarnos en los aspectos conceptuales, que es, sin duda, lo más importante que vamos a aprender en este curso. Por otro lado, las herramientas de IA que existen actualmente permiten, fácilmente, transformar los códigos de un entorno de programación a otro, por ejemplo del entorno dado por la combinación de python - jupyter - notebook, que también es muy usado en Ciencias de Datos, al entorno R - RStudio - Rmarkdown.</p></li>
-<li><p>La combinación de <code>R</code>, <code>Rstudio</code> y <code>RMarkdown</code> resulta idónea para experimentar y familiarizarse con todos los conceptos que se estudian en el curso. Además, estas herramientas son usadas por un número tan grande de personas, que prácticamente, cualquier problema o error que surja, ha sido ya resuelto y buscando por Internet, generalmente es fácil encontrar la solución.</p></li>
-</ul>
-<blockquote>
-<p><strong>Nota: RStudio, Posit y Positron.</strong> La empresa que desarrolla RStudio se llama desde 2022 <strong>Posit</strong>. En 2024-2025 Posit lanzó <strong>Positron</strong>, su entorno de desarrollo de nueva generación orientado a la ciencia de datos, que integra <code>R</code> y <code>python</code> en un mismo editor. Para este curso, RStudio sigue siendo el entorno recomendado (es maduro, está muy documentado y es el que asumen los tutoriales anteriores), pero conviene saber que Positron existe porque es probable que su uso crezca en los próximos años.</p>
-</blockquote>
-<ul>
-<li>El número de librerías con herramientas desarrolladas en <code>R</code> es inmenso, solo en el repositorio <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>, que es el repositorio oficial de referencia para almacenar y gestionar las librerías, hay más de 23000 librerías registradas. Hay librerías, como <code>ggplot2</code>, que usamos en el curso, que tienen más de 190 millones de descargas. El autor de este libro ha publicado en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a> la librería <a href="https://cran.r-project.org/web/packages/EpiInvert/index.html">EpiInvert</a> especializada en el procesado de series temporales en Epidemiología. Cualquier persona puede, en teoría, publicar gratuitamente una librería en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>. Ahora bien, se piden unos requisitos técnicos de calidad bastante exigentes para que la librería sea aceptada.</li>
-</ul>
-</div>
-<div id="las-virtudes-de-un-científico-de-datos" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Las virtudes de un científico de datos<a href="index.html#las-virtudes-de-un-cient%C3%ADfico-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="discusion">
-<p><strong class="bloque-titulo">Actitudes fundamentales del científico de datos</strong></p>
-<ul>
-<li><p><strong>Neutralidad:</strong> Los datos deben hablar por sí solos, hay que eliminar cualquier idea preconcebida que tengamos sobre los resultados de nuestro Análisis de Datos que pueden introducir un sesgo en la selección de datos y conclusiones.</p></li>
-<li><p><strong>Espíritu crítico.</strong> Hay que analizar y valorar en detalle la calidad, veracidad y fiabilidad de la fuente de los datos que manejamos. Por ejemplo, los datos que suministra una estación meteorológica son muy fiables porque los instrumentos de medida que utiliza lo son. Los datos sobre el número de infectados diarios por la COVID-19 contienen errores importantes porque la forma de medir no es precisa dado que la logística de registro de casos no es capaz, sobre todo al principio de la epidemia, de gestionar y registrar todos los casos. Además, muchos casos, como los que no presentan síntomas, quedan directamente fuera del radar. Más allá de los errores en los sistemas de medición, otra fuente importante de falta de fiabilidad es el sesgo con el que pueden ser comunicados, en función del interés del que comunica los datos. Por ejemplo, decir que se han bajado los impuestos cuando el volumen de lo que se ha bajado es irrelevante y solo afecta a un grupo escaso de la población, no es técnicamente falso, pero el dato se está comunicando con un sesgo que desvirtúa la información que aportan los datos en su conjunto.
-De acuerdo con este espíritu crítico, al valorar la fiabilidad de la información que suministra una encuesta hay que tener muy en cuenta si la selección de la muestra de la población ha sido adecuada, por ejemplo, los encuestados no pueden proponerse ellos mismos para responder (por ejemplo una encuesta online voluntaria). Un ejemplo paradigmático sobre este asunto es la pregunta que realizó a sus lectores la periodista <a href="https://userpages.umbc.edu/~nmiller/POLI300/stat353annlanders.pdf">Ann Landers</a> en 1976 donde consultaba a los padres en USA si volverían a tener hijos en caso de volver atrás y tener la opción de elegir. De los 10000 padres que respondieron a la pregunta de forma voluntaria, el 70% respondió que no volverían a tener hijos. Posteriormente, el periódico <em>NewsDay</em> realizó una encuesta seleccionando ellos de forma aleatoria a los padres para responder a la pregunta, y el resultado fue que el 91% respondió que sí volvería a tener hijos, es decir algo diametralmente opuesto a lo obtenido en la primera encuesta. La justificación de esta enorme diferencia es muy sencilla. Los padres que están más inclinados a responder voluntariamente a la pregunta son aquellos que tienen problemas con sus hijos, los padres a los que les va bien con sus hijos y están contentos de haberlos tenido, tienen mucho menos interés en participar voluntariamente en la encuesta. Este mismo principio se puede aplicar a las encuestas online voluntarias que se realizan a los alumnos para evaluar a los profesores.</p></li>
-<li><p><strong>Valoración relevancia de atributos.</strong> No todos los atributos son igualmente importantes. Por ejemplo, a la hora de valorar el grado de desarrollo de un país (ver [<a href="https://www.amazon.es/Factfulness-razones-estamos-equivocados-colecci%C3%B3n/dp/8423429962">RRR18</a>]), el dato de mortalidad infantil es especialmente relevante porque el esfuerzo de las familias para mantener vivos a sus hijos es siempre máximo y es uno de los primeros parámetros que mejora/empeora cuando varía la situación de un país.</p></li>
-<li><p><strong>Un ratio es mejor que un valor numérico aislado.</strong> En general un valor numérico aislado suministra información difícil de interpretar. Por ejemplo, el beneficio anual de una empresa es un dato difícil de interpretar si no se compara con algo. Comparar ese dato, con los beneficios de la anualidad anterior o con la cantidad de capital invertido y gastos de funcionamiento suministra una información más útil. De la misma forma, a efectos de comparar la riqueza entre países, la renta per cápita, suministra un dato más útil que la renta de todo el país.</p></li>
-<li><p><strong>Ser consciente de la limitación de los datos que manejamos.</strong> En general, los datos que manejamos son el resultado de la acumulación de valores muy diversos. Por ejemplo, la renta per cápita de un país no nos dice nada de las desigualdades, en términos de riqueza, que existen dentro de dicho país.</p></li>
-<li><p><strong>Evitar las generalizaciones.</strong> Nuestra tendencia natural es generalizar a partir de los datos particulares conocidos. Por ejemplo, los medios de comunicación ponen mucho énfasis en comunicar los actos violentos, lo que nos puede llevar a pensar, generalizando, que vivimos en una sociedad muy violenta. Sin embargo, la realidad que suministran los datos es que vivimos en la sociedad menos violenta que ha existido nunca.</p></li>
-<li><p><strong>Las conclusiones siempre deben estar soportadas por datos.</strong> En cualquier memoria, proyecto o informe realizado por un científico de datos, todas las afirmaciones y conclusiones deben estar soportadas por una correcta interpretación de datos con indicación de la fuente.</p></li>
-</ul>
-</div>
-</div>
-<div id="el-uso-de-la-ia-en-el-análisis-de-datos" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> El uso de la IA en el análisis de datos<a href="index.html#el-uso-de-la-ia-en-el-an%C3%A1lisis-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="discusion">
-<p><strong class="bloque-titulo">La IA como acelerador, no como sustituto del criterio</strong></p>
-<p>Los asistentes de IA forman ya parte del trabajo diario del científico de datos: ayudan a escribir código, a depurar errores y a explorar enfoques con una rapidez impensable hace pocos años. Usarlos es legítimo y recomendable, <strong>siempre que se entienda y se verifique lo que producen</strong>. Los riesgos específicos que hay que conocer son:</p>
-<ul>
-<li><p><strong>Código que “funciona” pero hace otra cosa.</strong> La IA puede generar código sin errores de sintaxis que, sin embargo, no calcula lo que se le pidió (un filtro mal aplicado, una agregación sobre el grupo equivocado). Si el resultado “parece razonable”, el error puede pasar inadvertido. Hay que <strong>verificar los resultados con casos que se puedan comprobar a mano</strong>.</p></li>
-<li><p><strong>Cifras y referencias alucinadas.</strong> Un asistente de IA puede presentar con total seguridad datos, funciones o referencias bibliográficas que no existen. Todo dato o cita que provenga de una IA debe contrastarse con su fuente original.</p></li>
-<li><p><strong>Pérdida de comprensión.</strong> Si se acepta código generado sin entenderlo, se pierde la capacidad de detectar cuándo falla y de adaptarlo. Una regla práctica para el estudiante: no incorporar ninguna porción de código que no sea capaz de explicar línea a línea.</p></li>
-<li><p><strong>La responsabilidad no se delega.</strong> El responsable de las conclusiones de un análisis es siempre el analista, use o no IA. “Lo hizo la IA” no es una justificación válida para un resultado erróneo, un sesgo no detectado o una fuente inventada.</p></li>
-</ul>
-<p>En coherencia con el espíritu crítico que se defiende en este capítulo: la IA es una herramienta poderosa precisamente para quien tiene el criterio de valorar lo que produce.</p>
-</div>
-</div>
-<div id="ética-y-responsabilidad-en-el-análisis-de-datos" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Ética y responsabilidad en el análisis de datos<a href="index.html#%C3%A9tica-y-responsabilidad-en-el-an%C3%A1lisis-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="nota">
-<p><strong class="bloque-titulo">Consideraciones éticas en el análisis de datos</strong></p>
-<p>El científico de datos trabaja con información que puede tener un impacto significativo en las personas y en la sociedad. Por ello, es fundamental tener en cuenta las siguientes consideraciones éticas:</p>
-<p><strong>Privacidad y protección de datos.</strong> Los datos personales deben tratarse con especial cuidado. El <a href="https://www.boe.es/doue/2016/119/L00001-00088.pdf">Reglamento General de Protección de Datos (RGPD)</a> de la Unión Europea establece un marco legal estricto sobre cómo se pueden recopilar, almacenar y procesar datos personales. El científico de datos debe asegurarse de que los datos que maneja cumplen con la normativa vigente, y de que se aplican técnicas de anonimización cuando sea necesario.</p>
-<p><strong>Sesgos en los datos.</strong> Los datos no son neutros. Reflejan las decisiones de quienes los recopilan: qué se mide, cómo se mide, a quién se mide. Un dataset de solicitudes de empleo puede contener sesgos históricos de género o raza. Un modelo de riesgo crediticio entrenado con datos sesgados puede discriminar injustamente. El buen científico de datos debe:</p>
-<ul>
-<li>Examinar el origen y el proceso de recopilación de los datos.</li>
-<li>Identificar qué grupos o perspectivas pueden estar infrarrepresentados.</li>
-<li>Evaluar si las conclusiones obtenidas podrían perjudicar a colectivos vulnerables.</li>
-<li>Documentar las limitaciones conocidas de los datos en cualquier informe o producto.</li>
-</ul>
-<p><strong>Reproducibilidad.</strong> Un análisis de datos debe poder ser reproducido por terceros para verificar sus conclusiones. Para ello, es importante documentar el código, fijar semillas aleatorias (<code>set.seed()</code> en R), registrar las versiones de los paquetes utilizados y facilitar el acceso a los datos originales siempre que sea posible. Las herramientas estándar para esto son <strong><code>renv</code></strong>, que registra en el proyecto las versiones exactas de todos los paquetes usados (con <code>renv::init()</code> y <code>renv::snapshot()</code>) de modo que cualquier persona pueda restaurar el mismo entorno con <code>renv::restore()</code>, y el control de versiones con <strong>Git</strong> (y plataformas como GitHub), que guarda el historial completo de cambios del código y es hoy una competencia básica del científico de datos. No las usaremos de forma obligatoria en este curso, pero conviene incorporarlas cuanto antes al flujo de trabajo personal.</p>
-<p><strong>Comunicación responsable.</strong> La forma en que se presentan los datos puede influir en la percepción del público. Elegir escalas inadecuadas en un gráfico, omitir datos relevantes, o presentar correlaciones como causalidades son prácticas que, aunque técnicamente pueden no ser erróneas, resultan engañosas. El científico de datos tiene la responsabilidad de comunicar de forma clara, precisa y honesta.</p>
-<p>Como referencia fundamental sobre estos temas se recomienda la lectura de [<a href="https://www.amazon.es/Weapons-Math-Destruction-Increases-Inequality/dp/0553418815">ONe16</a>] <em>Weapons of Math Destruction</em> de Cathy O’Neil, que analiza cómo los algoritmos y modelos basados en datos pueden perpetuar y amplificar desigualdades sociales.</p>
-</div>
-</div>
-<div id="la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad." class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> La trampa del pensamiento binario y la simplificación de la realidad.<a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificaci%C3%B3n-de-la-realidad." class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Los seres humanos nos encontramos cómodos dividiendo la realidad que nos rodea en 2 partes que se contraponen. Por ejemplo países ricos versus países pobres, ser de izquierdas o ser de derechas, personas buenas versus personas malas, nuestro entorno versus el resto del mundo, etc.. Nuestra tendencia natural a este pensamiento binario nos facilita la interpretación de la realidad y nos hace la vida más fácil. Sin embargo, y es algo que debe tener en cuenta siempre el científico de datos, la realidad es mucho más compleja y tiene muchos más matices que lo que puede reflejar esta tendencia a separarla en dos grupos contrapuestos. Otra forma de simplificación frecuente es el uso de un único atributo para analizar una realidad compleja. Tomemos como ejemplo la media de ingresos diarios por persona, en dólares, y en algunos países, obtenidos a partir de la <a href="https://github.com/owid/poverty-data">OWID</a> y reflejada en el siguiente gráfico:</p>
-<p><img src="AEDV_book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>Vemos que la media de ingresos proporciona una primera comparativa útil entre países. Sin embargo, el uso exclusivo de la media, aunque ofrece información valiosa, oculta matices relevantes de la realidad, como los niveles de igualdad en la distribución de los ingresos dentro de cada país. Por ejemplo, Estados Unidos presenta una media de ingresos significativamente superior a la de Noruega. Sin embargo, si dividimos el nivel salarial en diez grupos (deciles) y comparamos los resultados para ambos países, obtenemos:</p>
-<p><img src="AEDV_book_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="resultado">
-<p><strong class="bloque-titulo">Conclusión clave: los datos admiten múltiples interpretaciones válidas</strong></p>
-<p>es decir, en Estados Unidos hay un 10 % de la población que gana más de 158 dólares diarios y, en el extremo opuesto, otro 10 % que gana menos de 23 dólares. En Noruega, en cambio, el decil superior supera los 116 dólares, mientras que el inferior no baja de 34 dólares: se trata, por tanto, de un país con una desigualdad de ingresos sensiblemente menor. Lo que eleva la media de Estados Unidos por encima de la de Noruega es que los ingresos de los más ricos son notablemente superiores. Utilizando la mediana (decile5), en lugar de la media, se observa que los ingresos diarios en Noruega (64 dólares) son superiores a los de Estados Unidos (62 dólares). De esta forma, la pregunta <em>¿en cuál de los dos países la población tiene un mayor nivel de ingresos?</em> puede tener respuestas distintas dependiendo del indicador elegido. En el análisis de datos, <strong>una misma cuestión puede admitir respuestas aparentemente contradictorias, siendo ambas coherentes y bien fundamentadas en función de los datos, los indicadores utilizados y su interpretación</strong>. Las conclusiones que extraemos no son una verdad absoluta; a lo más que podemos aspirar es a que sean coherentes con los datos analizados y con los criterios metodológicos utilizados.</p>
-</div>
-<p>Volviendo al ejemplo de los ingresos, otro aspecto relevante es la variabilidad geográfica dentro de un mismo país. Si examinamos la distribución del salario medio bruto mensual por comunidades autónomas en España en 2022 ordenadas de menor a mayor para facilitar la comparación:</p>
-<p><img src="AEDV_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>observamos que, mientras en el País Vasco el salario medio asciende a 2.546 euros mensuales, en Canarias se sitúa en 1.869 euros, lo que refleja realidades económicas muy dispares que quedan ocultas cuando se observa únicamente el promedio nacional.</p>
-<p>El objetivo de este análisis es mostrar cómo el científico de datos debe ir más allá de la tendencia al pensamiento binario y a la simplificación de la realidad, y esforzarse por mostrar, a partir de los datos, toda la riqueza de matices que estos contienen.</p>
-</div>
-<div id="el-principio-de-pareto-para-simplificar-los-datos" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> El principio de Pareto para simplificar los datos<a href="index.html#el-principio-de-pareto-para-simplificar-los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Con frecuencia, al manejar tablas con gran cantidad de registros, resulta difícil extraer una visión global de la información. Por ejemplo, al estudiar las emisiones de gases de efecto invernadero (GHG) por países en 2024. Para obtener una perspectiva manejable podemos concentrarnos en los países responsables de la mayor parte de las emisiones totales, aplicando el <strong>principio de Pareto</strong>, también denominado regla 80/20: <strong>el 80 % de los efectos proviene del 20 % de las causas</strong>. Este principio puede aplicarse de dos formas: seleccionando el 20 % de los países que más emiten, o —una opción metodológicamente más sólida— seleccionando el menor número de países cuya emisión acumulada supera el 80 % del total mundial. De esta manera garantizamos que el análisis cubre una porción significativa y representativa del problema. Apliquemos esto a los datos de 2024, año en que las emisiones globales alcanzaron aproximadamente 53.206 millones de toneladas. En la siguiente tabla, elaborada a partir de la base de datos <strong>EDGAR</strong>, se muestran las siguientes variables: <strong>GHG</strong> : las emisiones por país ordenadas de mayor a menor, <strong>PORC_VAR_ANUAL</strong>: la variación porcentual respecto a 2023, <strong>PORC_TOTAL</strong>: el porcentaje de emisiones del país sobre el total mundial y <strong>PORC_ACUMULADO</strong>: el porcentaje sobre el total acumulado al ir añadiendo países (nos quedamos con los países hasta que este porcentaje llega al 80%). Como puede observarse, solo China emite el 29,2% del total, y los cuatro primeros países ya superan conjuntamente el 50%. Para alcanzar el umbral del 80% es necesario incluir los primeros 24 países. El umbral del 80% es orientativo y puede ajustarse en función de los objetivos del estudio. Otro dato interesante es que los países en vías de desarrollo son donde más crecen anualmente las emisiones, como la India (un 3,92%), Indonesia (4,95%) o Vietnam (7,61%), mientras que los países europeos están en fase de decrecimiento de las emisiones. Observamos que la navegación por barcos a nivel mundial produce emisiones de una magnitud similar a un país como Canadá y que la aviación a nivel mundial produce emisiones de una magnitud similar a un país como Australia y con un fuerte crecimiento anual (7,61%)</p>
-<table>
-<caption><span id="tab:unnamed-chunk-7">Table 1.1: </span>Emisiones GHG por países en 2024</caption>
-<colgroup>
-<col width="32%" />
-<col width="8%" />
-<col width="21%" />
-<col width="15%" />
-<col width="21%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Country</th>
-<th align="right">GHG</th>
-<th align="left">PORC_VAR_ANUAL</th>
-<th align="left">PORC_TOTAL</th>
-<th align="left">PORC_ACUMULADO</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">China</td>
-<td align="right">15536</td>
-<td align="left">0.81%</td>
-<td align="left">29.2%</td>
-<td align="left">29.2%</td>
-</tr>
-<tr class="even">
-<td align="left">United States</td>
-<td align="right">5913</td>
-<td align="left">0.37%</td>
-<td align="left">11.11%</td>
-<td align="left">40.31%</td>
-</tr>
-<tr class="odd">
-<td align="left">India</td>
-<td align="right">4371</td>
-<td align="left">3.92%</td>
-<td align="left">8.22%</td>
-<td align="left">48.53%</td>
-</tr>
-<tr class="even">
-<td align="left">Russia</td>
-<td align="right">2576</td>
-<td align="left">2.5%</td>
-<td align="left">4.84%</td>
-<td align="left">53.37%</td>
-</tr>
-<tr class="odd">
-<td align="left">Indonesia</td>
-<td align="right">1324</td>
-<td align="left">4.95%</td>
-<td align="left">2.49%</td>
-<td align="left">55.86%</td>
-</tr>
-<tr class="even">
-<td align="left">Brazil</td>
-<td align="right">1299</td>
-<td align="left">0.15%</td>
-<td align="left">2.44%</td>
-<td align="left">58.3%</td>
-</tr>
-<tr class="odd">
-<td align="left">Japan</td>
-<td align="right">1063</td>
-<td align="left">-2.81%</td>
-<td align="left">2%</td>
-<td align="left">60.3%</td>
-</tr>
-<tr class="even">
-<td align="left">Iran</td>
-<td align="right">1055</td>
-<td align="left">2.39%</td>
-<td align="left">1.98%</td>
-<td align="left">62.28%</td>
-</tr>
-<tr class="odd">
-<td align="left">Saudi Arabia</td>
-<td align="right">839</td>
-<td align="left">2.53%</td>
-<td align="left">1.58%</td>
-<td align="left">63.86%</td>
-</tr>
-<tr class="even">
-<td align="left">Canada</td>
-<td align="right">768</td>
-<td align="left">1.7%</td>
-<td align="left">1.44%</td>
-<td align="left">65.3%</td>
-</tr>
-<tr class="odd">
-<td align="left">International Shipping</td>
-<td align="right">737</td>
-<td align="left">-2.04%</td>
-<td align="left">1.39%</td>
-<td align="left">66.69%</td>
-</tr>
-<tr class="even">
-<td align="left">Mexico</td>
-<td align="right">687</td>
-<td align="left">0.16%</td>
-<td align="left">1.29%</td>
-<td align="left">67.98%</td>
-</tr>
-<tr class="odd">
-<td align="left">Germany</td>
-<td align="right">674</td>
-<td align="left">-1.65%</td>
-<td align="left">1.27%</td>
-<td align="left">69.24%</td>
-</tr>
-<tr class="even">
-<td align="left">South Korea</td>
-<td align="right">668</td>
-<td align="left">-0.28%</td>
-<td align="left">1.26%</td>
-<td align="left">70.5%</td>
-</tr>
-<tr class="odd">
-<td align="left">International Aviation</td>
-<td align="right">622</td>
-<td align="left">7.61%</td>
-<td align="left">1.17%</td>
-<td align="left">71.67%</td>
-</tr>
-<tr class="even">
-<td align="left">Australia</td>
-<td align="right">591</td>
-<td align="left">0.67%</td>
-<td align="left">1.11%</td>
-<td align="left">72.78%</td>
-</tr>
-<tr class="odd">
-<td align="left">Viet Nam</td>
-<td align="right">584</td>
-<td align="left">7.61%</td>
-<td align="left">1.1%</td>
-<td align="left">73.88%</td>
-</tr>
-<tr class="even">
-<td align="left">Türkiye</td>
-<td align="right">580</td>
-<td align="left">2.74%</td>
-<td align="left">1.09%</td>
-<td align="left">74.97%</td>
-</tr>
-<tr class="odd">
-<td align="left">South Africa</td>
-<td align="right">570</td>
-<td align="left">2.59%</td>
-<td align="left">1.07%</td>
-<td align="left">76.04%</td>
-</tr>
-<tr class="even">
-<td align="left">Pakistan</td>
-<td align="right">526</td>
-<td align="left">0.7%</td>
-<td align="left">0.99%</td>
-<td align="left">77.03%</td>
-</tr>
-<tr class="odd">
-<td align="left">Thailand</td>
-<td align="right">422</td>
-<td align="left">2.86%</td>
-<td align="left">0.79%</td>
-<td align="left">77.82%</td>
-</tr>
-<tr class="even">
-<td align="left">Iraq</td>
-<td align="right">413</td>
-<td align="left">2%</td>
-<td align="left">0.78%</td>
-<td align="left">78.6%</td>
-</tr>
-<tr class="odd">
-<td align="left">United Kingdom</td>
-<td align="right">387</td>
-<td align="left">-3.47%</td>
-<td align="left">0.73%</td>
-<td align="left">79.32%</td>
-</tr>
-<tr class="even">
-<td align="left">Egypt</td>
-<td align="right">387</td>
-<td align="left">4.56%</td>
-<td align="left">0.73%</td>
-<td align="left">80.05%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="la-tiranía-de-las-métricas" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> La tiranía de las métricas<a href="index.html#la-tiran%C3%ADa-de-las-m%C3%A9tricas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Una métrica es cualquier observación o medida que se utiliza para evaluar algo. En Ciencias de Datos manejamos constantemente métricas; por ello, es fundamental reflexionar sobre sus limitaciones cuando el factor humano está presente.</p>
-<div class="nota">
-<p><strong class="bloque-titulo">Nota sobre los ejemplos</strong></p>
-<p>Los ejemplos que se exponen a continuación (educativos, laborales o sanitarios) se emplean únicamente para ilustrar un fenómeno metodológico —cómo una métrica se distorsiona cuando condiciona incentivos— y no pretenden emitir un juicio político ni valorar la gestión de ninguna administración concreta. El objetivo es exclusivamente que el estudiante reconozca el mecanismo para poder detectarlo y evitarlo en su propio trabajo con datos.</p>
-</div>
-<p>En 1975, el economista británico Charles Goodhart planteó la tesis de que cualquier regularidad estadística tiende a colapsar una vez que se presiona para su control. Este principio fue sintetizado más tarde por la antropóloga británica Marilyn Strathern (1997) en una frase célebre: <em>“Cuando una medida se convierte en un objetivo, deja de ser una buena medida”</em>. El historiador Jerry Z. Muller [<a href="https://press.princeton.edu/books/hardcover/9780691174952/the-tyranny-of-metrics">Mul18</a>] profundizó en esta idea en su libro <em>The Tyranny of Metrics</em>, donde concluye que el comportamiento humano siempre se adapta de forma estratégica a los incentivos, desvirtuando, en muchos casos, el propósito inicial de la evaluación. De forma complementaria, el psicólogo social Donald T. Campbell formuló en 1976 una ley específica para los indicadores sociales: cuanto más se utiliza un indicador cuantitativo para la toma de decisiones, más sujeto estará a presiones que lo corrompen y más tenderá a distorsionar el proceso social que pretendía medir.</p>
-<div id="el-ámbito-educativo-aprobar-no-es-aprender" class="section level3 hasAnchor" number="1.9.1">
-<h3><span class="header-section-number">1.9.1</span> El ámbito educativo: aprobar no es aprender<a href="index.html#el-%C3%A1mbito-educativo-aprobar-no-es-aprender" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Un claro ejemplo de este fenómeno se encuentra en el sistema educativo. Por ejemplo, los exámenes de acceso a la universidad representan una métrica para evaluar las competencias de los alumnos. Sin embargo, la presión en los centros educativos para que los alumnos obtengan buenos resultados ha convertido el segundo curso de bachillerato en un curso de preparación de estos exámenes abandonando el objetivo de enseñar por el objetivo de optimizar los resultados de las pruebas.</p>
-<p>El caso de las Matemáticas es paradigmático: su preparación se basa frecuentemente en la repetición mecánica de técnicas de resolución de ejercicios extraídos de exámenes de años anteriores. Desde una perspectiva puramente pragmática, resulta más efectivo memorizar la mecánica algorítmica —aun sin comprender la lógica subyacente— que asimilar el razonamiento abstracto, que es lo verdaderamente valioso en esta disciplina. De este modo, se sustituyen los objetivos del aprendizaje por la optimización de una métrica que, irónicamente, fue diseñada para evaluar dicho aprendizaje.</p>
-<p>Esta distorsión se traslada a la gestión institucional a través de métricas como la tasa de aprobados o la ratio de promoción de curso. En todos los niveles educativos, desde la primaria hasta la universidad, los centros compiten entre sí por mejorar estos indicadores para atraer alumnado y obtener beneficios vinculados a resultados. Dado que las políticas de mejora del aprendizaje real solo ofrecen resultados a medio o largo plazo, el atajo administrativo consiste en presionar al profesorado para que incremente los aprobados mediante la devaluación de los estándares de exigencia. En el entorno universitario, donde no existe, de facto, un sistema de verificación real de las competencias de los alumnos que han terminado la carrera, un docente que no enseñe nada y apruebe a todos los alumnos habrá cumplido formalmente con los objetivos de la métrica sin que el sistema lo penalice. El precio latente de esta dinámica son las severas carencias que tendrán estos egresados en términos de pensamiento crítico y en su capacidad para la resolución de problemas en el ejercicio profesional.</p>
-</div>
-<div id="el-ámbito-político-la-manipulación-estadística-del-bienestar" class="section level3 hasAnchor" number="1.9.2">
-<h3><span class="header-section-number">1.9.2</span> El ámbito político: la manipulación estadística del bienestar<a href="index.html#el-%C3%A1mbito-pol%C3%ADtico-la-manipulaci%C3%B3n-estad%C3%ADstica-del-bienestar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La instrumentalización de las métricas es especialmente habitual en la arena política, donde los gestores necesitan exhibir mejoras cuantitativas como evidencia de una gestión exitosa.</p>
-<p>En el mercado laboral español, la reforma de 2021 restringió severamente la contratación temporal ordinaria. Para los sectores estacionales (como la hostelería, el turismo o la agricultura), la alternativa legal pasó a ser el contrato fijo-discontinuo. Sobre el papel, el trabajador pasa a computar como indefinido, lo que provocó un desplome inmediato de la tasa de temporalidad oficial. Además, cuando estos trabajadores entran en periodo de inactividad —aunque perciban la prestación por desempleo— no se contabilizan como desempleados. Esta modificación normativa generó una mejora extraordinaria en las métricas de empleo; sin embargo, la realidad material subyacente no varió: el trabajador sigue desempeñando una labor intermitente y afrontando periodos de desocupación en temporada baja. La métrica mejoró, pero no porque mejorara la realidad que pretendía medir.</p>
-<p>Un comportamiento homólogo se observa en la gestión sanitaria, donde la reducción de los tiempos de espera para atención primaria, especialistas, pruebas diagnósticas e intervenciones quirúrgicas constituye una prioridad política. Para optimizar estos indicadores sin incrementar proporcionalmente los recursos estructurales, se recurre a la <strong>manipulación de los indicadores</strong> (<em>gaming the metrics</em>); se han documentado prácticas como:</p>
-<ul>
-<li><strong>Bloqueo de agendas:</strong> se impide informáticamente la asignación de citas cuando no hay disponibilidad inmediata. Al no registrarse la solicitud, el “reloj” de la lista de espera oficial no se activa.</li>
-<li><strong>Barreras de acceso a la especialización:</strong> se dilata o deniega administrativamente la derivación desde atención primaria a los especialistas para contener el volumen de las listas de espera secundarias.</li>
-<li><strong>Rechazos voluntarios inducidos:</strong> se ofrece al paciente, de un día para otro, ser intervenido en centros concertados periféricos o con equipos médicos distintos. Si el paciente solicita tiempo para valorar la propuesta o prefiere esperar a su hospital de referencia, se tipifica como una “baja voluntaria de la lista de espera garantizada”, lo que detiene los plazos legales de demora atribuibles a la administración.</li>
-<li><strong>Priorización inversa:</strong> consiste en priorizar intervenciones quirúrgicas de baja complejidad y rápida resolución (como cataratas) frente a patologías graves y complejas. Esto permite dar de alta a un mayor volumen de pacientes en menos tiempo, reduciendo drásticamente la demora media de las estadísticas, a costa de postergar a los pacientes crónicos o severos.</li>
-</ul>
-</div>
-<div id="cómo-mitigar-la-tiranía-de-las-métricas" class="section level3 hasAnchor" number="1.9.3">
-<h3><span class="header-section-number">1.9.3</span> Cómo mitigar la tiranía de las métricas<a href="index.html#c%C3%B3mo-mitigar-la-tiran%C3%ADa-de-las-m%C3%A9tricas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La métrica no es el enemigo; lo es su uso ingenuo como objetivo único. Algunas salvaguardas habituales:</p>
-<ul>
-<li><strong>No optimizar un solo indicador:</strong> combinar varias métricas que se contrapesen dificulta “hackear” una de ellas de forma aislada.</li>
-<li><strong>Acompañar lo cuantitativo con lo cualitativo:</strong> el juicio experto y la observación directa capturan lo que el número no refleja.</li>
-<li><strong>Mantener la medida como guía, no como objetivo absoluto:</strong> en cuanto un indicador se convierte en el fin, conviene revisarlo, completarlo o rotarlo.</li>
-<li><strong>Vigilar los incentivos:</strong> anticipar cómo se adaptarán las personas evaluadas y auditar periódicamente el dato frente a la realidad que pretende representar.</li>
-</ul>
-<div class="resultado">
-<p><strong class="bloque-titulo">Conclusión</strong></p>
-<p>El análisis de estos escenarios demuestra que cualquier métrica cuya evaluación dependa de factores humanos o condicione incentivos tiende a corromperse. La capacidad adaptativa del ser humano le impulsa a diseñar soluciones ingeniosas para “hackear” el indicador y maximizar el beneficio aparente con el menor esfuerzo operativo posible, sacrificando por completo el propósito y los valores fundamentales que la métrica originalmente intentaba salvaguardar; de ahí la responsabilidad del científico de datos de elegir, interpretar y comunicar sus métricas con sentido crítico.</p>
-</div>
-</div>
-</div>
-<div id="ideas-clave-del-capítulo" class="section level2 unnumbered hasAnchor">
-<h2>Ideas clave del capítulo<a href="index.html#ideas-clave-del-cap%C3%ADtulo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="resultado">
-<p><strong class="bloque-titulo">Ideas clave</strong></p>
-<ul>
-<li><strong>Los datos admiten múltiples interpretaciones válidas.</strong> Una misma pregunta puede tener respuestas distintas y bien fundamentadas según el indicador elegido (media vs. mediana vs. deciles).</li>
-<li><strong>Neutralidad y espíritu crítico.</strong> Hay que valorar la fiabilidad de la fuente y detectar los sesgos con los que se recogen o comunican los datos (encuestas no aleatorias, comunicación interesada).</li>
-<li><strong>Un ratio informa más que un valor aislado.</strong> Comparar (con el pasado, con la población, con el capital invertido) da sentido a un número.</li>
-<li><strong>El principio de Pareto</strong> permite simplificar un conjunto grande de datos quedándonos con las causas que explican la mayor parte del efecto.</li>
-<li><strong>Toda métrica sujeta a incentivos humanos tiende a corromperse</strong> (ley de Goodhart): conviene combinar varias métricas y acompañarlas de juicio cualitativo.</li>
-<li><strong>La IA es un acelerador legítimo</strong> del análisis cuando se entiende y se verifica lo que produce; la responsabilidad de los resultados es siempre del analista, use o no IA.</li>
-<li><strong>Ética y responsabilidad:</strong> privacidad (RGPD), sesgos en los datos, reproducibilidad y comunicación honesta son parte inseparable del trabajo del científico de datos.</li>
-</ul>
-</div>
-<p><font size="5"> <b> Referencias </b> </font></p>
-<p>[<a href="https://socviz.co/">He19</a>] Kieran Healy. <em>Data Visualization</em>, Princeton University Press, 2019.</p>
-<p>[<a href="http://rafalab.dfci.harvard.edu/dsbook/">Ir19</a>] Rafael A. Irizarry. <em>Introduction to Data Science</em>, Taylor &amp; Francis, 2019.</p>
-<p>[<a href="https://press.princeton.edu/books/hardcover/9780691174952/the-tyranny-of-metrics">Mul18</a>] Jerry Z. Muller. <em>The Tyranny of Metrics</em>, Princeton University Press, 2018.</p>
-<p>[<a href="https://www.amazon.es/Weapons-Math-Destruction-Increases-Inequality/dp/0553418815">ONe16</a>] Cathy O’Neil. <em>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy</em>, Crown, 2016.</p>
-<p>[<a href="https://www.amazon.es/Factfulness-razones-estamos-equivocados-colecci%C3%B3n/dp/8423429962">RRR18</a>] Hans Rosling, Ola Rosling and Anna Rosling. <em>Factfulness: Diez razones por las que estamos equivocados sobre el mundo</em>, Deusto, 2018.</p>
-<p>[<a href="https://estadistica-dma.ulpgc.es/cursoR4ULPGC/">SH16</a>] Angelo Santana y Carmen N. Hernández. <em>R4ULPGC: Introducción a R</em>, Grupo de Estadística de la Universidad de Las Palmas de G.C., 2016.</p>
-<p>[<a href="https://r4ds.hadley.nz/">WiÇeGa23</a>] Wickham, Hadley, Mine Çetinkaya-Rundel and Garrett Grolemund. <em>R for Data Science (2e)</em>, O’Reilly Media, 2023.</p>
-<p>[<a href="https://clauswilke.com/dataviz/">Wil19</a>] Claus O. Wilke. <em>Fundamentals of Data Visualization</em>, O’Reilly, 2019.</p>
-<p>[<a href="http://yihui.name/knitr/">Xie15</a>] Xie, Yihui. <em>Dynamic Documents with R and Knitr. (2e). </em>Boca Raton, Florida: Chapman; Hall/CRC*, 2015.</p>
-<p>[<a href="https://CRAN.R-project.org/package=bookdown">Xie23</a>] Xie, Yihui. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>, 2023.</p>
-
-</div>
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
 </div>
             </section>
 
@@ -900,7 +525,7 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
         </div>
       </div>
 
-<a href="aspectos-básicos-de-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -931,7 +556,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
 "text": "Edit"
 },
 "history": {
