@@ -1829,6 +1829,14 @@ los coeficientes obtenidos, el modelo resultante sería</p>
 (1-1.0186B+0.8519B^2)(1-B)^2y_t=\varepsilon_{t} -1.366\varepsilon_{t-1} + 1.3471\varepsilon_{t-2}   - 0.3992\varepsilon_{t-3}  + 0.1736\varepsilon_{t-4}
 \]</span>
 los valores de AIC, AICc y BIC son ligeramente inferiores a los obtenidos usando el modelo de suavizado exponencial y por ello, para esta serie temporal el modelo que mejor se ajusta es el ARIMA.</p>
+<div class="nota">
+<p><strong class="bloque-titulo">La búsqueda automática es heurística</strong></p>
+<p>Conviene entender qué hace <code>ARIMA()</code> cuando se la deja con sus valores por defecto, porque es la razón de que aquí pasemos <code>stepwise = FALSE, approx = FALSE</code>.</p>
+<p>Buscar el mejor modelo significa recorrer las combinaciones posibles de órdenes <span class="math inline">\((p,d,q)(P,D,Q)_m\)</span>, que son muchas. Por defecto la función <strong>no las prueba todas</strong>: hace una búsqueda <strong>por pasos</strong> (<em>stepwise</em>) que parte de unos pocos modelos candidatos, se mueve hacia los vecinos que mejoran el AICc y <strong>descarta ramas enteras</strong> que no parecen prometedoras. Además, con <code>approx = TRUE</code> estima cada candidato con una aproximación de la verosimilitud, más rápida de calcular. El resultado es un ajuste mucho más veloz, a cambio de una garantía menor: el modelo devuelto es <strong>el mejor que ha encontrado</strong>, no necesariamente el mejor que existe.</p>
+<p>Poner los dos argumentos a <code>FALSE</code> —como hacemos aquí— fuerza la búsqueda <strong>exhaustiva y exacta</strong>: puede tardar bastante más, pero no depende del camino que haya tomado la heurística.</p>
+<p>Un matiz que da tranquilidad: lo que <strong>sí</strong> es estable es el orden de derivación <span class="math inline">\(d\)</span>, porque no sale de esa búsqueda. Se decide <strong>antes</strong>, con los contrastes de raíz unitaria de la sección de <a href="series-temporales.html#estacionariedad">derivadas y estacionariedad</a> —de ahí que coincida con lo que dio <code>unitroot_ndiffs</code>—. Lo que la heurística puede errar son los órdenes <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> de las partes autorregresiva y de media móvil.</p>
+<p>En la práctica: explorar con los valores por defecto mientras se prueban ideas, y dejar la búsqueda exhaustiva para el modelo que vaya a usarse de verdad.</p>
+</div>
 </div>
 <div id="diagnóstico-de-residuos-del-modelo-arima" class="section level3 unnumbered hasAnchor">
 <h3>Diagnóstico de residuos del modelo ARIMA<a href="series-temporales.html#diagn%C3%B3stico-de-residuos-del-modelo-arima" class="anchor-section" aria-label="Anchor link to header"></a></h3>
