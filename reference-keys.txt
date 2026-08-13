@@ -142,6 +142,7 @@ fig:chunk-label
 introducción
 fases-de-un-análisis-exploratorio-de-datos
 contenido-del-curso
+cómo-buscar-dentro-del-libro
 la-elección-de-r
 las-virtudes-de-un-científico-de-datos
 el-uso-de-la-ia-en-el-análisis-de-datos
