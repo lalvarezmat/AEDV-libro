@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-08-13" />
+<meta name="date" content="2026-08-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,6 +60,28 @@
 <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
+<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
+<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.13.6/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.13.6/js/dataTables.fixedColumns.min.js"></script>
 <script src="libs/proj4js-2.3.15/proj4.js"></script>
 <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
 <script src="libs/highcharts-9.3.1/highcharts.js"></script>
@@ -101,32 +123,9 @@
 <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
 <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
 <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
-<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
-<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
-<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
-<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.33/datatables.js"></script>
-<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="libs/dt-ext-fixedcolumns-1.13.6/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="libs/dt-ext-fixedcolumns-1.13.6/js/dataTables.fixedColumns.min.js"></script>
 
 
 <style type="text/css">
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -214,29 +213,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#fases-de-un-an%C3%A1lisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>1.1</b> Fases de un análisis exploratorio de datos</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#fases-de-un-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>1.1</b> Fases de un análisis exploratorio de datos</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contenido-del-curso"><i class="fa fa-check"></i><b>1.2</b> Contenido del curso</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#c%C3%B3mo-buscar-dentro-del-libro"><i class="fa fa-check"></i><b>1.3</b> Cómo buscar dentro del libro</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#la-elecci%C3%B3n-de-r"><i class="fa fa-check"></i><b>1.4</b> La elección de <code>R</code></a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#las-virtudes-de-un-cient%C3%ADfico-de-datos"><i class="fa fa-check"></i><b>1.5</b> Las virtudes de un científico de datos</a></li>
-<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#el-uso-de-la-ia-en-el-an%C3%A1lisis-de-datos"><i class="fa fa-check"></i><b>1.6</b> El uso de la IA en el análisis de datos</a></li>
-<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#%C3%A9tica-y-responsabilidad-en-el-an%C3%A1lisis-de-datos"><i class="fa fa-check"></i><b>1.7</b> Ética y responsabilidad en el análisis de datos</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificaci%C3%B3n-de-la-realidad."><i class="fa fa-check"></i><b>1.8</b> La trampa del pensamiento binario y la simplificación de la realidad.</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#cómo-buscar-dentro-del-libro"><i class="fa fa-check"></i><b>1.3</b> Cómo buscar dentro del libro</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#la-elección-de-r"><i class="fa fa-check"></i><b>1.4</b> La elección de <code>R</code></a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#las-virtudes-de-un-científico-de-datos"><i class="fa fa-check"></i><b>1.5</b> Las virtudes de un científico de datos</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#el-uso-de-la-ia-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.6</b> El uso de la IA en el análisis de datos</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#ética-y-responsabilidad-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.7</b> Ética y responsabilidad en el análisis de datos</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad."><i class="fa fa-check"></i><b>1.8</b> La trampa del pensamiento binario y la simplificación de la realidad.</a></li>
 <li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#el-principio-de-pareto-para-simplificar-los-datos"><i class="fa fa-check"></i><b>1.9</b> El principio de Pareto para simplificar los datos</a></li>
-<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#la-tiran%C3%ADa-de-las-m%C3%A9tricas"><i class="fa fa-check"></i><b>1.10</b> La tiranía de las métricas</a>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#la-tiranía-de-las-métricas"><i class="fa fa-check"></i><b>1.10</b> La tiranía de las métricas</a>
 <ul>
-<li class="chapter" data-level="1.10.1" data-path="index.html"><a href="index.html#el-%C3%A1mbito-educativo-aprobar-no-es-aprender"><i class="fa fa-check"></i><b>1.10.1</b> El ámbito educativo: aprobar no es aprender</a></li>
-<li class="chapter" data-level="1.10.2" data-path="index.html"><a href="index.html#el-%C3%A1mbito-pol%C3%ADtico-la-manipulaci%C3%B3n-estad%C3%ADstica-del-bienestar"><i class="fa fa-check"></i><b>1.10.2</b> El ámbito político: la manipulación estadística del bienestar</a></li>
-<li class="chapter" data-level="1.10.3" data-path="index.html"><a href="index.html#c%C3%B3mo-mitigar-la-tiran%C3%ADa-de-las-m%C3%A9tricas"><i class="fa fa-check"></i><b>1.10.3</b> Cómo mitigar la tiranía de las métricas</a></li>
+<li class="chapter" data-level="1.10.1" data-path="index.html"><a href="index.html#el-ámbito-educativo-aprobar-no-es-aprender"><i class="fa fa-check"></i><b>1.10.1</b> El ámbito educativo: aprobar no es aprender</a></li>
+<li class="chapter" data-level="1.10.2" data-path="index.html"><a href="index.html#el-ámbito-político-la-manipulación-estadística-del-bienestar"><i class="fa fa-check"></i><b>1.10.2</b> El ámbito político: la manipulación estadística del bienestar</a></li>
+<li class="chapter" data-level="1.10.3" data-path="index.html"><a href="index.html#cómo-mitigar-la-tiranía-de-las-métricas"><i class="fa fa-check"></i><b>1.10.3</b> Cómo mitigar la tiranía de las métricas</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ideas-clave-del-cap%C3%ADtulo"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ideas-clave-del-capítulo"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html"><i class="fa fa-check"></i><b>2</b> Aspectos básicos de <code>R</code></a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#tipos-y-estructuras-de-datos"><i class="fa fa-check"></i><b>2.1</b> Tipos y estructuras de datos</a>
 <ul>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#tipos-de-datos"><i class="fa fa-check"></i>Tipos de datos</a></li>
-<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#manipulaci%C3%B3n-de-strings"><i class="fa fa-check"></i>Manipulación de strings</a></li>
+<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#manipulación-de-strings"><i class="fa fa-check"></i>Manipulación de strings</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#manejo-de-fechas"><i class="fa fa-check"></i>Manejo de fechas</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#vectores"><i class="fa fa-check"></i>Vectores</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#dataframes-y-tibbles"><i class="fa fa-check"></i><code>Dataframes</code> y <code>Tibbles</code></a></li>
@@ -244,16 +243,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#funciones-en-r"><i class="fa fa-check"></i><b>2.2</b> Funciones en <code>R</code></a>
 <ul>
+<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#argumentos-con-nombre-y-valores-por-defecto"><i class="fa fa-check"></i>Argumentos con nombre y valores por defecto</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#estructuras-de-control"><i class="fa fa-check"></i>Estructuras de control</a></li>
-<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#operadores-l%C3%B3gicos"><i class="fa fa-check"></i>Operadores lógicos</a></li>
+<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#operadores-lógicos"><i class="fa fa-check"></i>Operadores lógicos</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#ejemplos-de-funciones"><i class="fa fa-check"></i>Ejemplos de funciones</a></li>
-<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#el-%C3%A1mbito-de-las-funciones"><i class="fa fa-check"></i>El ámbito de las funciones</a></li>
+<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#el-ámbito-de-las-funciones"><i class="fa fa-check"></i>El ámbito de las funciones</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#la-familia-de-funciones-apply"><i class="fa fa-check"></i>La familia de funciones apply</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#el-operador-de-pila-pipe-y"><i class="fa fa-check"></i>El operador de pila (pipe) <code>|&gt;</code> y <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#errores-comunes-de-principiante"><i class="fa fa-check"></i><b>2.3</b> Errores comunes de principiante</a></li>
 <li class="chapter" data-level="2.4" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#caso-integrador"><i class="fa fa-check"></i><b>2.4</b> Caso integrador</a></li>
-<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#ideas-clave-del-cap%C3%ADtulo-1"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#ideas-clave-del-capítulo-1"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>3</b> Procesado de datos</a>
 <ul>
@@ -269,220 +269,234 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#formato-json"><i class="fa fa-check"></i>Formato JSON</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#texto-sin-formato"><i class="fa fa-check"></i>Texto sin formato</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="datos.html"><a href="datos.html#transformaci%C3%B3n-de-datos"><i class="fa fa-check"></i><b>3.3</b> Transformación de datos</a>
+<li class="chapter" data-level="3.3" data-path="datos.html"><a href="datos.html#transformación-de-datos"><i class="fa fa-check"></i><b>3.3</b> Transformación de datos</a>
 <ul>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#el-paquete-dplyr"><i class="fa fa-check"></i>El paquete <code>dplyr</code></a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#combinando-datos-de-varias-tablas"><i class="fa fa-check"></i>Combinando datos de varias tablas</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#tidy-data-datos-ordenados-o-largo"><i class="fa fa-check"></i>Tidy data (datos ordenados o largo)</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#exportaci%C3%B3n-de-datos"><i class="fa fa-check"></i>Exportación de datos</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#exportación-de-datos"><i class="fa fa-check"></i>Exportación de datos</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#combinando-datos-de-un-y-owid"><i class="fa fa-check"></i>Combinando datos de <strong>UN</strong> y <strong>OWID</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="datos.html"><a href="datos.html#calidad-datos"><i class="fa fa-check"></i><b>3.4</b> Calidad de los datos</a>
 <ul>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#valores-faltantes-na"><i class="fa fa-check"></i>Valores faltantes (<code>NA</code>)</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#valores-duplicados"><i class="fa fa-check"></i>Valores duplicados</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#valores-at%C3%ADpicos-outliers"><i class="fa fa-check"></i>Valores atípicos (outliers)</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#valores-atípicos-outliers"><i class="fa fa-check"></i>Valores atípicos (outliers)</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#consistencia-de-tipos"><i class="fa fa-check"></i>Consistencia de tipos</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#diagn%C3%B3stico-r%C3%A1pido-skimr-janitor-y-naniar"><i class="fa fa-check"></i>Diagnóstico rápido: <code>skimr</code>, <code>janitor</code> y <code>naniar</code></a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#diagnóstico-rápido-skimr-janitor-y-naniar"><i class="fa fa-check"></i>Diagnóstico rápido: <code>skimr</code>, <code>janitor</code> y <code>naniar</code></a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#diagnóstico-en-formato-largo"><i class="fa fa-check"></i>Diagnóstico en formato largo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="datos.html"><a href="datos.html#an%C3%A1lisis-exploratorio-inicial"><i class="fa fa-check"></i><b>3.5</b> Análisis exploratorio inicial</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#ideas-clave-del-cap%C3%ADtulo-2"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="3.5" data-path="datos.html"><a href="datos.html#análisis-exploratorio-inicial"><i class="fa fa-check"></i><b>3.5</b> Análisis exploratorio inicial</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#ideas-clave-del-capítulo-2"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html"><i class="fa fa-check"></i><b>4</b> Visualización estática de datos</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#la-gram%C3%A1tica-de-los-gr%C3%A1ficos"><i class="fa fa-check"></i><b>4.1</b> La gramática de los gráficos</a></li>
+<li class="chapter" data-level="4.1" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#la-gramática-de-los-gráficos"><i class="fa fa-check"></i><b>4.1</b> La gramática de los gráficos</a></li>
 <li class="chapter" data-level="4.2" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#anatomia-ggplot"><i class="fa fa-check"></i><b>4.2</b> Anatomía de un <code>ggplot</code>: construcción por capas</a></li>
 <li class="chapter" data-level="4.3" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#diagramas-de-barras"><i class="fa fa-check"></i><b>4.3</b> Diagramas de barras</a></li>
 <li class="chapter" data-level="4.4" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#geom-bar-agrupadas"><i class="fa fa-check"></i><b>4.4</b> Diagramas de barras agrupadas</a></li>
-<li class="chapter" data-level="4.5" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#gr%C3%A1ficos-circulares"><i class="fa fa-check"></i><b>4.5</b> Gráficos circulares</a></li>
-<li class="chapter" data-level="4.6" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#gr%C3%A1ficos-de-donuts"><i class="fa fa-check"></i><b>4.6</b> Gráficos de donuts</a></li>
+<li class="chapter" data-level="4.5" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#gráficos-circulares"><i class="fa fa-check"></i><b>4.5</b> Gráficos circulares</a></li>
+<li class="chapter" data-level="4.6" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#gráficos-de-donuts"><i class="fa fa-check"></i><b>4.6</b> Gráficos de donuts</a></li>
 <li class="chapter" data-level="4.7" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#histogramas"><i class="fa fa-check"></i><b>4.7</b> Histogramas</a></li>
 <li class="chapter" data-level="4.8" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#geom-box"><i class="fa fa-check"></i><b>4.8</b> Diagramas de cajas (box-plots)</a></li>
 <li class="chapter" data-level="4.9" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#geom-point"><i class="fa fa-check"></i><b>4.9</b> Diagramas de dispersión (scatterplot)</a></li>
 <li class="chapter" data-level="4.10" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#ggpairs-para-comparar-variables"><i class="fa fa-check"></i><b>4.10</b> <code>ggpairs</code> para comparar variables</a></li>
 <li class="chapter" data-level="4.11" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#geom-line"><i class="fa fa-check"></i><b>4.11</b> Gráficos de líneas</a></li>
-<li class="chapter" data-level="4.12" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#gr%C3%A1ficos-de-%C3%A1rea"><i class="fa fa-check"></i><b>4.12</b> Gráficos de área</a></li>
+<li class="chapter" data-level="4.12" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#gráficos-de-área"><i class="fa fa-check"></i><b>4.12</b> Gráficos de área</a></li>
 <li class="chapter" data-level="4.13" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#doble-eje-vertical"><i class="fa fa-check"></i><b>4.13</b> Doble eje vertical</a></li>
-<li class="chapter" data-level="4.14" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#anotaciones-y-etiquetas-en-los-gr%C3%A1ficos"><i class="fa fa-check"></i><b>4.14</b> Anotaciones y etiquetas en los gráficos</a>
+<li class="chapter" data-level="4.14" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#anotaciones-y-etiquetas-en-los-gráficos"><i class="fa fa-check"></i><b>4.14</b> Anotaciones y etiquetas en los gráficos</a>
 <ul>
-<li class="chapter" data-level="" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#annotate-para-a%C3%B1adir-texto-y-flechas"><i class="fa fa-check"></i><code>annotate</code> para añadir texto y flechas</a></li>
+<li class="chapter" data-level="" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#annotate-para-añadir-texto-y-flechas"><i class="fa fa-check"></i><code>annotate</code> para añadir texto y flechas</a></li>
 <li class="chapter" data-level="" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#geom_text-y-geom_label-para-etiquetar-puntos"><i class="fa fa-check"></i><code>geom_text</code> y <code>geom_label</code> para etiquetar puntos</a></li>
 </ul></li>
-<li class="chapter" data-level="4.15" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#combinando-gr%C3%A1ficos"><i class="fa fa-check"></i><b>4.15</b> Combinando gráficos</a></li>
+<li class="chapter" data-level="4.15" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#combinando-gráficos"><i class="fa fa-check"></i><b>4.15</b> Combinando gráficos</a></li>
 <li class="chapter" data-level="4.16" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#heatmap"><i class="fa fa-check"></i><b>4.16</b> Mapas de calor</a></li>
 <li class="chapter" data-level="4.17" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#wordcloud"><i class="fa fa-check"></i><b>4.17</b> Wordcloud</a></li>
 <li class="chapter" data-level="4.18" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#colores"><i class="fa fa-check"></i><b>4.18</b> Colores</a></li>
 <li class="chapter" data-level="4.19" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#themes"><i class="fa fa-check"></i><b>4.19</b> <code>Themes</code></a>
 <ul>
-<li class="chapter" data-level="4.19.1" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#dise%C3%B1o-t%C3%ADtulos-y-ejes"><i class="fa fa-check"></i><b>4.19.1</b> Diseño títulos y ejes</a></li>
+<li class="chapter" data-level="4.19.1" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#diseño-títulos-y-ejes"><i class="fa fa-check"></i><b>4.19.1</b> Diseño títulos y ejes</a></li>
 </ul></li>
-<li class="chapter" data-level="4.20" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#un-gr%C3%A1fico-pulido-de-referencia"><i class="fa fa-check"></i><b>4.20</b> Un gráfico pulido de referencia</a></li>
+<li class="chapter" data-level="4.20" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#un-gráfico-pulido-de-referencia"><i class="fa fa-check"></i><b>4.20</b> Un gráfico pulido de referencia</a></li>
 <li class="chapter" data-level="4.21" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#una-tabla-pulida-de-referencia-gt"><i class="fa fa-check"></i><b>4.21</b> Una tabla pulida de referencia: <code>gt</code></a></li>
-<li class="chapter" data-level="4.22" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#exportar-gr%C3%A1ficos-con-ggsave"><i class="fa fa-check"></i><b>4.22</b> Exportar gráficos con <code>ggsave</code></a></li>
-<li class="chapter" data-level="" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#ideas-clave-del-cap%C3%ADtulo-3"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="4.22" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#exportar-gráficos-con-ggsave"><i class="fa fa-check"></i><b>4.22</b> Exportar gráficos con <code>ggsave</code></a></li>
+<li class="chapter" data-level="" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html#ideas-clave-del-capítulo-3"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="series-temporales.html"><a href="series-temporales.html"><i class="fa fa-check"></i><b>5</b> Series temporales</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="series-temporales.html"><a href="series-temporales.html#componentes-de-una-serie-temporal"><i class="fa fa-check"></i><b>5.1</b> Componentes de una serie temporal</a></li>
-<li class="chapter" data-level="5.2" data-path="series-temporales.html"><a href="series-temporales.html#los-objetos-tsibble"><i class="fa fa-check"></i><b>5.2</b> Los objetos <code>tsibble</code></a></li>
-<li class="chapter" data-level="5.3" data-path="series-temporales.html"><a href="series-temporales.html#tsibble"><i class="fa fa-check"></i><b>5.3</b> Visualización</a></li>
-<li class="chapter" data-level="5.4" data-path="series-temporales.html"><a href="series-temporales.html#estacionalidad"><i class="fa fa-check"></i><b>5.4</b> Estacionalidad</a></li>
-<li class="chapter" data-level="5.5" data-path="series-temporales.html"><a href="series-temporales.html#correlacion"><i class="fa fa-check"></i><b>5.5</b> Correlación</a>
+<li class="chapter" data-level="5.1" data-path="series-temporales.html"><a href="series-temporales.html#los-objetos-tsibble"><i class="fa fa-check"></i><b>5.1</b> Los objetos <code>tsibble</code></a></li>
+<li class="chapter" data-level="5.2" data-path="series-temporales.html"><a href="series-temporales.html#tsibble"><i class="fa fa-check"></i><b>5.2</b> Visualización</a></li>
+<li class="chapter" data-level="5.3" data-path="series-temporales.html"><a href="series-temporales.html#estacionalidad"><i class="fa fa-check"></i><b>5.3</b> Estacionalidad</a></li>
+<li class="chapter" data-level="5.4" data-path="series-temporales.html"><a href="series-temporales.html#correlacion"><i class="fa fa-check"></i><b>5.4</b> Correlación</a>
 <ul>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#definici%C3%B3n"><i class="fa fa-check"></i>Definición</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#de-la-correlaci%C3%B3n-a-la-autocorrelaci%C3%B3n"><i class="fa fa-check"></i>De la correlación a la autocorrelación</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#definición"><i class="fa fa-check"></i>Definición</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#de-la-correlación-a-la-autocorrelación"><i class="fa fa-check"></i>De la correlación a la autocorrelación</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="series-temporales.html"><a href="series-temporales.html#acf"><i class="fa fa-check"></i><b>5.6</b> Función de autocorrelación (ACF)</a></li>
-<li class="chapter" data-level="5.7" data-path="series-temporales.html"><a href="series-temporales.html#descomposici%C3%B3n-stl"><i class="fa fa-check"></i><b>5.7</b> Descomposición STL</a>
+<li class="chapter" data-level="5.5" data-path="series-temporales.html"><a href="series-temporales.html#acf"><i class="fa fa-check"></i><b>5.5</b> Función de autocorrelación (ACF)</a></li>
+<li class="chapter" data-level="5.6" data-path="series-temporales.html"><a href="series-temporales.html#descomposicion"><i class="fa fa-check"></i><b>5.6</b> Descomposición de una serie temporal</a>
 <ul>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#diagn%C3%B3stico-de-residuos-de-la-descomposici%C3%B3n-stl"><i class="fa fa-check"></i>Diagnóstico de residuos de la descomposición STL</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#el-método-stl-cómo-se-calcula-la-descomposición"><i class="fa fa-check"></i>El método STL: cómo se calcula la descomposición</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#diagnóstico-de-residuos-de-la-descomposición-stl"><i class="fa fa-check"></i>Diagnóstico de residuos de la descomposición STL</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#doble-estacionalidad"><i class="fa fa-check"></i>Doble estacionalidad</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="series-temporales.html"><a href="series-temporales.html#predicci%C3%B3n"><i class="fa fa-check"></i><b>5.8</b> Predicción</a></li>
-<li class="chapter" data-level="5.9" data-path="series-temporales.html"><a href="series-temporales.html#suavizado-exponencial-ets"><i class="fa fa-check"></i><b>5.9</b> Suavizado exponencial ETS</a>
+<li class="chapter" data-level="5.7" data-path="series-temporales.html"><a href="series-temporales.html#predicción"><i class="fa fa-check"></i><b>5.7</b> Predicción</a></li>
+<li class="chapter" data-level="5.8" data-path="series-temporales.html"><a href="series-temporales.html#suavizado-exponencial-ets"><i class="fa fa-check"></i><b>5.8</b> Suavizado exponencial ETS</a>
 <ul>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#promediado"><i class="fa fa-check"></i>Promediado ⚠️</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#suavizado-y-tendencia"><i class="fa fa-check"></i>Suavizado y tendencia ⚠️</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#modelo-amortiguado"><i class="fa fa-check"></i>Modelo amortiguado ⚠️</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estacionalidad-1"><i class="fa fa-check"></i>Estacionalidad ⚠️</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estimaci%C3%B3n-%C3%B3ptima"><i class="fa fa-check"></i>Estimación óptima</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#diagn%C3%B3stico-de-residuos-del-modelo-ets"><i class="fa fa-check"></i>Diagnóstico de residuos del modelo ETS</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estimación-óptima"><i class="fa fa-check"></i>Estimación óptima</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#diagnóstico-de-residuos-del-modelo-ets"><i class="fa fa-check"></i>Diagnóstico de residuos del modelo ETS</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="series-temporales.html"><a href="series-temporales.html#el-modelo-arima"><i class="fa fa-check"></i><b>5.10</b> El modelo ARIMA</a>
+<li class="chapter" data-level="5.9" data-path="series-temporales.html"><a href="series-temporales.html#el-modelo-arima"><i class="fa fa-check"></i><b>5.9</b> El modelo ARIMA</a>
 <ul>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#modelo-autorregresivo-ar"><i class="fa fa-check"></i>Modelo autorregresivo (AR) ⚠️</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estacionariedad"><i class="fa fa-check"></i>Derivadas y estacionariedad ⚠️</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#arimapdq"><i class="fa fa-check"></i>ARIMA(p,d,q) ⚠️</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#arimapdqpdq_m"><i class="fa fa-check"></i>ARIMA(p,d,q)(P,D,Q)<span class="math inline">\(_m\)</span> ⚠️</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#predicci%C3%B3n-con-arima"><i class="fa fa-check"></i>Predicción con ARIMA ⚠️</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estimaci%C3%B3n-%C3%B3ptima-1"><i class="fa fa-check"></i>Estimación óptima</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#diagn%C3%B3stico-de-residuos-del-modelo-arima"><i class="fa fa-check"></i>Diagnóstico de residuos del modelo ARIMA</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#transformaci%C3%B3n-de-la-serie-el-uso-de-log"><i class="fa fa-check"></i>Transformación de la serie: el uso de <code>log()</code></a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#predicción-con-arima"><i class="fa fa-check"></i>Predicción con ARIMA ⚠️</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estimación-óptima-1"><i class="fa fa-check"></i>Estimación óptima</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#diagnóstico-de-residuos-del-modelo-arima"><i class="fa fa-check"></i>Diagnóstico de residuos del modelo ARIMA</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#transformación-de-la-serie-el-uso-de-log"><i class="fa fa-check"></i>Transformación de la serie: el uso de <code>log()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.11" data-path="series-temporales.html"><a href="series-temporales.html#doble-estacionalidad"><i class="fa fa-check"></i><b>5.11</b> Gestión de la doble estacionalidad</a>
+<li class="chapter" data-level="5.10" data-path="series-temporales.html"><a href="series-temporales.html#doble-estacionalidad"><i class="fa fa-check"></i><b>5.10</b> Gestión de la doble estacionalidad</a>
 <ul>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estrategia-1-descomposici%C3%B3n-stl"><i class="fa fa-check"></i>Estrategia 1: descomposición STL</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estrategia-2-regresi%C3%B3n-arm%C3%B3nica-din%C3%A1mica-series-de-fourier"><i class="fa fa-check"></i>Estrategia 2: regresión armónica dinámica (series de Fourier)</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estrategia-1-descomposición-stl"><i class="fa fa-check"></i>Estrategia 1: descomposición STL</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#estrategia-2-regresión-armónica-dinámica-series-de-fourier"><i class="fa fa-check"></i>Estrategia 2: regresión armónica dinámica (series de Fourier)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.11" data-path="series-temporales.html"><a href="series-temporales.html#stl-arima"><i class="fa fa-check"></i><b>5.11</b> Predicción combinando STL y ARIMA</a>
+<ul>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#una-serie-sin-estacionalidad-el-pib-de-españa"><i class="fa fa-check"></i>Una serie sin estacionalidad: el PIB de España</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#una-serie-estacional-la-llegada-de-pasajeros"><i class="fa fa-check"></i>Una serie estacional: la llegada de pasajeros</a></li>
 </ul></li>
 <li class="chapter" data-level="5.12" data-path="series-temporales.html"><a href="series-temporales.html#cv-temporal"><i class="fa fa-check"></i><b>5.12</b> Validación cruzada temporal</a>
 <ul>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#m%C3%A9tricas-por-horizonte-de-predicci%C3%B3n"><i class="fa fa-check"></i>Métricas por horizonte de predicción</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-de-confianza-no-param%C3%A9tricos-por-horizonte"><i class="fa fa-check"></i>Intervalos de confianza no paramétricos por horizonte</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-por-horizonte-de-predicción"><i class="fa fa-check"></i>Métricas por horizonte de predicción</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-de-confianza-no-paramétricos-por-horizonte"><i class="fa fa-check"></i>Intervalos de confianza no paramétricos por horizonte</a></li>
 </ul></li>
-<li class="chapter" data-level="5.13" data-path="series-temporales.html"><a href="series-temporales.html#comparativa-ets-vs.-arima"><i class="fa fa-check"></i><b>5.13</b> Comparativa ETS vs. ARIMA</a></li>
+<li class="chapter" data-level="5.13" data-path="series-temporales.html"><a href="series-temporales.html#comparativa-de-los-tres-métodos-de-predicción"><i class="fa fa-check"></i><b>5.13</b> Comparativa de los tres métodos de predicción</a></li>
 <li class="chapter" data-level="5.14" data-path="series-temporales.html"><a href="series-temporales.html#rellenar-huecos"><i class="fa fa-check"></i><b>5.14</b> Rellenar huecos en una serie temporal y sustituir datos anómalos</a>
 <ul>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#interpolaci%C3%B3n-de-un-hueco-con-estacionalidad-semanal-y-calendario"><i class="fa fa-check"></i>Interpolación de un hueco con estacionalidad semanal y calendario ⚠️</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#cambiar-la-frecuencia-de-una-serie"><i class="fa fa-check"></i>Cambiar la frecuencia de una serie</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#interpolación-de-un-hueco-con-estacionalidad-semanal-y-calendario"><i class="fa fa-check"></i>Interpolación de un hueco con estacionalidad semanal y calendario ⚠️</a></li>
 </ul></li>
-<li class="chapter" data-level="5.15" data-path="series-temporales.html"><a href="series-temporales.html#tendencia-anual"><i class="fa fa-check"></i><b>5.15</b> Predicción de la tendencia en series erráticas ⚠️</a></li>
-<li class="chapter" data-level="5.16" data-path="series-temporales.html"><a href="series-temporales.html#guia-practica"><i class="fa fa-check"></i><b>5.16</b> Guía práctica: cómo abordar una serie temporal</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#ideas-clave-del-cap%C3%ADtulo-4"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="5.15" data-path="series-temporales.html"><a href="series-temporales.html#guia-practica"><i class="fa fa-check"></i><b>5.15</b> Guía práctica: cómo abordar una serie temporal</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#ideas-clave-del-capítulo-4"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html"><i class="fa fa-check"></i><b>6</b> Visualización dinámica</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#diagramas-de-barras-interactivos"><i class="fa fa-check"></i><b>6.1</b> Diagramas de barras interactivos</a></li>
-<li class="chapter" data-level="6.2" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gr%C3%A1ficos-circulares-interactivos"><i class="fa fa-check"></i><b>6.2</b> Gráficos circulares interactivos</a></li>
-<li class="chapter" data-level="6.3" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gr%C3%A1ficos-de-donuts-interactivos"><i class="fa fa-check"></i><b>6.3</b> Gráficos de donuts interactivos</a></li>
+<li class="chapter" data-level="6.2" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gráficos-circulares-interactivos"><i class="fa fa-check"></i><b>6.2</b> Gráficos circulares interactivos</a></li>
+<li class="chapter" data-level="6.3" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gráficos-de-donuts-interactivos"><i class="fa fa-check"></i><b>6.3</b> Gráficos de donuts interactivos</a></li>
 <li class="chapter" data-level="6.4" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#diagramas-de-cajas-interactivos"><i class="fa fa-check"></i><b>6.4</b> Diagramas de cajas interactivos</a></li>
-<li class="chapter" data-level="6.5" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#diagramas-de-dispersi%C3%B3n-interactivos"><i class="fa fa-check"></i><b>6.5</b> Diagramas de dispersión interactivos</a></li>
-<li class="chapter" data-level="6.6" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#combinando-gr%C3%A1ficos-interactivos-con-subplot"><i class="fa fa-check"></i><b>6.6</b> Combinando gráficos interactivos con <code>subplot</code></a></li>
-<li class="chapter" data-level="6.7" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gr%C3%A1ficos-de-l%C3%ADnea-interactivos"><i class="fa fa-check"></i><b>6.7</b> Gráficos de línea interactivos</a></li>
-<li class="chapter" data-level="6.8" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#series-temporales-interactivas"><i class="fa fa-check"></i><b>6.8</b> Series temporales interactivas</a></li>
-<li class="chapter" data-level="6.9" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapas-de-calor-interactivos"><i class="fa fa-check"></i><b>6.9</b> Mapas de calor interactivos</a></li>
+<li class="chapter" data-level="6.5" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#diagramas-de-dispersión-interactivos"><i class="fa fa-check"></i><b>6.5</b> Diagramas de dispersión interactivos</a></li>
+<li class="chapter" data-level="6.6" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#combinando-gráficos-interactivos-con-subplot"><i class="fa fa-check"></i><b>6.6</b> Combinando gráficos interactivos con <code>subplot</code></a></li>
+<li class="chapter" data-level="6.7" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gráficos-de-línea-interactivos"><i class="fa fa-check"></i><b>6.7</b> Gráficos de línea interactivos</a></li>
+<li class="chapter" data-level="6.8" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapas-de-calor-interactivo"><i class="fa fa-check"></i><b>6.8</b> Mapas de calor interactivo</a></li>
+<li class="chapter" data-level="6.9" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#series-temporales-interactivas-y-gráficos-de-área."><i class="fa fa-check"></i><b>6.9</b> Series temporales interactivas y gráficos de área.</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#representación-interactiva-de-una-predicción"><i class="fa fa-check"></i>Representación interactiva de una predicción</a></li>
+</ul></li>
 <li class="chapter" data-level="6.10" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapas-interactivos-con-leaflet"><i class="fa fa-check"></i><b>6.10</b> Mapas interactivos con <code>leaflet</code></a>
 <ul>
-<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#pa%C3%ADses-del-mundo"><i class="fa fa-check"></i>Países del mundo</a></li>
+<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#países-del-mundo"><i class="fa fa-check"></i>Países del mundo</a></li>
 <li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#datos-de-canarias"><i class="fa fa-check"></i>Datos de Canarias</a></li>
-<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#datos-de-espa%C3%B1a"><i class="fa fa-check"></i>Datos de España</a></li>
+<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#datos-de-españa"><i class="fa fa-check"></i>Datos de España</a></li>
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapas-con-openstreetmap"><i class="fa fa-check"></i><b>6.11</b> Mapas con OpenStreetMap</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#control-de-capas-en-mapas"><i class="fa fa-check"></i>Control de capas en mapas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.12" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapas-coropl%C3%A9ticos"><i class="fa fa-check"></i><b>6.12</b> Mapas coropléticos</a>
+<li class="chapter" data-level="6.12" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapas-coropléticos"><i class="fa fa-check"></i><b>6.12</b> Mapas coropléticos</a>
 <ul>
-<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapa-coropl%C3%A9tico-de-espa%C3%B1a-por-comunidades-aut%C3%B3nomas"><i class="fa fa-check"></i>Mapa coroplético de España por comunidades autónomas</a></li>
+<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#mapa-coroplético-de-españa-por-comunidades-autónomas"><i class="fa fa-check"></i>Mapa coroplético de España por comunidades autónomas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.13" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gr%C3%A1ficos-animados"><i class="fa fa-check"></i><b>6.13</b> Gráficos animados</a>
+<li class="chapter" data-level="6.13" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#gráficos-animados"><i class="fa fa-check"></i><b>6.13</b> Gráficos animados</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#otras-transiciones-de-gganimate"><i class="fa fa-check"></i>Otras transiciones de <code>gganimate</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.14" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#visualizaci%C3%B3n-din%C3%A1mica-de-tablas"><i class="fa fa-check"></i><b>6.14</b> Visualización dinámica de tablas</a>
+<li class="chapter" data-level="6.14" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#visualización-dinámica-de-tablas"><i class="fa fa-check"></i><b>6.14</b> Visualización dinámica de tablas</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#formato-condicional-en-tablas"><i class="fa fa-check"></i>Formato condicional en tablas</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#ideas-clave-del-cap%C3%ADtulo-5"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="" data-path="visualización-dinámica.html"><a href="visualización-dinámica.html#ideas-clave-del-capítulo-5"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html"><i class="fa fa-check"></i><b>7</b> Cuadros de mando (dashboards)</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#principios-de-dise%C3%B1o-de-cuadros-de-mando"><i class="fa fa-check"></i><b>7.1</b> Principios de diseño de cuadros de mando</a></li>
-<li class="chapter" data-level="7.2" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ejemplo-b%C3%A1sico"><i class="fa fa-check"></i><b>7.2</b> Ejemplo básico</a></li>
-<li class="chapter" data-level="7.3" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#funciones-reactivas-y-procesado-de-datos"><i class="fa fa-check"></i><b>7.3</b> Funciones reactivas y procesado de datos</a>
+<li class="chapter" data-level="7.1" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#principios-de-diseño-de-cuadros-de-mando"><i class="fa fa-check"></i><b>7.1</b> Principios de diseño de cuadros de mando</a></li>
+<li class="chapter" data-level="7.2" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#la-estructura-de-un-cuadro-de-mando"><i class="fa fa-check"></i><b>7.2</b> La estructura de un cuadro de mando</a></li>
+<li class="chapter" data-level="7.3" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ejemplo-básico"><i class="fa fa-check"></i><b>7.3</b> Ejemplo básico</a></li>
+<li class="chapter" data-level="7.4" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#funciones-reactivas-y-procesado-de-datos"><i class="fa fa-check"></i><b>7.4</b> Funciones reactivas y procesado de datos</a>
 <ul>
 <li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#funciones-de-renderizado"><i class="fa fa-check"></i>Funciones de renderizado</a></li>
 <li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#valuebox-para-indicadores-clave"><i class="fa fa-check"></i><code>valueBox</code> para indicadores clave</a></li>
 <li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#tablas-interactivas-con-dtrenderdatatable"><i class="fa fa-check"></i>Tablas interactivas con <code>DT::renderDataTable</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ejemplo-organizaci%C3%B3n-cuadro-de-mandos-completo"><i class="fa fa-check"></i><b>7.4</b> Ejemplo organización cuadro de mandos completo</a></li>
-<li class="chapter" data-level="7.5" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-hchart"><i class="fa fa-check"></i><b>7.5</b> Cuadro de mandos con <code>hchart</code></a></li>
-<li class="chapter" data-level="7.6" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-leaflet"><i class="fa fa-check"></i><b>7.6</b> Cuadro de mandos con <code>Leaflet</code></a></li>
-<li class="chapter" data-level="7.7" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-plotly"><i class="fa fa-check"></i><b>7.7</b> Cuadro de mandos con <code>Plotly</code></a></li>
-<li class="chapter" data-level="7.8" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#opciones-de-configuraci%C3%B3n"><i class="fa fa-check"></i><b>7.8</b> Opciones de configuración</a></li>
-<li class="chapter" data-level="7.9" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#exploraci%C3%B3n-de-datos-multidimensionales"><i class="fa fa-check"></i><b>7.9</b> Exploración de datos multidimensionales</a></li>
-<li class="chapter" data-level="7.10" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#rendimiento-de-los-cuadros-de-mando"><i class="fa fa-check"></i><b>7.10</b> Rendimiento de los cuadros de mando</a></li>
-<li class="chapter" data-level="7.11" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#publicar-un-cuadro-de-mando"><i class="fa fa-check"></i><b>7.11</b> Publicar un cuadro de mando</a></li>
-<li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ideas-clave-del-cap%C3%ADtulo-6"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="7.5" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ejemplo-organización-cuadro-de-mandos-completo"><i class="fa fa-check"></i><b>7.5</b> Ejemplo organización cuadro de mandos completo</a></li>
+<li class="chapter" data-level="7.6" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-hchart"><i class="fa fa-check"></i><b>7.6</b> Cuadro de mandos con <code>hchart</code></a></li>
+<li class="chapter" data-level="7.7" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-leaflet"><i class="fa fa-check"></i><b>7.7</b> Cuadro de mandos con <code>Leaflet</code></a></li>
+<li class="chapter" data-level="7.8" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-plotly"><i class="fa fa-check"></i><b>7.8</b> Cuadro de mandos con <code>Plotly</code></a></li>
+<li class="chapter" data-level="7.9" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#opciones-de-configuración"><i class="fa fa-check"></i><b>7.9</b> Opciones de configuración</a></li>
+<li class="chapter" data-level="7.10" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#exploración-de-datos-multidimensionales"><i class="fa fa-check"></i><b>7.10</b> Exploración de datos multidimensionales</a>
+<ul>
+<li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#interfaz-que-depende-de-la-propia-interfaz"><i class="fa fa-check"></i>Interfaz que depende de la propia interfaz</a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#rendimiento-de-los-cuadros-de-mando"><i class="fa fa-check"></i><b>7.11</b> Rendimiento de los cuadros de mando</a></li>
+<li class="chapter" data-level="7.12" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#publicar-un-cuadro-de-mando"><i class="fa fa-check"></i><b>7.12</b> Publicar un cuadro de mando</a></li>
+<li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ideas-clave-del-capítulo-6"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html"><i class="fa fa-check"></i><b>8</b> Análisis de atributos</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#introducci%C3%B3n-1"><i class="fa fa-check"></i><b>8.1</b> Introducción</a></li>
-<li class="chapter" data-level="8.2" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#la-elecci%C3%B3n-de-los-atributos-en-datos-multidimensionales"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
-<li class="chapter" data-level="8.3" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#relaci%C3%B3n-entre-dos-variables"><i class="fa fa-check"></i><b>8.3</b> Relación entre dos variables</a>
+<li class="chapter" data-level="8.1" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#introducción-1"><i class="fa fa-check"></i><b>8.1</b> Introducción</a></li>
+<li class="chapter" data-level="8.2" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#la-elección-de-los-atributos-en-datos-multidimensionales"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
+<li class="chapter" data-level="8.3" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#relación-entre-dos-variables"><i class="fa fa-check"></i><b>8.3</b> Relación entre dos variables</a>
 <ul>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#correlaci%C3%B3n"><i class="fa fa-check"></i>Correlación</a></li>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#recta-de-regresi%C3%B3n"><i class="fa fa-check"></i>Recta de regresión</a></li>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#relaci%C3%B3n-no-lineal-entre-variables"><i class="fa fa-check"></i>Relación no lineal entre variables</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#correlación"><i class="fa fa-check"></i>Correlación</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#recta-de-regresión"><i class="fa fa-check"></i>Recta de regresión</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#relación-no-lineal-entre-variables"><i class="fa fa-check"></i>Relación no lineal entre variables</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#la-matriz-de-correlaci%C3%B3n"><i class="fa fa-check"></i><b>8.4</b> La matriz de correlación</a></li>
-<li class="chapter" data-level="8.5" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#an%C3%A1lisis-de-componentes-principales-acp"><i class="fa fa-check"></i><b>8.5</b> Análisis de componentes principales (ACP)</a>
+<li class="chapter" data-level="8.4" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#yeo-johnson-color"><i class="fa fa-check"></i><b>8.4</b> Yeo-Johnson para aproximar la normalidad: coloreado robusto de mapas de calor</a></li>
+<li class="chapter" data-level="8.5" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#la-matriz-de-correlación"><i class="fa fa-check"></i><b>8.5</b> La matriz de correlación</a></li>
+<li class="chapter" data-level="8.6" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#análisis-de-componentes-principales-acp"><i class="fa fa-check"></i><b>8.6</b> Análisis de componentes principales (ACP)</a>
 <ul>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#fundamento-te%C3%B3rico"><i class="fa fa-check"></i>Fundamento teórico ⚠️</a></li>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#c%C3%A1lculo-acp-con-prcomp"><i class="fa fa-check"></i>Cálculo ACP con <code>prcomp</code></a></li>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#visualizaci%C3%B3n-acp"><i class="fa fa-check"></i>Visualización ACP</a></li>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#criterios-para-elegir-el-n%C3%BAmero-de-componentes"><i class="fa fa-check"></i>Criterios para elegir el número de componentes</a></li>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#interpretaci%C3%B3n-de-los-loadings"><i class="fa fa-check"></i>Interpretación de los loadings</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#fundamento-teórico"><i class="fa fa-check"></i>Fundamento teórico ⚠️</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#cálculo-acp-con-prcomp"><i class="fa fa-check"></i>Cálculo ACP con <code>prcomp</code></a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#visualización-acp"><i class="fa fa-check"></i>Visualización ACP</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#criterios-para-elegir-el-número-de-componentes"><i class="fa fa-check"></i>Criterios para elegir el número de componentes</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#interpretación-de-los-loadings"><i class="fa fa-check"></i>Interpretación de los loadings</a></li>
 <li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#biplot-del-acp-todos-los-indicadores"><i class="fa fa-check"></i>Biplot del ACP (todos los indicadores)</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#mas-alla-acp"><i class="fa fa-check"></i><b>8.6</b> Aplicación del ACP: agrupación con k-means</a></li>
-<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#ideas-clave-del-cap%C3%ADtulo-7"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="8.7" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#mas-alla-acp"><i class="fa fa-check"></i><b>8.7</b> Aplicación del ACP: agrupación con k-means</a></li>
+<li class="chapter" data-level="" data-path="análisis-de-atributos.html"><a href="análisis-de-atributos.html#ideas-clave-del-capítulo-7"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html"><i class="fa fa-check"></i>Apéndice 1. Sintaxis de Markdown</a>
 <ul>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-de-texto-con-pandoc"><i class="fa fa-check"></i>Formato de texto con Pandoc</a>
 <ul>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-de-negritas-it%C3%A1licas-y-c%C3%B3digo"><i class="fa fa-check"></i>Formato de <strong>negritas</strong>, <em>itálicas</em> y <code>código</code></a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-de-negritas-itálicas-y-código"><i class="fa fa-check"></i>Formato de <strong>negritas</strong>, <em>itálicas</em> y <code>código</code></a></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-cabeceras-de-las-secciones-y-subsecciones"><i class="fa fa-check"></i>Formato cabeceras de las secciones y subsecciones</a></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-listas-numeradas"><i class="fa fa-check"></i>Formato listas numeradas</a></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-listas-con-puntos"><i class="fa fa-check"></i>Formato listas con puntos</a></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-listas-anidadas"><i class="fa fa-check"></i>Formato listas anidadas</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-l%C3%ADnea-horizontal"><i class="fa fa-check"></i>Formato línea horizontal</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-línea-horizontal"><i class="fa fa-check"></i>Formato línea horizontal</a></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-tablas"><i class="fa fa-check"></i>Formato tablas</a></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-enlaces-web"><i class="fa fa-check"></i>Formato enlaces web</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-inserci%C3%B3n-imagen"><i class="fa fa-check"></i>Formato inserción imagen</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#formato-inserción-imagen"><i class="fa fa-check"></i>Formato inserción imagen</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#f%C3%B3rmulas-matem%C3%A1ticas-con-latex"><i class="fa fa-check"></i>Fórmulas matemáticas con LaTeX</a>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#fórmulas-matemáticas-con-latex"><i class="fa fa-check"></i>Fórmulas matemáticas con LaTeX</a>
 <ul>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#f%C3%B3rmulas-inline"><i class="fa fa-check"></i>Fórmulas inline</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#f%C3%B3rmulas-en-bloque"><i class="fa fa-check"></i>Fórmulas en bloque</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#s%C3%ADmbolos-y-operaciones-habituales"><i class="fa fa-check"></i>Símbolos y operaciones habituales</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#ejemplo-de-f%C3%B3rmula-compleja"><i class="fa fa-check"></i>Ejemplo de fórmula compleja</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#fórmulas-inline"><i class="fa fa-check"></i>Fórmulas inline</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#fórmulas-en-bloque"><i class="fa fa-check"></i>Fórmulas en bloque</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#símbolos-y-operaciones-habituales"><i class="fa fa-check"></i>Símbolos y operaciones habituales</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#ejemplo-de-fórmula-compleja"><i class="fa fa-check"></i>Ejemplo de fórmula compleja</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#c%C3%B3digos-en-el-fichero-markdown"><i class="fa fa-check"></i>Códigos en el fichero Markdown</a>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#códigos-en-el-fichero-markdown"><i class="fa fa-check"></i>Códigos en el fichero Markdown</a>
 <ul>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#cabecera-del-fichero-markdown"><i class="fa fa-check"></i>Cabecera del fichero Markdown</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#fragmentos-de-c%C3%B3digo-chunks"><i class="fa fa-check"></i>Fragmentos de código (<code>chunks</code>)</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#c%C3%B3digo-r-inline"><i class="fa fa-check"></i>Código R inline</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#inclusi%C3%B3n-de-ficheros-externos-con-child"><i class="fa fa-check"></i>Inclusión de ficheros externos con <code>child</code></a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#fragmentos-de-código-chunks"><i class="fa fa-check"></i>Fragmentos de código (<code>chunks</code>)</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#código-r-inline"><i class="fa fa-check"></i>Código R inline</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#inclusión-de-ficheros-externos-con-child"><i class="fa fa-check"></i>Inclusión de ficheros externos con <code>child</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#referencias-cruzadas-en-bookdown"><i class="fa fa-check"></i>Referencias cruzadas en bookdown</a>
 <ul>
@@ -491,7 +505,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#referencias-a-secciones"><i class="fa fa-check"></i>Referencias a secciones</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#bloques-destacados-callout-blocks"><i class="fa fa-check"></i>Bloques destacados (callout blocks)</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#plantilla-de-informe-de-an%C3%A1lisis-de-datos"><i class="fa fa-check"></i>Plantilla de informe de análisis de datos</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#plantilla-de-informe-de-análisis-de-datos"><i class="fa fa-check"></i>Plantilla de informe de análisis de datos</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -516,7 +530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="apendice-markdown" class="section level1 unnumbered hasAnchor">
 <h1>Apéndice 1. Sintaxis de Markdown<a href="apendice-markdown.html#apendice-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha última actualización: 2026-08-13</p>
+<p>Fecha última actualización: 2026-08-17</p>
 <p>Este apéndice recoge la sintaxis básica de <code>R Markdown</code> que se utiliza a lo largo del libro. Gran parte de esta referencia también está disponible en RStudio a través de la opción <code>Markdown quick reference</code> del menú de ayuda. Como referencia rápida puede consultarse también la <a href="https://rstudio.github.io/cheatsheets/translations/spanish/rmarkdown_es.pdf">ficha resumen de R Markdown</a>.</p>
 <blockquote>
 <p><strong>Nota sobre Quarto.</strong> <a href="https://quarto.org/">Quarto</a> (<code>.qmd</code>) es el sucesor de RMarkdown desarrollado por Posit (antes RStudio). Utiliza una sintaxis muy similar, pero incorpora mejoras como soporte nativo para múltiples lenguajes (R, Python, Julia, Observable), cuadros de mando, presentaciones y publicaciones web. La mayor parte de la sintaxis presentada en este apéndice es directamente compatible con Quarto. Para nuevos proyectos, se recomienda considerar Quarto como alternativa.</p>
@@ -524,19 +538,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="formato-de-texto-con-pandoc" class="section level2 unnumbered hasAnchor">
 <h2>Formato de texto con Pandoc<a href="apendice-markdown.html#formato-de-texto-con-pandoc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="formato-de-negritas-itálicas-y-código" class="section level3 unnumbered hasAnchor">
-<h3>Formato de <strong>negritas</strong>, <em>itálicas</em> y <code>código</code><a href="apendice-markdown.html#formato-de-negritas-it%C3%A1licas-y-c%C3%B3digo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb649"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb649-1"><a href="apendice-markdown.html#cb649-1" tabindex="-1"></a>**negritas**, *itálicas* y `código`</span></code></pre></div>
+<h3>Formato de <strong>negritas</strong>, <em>itálicas</em> y <code>código</code><a href="apendice-markdown.html#formato-de-negritas-itálicas-y-código" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb701"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb701-1"><a href="apendice-markdown.html#cb701-1" tabindex="-1"></a>**negritas**, *itálicas* y `código`</span></code></pre></div>
 </div>
 <div id="formato-cabeceras-de-las-secciones-y-subsecciones" class="section level3 unnumbered hasAnchor">
 <h3>Formato cabeceras de las secciones y subsecciones<a href="apendice-markdown.html#formato-cabeceras-de-las-secciones-y-subsecciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb650"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb650-1"><a href="apendice-markdown.html#cb650-1" tabindex="-1"></a> # Título sección</span>
-<span id="cb650-2"><a href="apendice-markdown.html#cb650-2" tabindex="-1"></a> ## Título subsección</span>
-<span id="cb650-3"><a href="apendice-markdown.html#cb650-3" tabindex="-1"></a> ### Título subsubsección</span></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb702-1"><a href="apendice-markdown.html#cb702-1" tabindex="-1"></a> # Título sección</span>
+<span id="cb702-2"><a href="apendice-markdown.html#cb702-2" tabindex="-1"></a> ## Título subsección</span>
+<span id="cb702-3"><a href="apendice-markdown.html#cb702-3" tabindex="-1"></a> ### Título subsubsección</span></code></pre></div>
 </div>
 <div id="formato-listas-numeradas" class="section level3 unnumbered hasAnchor">
 <h3>Formato listas numeradas<a href="apendice-markdown.html#formato-listas-numeradas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb651"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb651-1"><a href="apendice-markdown.html#cb651-1" tabindex="-1"></a>1. item 1</span>
-<span id="cb651-2"><a href="apendice-markdown.html#cb651-2" tabindex="-1"></a>1. item 2</span></code></pre></div>
+<div class="sourceCode" id="cb703"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb703-1"><a href="apendice-markdown.html#cb703-1" tabindex="-1"></a>1. item 1</span>
+<span id="cb703-2"><a href="apendice-markdown.html#cb703-2" tabindex="-1"></a>1. item 2</span></code></pre></div>
 <p>Resultado compilado:</p>
 <ol style="list-style-type: decimal">
 <li>item 1</li>
@@ -545,8 +559,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formato-listas-con-puntos" class="section level3 unnumbered hasAnchor">
 <h3>Formato listas con puntos<a href="apendice-markdown.html#formato-listas-con-puntos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb652"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb652-1"><a href="apendice-markdown.html#cb652-1" tabindex="-1"></a>+ item 1</span>
-<span id="cb652-2"><a href="apendice-markdown.html#cb652-2" tabindex="-1"></a>+ item 2</span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb704-1"><a href="apendice-markdown.html#cb704-1" tabindex="-1"></a>+ item 1</span>
+<span id="cb704-2"><a href="apendice-markdown.html#cb704-2" tabindex="-1"></a>+ item 2</span></code></pre></div>
 <p>Resultado compilado:</p>
 <ul>
 <li>item 1</li>
@@ -555,10 +569,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formato-listas-anidadas" class="section level3 unnumbered hasAnchor">
 <h3>Formato listas anidadas<a href="apendice-markdown.html#formato-listas-anidadas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb653"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb653-1"><a href="apendice-markdown.html#cb653-1" tabindex="-1"></a>1. item 1</span>
-<span id="cb653-2"><a href="apendice-markdown.html#cb653-2" tabindex="-1"></a>    + item 1.1 # se dejan 4 espacios en blanco como margen por la izquierda</span>
-<span id="cb653-3"><a href="apendice-markdown.html#cb653-3" tabindex="-1"></a>    + item 1.2</span>
-<span id="cb653-4"><a href="apendice-markdown.html#cb653-4" tabindex="-1"></a>1. item 2</span></code></pre></div>
+<div class="sourceCode" id="cb705"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb705-1"><a href="apendice-markdown.html#cb705-1" tabindex="-1"></a>1. item 1</span>
+<span id="cb705-2"><a href="apendice-markdown.html#cb705-2" tabindex="-1"></a>    + item 1.1 # se dejan 4 espacios en blanco como margen por la izquierda</span>
+<span id="cb705-3"><a href="apendice-markdown.html#cb705-3" tabindex="-1"></a>    + item 1.2</span>
+<span id="cb705-4"><a href="apendice-markdown.html#cb705-4" tabindex="-1"></a>1. item 2</span></code></pre></div>
 <p>Resultado compilado:</p>
 <ol style="list-style-type: decimal">
 <li>item 1
@@ -570,22 +584,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="formato-línea-horizontal" class="section level3 unnumbered hasAnchor">
-<h3>Formato línea horizontal<a href="apendice-markdown.html#formato-l%C3%ADnea-horizontal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb654"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb654-1"><a href="apendice-markdown.html#cb654-1" tabindex="-1"></a>****</span></code></pre></div>
+<h3>Formato línea horizontal<a href="apendice-markdown.html#formato-línea-horizontal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb706"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb706-1"><a href="apendice-markdown.html#cb706-1" tabindex="-1"></a>****</span></code></pre></div>
 <p>Resultado compilado:</p>
 <hr />
 </div>
 <div id="formato-tablas" class="section level3 unnumbered hasAnchor">
 <h3>Formato tablas<a href="apendice-markdown.html#formato-tablas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb655"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb655-1"><a href="apendice-markdown.html#cb655-1" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
-<span id="cb655-2"><a href="apendice-markdown.html#cb655-2" tabindex="-1"></a>| A             | B             | C                  |</span>
-<span id="cb655-3"><a href="apendice-markdown.html#cb655-3" tabindex="-1"></a>+===============+===============+====================+</span>
-<span id="cb655-4"><a href="apendice-markdown.html#cb655-4" tabindex="-1"></a>| A0            | B1            | - C10              |</span>
-<span id="cb655-5"><a href="apendice-markdown.html#cb655-5" tabindex="-1"></a>|               |               | - C11              |</span>
-<span id="cb655-6"><a href="apendice-markdown.html#cb655-6" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
-<span id="cb655-7"><a href="apendice-markdown.html#cb655-7" tabindex="-1"></a>| A1            | B2            | - C20              |</span>
-<span id="cb655-8"><a href="apendice-markdown.html#cb655-8" tabindex="-1"></a>|               |               | - C21              |</span>
-<span id="cb655-9"><a href="apendice-markdown.html#cb655-9" tabindex="-1"></a>+---------------+---------------+--------------------+</span></code></pre></div>
+<div class="sourceCode" id="cb707"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb707-1"><a href="apendice-markdown.html#cb707-1" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
+<span id="cb707-2"><a href="apendice-markdown.html#cb707-2" tabindex="-1"></a>| A             | B             | C                  |</span>
+<span id="cb707-3"><a href="apendice-markdown.html#cb707-3" tabindex="-1"></a>+===============+===============+====================+</span>
+<span id="cb707-4"><a href="apendice-markdown.html#cb707-4" tabindex="-1"></a>| A0            | B1            | - C10              |</span>
+<span id="cb707-5"><a href="apendice-markdown.html#cb707-5" tabindex="-1"></a>|               |               | - C11              |</span>
+<span id="cb707-6"><a href="apendice-markdown.html#cb707-6" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
+<span id="cb707-7"><a href="apendice-markdown.html#cb707-7" tabindex="-1"></a>| A1            | B2            | - C20              |</span>
+<span id="cb707-8"><a href="apendice-markdown.html#cb707-8" tabindex="-1"></a>|               |               | - C21              |</span>
+<span id="cb707-9"><a href="apendice-markdown.html#cb707-9" tabindex="-1"></a>+---------------+---------------+--------------------+</span></code></pre></div>
 <p>Resultado compilado:</p>
 <table style="width:74%;">
 <colgroup>
@@ -620,15 +634,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Construcción de una tabla formateada a partir de un <code>tibble</code> mediante <code>knitr::kable</code>:</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="apendice-markdown.html#cb656-1" tabindex="-1"></a><span class="co"># knitr::kable convierte un tibble en una tabla formateada en el documento compilado</span></span>
-<span id="cb656-2"><a href="apendice-markdown.html#cb656-2" tabindex="-1"></a><span class="fu">tibble</span>(</span>
-<span id="cb656-3"><a href="apendice-markdown.html#cb656-3" tabindex="-1"></a>  año<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1985</span>,<span class="dv">2000</span>,<span class="dv">2015</span>),</span>
-<span id="cb656-4"><a href="apendice-markdown.html#cb656-4" tabindex="-1"></a>  España<span class="ot">=</span><span class="fu">c</span>(<span class="fl">38.734</span>,<span class="fl">40.75</span>,<span class="fl">46.122</span>),</span>
-<span id="cb656-5"><a href="apendice-markdown.html#cb656-5" tabindex="-1"></a>  <span class="at">Francia=</span><span class="fu">c</span>(<span class="fl">55.38</span>,<span class="fl">59.387</span>,<span class="fl">64.395</span>),</span>
-<span id="cb656-6"><a href="apendice-markdown.html#cb656-6" tabindex="-1"></a>  <span class="at">Alemania=</span><span class="fu">c</span>(<span class="fl">77.57</span>,<span class="fl">81.896</span>,<span class="fl">80.689</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb656-7"><a href="apendice-markdown.html#cb656-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Población anual en millones&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="apendice-markdown.html#cb708-1" tabindex="-1"></a><span class="co"># knitr::kable convierte un tibble en una tabla formateada en el documento compilado</span></span>
+<span id="cb708-2"><a href="apendice-markdown.html#cb708-2" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb708-3"><a href="apendice-markdown.html#cb708-3" tabindex="-1"></a>  año<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1985</span>,<span class="dv">2000</span>,<span class="dv">2015</span>),</span>
+<span id="cb708-4"><a href="apendice-markdown.html#cb708-4" tabindex="-1"></a>  España<span class="ot">=</span><span class="fu">c</span>(<span class="fl">38.734</span>,<span class="fl">40.75</span>,<span class="fl">46.122</span>),</span>
+<span id="cb708-5"><a href="apendice-markdown.html#cb708-5" tabindex="-1"></a>  <span class="at">Francia=</span><span class="fu">c</span>(<span class="fl">55.38</span>,<span class="fl">59.387</span>,<span class="fl">64.395</span>),</span>
+<span id="cb708-6"><a href="apendice-markdown.html#cb708-6" tabindex="-1"></a>  <span class="at">Alemania=</span><span class="fu">c</span>(<span class="fl">77.57</span>,<span class="fl">81.896</span>,<span class="fl">80.689</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb708-7"><a href="apendice-markdown.html#cb708-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Población anual en millones&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-219">Table 8.2: </span>Población anual en millones</caption>
+<caption><span id="tab:unnamed-chunk-228">Table 8.3: </span>Población anual en millones</caption>
 <thead>
 <tr class="header">
 <th align="right">año</th>
@@ -661,13 +675,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formato-enlaces-web" class="section level3 unnumbered hasAnchor">
 <h3>Formato enlaces web<a href="apendice-markdown.html#formato-enlaces-web" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb657"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb657-1"><a href="apendice-markdown.html#cb657-1" tabindex="-1"></a>[enlace web](https://www.google.es/)</span></code></pre></div>
+<div class="sourceCode" id="cb709"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb709-1"><a href="apendice-markdown.html#cb709-1" tabindex="-1"></a>[enlace web](https://www.google.es/)</span></code></pre></div>
 <p>Resultado compilado:</p>
 <p><a href="https://www.google.es/">enlace web</a></p>
 </div>
 <div id="formato-inserción-imagen" class="section level3 unnumbered hasAnchor">
-<h3>Formato inserción imagen<a href="apendice-markdown.html#formato-inserci%C3%B3n-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb658"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb658-1"><a href="apendice-markdown.html#cb658-1" tabindex="-1"></a>![Título imagen](https://ctim.es/Delmond.png){ width=50% }</span></code></pre></div>
+<h3>Formato inserción imagen<a href="apendice-markdown.html#formato-inserción-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb710"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb710-1"><a href="apendice-markdown.html#cb710-1" tabindex="-1"></a>![Título imagen](https://ctim.es/Delmond.png){ width=50% }</span></code></pre></div>
 <p>Resultado compilado:</p>
 <div class="float">
 <img src="https://ctim.es/Delmond.png" style="width:50.0%" alt="Título imagen" />
@@ -676,27 +690,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="fórmulas-matemáticas-con-latex" class="section level2 unnumbered hasAnchor">
-<h2>Fórmulas matemáticas con LaTeX<a href="apendice-markdown.html#f%C3%B3rmulas-matem%C3%A1ticas-con-latex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2>Fórmulas matemáticas con LaTeX<a href="apendice-markdown.html#fórmulas-matemáticas-con-latex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>RMarkdown permite insertar fórmulas matemáticas usando la sintaxis de LaTeX. Las fórmulas pueden aparecer dentro del texto (<em>inline</em>) o en un bloque separado (<em>display</em>).</p>
 <div id="fórmulas-inline" class="section level3 unnumbered hasAnchor">
-<h3>Fórmulas inline<a href="apendice-markdown.html#f%C3%B3rmulas-inline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>Fórmulas inline<a href="apendice-markdown.html#fórmulas-inline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para insertar una fórmula dentro del texto se encierra entre signos de dólar simples:</p>
-<div class="sourceCode" id="cb659"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb659-1"><a href="apendice-markdown.html#cb659-1" tabindex="-1"></a>La famosa ecuación de Einstein es $E = mc^2$ y la identidad de Euler $e^{i\pi} + 1 = 0$.</span></code></pre></div>
+<div class="sourceCode" id="cb711"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb711-1"><a href="apendice-markdown.html#cb711-1" tabindex="-1"></a>La famosa ecuación de Einstein es $E = mc^2$ y la identidad de Euler $e^{i\pi} + 1 = 0$.</span></code></pre></div>
 <p>Resultado compilado: La famosa ecuación de Einstein es <span class="math inline">\(E = mc^2\)</span> y la identidad de Euler <span class="math inline">\(e^{i\pi} + 1 = 0\)</span>.</p>
 </div>
 <div id="fórmulas-en-bloque" class="section level3 unnumbered hasAnchor">
-<h3>Fórmulas en bloque<a href="apendice-markdown.html#f%C3%B3rmulas-en-bloque" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>Fórmulas en bloque<a href="apendice-markdown.html#fórmulas-en-bloque" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para fórmulas centradas en su propia línea se usan dobles signos de dólar:</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb660-1"><a href="apendice-markdown.html#cb660-1" tabindex="-1"></a>$$</span>
-<span id="cb660-2"><a href="apendice-markdown.html#cb660-2" tabindex="-1"></a>\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i</span>
-<span id="cb660-3"><a href="apendice-markdown.html#cb660-3" tabindex="-1"></a>$$</span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb712-1"><a href="apendice-markdown.html#cb712-1" tabindex="-1"></a>$$</span>
+<span id="cb712-2"><a href="apendice-markdown.html#cb712-2" tabindex="-1"></a>\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i</span>
+<span id="cb712-3"><a href="apendice-markdown.html#cb712-3" tabindex="-1"></a>$$</span></code></pre></div>
 <p>Resultado compilado:</p>
 <p><span class="math display">\[
 \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
 \]</span></p>
 </div>
 <div id="símbolos-y-operaciones-habituales" class="section level3 unnumbered hasAnchor">
-<h3>Símbolos y operaciones habituales<a href="apendice-markdown.html#s%C3%ADmbolos-y-operaciones-habituales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>Símbolos y operaciones habituales<a href="apendice-markdown.html#símbolos-y-operaciones-habituales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A continuación se muestran los códigos LaTeX más usados con su resultado:</p>
 <ul>
 <li>Fracción: <code>\frac{a}{b}</code> → <span class="math inline">\(\frac{a}{b}\)</span></li>
@@ -716,12 +730,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="ejemplo-de-fórmula-compleja" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplo de fórmula compleja<a href="apendice-markdown.html#ejemplo-de-f%C3%B3rmula-compleja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>Ejemplo de fórmula compleja<a href="apendice-markdown.html#ejemplo-de-fórmula-compleja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La fórmula de la correlación que usamos en el curso se escribiría así:</p>
-<div class="sourceCode" id="cb661"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb661-1"><a href="apendice-markdown.html#cb661-1" tabindex="-1"></a>$$</span>
-<span id="cb661-2"><a href="apendice-markdown.html#cb661-2" tabindex="-1"></a>r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}</span>
-<span id="cb661-3"><a href="apendice-markdown.html#cb661-3" tabindex="-1"></a>{\sqrt{\sum_{k=1}^{m}(x_k - \bar{x})^2 \sum_{k=1}^{m}(y_k - \bar{y})^2}}</span>
-<span id="cb661-4"><a href="apendice-markdown.html#cb661-4" tabindex="-1"></a>$$</span></code></pre></div>
+<div class="sourceCode" id="cb713"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb713-1"><a href="apendice-markdown.html#cb713-1" tabindex="-1"></a>$$</span>
+<span id="cb713-2"><a href="apendice-markdown.html#cb713-2" tabindex="-1"></a>r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}</span>
+<span id="cb713-3"><a href="apendice-markdown.html#cb713-3" tabindex="-1"></a>{\sqrt{\sum_{k=1}^{m}(x_k - \bar{x})^2 \sum_{k=1}^{m}(y_k - \bar{y})^2}}</span>
+<span id="cb713-4"><a href="apendice-markdown.html#cb713-4" tabindex="-1"></a>$$</span></code></pre></div>
 <p>Resultado compilado:</p>
 <p><span class="math display">\[
 r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}
@@ -730,22 +744,22 @@ r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}
 </div>
 </div>
 <div id="códigos-en-el-fichero-markdown" class="section level2 unnumbered hasAnchor">
-<h2>Códigos en el fichero Markdown<a href="apendice-markdown.html#c%C3%B3digos-en-el-fichero-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2>Códigos en el fichero Markdown<a href="apendice-markdown.html#códigos-en-el-fichero-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="cabecera-del-fichero-markdown" class="section level3 unnumbered hasAnchor">
 <h3>Cabecera del fichero Markdown<a href="apendice-markdown.html#cabecera-del-fichero-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb662"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb662-1"><a href="apendice-markdown.html#cb662-1" tabindex="-1"></a>---</span>
-<span id="cb662-2"><a href="apendice-markdown.html#cb662-2" tabindex="-1"></a>title: &quot;Mi título del trabajo&quot;</span>
-<span id="cb662-3"><a href="apendice-markdown.html#cb662-3" tabindex="-1"></a>author: &quot;Mi nombre y apellidos&quot;</span>
-<span id="cb662-4"><a href="apendice-markdown.html#cb662-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
-<span id="cb662-5"><a href="apendice-markdown.html#cb662-5" tabindex="-1"></a>output: html_document</span>
-<span id="cb662-6"><a href="apendice-markdown.html#cb662-6" tabindex="-1"></a>---</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb714-1"><a href="apendice-markdown.html#cb714-1" tabindex="-1"></a>---</span>
+<span id="cb714-2"><a href="apendice-markdown.html#cb714-2" tabindex="-1"></a>title: &quot;Mi título del trabajo&quot;</span>
+<span id="cb714-3"><a href="apendice-markdown.html#cb714-3" tabindex="-1"></a>author: &quot;Mi nombre y apellidos&quot;</span>
+<span id="cb714-4"><a href="apendice-markdown.html#cb714-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
+<span id="cb714-5"><a href="apendice-markdown.html#cb714-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb714-6"><a href="apendice-markdown.html#cb714-6" tabindex="-1"></a>---</span></code></pre></div>
 </div>
 <div id="fragmentos-de-código-chunks" class="section level3 unnumbered hasAnchor">
-<h3>Fragmentos de código (<code>chunks</code>)<a href="apendice-markdown.html#fragmentos-de-c%C3%B3digo-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>Fragmentos de código (<code>chunks</code>)<a href="apendice-markdown.html#fragmentos-de-código-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La sintaxis de los <code>chunks</code> es la siguiente:</p>
-<div class="sourceCode" id="cb663"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb663-1"><a href="apendice-markdown.html#cb663-1" tabindex="-1"></a>```{r, opciones de knitr separadas por comas} </span>
-<span id="cb663-2"><a href="apendice-markdown.html#cb663-2" tabindex="-1"></a>   código </span>
-<span id="cb663-3"><a href="apendice-markdown.html#cb663-3" tabindex="-1"></a>``` </span></code></pre></div>
+<div class="sourceCode" id="cb715"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb715-1"><a href="apendice-markdown.html#cb715-1" tabindex="-1"></a>```{r, opciones de knitr separadas por comas} </span>
+<span id="cb715-2"><a href="apendice-markdown.html#cb715-2" tabindex="-1"></a>   código </span>
+<span id="cb715-3"><a href="apendice-markdown.html#cb715-3" tabindex="-1"></a>``` </span></code></pre></div>
 <div class="metodo">
 <p><strong class="bloque-titulo">Opciones más útiles de los chunks de R Markdown</strong></p>
 <p>Las opciones más habituales de los <code>chunks</code> son:</p>
@@ -764,35 +778,35 @@ r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}
 </ul>
 </div>
 <p>Además, es posible asociar una <strong>etiqueta</strong> (<em>label</em>) a cada chunk escribiéndola al principio, justo después de <code>```{r</code>. Esta etiqueta es imprescindible para poder referenciar figuras y tablas en el texto. El siguiente ejemplo muestra un chunk con etiqueta y sus principales opciones gráficas:</p>
-<div class="sourceCode" id="cb664"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb664-1"><a href="apendice-markdown.html#cb664-1" tabindex="-1"></a>```{r chunk-label,fig.cap = &quot;Leyenda figura&quot;,out.width=&#39;50%&#39;,fig.asp=0.8,fig.align=&#39;center&#39;,cache=TRUE} </span>
-<span id="cb664-2"><a href="apendice-markdown.html#cb664-2" tabindex="-1"></a>tibble(var=c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;),value=1:3) |&gt;</span>
-<span id="cb664-3"><a href="apendice-markdown.html#cb664-3" tabindex="-1"></a>  ggplot(aes(x=var,y=value,fill=var)) +</span>
-<span id="cb664-4"><a href="apendice-markdown.html#cb664-4" tabindex="-1"></a>    geom_col()</span>
-<span id="cb664-5"><a href="apendice-markdown.html#cb664-5" tabindex="-1"></a>``` </span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb716-1"><a href="apendice-markdown.html#cb716-1" tabindex="-1"></a>```{r chunk-label,fig.cap = &quot;Leyenda figura&quot;,out.width=&#39;50%&#39;,fig.asp=0.8,fig.align=&#39;center&#39;,cache=TRUE} </span>
+<span id="cb716-2"><a href="apendice-markdown.html#cb716-2" tabindex="-1"></a>tibble(var=c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;),value=1:3) |&gt;</span>
+<span id="cb716-3"><a href="apendice-markdown.html#cb716-3" tabindex="-1"></a>  ggplot(aes(x=var,y=value,fill=var)) +</span>
+<span id="cb716-4"><a href="apendice-markdown.html#cb716-4" tabindex="-1"></a>    geom_col()</span>
+<span id="cb716-5"><a href="apendice-markdown.html#cb716-5" tabindex="-1"></a>``` </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:chunk-label"></span>
 <img src="AEDV_book_files/figure-html/chunk-label-1.png" alt="Leyenda figura" width="50%" />
 <p class="caption">
-Figure 8.13: Leyenda figura
+Figure 8.14: Leyenda figura
 </p>
 </div>
 <p>Para establecer opciones por defecto que apliquen a <strong>todos</strong> los chunks del documento, se incluye al principio el siguiente bloque de configuración. Esto es especialmente útil para generar informes limpios sin código <code>R</code> visible:</p>
-<div class="sourceCode" id="cb665"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb665-1"><a href="apendice-markdown.html#cb665-1" tabindex="-1"></a>```{r setup, include=FALSE}</span>
-<span id="cb665-2"><a href="apendice-markdown.html#cb665-2" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE)</span>
-<span id="cb665-3"><a href="apendice-markdown.html#cb665-3" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb717"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb717-1"><a href="apendice-markdown.html#cb717-1" tabindex="-1"></a>```{r setup, include=FALSE}</span>
+<span id="cb717-2"><a href="apendice-markdown.html#cb717-2" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE)</span>
+<span id="cb717-3"><a href="apendice-markdown.html#cb717-3" tabindex="-1"></a>```</span></code></pre></div>
 </div>
 <div id="código-r-inline" class="section level3 unnumbered hasAnchor">
-<h3>Código R inline<a href="apendice-markdown.html#c%C3%B3digo-r-inline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>Código R inline<a href="apendice-markdown.html#código-r-inline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Además de los chunks, podemos insertar el resultado de una expresión de R directamente dentro del texto. La sintaxis consiste en escribir, dentro de un par de acentos graves, la letra <code>r</code> seguida de la expresión R que se quiere evaluar:</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb666-1"><a href="apendice-markdown.html#cb666-1" tabindex="-1"></a>`r expresión`</span></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb718-1"><a href="apendice-markdown.html#cb718-1" tabindex="-1"></a>`r expresión`</span></code></pre></div>
 <p>Esto es muy útil para generar informes donde los valores se actualizan automáticamente al cambiar los datos. Por ejemplo, al escribir en el texto:</p>
-<div class="sourceCode" id="cb667"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb667-1"><a href="apendice-markdown.html#cb667-1" tabindex="-1"></a>La tabla tiene `r nrow(owid_country)` países y `r ncol(owid_country)` variables.</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb719-1"><a href="apendice-markdown.html#cb719-1" tabindex="-1"></a>La tabla tiene `r nrow(owid_country)` países y `r ncol(owid_country)` variables.</span></code></pre></div>
 <p>Al compilar, el texto anterior produciría algo como: “La tabla tiene 195 países y 15 variables.” (con los valores reales calculados en el momento de compilación). Esta funcionalidad se usa frecuentemente para incluir en el texto resultados de cálculos, fechas actualizadas o valores estadísticos sin necesidad de mantenerlos manualmente.</p>
 </div>
 <div id="inclusión-de-ficheros-externos-con-child" class="section level3 unnumbered hasAnchor">
-<h3>Inclusión de ficheros externos con <code>child</code><a href="apendice-markdown.html#inclusi%C3%B3n-de-ficheros-externos-con-child" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3>Inclusión de ficheros externos con <code>child</code><a href="apendice-markdown.html#inclusión-de-ficheros-externos-con-child" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Cuando un documento es muy largo, se puede dividir en varios ficheros <code>.Rmd</code> e incluirlos desde un fichero principal usando la opción <code>child</code>:</p>
-<div class="sourceCode" id="cb668"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb668-1"><a href="apendice-markdown.html#cb668-1" tabindex="-1"></a>```{r, child=&quot;capitulo2.Rmd&quot;}</span>
-<span id="cb668-2"><a href="apendice-markdown.html#cb668-2" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb720-1"><a href="apendice-markdown.html#cb720-1" tabindex="-1"></a>```{r, child=&quot;capitulo2.Rmd&quot;}</span>
+<span id="cb720-2"><a href="apendice-markdown.html#cb720-2" tabindex="-1"></a>```</span></code></pre></div>
 <p>Este es precisamente el mecanismo que usa <code>bookdown</code> para combinar los diferentes capítulos del libro en un solo documento. Cada capítulo se escribe en un fichero <code>.Rmd</code> independiente y <code>bookdown</code> los une automáticamente siguiendo el orden especificado en el fichero de configuración <code>_bookdown.yml</code>.</p>
 </div>
 </div>
@@ -802,44 +816,44 @@ Figure 8.13: Leyenda figura
 <div id="referencias-a-figuras" class="section level3 unnumbered hasAnchor">
 <h3>Referencias a figuras<a href="apendice-markdown.html#referencias-a-figuras" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para que una figura sea referenciable, su chunk debe tener una etiqueta (label) y un <code>fig.cap</code>:</p>
-<div class="sourceCode" id="cb669"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb669-1"><a href="apendice-markdown.html#cb669-1" tabindex="-1"></a>```{r mi-figura, fig.cap=&quot;Descripción de la figura&quot;}</span>
-<span id="cb669-2"><a href="apendice-markdown.html#cb669-2" tabindex="-1"></a>plot(1:10)</span>
-<span id="cb669-3"><a href="apendice-markdown.html#cb669-3" tabindex="-1"></a>```</span>
-<span id="cb669-4"><a href="apendice-markdown.html#cb669-4" tabindex="-1"></a></span>
-<span id="cb669-5"><a href="apendice-markdown.html#cb669-5" tabindex="-1"></a>Como se puede observar en la Figura \@ref(fig:mi-figura), los valores crecen linealmente.</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb721-1"><a href="apendice-markdown.html#cb721-1" tabindex="-1"></a>```{r mi-figura, fig.cap=&quot;Descripción de la figura&quot;}</span>
+<span id="cb721-2"><a href="apendice-markdown.html#cb721-2" tabindex="-1"></a>plot(1:10)</span>
+<span id="cb721-3"><a href="apendice-markdown.html#cb721-3" tabindex="-1"></a>```</span>
+<span id="cb721-4"><a href="apendice-markdown.html#cb721-4" tabindex="-1"></a></span>
+<span id="cb721-5"><a href="apendice-markdown.html#cb721-5" tabindex="-1"></a>Como se puede observar en la Figura \@ref(fig:mi-figura), los valores crecen linealmente.</span></code></pre></div>
 <p>La referencia <code>\@ref(fig:...)</code> se reemplaza automáticamente por el número de la figura al compilar. Es importante que la etiqueta del chunk no contenga guiones bajos (<code>_</code>), solo guiones normales (<code>-</code>).</p>
 </div>
 <div id="referencias-a-tablas" class="section level3 unnumbered hasAnchor">
 <h3>Referencias a tablas<a href="apendice-markdown.html#referencias-a-tablas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para tablas generadas con <code>knitr::kable</code>, la referencia se genera a partir del <code>caption</code>:</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb670-1"><a href="apendice-markdown.html#cb670-1" tabindex="-1"></a>```{r mi-tabla}</span>
-<span id="cb670-2"><a href="apendice-markdown.html#cb670-2" tabindex="-1"></a>knitr::kable(head(mtcars, 3), caption = &quot;Primeras filas de mtcars&quot;)</span>
-<span id="cb670-3"><a href="apendice-markdown.html#cb670-3" tabindex="-1"></a>```</span>
-<span id="cb670-4"><a href="apendice-markdown.html#cb670-4" tabindex="-1"></a></span>
-<span id="cb670-5"><a href="apendice-markdown.html#cb670-5" tabindex="-1"></a>Los datos se muestran en la Tabla \@ref(tab:mi-tabla).</span></code></pre></div>
+<div class="sourceCode" id="cb722"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb722-1"><a href="apendice-markdown.html#cb722-1" tabindex="-1"></a>```{r mi-tabla}</span>
+<span id="cb722-2"><a href="apendice-markdown.html#cb722-2" tabindex="-1"></a>knitr::kable(head(mtcars, 3), caption = &quot;Primeras filas de mtcars&quot;)</span>
+<span id="cb722-3"><a href="apendice-markdown.html#cb722-3" tabindex="-1"></a>```</span>
+<span id="cb722-4"><a href="apendice-markdown.html#cb722-4" tabindex="-1"></a></span>
+<span id="cb722-5"><a href="apendice-markdown.html#cb722-5" tabindex="-1"></a>Los datos se muestran en la Tabla \@ref(tab:mi-tabla).</span></code></pre></div>
 </div>
 <div id="referencias-a-secciones" class="section level3 unnumbered hasAnchor">
 <h3>Referencias a secciones<a href="apendice-markdown.html#referencias-a-secciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Las secciones se pueden referenciar si tienen un identificador. El identificador se asigna automáticamente a partir del título o se puede especificar manualmente:</p>
-<div class="sourceCode" id="cb671"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb671-1"><a href="apendice-markdown.html#cb671-1" tabindex="-1"></a>## Mi sección importante {#mi-seccion}</span>
-<span id="cb671-2"><a href="apendice-markdown.html#cb671-2" tabindex="-1"></a></span>
-<span id="cb671-3"><a href="apendice-markdown.html#cb671-3" tabindex="-1"></a>...</span>
-<span id="cb671-4"><a href="apendice-markdown.html#cb671-4" tabindex="-1"></a></span>
-<span id="cb671-5"><a href="apendice-markdown.html#cb671-5" tabindex="-1"></a>Como vimos en la Sección \@ref(mi-seccion), ...</span></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb723-1"><a href="apendice-markdown.html#cb723-1" tabindex="-1"></a>## Mi sección importante {#mi-seccion}</span>
+<span id="cb723-2"><a href="apendice-markdown.html#cb723-2" tabindex="-1"></a></span>
+<span id="cb723-3"><a href="apendice-markdown.html#cb723-3" tabindex="-1"></a>...</span>
+<span id="cb723-4"><a href="apendice-markdown.html#cb723-4" tabindex="-1"></a></span>
+<span id="cb723-5"><a href="apendice-markdown.html#cb723-5" tabindex="-1"></a>Como vimos en la Sección \@ref(mi-seccion), ...</span></code></pre></div>
 <p>Este sistema de referencias es una de las principales ventajas de <code>bookdown</code> sobre RMarkdown estándar, ya que permite que los números de figuras, tablas y secciones se actualicen automáticamente al añadir o reordenar contenido.</p>
 </div>
 </div>
 <div id="bloques-destacados-callout-blocks" class="section level2 unnumbered hasAnchor">
 <h2>Bloques destacados (callout blocks)<a href="apendice-markdown.html#bloques-destacados-callout-blocks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En material docente es habitual usar bloques visuales para resaltar notas, avisos o información importante. En <code>bookdown</code> se pueden crear usando bloques <code>div</code> con clases CSS personalizadas cuya definición se encuentra habitualmente en un fichero de estilos <code>estilos.css</code>. Por ejemplo el código</p>
-<div class="sourceCode" id="cb672"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb672-1"><a href="apendice-markdown.html#cb672-1" tabindex="-1"></a>&lt;div class=&quot;nota&quot;&gt;</span>
-<span id="cb672-2"><a href="apendice-markdown.html#cb672-2" tabindex="-1"></a>&lt;strong class=&quot;bloque-titulo&quot;&gt;Atajos de teclado útiles en RStudio&lt;/strong&gt;</span>
-<span id="cb672-3"><a href="apendice-markdown.html#cb672-3" tabindex="-1"></a></span>
-<span id="cb672-4"><a href="apendice-markdown.html#cb672-4" tabindex="-1"></a>* **Ejecutar una línea:** `Ctrl+Enter` (Windows/Linux) o `Cmd+Enter` (Mac).</span>
-<span id="cb672-5"><a href="apendice-markdown.html#cb672-5" tabindex="-1"></a>* **Ejecutar varias líneas:** seleccionarlas con el ratón y usar el mismo atajo.</span>
-<span id="cb672-6"><a href="apendice-markdown.html#cb672-6" tabindex="-1"></a>* **Ejecutar un chunk completo:** `Alt+Ctrl+C` (Windows) o `Alt+Cmd+Enter` (Mac), con el cursor en cualquier punto del chunk.</span>
-<span id="cb672-7"><a href="apendice-markdown.html#cb672-7" tabindex="-1"></a>* **Maximizar ventana de edición:** `Mayúsculas+Ctrl+1` — alterna entre mostrar y ocultar los paneles secundarios de RStudio.</span>
-<span id="cb672-8"><a href="apendice-markdown.html#cb672-8" tabindex="-1"></a>&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb724-1"><a href="apendice-markdown.html#cb724-1" tabindex="-1"></a>&lt;div class=&quot;nota&quot;&gt;</span>
+<span id="cb724-2"><a href="apendice-markdown.html#cb724-2" tabindex="-1"></a>&lt;strong class=&quot;bloque-titulo&quot;&gt;Atajos de teclado útiles en RStudio&lt;/strong&gt;</span>
+<span id="cb724-3"><a href="apendice-markdown.html#cb724-3" tabindex="-1"></a></span>
+<span id="cb724-4"><a href="apendice-markdown.html#cb724-4" tabindex="-1"></a>* **Ejecutar una línea:** `Ctrl+Enter` (Windows/Linux) o `Cmd+Enter` (Mac).</span>
+<span id="cb724-5"><a href="apendice-markdown.html#cb724-5" tabindex="-1"></a>* **Ejecutar varias líneas:** seleccionarlas con el ratón y usar el mismo atajo.</span>
+<span id="cb724-6"><a href="apendice-markdown.html#cb724-6" tabindex="-1"></a>* **Ejecutar un chunk completo:** `Alt+Ctrl+C` (Windows) o `Alt+Cmd+Enter` (Mac), con el cursor en cualquier punto del chunk.</span>
+<span id="cb724-7"><a href="apendice-markdown.html#cb724-7" tabindex="-1"></a>* **Maximizar ventana de edición:** `Mayúsculas+Ctrl+1` — alterna entre mostrar y ocultar los paneles secundarios de RStudio.</span>
+<span id="cb724-8"><a href="apendice-markdown.html#cb724-8" tabindex="-1"></a>&lt;/div&gt;</span></code></pre></div>
 <p>genera la siguiente salida al compilar:</p>
 <div class="nota">
 <p><strong class="bloque-titulo">Atajos de teclado útiles en RStudio</strong></p>
@@ -851,57 +865,57 @@ Figure 8.13: Leyenda figura
 </ul>
 </div>
 <p>También se puede usar la sintaxis de Pandoc:</p>
-<div class="sourceCode" id="cb673"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb673-1"><a href="apendice-markdown.html#cb673-1" tabindex="-1"></a>&gt; **Nota:** Este es un texto destacado usando la sintaxis de bloque de cita </span>
-<span id="cb673-2"><a href="apendice-markdown.html#cb673-2" tabindex="-1"></a>&gt; de Markdown. Es la forma más sencilla y compatible de crear una nota visual.</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb725-1"><a href="apendice-markdown.html#cb725-1" tabindex="-1"></a>&gt; **Nota:** Este es un texto destacado usando la sintaxis de bloque de cita </span>
+<span id="cb725-2"><a href="apendice-markdown.html#cb725-2" tabindex="-1"></a>&gt; de Markdown. Es la forma más sencilla y compatible de crear una nota visual.</span></code></pre></div>
 <p>Resultado compilado:</p>
 <blockquote>
 <p><strong>Nota:</strong> Este es un texto destacado usando la sintaxis de bloque de cita de Markdown. Es la forma más sencilla y compatible de crear una nota visual.</p>
 </blockquote>
 </div>
 <div id="plantilla-de-informe-de-análisis-de-datos" class="section level2 unnumbered hasAnchor">
-<h2>Plantilla de informe de análisis de datos<a href="apendice-markdown.html#plantilla-de-informe-de-an%C3%A1lisis-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2>Plantilla de informe de análisis de datos<a href="apendice-markdown.html#plantilla-de-informe-de-análisis-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como cierre práctico del apéndice, se ofrece un <strong>esqueleto de informe reproducible</strong> que integra los elementos vistos a lo largo del libro: cabecera YAML, chunk de configuración, carga de librerías y datos, y una estructura de secciones que sigue las fases del análisis exploratorio de datos presentadas en la introducción. Puede copiarse en un fichero <code>.Rmd</code> nuevo y usarse como punto de partida:</p>
-<div class="sourceCode" id="cb674"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb674-1"><a href="apendice-markdown.html#cb674-1" tabindex="-1"></a>---</span>
-<span id="cb674-2"><a href="apendice-markdown.html#cb674-2" tabindex="-1"></a>title: &quot;Informe de análisis de datos&quot;</span>
-<span id="cb674-3"><a href="apendice-markdown.html#cb674-3" tabindex="-1"></a>author: &quot;Nombre y apellidos&quot;</span>
-<span id="cb674-4"><a href="apendice-markdown.html#cb674-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
-<span id="cb674-5"><a href="apendice-markdown.html#cb674-5" tabindex="-1"></a>output: html_document</span>
-<span id="cb674-6"><a href="apendice-markdown.html#cb674-6" tabindex="-1"></a>---</span>
-<span id="cb674-7"><a href="apendice-markdown.html#cb674-7" tabindex="-1"></a></span>
-<span id="cb674-8"><a href="apendice-markdown.html#cb674-8" tabindex="-1"></a>```{r setup, include=FALSE}</span>
-<span id="cb674-9"><a href="apendice-markdown.html#cb674-9" tabindex="-1"></a># Opciones por defecto para todos los chunks</span>
-<span id="cb674-10"><a href="apendice-markdown.html#cb674-10" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)</span>
-<span id="cb674-11"><a href="apendice-markdown.html#cb674-11" tabindex="-1"></a>library(tidyverse)</span>
-<span id="cb674-12"><a href="apendice-markdown.html#cb674-12" tabindex="-1"></a>```</span>
-<span id="cb674-13"><a href="apendice-markdown.html#cb674-13" tabindex="-1"></a></span>
-<span id="cb674-14"><a href="apendice-markdown.html#cb674-14" tabindex="-1"></a># Introducción</span>
-<span id="cb674-15"><a href="apendice-markdown.html#cb674-15" tabindex="-1"></a></span>
-<span id="cb674-16"><a href="apendice-markdown.html#cb674-16" tabindex="-1"></a>Objetivo del análisis y descripción de la fuente de datos.</span>
-<span id="cb674-17"><a href="apendice-markdown.html#cb674-17" tabindex="-1"></a></span>
-<span id="cb674-18"><a href="apendice-markdown.html#cb674-18" tabindex="-1"></a># Datos</span>
-<span id="cb674-19"><a href="apendice-markdown.html#cb674-19" tabindex="-1"></a></span>
-<span id="cb674-20"><a href="apendice-markdown.html#cb674-20" tabindex="-1"></a>```{r cargar-datos}</span>
-<span id="cb674-21"><a href="apendice-markdown.html#cb674-21" tabindex="-1"></a>datos &lt;- read_csv(&quot;mis_datos.csv&quot;)</span>
-<span id="cb674-22"><a href="apendice-markdown.html#cb674-22" tabindex="-1"></a>```</span>
-<span id="cb674-23"><a href="apendice-markdown.html#cb674-23" tabindex="-1"></a></span>
-<span id="cb674-24"><a href="apendice-markdown.html#cb674-24" tabindex="-1"></a>La tabla contiene `r nrow(datos)` registros y `r ncol(datos)` variables.</span>
-<span id="cb674-25"><a href="apendice-markdown.html#cb674-25" tabindex="-1"></a></span>
-<span id="cb674-26"><a href="apendice-markdown.html#cb674-26" tabindex="-1"></a># Procesado y calidad de los datos</span>
-<span id="cb674-27"><a href="apendice-markdown.html#cb674-27" tabindex="-1"></a></span>
-<span id="cb674-28"><a href="apendice-markdown.html#cb674-28" tabindex="-1"></a>Limpieza, tipos, valores faltantes y transformaciones (formato tidy).</span>
-<span id="cb674-29"><a href="apendice-markdown.html#cb674-29" tabindex="-1"></a>Un `skim(datos)` inicial ayuda a diagnosticar la tabla de un vistazo.</span>
-<span id="cb674-30"><a href="apendice-markdown.html#cb674-30" tabindex="-1"></a></span>
-<span id="cb674-31"><a href="apendice-markdown.html#cb674-31" tabindex="-1"></a># Análisis y visualización</span>
-<span id="cb674-32"><a href="apendice-markdown.html#cb674-32" tabindex="-1"></a></span>
-<span id="cb674-33"><a href="apendice-markdown.html#cb674-33" tabindex="-1"></a>```{r grafico-principal, fig.cap=&quot;Descripción de la figura&quot;, fig.align=&#39;center&#39;}</span>
-<span id="cb674-34"><a href="apendice-markdown.html#cb674-34" tabindex="-1"></a># ggplot / plotly / ...</span>
-<span id="cb674-35"><a href="apendice-markdown.html#cb674-35" tabindex="-1"></a>```</span>
-<span id="cb674-36"><a href="apendice-markdown.html#cb674-36" tabindex="-1"></a></span>
-<span id="cb674-37"><a href="apendice-markdown.html#cb674-37" tabindex="-1"></a>Comentario e interpretación de los resultados, siempre apoyados en los datos.</span>
-<span id="cb674-38"><a href="apendice-markdown.html#cb674-38" tabindex="-1"></a></span>
-<span id="cb674-39"><a href="apendice-markdown.html#cb674-39" tabindex="-1"></a># Conclusiones</span>
-<span id="cb674-40"><a href="apendice-markdown.html#cb674-40" tabindex="-1"></a></span>
-<span id="cb674-41"><a href="apendice-markdown.html#cb674-41" tabindex="-1"></a>Síntesis de los hallazgos, con sus limitaciones y la fuente de los datos.</span></code></pre></div>
+<div class="sourceCode" id="cb726"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb726-1"><a href="apendice-markdown.html#cb726-1" tabindex="-1"></a>---</span>
+<span id="cb726-2"><a href="apendice-markdown.html#cb726-2" tabindex="-1"></a>title: &quot;Informe de análisis de datos&quot;</span>
+<span id="cb726-3"><a href="apendice-markdown.html#cb726-3" tabindex="-1"></a>author: &quot;Nombre y apellidos&quot;</span>
+<span id="cb726-4"><a href="apendice-markdown.html#cb726-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
+<span id="cb726-5"><a href="apendice-markdown.html#cb726-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb726-6"><a href="apendice-markdown.html#cb726-6" tabindex="-1"></a>---</span>
+<span id="cb726-7"><a href="apendice-markdown.html#cb726-7" tabindex="-1"></a></span>
+<span id="cb726-8"><a href="apendice-markdown.html#cb726-8" tabindex="-1"></a>```{r setup, include=FALSE}</span>
+<span id="cb726-9"><a href="apendice-markdown.html#cb726-9" tabindex="-1"></a># Opciones por defecto para todos los chunks</span>
+<span id="cb726-10"><a href="apendice-markdown.html#cb726-10" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)</span>
+<span id="cb726-11"><a href="apendice-markdown.html#cb726-11" tabindex="-1"></a>library(tidyverse)</span>
+<span id="cb726-12"><a href="apendice-markdown.html#cb726-12" tabindex="-1"></a>```</span>
+<span id="cb726-13"><a href="apendice-markdown.html#cb726-13" tabindex="-1"></a></span>
+<span id="cb726-14"><a href="apendice-markdown.html#cb726-14" tabindex="-1"></a># Introducción</span>
+<span id="cb726-15"><a href="apendice-markdown.html#cb726-15" tabindex="-1"></a></span>
+<span id="cb726-16"><a href="apendice-markdown.html#cb726-16" tabindex="-1"></a>Objetivo del análisis y descripción de la fuente de datos.</span>
+<span id="cb726-17"><a href="apendice-markdown.html#cb726-17" tabindex="-1"></a></span>
+<span id="cb726-18"><a href="apendice-markdown.html#cb726-18" tabindex="-1"></a># Datos</span>
+<span id="cb726-19"><a href="apendice-markdown.html#cb726-19" tabindex="-1"></a></span>
+<span id="cb726-20"><a href="apendice-markdown.html#cb726-20" tabindex="-1"></a>```{r cargar-datos}</span>
+<span id="cb726-21"><a href="apendice-markdown.html#cb726-21" tabindex="-1"></a>datos &lt;- read_csv(&quot;mis_datos.csv&quot;)</span>
+<span id="cb726-22"><a href="apendice-markdown.html#cb726-22" tabindex="-1"></a>```</span>
+<span id="cb726-23"><a href="apendice-markdown.html#cb726-23" tabindex="-1"></a></span>
+<span id="cb726-24"><a href="apendice-markdown.html#cb726-24" tabindex="-1"></a>La tabla contiene `r nrow(datos)` registros y `r ncol(datos)` variables.</span>
+<span id="cb726-25"><a href="apendice-markdown.html#cb726-25" tabindex="-1"></a></span>
+<span id="cb726-26"><a href="apendice-markdown.html#cb726-26" tabindex="-1"></a># Procesado y calidad de los datos</span>
+<span id="cb726-27"><a href="apendice-markdown.html#cb726-27" tabindex="-1"></a></span>
+<span id="cb726-28"><a href="apendice-markdown.html#cb726-28" tabindex="-1"></a>Limpieza, tipos, valores faltantes y transformaciones (formato tidy).</span>
+<span id="cb726-29"><a href="apendice-markdown.html#cb726-29" tabindex="-1"></a>Un `skim(datos)` inicial ayuda a diagnosticar la tabla de un vistazo.</span>
+<span id="cb726-30"><a href="apendice-markdown.html#cb726-30" tabindex="-1"></a></span>
+<span id="cb726-31"><a href="apendice-markdown.html#cb726-31" tabindex="-1"></a># Análisis y visualización</span>
+<span id="cb726-32"><a href="apendice-markdown.html#cb726-32" tabindex="-1"></a></span>
+<span id="cb726-33"><a href="apendice-markdown.html#cb726-33" tabindex="-1"></a>```{r grafico-principal, fig.cap=&quot;Descripción de la figura&quot;, fig.align=&#39;center&#39;}</span>
+<span id="cb726-34"><a href="apendice-markdown.html#cb726-34" tabindex="-1"></a># ggplot / plotly / ...</span>
+<span id="cb726-35"><a href="apendice-markdown.html#cb726-35" tabindex="-1"></a>```</span>
+<span id="cb726-36"><a href="apendice-markdown.html#cb726-36" tabindex="-1"></a></span>
+<span id="cb726-37"><a href="apendice-markdown.html#cb726-37" tabindex="-1"></a>Comentario e interpretación de los resultados, siempre apoyados en los datos.</span>
+<span id="cb726-38"><a href="apendice-markdown.html#cb726-38" tabindex="-1"></a></span>
+<span id="cb726-39"><a href="apendice-markdown.html#cb726-39" tabindex="-1"></a># Conclusiones</span>
+<span id="cb726-40"><a href="apendice-markdown.html#cb726-40" tabindex="-1"></a></span>
+<span id="cb726-41"><a href="apendice-markdown.html#cb726-41" tabindex="-1"></a>Síntesis de los hallazgos, con sus limitaciones y la fuente de los datos.</span></code></pre></div>
 <p>Esta plantilla materializa las buenas prácticas del curso: parámetros de chunk (<code>echo</code>, <code>message</code>, <code>warning</code>), código R <em>inline</em> para que las cifras se actualicen solas, figuras con <code>fig.cap</code> referenciables y una narrativa que va de los objetivos a las conclusiones sustentadas en datos.</p>
 
 </div>
