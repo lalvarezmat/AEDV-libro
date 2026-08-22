@@ -14,6 +14,16 @@ p { font-size: 14px; margin-bottom: 10px; }
    más grandes que los párrafos; las fijamos a 14px para igualar el texto normal. */
 ul, ol, li { font-size: 14px; }
 
+/* Mismo problema en las tablas: knitr::kable() y el print() de un tibble generan
+   un <table> sin ninguna regla propia, así que heredan directamente los 16px de
+   'section.normal' en vez de los 14px de 'body'/'p'. No afecta a gt::gt(), que
+   trae su propio <style> con selector por id y ya se ve bien. */
+.book .book-body .page-wrapper .page-inner section.normal table,
+.book .book-body .page-wrapper .page-inner section.normal table td,
+.book .book-body .page-wrapper .page-inner section.normal table th {
+  font-size: 14px;
+}
+
 /* ============================================================
    BLOQUES DE COLOR PARA RESALTAR CONTENIDO
    Uso:  <div class="metodo"> ... </div>

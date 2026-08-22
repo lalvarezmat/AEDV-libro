@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-08-17" />
+<meta name="date" content="2026-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -252,7 +252,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#el-operador-de-pila-pipe-y"><i class="fa fa-check"></i>El operador de pila (pipe) <code>|&gt;</code> y <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#errores-comunes-de-principiante"><i class="fa fa-check"></i><b>2.3</b> Errores comunes de principiante</a></li>
-<li class="chapter" data-level="2.4" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#caso-integrador"><i class="fa fa-check"></i><b>2.4</b> Caso integrador</a></li>
 <li class="chapter" data-level="" data-path="aspectos-básicos-de-r.html"><a href="aspectos-básicos-de-r.html#ideas-clave-del-capítulo-1"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>3</b> Procesado de datos</a>
@@ -274,8 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#el-paquete-dplyr"><i class="fa fa-check"></i>El paquete <code>dplyr</code></a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#combinando-datos-de-varias-tablas"><i class="fa fa-check"></i>Combinando datos de varias tablas</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#tidy-data-datos-ordenados-o-largo"><i class="fa fa-check"></i>Tidy data (datos ordenados o largo)</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#exportación-de-datos"><i class="fa fa-check"></i>Exportación de datos</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#combinando-datos-de-un-y-owid"><i class="fa fa-check"></i>Combinando datos de <strong>UN</strong> y <strong>OWID</strong></a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#hacer-un-join-usando-una-tabla-auxiliar-pivote"><i class="fa fa-check"></i>Hacer un join usando una tabla auxiliar pivote</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="datos.html"><a href="datos.html#calidad-datos"><i class="fa fa-check"></i><b>3.4</b> Calidad de los datos</a>
 <ul>
@@ -285,9 +283,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#consistencia-de-tipos"><i class="fa fa-check"></i>Consistencia de tipos</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#diagnóstico-rápido-skimr-janitor-y-naniar"><i class="fa fa-check"></i>Diagnóstico rápido: <code>skimr</code>, <code>janitor</code> y <code>naniar</code></a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#diagnóstico-en-formato-largo"><i class="fa fa-check"></i>Diagnóstico en formato largo</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#exportación-de-datos"><i class="fa fa-check"></i>Exportación de datos</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="datos.html"><a href="datos.html#análisis-exploratorio-inicial"><i class="fa fa-check"></i><b>3.5</b> Análisis exploratorio inicial</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#ideas-clave-del-capítulo-2"><i class="fa fa-check"></i>Ideas clave del capítulo</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#equivalencias-entre-r-base-y-tidyverse"><i class="fa fa-check"></i>Equivalencias entre R base y tidyverse</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualización-estática-de-datos.html"><a href="visualización-estática-de-datos.html"><i class="fa fa-check"></i><b>4</b> Visualización estática de datos</a>
 <ul>
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Análisis Exploratorio de Datos y Visualización</h1>
 <p class="author"><em>Luis Alvarez</em></p>
-<p class="date"><em>2026-08-17</em></p>
+<p class="date"><em>2026-08-22</em></p>
 </div>
 <div id="introducción" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -564,7 +564,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Tema 5 : Series temporales</strong>. Por su importancia práctica, se estudia, en este tema, el caso particular del análisis exploratorio de series temporales incluyendo modelos de predicción.</p></li>
 <li><p><strong>Tema 6 : Visualización dinámica</strong>. A través del uso de las librerías <code>ggplotly</code>, <code>highcharter</code> y <code>leaflet</code> se introducen potentes herramientas de visualización interactiva donde el usuario puede interactuar con los gráficos o generar animaciones.</p></li>
 <li><p><strong>Tema 7 : Cuadros de mando</strong>. A través del uso de las librerías <code>shiny</code> y <code>flexdashboard</code> se introduce el diseño e implementación de cuadros de mandos que permiten representar, de forma dinámica, atractiva y coherente, los indicadores principales de nuestra exploración de datos.</p></li>
-<li><p><strong>Tema 8 : Análisis de atributos</strong>. Se estudia la relación que puede existir entre diferentes variables a través, por ejemplo, de la correlación entre pares de variables, y cómo reducir el número de variables usando combinaciones lineales entre ellas a través del método del análisis de componentes principales.</p></li>
+<li><p><strong>Tema 8 : Análisis de atributos</strong>. Se estudia la relación entre diferentes variables usando transformaciones no lineales como Yeo-Johnson, matriz de correlación y el análisis de componentes principales.</p></li>
 </ul>
 </div>
 <div id="cómo-buscar-dentro-del-libro" class="section level2 hasAnchor" number="1.3">
@@ -609,13 +609,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Al ser <code>R</code> la plataforma de referencia para el análisis de datos, para cualquier librería importante relacionada con el tema que se implemente en otros lenguajes como <code>python</code>, <code>javascript</code>, etc.., aparecen paquetes en <code>R</code> que sirven de interfaz para estas librerías. Esto es algo que se usa intensamente en este curso y tiene como efecto que la curva de aprendizaje de esas herramientas es mucho menor dado que se realiza todo desde el mismo entorno de desarrollo. Esto permite, en particular, abordar en un solo curso una gran colección de potentes herramientas que si se estudiaran cada una en sus particulares entornos de desarrollo, el aprendizaje sería mucho más complejo y sería imposible abordarlas en un solo curso.</p></li>
 <li><p>Unificar todas las herramientas alrededor de <code>R</code> nos permite concentrarnos en los aspectos conceptuales, que es, sin duda, lo más importante que vamos a aprender en este curso. Por otro lado, las herramientas de IA que existen actualmente permiten, fácilmente, transformar los códigos de un entorno de programación a otro, por ejemplo del entorno dado por la combinación de python - jupyter - notebook, que también es muy usado en Ciencias de Datos, al entorno R - RStudio - Rmarkdown.</p></li>
 <li><p>La combinación de <code>R</code>, <code>Rstudio</code> y <code>RMarkdown</code> resulta idónea para experimentar y familiarizarse con todos los conceptos que se estudian en el curso. Además, estas herramientas son usadas por un número tan grande de personas, que prácticamente, cualquier problema o error que surja, ha sido ya resuelto y buscando por Internet, generalmente es fácil encontrar la solución.</p></li>
+<li><p>El número de librerías con herramientas desarrolladas en <code>R</code> es inmenso, solo en el repositorio <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>, que es el repositorio oficial de referencia para almacenar y gestionar las librerías, hay más de 23000 librerías registradas. Hay librerías, como <code>ggplot2</code>, que usamos en el curso, que tienen más de 190 millones de descargas. El autor de este libro ha publicado en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a> la librería <a href="https://cran.r-project.org/web/packages/EpiInvert/index.html">EpiInvert</a> especializada en el procesado de series temporales en Epidemiología. Cualquier persona puede, en teoría, publicar gratuitamente una librería en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>. Ahora bien, se piden unos requisitos técnicos de calidad bastante exigentes para que la librería sea aceptada.</p></li>
 </ul>
 <blockquote>
-<p><strong>Nota: RStudio, Posit y Positron.</strong> La empresa que desarrolla RStudio se llama desde 2022 <strong>Posit</strong>. En 2024-2025 Posit lanzó <strong>Positron</strong>, su entorno de desarrollo de nueva generación orientado a la ciencia de datos, que integra <code>R</code> y <code>python</code> en un mismo editor. Para este curso, RStudio sigue siendo el entorno recomendado (es maduro, está muy documentado y es el que asumen los tutoriales anteriores), pero conviene saber que Positron existe porque es probable que su uso crezca en los próximos años.</p>
+<p><strong>Nota: Quarto + Positron.</strong> La empresa que desarrolla RStudio se llama desde 2022 <strong>Posit</strong> y desde hace unos años está desarrollando <strong>Quarto</strong> como una evolución de <strong>RMakdown</strong> que permite la integración de los lenguajes <strong>R</strong> y <strong>python</strong>. También desarrolla <strong>Positron</strong> un IDE similar a <strong>RStudio</strong> para editar/gestionar ficheros de <strong>Quarto</strong>. En este curso usamos el ecosistema <strong>RMarkdown</strong> + <strong>RStudio</strong> por estar muy consolidado pero conviene saber que <strong>Quarto</strong> + <strong>Positron</strong> es la <em>apuesta</em> actual de <strong>Posit</strong> como plataforma de desarrollo y seguramente cada vez se use más y vaya reemplazando a <strong>RMarkdown</strong> + <strong>RStudio</strong>.</p>
 </blockquote>
-<ul>
-<li>El número de librerías con herramientas desarrolladas en <code>R</code> es inmenso, solo en el repositorio <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>, que es el repositorio oficial de referencia para almacenar y gestionar las librerías, hay más de 23000 librerías registradas. Hay librerías, como <code>ggplot2</code>, que usamos en el curso, que tienen más de 190 millones de descargas. El autor de este libro ha publicado en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a> la librería <a href="https://cran.r-project.org/web/packages/EpiInvert/index.html">EpiInvert</a> especializada en el procesado de series temporales en Epidemiología. Cualquier persona puede, en teoría, publicar gratuitamente una librería en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>. Ahora bien, se piden unos requisitos técnicos de calidad bastante exigentes para que la librería sea aceptada.</li>
-</ul>
 </div>
 <div id="las-virtudes-de-un-científico-de-datos" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Las virtudes de un científico de datos<a href="index.html#las-virtudes-de-un-científico-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
