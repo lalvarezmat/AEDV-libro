@@ -24,7 +24,6 @@ fig:geom-col-donuts
 fig:geom-histogram
 fig:geom-density
 fig:facet-wrap
-fig:facet-grid
 fig:geom-vline
 fig:geom-boxplot
 fig:geom-jitter01
@@ -34,6 +33,9 @@ fig:geom-point2
 fig:ggpairs
 fig:geom-line1
 fig:geom-line2
+fig:facet-wrap-turistas
+fig:facet-grid-turistas
+fig:facet-wrap-combinado
 fig:geom-area-ejemplo
 fig:geom-line3
 fig:geom-line4
