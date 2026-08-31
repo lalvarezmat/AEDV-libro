@@ -216,7 +216,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#fases-de-un-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>1.1</b> Fases de un análisis exploratorio de datos</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contenido-del-curso"><i class="fa fa-check"></i><b>1.2</b> Contenido del curso</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#cómo-buscar-dentro-del-libro"><i class="fa fa-check"></i><b>1.3</b> Cómo buscar dentro del libro</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#la-elección-de-r"><i class="fa fa-check"></i><b>1.4</b> La elección de <code>R</code></a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#la-elección-de-r"><i class="fa fa-check"></i><b>1.4</b> La elección de <code>R</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#librerías-de-r-utilizadas-en-el-curso"><i class="fa fa-check"></i>Librerías de <code>R</code> utilizadas en el curso</a></li>
+</ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#las-virtudes-de-un-científico-de-datos"><i class="fa fa-check"></i><b>1.5</b> Las virtudes de un científico de datos</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#el-uso-de-la-ia-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.6</b> El uso de la IA en el análisis de datos</a></li>
 <li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#ética-y-responsabilidad-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.7</b> Ética y responsabilidad en el análisis de datos</a></li>
@@ -615,9 +618,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>La combinación de <code>R</code>, <code>Rstudio</code> y <code>RMarkdown</code> resulta idónea para experimentar y familiarizarse con todos los conceptos que se estudian en el curso. Además, estas herramientas son usadas por un número tan grande de personas, que prácticamente, cualquier problema o error que surja, ha sido ya resuelto y buscando por Internet, generalmente es fácil encontrar la solución.</p></li>
 <li><p>El número de librerías con herramientas desarrolladas en <code>R</code> es inmenso, solo en el repositorio <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>, que es el repositorio oficial de referencia para almacenar y gestionar las librerías, hay más de 23000 librerías registradas. Hay librerías, como <code>ggplot2</code>, que usamos en el curso, que tienen más de 190 millones de descargas. El autor de este libro ha publicado en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a> la librería <a href="https://cran.r-project.org/web/packages/EpiInvert/index.html">EpiInvert</a> especializada en el procesado de series temporales en Epidemiología. Cualquier persona puede, en teoría, publicar gratuitamente una librería en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>. Ahora bien, se piden unos requisitos técnicos de calidad bastante exigentes para que la librería sea aceptada.</p></li>
 </ul>
+<div id="librerías-de-r-utilizadas-en-el-curso" class="section level3 unnumbered hasAnchor">
+<h3>Librerías de <code>R</code> utilizadas en el curso<a href="index.html#librerías-de-r-utilizadas-en-el-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A continuación se listan todas las librerías utilizadas en el curso: en el libro, en los ejercicios y los cuadros de mando. Deben estar instaladas para que el código correspondiente funcione correctamente; en cada documento se carga únicamente el subconjunto de librerías necesario.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb16-1"><a href="index.html#cb16-1" tabindex="-1"></a>library(arrow)         # formato columnar Parquet</span>
+<span id="cb16-2"><a href="index.html#cb16-2" tabindex="-1"></a>library(bookdown)      # compila el libro (gitbook/PDF)</span>
+<span id="cb16-3"><a href="index.html#cb16-3" tabindex="-1"></a>library(curl)          # descargas robustas (curl_download)</span>
+<span id="cb16-4"><a href="index.html#cb16-4" tabindex="-1"></a>library(datasets)      # datasets de ejemplo incluidos en R</span>
+<span id="cb16-5"><a href="index.html#cb16-5" tabindex="-1"></a>library(devtools)      # instalar paquetes desde GitHub</span>
+<span id="cb16-6"><a href="index.html#cb16-6" tabindex="-1"></a>library(DT)            # tablas interactivas</span>
+<span id="cb16-7"><a href="index.html#cb16-7" tabindex="-1"></a>library(eurostat)      # acceso a los datos de Eurostat</span>
+<span id="cb16-8"><a href="index.html#cb16-8" tabindex="-1"></a>library(factoextra)    # visualización de ACP y clustering</span>
+<span id="cb16-9"><a href="index.html#cb16-9" tabindex="-1"></a>library(flexdashboard) # cuadros de mando con RMarkdown</span>
+<span id="cb16-10"><a href="index.html#cb16-10" tabindex="-1"></a>library(fpp3)          # análisis y predicción de series temporales</span>
+<span id="cb16-11"><a href="index.html#cb16-11" tabindex="-1"></a>library(GGally)        # matrices de gráficos y pares</span>
+<span id="cb16-12"><a href="index.html#cb16-12" tabindex="-1"></a>library(gganimate)     # animaciones sobre ggplot2</span>
+<span id="cb16-13"><a href="index.html#cb16-13" tabindex="-1"></a>library(ggplot2)       # gramática de gráficos</span>
+<span id="cb16-14"><a href="index.html#cb16-14" tabindex="-1"></a>library(ggrepel)       # etiquetas sin solapamientos</span>
+<span id="cb16-15"><a href="index.html#cb16-15" tabindex="-1"></a>library(gifski)        # renderizado de GIF (con gganimate)</span>
+<span id="cb16-16"><a href="index.html#cb16-16" tabindex="-1"></a>library(googlesheets4) # lectura de hojas de cálculo de Google Sheets</span>
+<span id="cb16-17"><a href="index.html#cb16-17" tabindex="-1"></a>library(gt)            # tablas estáticas de publicación</span>
+<span id="cb16-18"><a href="index.html#cb16-18" tabindex="-1"></a>library(highcharter)   # gráficos interactivos (Highcharts)</span>
+<span id="cb16-19"><a href="index.html#cb16-19" tabindex="-1"></a>library(htmltools)     # construir HTML (HTML(), tags) en tablas y mapas</span>
+<span id="cb16-20"><a href="index.html#cb16-20" tabindex="-1"></a>library(janitor)       # limpieza de nombres de columnas</span>
+<span id="cb16-21"><a href="index.html#cb16-21" tabindex="-1"></a>library(jsonlite)      # lectura/escritura de JSON</span>
+<span id="cb16-22"><a href="index.html#cb16-22" tabindex="-1"></a>library(kableExtra)    # formateo avanzado de tablas estáticas (alternativa a gt)</span>
+<span id="cb16-23"><a href="index.html#cb16-23" tabindex="-1"></a>library(knitr)         # motor de los documentos R Markdown (kable, opts_chunk...)</span>
+<span id="cb16-24"><a href="index.html#cb16-24" tabindex="-1"></a>library(leaflet)       # mapas interactivos</span>
+<span id="cb16-25"><a href="index.html#cb16-25" tabindex="-1"></a>library(lmtest)        # test de Breusch-Pagan (heterocedasticidad)</span>
+<span id="cb16-26"><a href="index.html#cb16-26" tabindex="-1"></a>library(MASS)          # métodos estadísticos clásicos (regresión robusta, discriminante...)</span>
+<span id="cb16-27"><a href="index.html#cb16-27" tabindex="-1"></a>library(naniar)        # visualización de valores faltantes</span>
+<span id="cb16-28"><a href="index.html#cb16-28" tabindex="-1"></a>library(openxlsx)      # lectura/escritura de Excel</span>
+<span id="cb16-29"><a href="index.html#cb16-29" tabindex="-1"></a>library(patchwork)     # combinar varios ggplot</span>
+<span id="cb16-30"><a href="index.html#cb16-30" tabindex="-1"></a>library(plotly)        # gráficos interactivos (ggplotly)</span>
+<span id="cb16-31"><a href="index.html#cb16-31" tabindex="-1"></a>library(Polychrome)    # paletas cualitativas distinguibles</span>
+<span id="cb16-32"><a href="index.html#cb16-32" tabindex="-1"></a>library(pxR)           # lectura de ficheros PC-Axis</span>
+<span id="cb16-33"><a href="index.html#cb16-33" tabindex="-1"></a>library(RColorBrewer)  # paletas de colores</span>
+<span id="cb16-34"><a href="index.html#cb16-34" tabindex="-1"></a>library(rmarkdown)     # documentos dinámicos R Markdown</span>
+<span id="cb16-35"><a href="index.html#cb16-35" tabindex="-1"></a>library(scales)        # formato de escalas y etiquetas (percent, comma...)</span>
+<span id="cb16-36"><a href="index.html#cb16-36" tabindex="-1"></a>library(sf)            # datos geoespaciales, lectura de GeoJSON</span>
+<span id="cb16-37"><a href="index.html#cb16-37" tabindex="-1"></a>library(shiny)         # apps web interactivas</span>
+<span id="cb16-38"><a href="index.html#cb16-38" tabindex="-1"></a>library(shinydashboard)# alternativa a flexdashboard para cuadros de mando</span>
+<span id="cb16-39"><a href="index.html#cb16-39" tabindex="-1"></a>library(skimr)         # resumen exploratorio de una tabla</span>
+<span id="cb16-40"><a href="index.html#cb16-40" tabindex="-1"></a>library(tidyverse)     # ggplot2, dplyr, tidyr, readr, stringr...</span>
+<span id="cb16-41"><a href="index.html#cb16-41" tabindex="-1"></a>library(urca)          # tests de raíces unitarias</span>
+<span id="cb16-42"><a href="index.html#cb16-42" tabindex="-1"></a>library(utils)         # funciones base (adist, read.csv...)</span>
+<span id="cb16-43"><a href="index.html#cb16-43" tabindex="-1"></a>library(wordcloud)     # nubes de palabras</span>
+<span id="cb16-44"><a href="index.html#cb16-44" tabindex="-1"></a>library(zoo)           # series irregulares, ventana deslizante</span></code></pre></div>
+<p>Además, para gestionar datasets de los catálogos del INE, ISTAC, Eurostat, Banco Mundial, EDGAR y la AEMET hacen falta librerías específicas para cada tarea/catálogo y que no se usan en el resto del curso:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb17-1"><a href="index.html#cb17-1" tabindex="-1"></a>library(geojsonio)     # lectura/escritura de GeoJSON (geometrías de Eurostat)</span>
+<span id="cb17-2"><a href="index.html#cb17-2" tabindex="-1"></a>library(httr)          # configuración de las peticiones HTTP (timeout de las API)</span>
+<span id="cb17-3"><a href="index.html#cb17-3" tabindex="-1"></a>library(ineapir)       # acceso a la API del INE</span>
+<span id="cb17-4"><a href="index.html#cb17-4" tabindex="-1"></a>library(istacr)        # acceso a la API del ISTAC</span>
+<span id="cb17-5"><a href="index.html#cb17-5" tabindex="-1"></a>library(mapSpain)      # geometría de municipios y provincias de España</span>
+<span id="cb17-6"><a href="index.html#cb17-6" tabindex="-1"></a>library(ncdf4)         # lectura de ficheros NetCDF (datos climáticos de AdapteCCa)</span>
+<span id="cb17-7"><a href="index.html#cb17-7" tabindex="-1"></a>library(pacman)        # instala y carga varios paquetes con una sola llamada</span>
+<span id="cb17-8"><a href="index.html#cb17-8" tabindex="-1"></a>library(readxl)        # lectura de Excel (alternativa a openxlsx)</span>
+<span id="cb17-9"><a href="index.html#cb17-9" tabindex="-1"></a>library(terra)         # datos en rejilla (raster): extracción por municipio/provincia</span>
+<span id="cb17-10"><a href="index.html#cb17-10" tabindex="-1"></a>library(wbstats)       # acceso a la API del Banco Mundial</span>
+<span id="cb17-11"><a href="index.html#cb17-11" tabindex="-1"></a>library(xml2)          # lectura de XML (catálogo THREDDS de AdapteCCa)</span></code></pre></div>
+<p>Para instalar de una sola vez todas las librerías anteriores (las del curso y las de gestión de catálogos datasets), ejecutar en la consola de R o RStudio:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb18-1"><a href="index.html#cb18-1" tabindex="-1"></a>install.packages(c(</span>
+<span id="cb18-2"><a href="index.html#cb18-2" tabindex="-1"></a>  # librerías del curso</span>
+<span id="cb18-3"><a href="index.html#cb18-3" tabindex="-1"></a>  &quot;arrow&quot;, &quot;bookdown&quot;, &quot;curl&quot;, &quot;devtools&quot;, &quot;DT&quot;, &quot;eurostat&quot;, &quot;factoextra&quot;,</span>
+<span id="cb18-4"><a href="index.html#cb18-4" tabindex="-1"></a>  &quot;flexdashboard&quot;, &quot;fpp3&quot;, &quot;GGally&quot;, &quot;gganimate&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;,</span>
+<span id="cb18-5"><a href="index.html#cb18-5" tabindex="-1"></a>  &quot;gifski&quot;, &quot;googlesheets4&quot;, &quot;gt&quot;, &quot;highcharter&quot;, &quot;htmltools&quot;, &quot;janitor&quot;,</span>
+<span id="cb18-6"><a href="index.html#cb18-6" tabindex="-1"></a>  &quot;jsonlite&quot;, &quot;kableExtra&quot;, &quot;knitr&quot;, &quot;leaflet&quot;, &quot;lmtest&quot;, &quot;MASS&quot;, &quot;naniar&quot;,</span>
+<span id="cb18-7"><a href="index.html#cb18-7" tabindex="-1"></a>  &quot;openxlsx&quot;, &quot;patchwork&quot;, &quot;plotly&quot;, &quot;Polychrome&quot;, &quot;pxR&quot;, &quot;RColorBrewer&quot;,</span>
+<span id="cb18-8"><a href="index.html#cb18-8" tabindex="-1"></a>  &quot;rmarkdown&quot;, &quot;scales&quot;, &quot;sf&quot;, &quot;shiny&quot;, &quot;shinydashboard&quot;, &quot;skimr&quot;,</span>
+<span id="cb18-9"><a href="index.html#cb18-9" tabindex="-1"></a>  &quot;tidyverse&quot;, &quot;urca&quot;, &quot;wordcloud&quot;, &quot;zoo&quot;,</span>
+<span id="cb18-10"><a href="index.html#cb18-10" tabindex="-1"></a>  # librerías de gestión de catálogos de datasets</span>
+<span id="cb18-11"><a href="index.html#cb18-11" tabindex="-1"></a>  &quot;geojsonio&quot;, &quot;httr&quot;, &quot;ineapir&quot;, &quot;istacr&quot;, &quot;mapSpain&quot;, &quot;ncdf4&quot;, &quot;pacman&quot;,</span>
+<span id="cb18-12"><a href="index.html#cb18-12" tabindex="-1"></a>  &quot;readxl&quot;, &quot;terra&quot;, &quot;wbstats&quot;, &quot;xml2&quot;</span>
+<span id="cb18-13"><a href="index.html#cb18-13" tabindex="-1"></a>))</span></code></pre></div>
+<p><code>datasets</code> y <code>utils</code> no aparecen en el comando anterior porque son librerías <strong>base</strong> de R: vienen siempre instaladas y no se gestionan con <code>install.packages</code>.</p>
 <blockquote>
 <p><strong>Nota: Quarto + Positron.</strong> La empresa que desarrolla RStudio se llama desde 2022 <strong>Posit</strong> y desde hace unos años está desarrollando <strong>Quarto</strong> como una evolución de <strong>RMakdown</strong> que permite la integración de los lenguajes <strong>R</strong> y <strong>python</strong>. También desarrolla <strong>Positron</strong> un IDE similar a <strong>RStudio</strong> para editar/gestionar ficheros de <strong>Quarto</strong>. En este curso usamos el ecosistema <strong>RMarkdown</strong> + <strong>RStudio</strong> por estar muy consolidado pero conviene saber que <strong>Quarto</strong> + <strong>Positron</strong> es la <em>apuesta</em> actual de <strong>Posit</strong> como plataforma de desarrollo y seguramente cada vez se use más y vaya reemplazando a <strong>RMarkdown</strong> + <strong>RStudio</strong>.</p>
 </blockquote>
+</div>
 </div>
 <div id="las-virtudes-de-un-científico-de-datos" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Las virtudes de un científico de datos<a href="index.html#las-virtudes-de-un-científico-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -670,15 +748,15 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 <div id="la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad." class="section level2 hasAnchor" number="1.8">
 <h2><span class="header-section-number">1.8</span> La trampa del pensamiento binario y la simplificación de la realidad.<a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Los seres humanos nos encontramos cómodos dividiendo la realidad que nos rodea en 2 partes que se contraponen. Por ejemplo países ricos versus países pobres, ser de izquierdas o ser de derechas, personas buenas versus personas malas, nuestro entorno versus el resto del mundo, etc.. Nuestra tendencia natural a este pensamiento binario nos facilita la interpretación de la realidad y nos hace la vida más fácil. Sin embargo, y es algo que debe tener en cuenta siempre el científico de datos, la realidad es mucho más compleja y tiene muchos más matices que lo que puede reflejar esta tendencia a separarla en dos grupos contrapuestos. Otra forma de simplificación frecuente es el uso de un único atributo para analizar una realidad compleja. Tomemos como ejemplo la media de ingresos diarios por persona, en dólares, y en algunos países, obtenidos a partir de la <a href="https://github.com/owid/poverty-data">OWID</a> y reflejada en el siguiente gráfico:</p>
-<p><img src="AEDV_book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Vemos que la media de ingresos proporciona una primera comparativa útil entre países. Sin embargo, el uso exclusivo de la media, aunque ofrece información valiosa, oculta matices relevantes de la realidad, como los niveles de igualdad en la distribución de los ingresos dentro de cada país. Por ejemplo, Estados Unidos presenta una media de ingresos significativamente superior a la de Noruega. Sin embargo, si dividimos el nivel salarial en diez grupos (deciles) y comparamos los resultados para ambos países, obtenemos:</p>
-<p><img src="AEDV_book_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div class="resultado">
 <p><strong class="bloque-titulo">Conclusión clave: los datos admiten múltiples interpretaciones válidas</strong></p>
 <p>es decir, en Estados Unidos hay un 10 % de la población que gana más de 158 dólares diarios y, en el extremo opuesto, otro 10 % que gana menos de 23 dólares. En Noruega, en cambio, el decil superior supera los 116 dólares, mientras que el inferior no baja de 34 dólares: se trata, por tanto, de un país con una desigualdad de ingresos sensiblemente menor. Lo que eleva la media de Estados Unidos por encima de la de Noruega es que los ingresos de los más ricos son notablemente superiores. Utilizando la mediana (decile5), en lugar de la media, se observa que los ingresos diarios en Noruega (64 dólares) son superiores a los de Estados Unidos (62 dólares). De esta forma, la pregunta <em>¿en cuál de los dos países la población tiene un mayor nivel de ingresos?</em> puede tener respuestas distintas dependiendo del indicador elegido. En el análisis de datos, <strong>una misma cuestión puede admitir respuestas aparentemente contradictorias, siendo ambas coherentes y bien fundamentadas en función de los datos, los indicadores utilizados y su interpretación</strong>. Las conclusiones que extraemos no son una verdad absoluta; a lo más que podemos aspirar es a que sean coherentes con los datos analizados y con los criterios metodológicos utilizados.</p>
 </div>
 <p>Volviendo al ejemplo de los ingresos, otro aspecto relevante es la variabilidad geográfica dentro de un mismo país. Si examinamos la distribución del salario medio bruto mensual por comunidades autónomas en España en 2022 ordenadas de menor a mayor para facilitar la comparación:</p>
-<p><img src="AEDV_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="AEDV_book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>observamos que, mientras en el País Vasco el salario medio asciende a 2.546 euros mensuales, en Canarias se sitúa en 1.869 euros, lo que refleja realidades económicas muy dispares que quedan ocultas cuando se observa únicamente el promedio nacional.</p>
 <p>El objetivo de este análisis es mostrar cómo el científico de datos debe ir más allá de la tendencia al pensamiento binario y a la simplificación de la realidad, y esforzarse por mostrar, a partir de los datos, toda la riqueza de matices que estos contienen.</p>
 </div>
@@ -686,7 +764,7 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 <h2><span class="header-section-number">1.9</span> El principio de Pareto para simplificar los datos<a href="index.html#el-principio-de-pareto-para-simplificar-los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Con frecuencia, al manejar tablas con gran cantidad de registros, resulta difícil extraer una visión global de la información. Por ejemplo, al estudiar las emisiones de gases de efecto invernadero (GHG) por países en 2024. Para obtener una perspectiva manejable podemos concentrarnos en los países responsables de la mayor parte de las emisiones totales, aplicando el <strong>principio de Pareto</strong>, también denominado regla 80/20: <strong>el 80 % de los efectos proviene del 20 % de las causas</strong>. Este principio puede aplicarse de dos formas: seleccionando el 20 % de los países que más emiten, o —una opción metodológicamente más sólida— seleccionando el menor número de países cuya emisión acumulada supera el 80 % del total mundial. De esta manera garantizamos que el análisis cubre una porción significativa y representativa del problema. Apliquemos esto a los datos de 2024, año en que las emisiones globales alcanzaron aproximadamente 53.206 millones de toneladas. En la siguiente tabla, elaborada a partir de la base de datos <strong>EDGAR</strong>, se muestran las siguientes variables: <strong>GHG</strong> : las emisiones por país ordenadas de mayor a menor, <strong>PORC_VAR_ANUAL</strong>: la variación porcentual respecto a 2023, <strong>PORC_TOTAL</strong>: el porcentaje de emisiones del país sobre el total mundial y <strong>PORC_ACUMULADO</strong>: el porcentaje sobre el total acumulado al ir añadiendo países (nos quedamos con los países hasta que este porcentaje llega al 80%). Como puede observarse, solo China emite el 29,2% del total, y los cuatro primeros países ya superan conjuntamente el 50%. Para alcanzar el umbral del 80% es necesario incluir los primeros 24 países. El umbral del 80% es orientativo y puede ajustarse en función de los objetivos del estudio. Otro dato interesante es que los países en vías de desarrollo son donde más crecen anualmente las emisiones, como la India (un 3,92%), Indonesia (4,95%) o Vietnam (7,61%), mientras que los países europeos están en fase de decrecimiento de las emisiones. Observamos que la navegación por barcos a nivel mundial produce emisiones de una magnitud similar a un país como Canadá y que la aviación a nivel mundial produce emisiones de una magnitud similar a un país como Australia y con un fuerte crecimiento anual (7,61%)</p>
 <table>
-<caption><span id="tab:unnamed-chunk-7">Table 1.1: </span>Emisiones GHG por países en 2024</caption>
+<caption><span id="tab:unnamed-chunk-9">Table 1.1: </span>Emisiones GHG por países en 2024</caption>
 <colgroup>
 <col width="32%" />
 <col width="8%" />
