@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-08-31" />
+<meta name="date" content="2026-09-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -538,7 +538,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Análisis Exploratorio de Datos y Visualización</h1>
 <p class="author"><em>Luis Alvarez</em></p>
-<p class="date"><em>2026-08-31</em></p>
+<p class="date"><em>2026-09-01</em></p>
 </div>
 <div id="introducción" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -624,74 +624,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb16"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb16-1"><a href="index.html#cb16-1" tabindex="-1"></a>library(arrow)         # formato columnar Parquet</span>
 <span id="cb16-2"><a href="index.html#cb16-2" tabindex="-1"></a>library(bookdown)      # compila el libro (gitbook/PDF)</span>
 <span id="cb16-3"><a href="index.html#cb16-3" tabindex="-1"></a>library(curl)          # descargas robustas (curl_download)</span>
-<span id="cb16-4"><a href="index.html#cb16-4" tabindex="-1"></a>library(datasets)      # datasets de ejemplo incluidos en R</span>
-<span id="cb16-5"><a href="index.html#cb16-5" tabindex="-1"></a>library(devtools)      # instalar paquetes desde GitHub</span>
-<span id="cb16-6"><a href="index.html#cb16-6" tabindex="-1"></a>library(DT)            # tablas interactivas</span>
-<span id="cb16-7"><a href="index.html#cb16-7" tabindex="-1"></a>library(eurostat)      # acceso a los datos de Eurostat</span>
-<span id="cb16-8"><a href="index.html#cb16-8" tabindex="-1"></a>library(factoextra)    # visualización de ACP y clustering</span>
-<span id="cb16-9"><a href="index.html#cb16-9" tabindex="-1"></a>library(flexdashboard) # cuadros de mando con RMarkdown</span>
-<span id="cb16-10"><a href="index.html#cb16-10" tabindex="-1"></a>library(fpp3)          # análisis y predicción de series temporales</span>
-<span id="cb16-11"><a href="index.html#cb16-11" tabindex="-1"></a>library(GGally)        # matrices de gráficos y pares</span>
-<span id="cb16-12"><a href="index.html#cb16-12" tabindex="-1"></a>library(gganimate)     # animaciones sobre ggplot2</span>
-<span id="cb16-13"><a href="index.html#cb16-13" tabindex="-1"></a>library(ggplot2)       # gramática de gráficos</span>
-<span id="cb16-14"><a href="index.html#cb16-14" tabindex="-1"></a>library(ggrepel)       # etiquetas sin solapamientos</span>
-<span id="cb16-15"><a href="index.html#cb16-15" tabindex="-1"></a>library(gifski)        # renderizado de GIF (con gganimate)</span>
-<span id="cb16-16"><a href="index.html#cb16-16" tabindex="-1"></a>library(googlesheets4) # lectura de hojas de cálculo de Google Sheets</span>
-<span id="cb16-17"><a href="index.html#cb16-17" tabindex="-1"></a>library(gt)            # tablas estáticas de publicación</span>
-<span id="cb16-18"><a href="index.html#cb16-18" tabindex="-1"></a>library(highcharter)   # gráficos interactivos (Highcharts)</span>
-<span id="cb16-19"><a href="index.html#cb16-19" tabindex="-1"></a>library(htmltools)     # construir HTML (HTML(), tags) en tablas y mapas</span>
-<span id="cb16-20"><a href="index.html#cb16-20" tabindex="-1"></a>library(janitor)       # limpieza de nombres de columnas</span>
-<span id="cb16-21"><a href="index.html#cb16-21" tabindex="-1"></a>library(jsonlite)      # lectura/escritura de JSON</span>
-<span id="cb16-22"><a href="index.html#cb16-22" tabindex="-1"></a>library(kableExtra)    # formateo avanzado de tablas estáticas (alternativa a gt)</span>
-<span id="cb16-23"><a href="index.html#cb16-23" tabindex="-1"></a>library(knitr)         # motor de los documentos R Markdown (kable, opts_chunk...)</span>
-<span id="cb16-24"><a href="index.html#cb16-24" tabindex="-1"></a>library(leaflet)       # mapas interactivos</span>
-<span id="cb16-25"><a href="index.html#cb16-25" tabindex="-1"></a>library(lmtest)        # test de Breusch-Pagan (heterocedasticidad)</span>
-<span id="cb16-26"><a href="index.html#cb16-26" tabindex="-1"></a>library(MASS)          # métodos estadísticos clásicos (regresión robusta, discriminante...)</span>
-<span id="cb16-27"><a href="index.html#cb16-27" tabindex="-1"></a>library(naniar)        # visualización de valores faltantes</span>
-<span id="cb16-28"><a href="index.html#cb16-28" tabindex="-1"></a>library(openxlsx)      # lectura/escritura de Excel</span>
-<span id="cb16-29"><a href="index.html#cb16-29" tabindex="-1"></a>library(patchwork)     # combinar varios ggplot</span>
-<span id="cb16-30"><a href="index.html#cb16-30" tabindex="-1"></a>library(plotly)        # gráficos interactivos (ggplotly)</span>
-<span id="cb16-31"><a href="index.html#cb16-31" tabindex="-1"></a>library(Polychrome)    # paletas cualitativas distinguibles</span>
-<span id="cb16-32"><a href="index.html#cb16-32" tabindex="-1"></a>library(pxR)           # lectura de ficheros PC-Axis</span>
-<span id="cb16-33"><a href="index.html#cb16-33" tabindex="-1"></a>library(RColorBrewer)  # paletas de colores</span>
-<span id="cb16-34"><a href="index.html#cb16-34" tabindex="-1"></a>library(rmarkdown)     # documentos dinámicos R Markdown</span>
-<span id="cb16-35"><a href="index.html#cb16-35" tabindex="-1"></a>library(scales)        # formato de escalas y etiquetas (percent, comma...)</span>
-<span id="cb16-36"><a href="index.html#cb16-36" tabindex="-1"></a>library(sf)            # datos geoespaciales, lectura de GeoJSON</span>
-<span id="cb16-37"><a href="index.html#cb16-37" tabindex="-1"></a>library(shiny)         # apps web interactivas</span>
-<span id="cb16-38"><a href="index.html#cb16-38" tabindex="-1"></a>library(shinydashboard)# alternativa a flexdashboard para cuadros de mando</span>
-<span id="cb16-39"><a href="index.html#cb16-39" tabindex="-1"></a>library(skimr)         # resumen exploratorio de una tabla</span>
-<span id="cb16-40"><a href="index.html#cb16-40" tabindex="-1"></a>library(tidyverse)     # ggplot2, dplyr, tidyr, readr, stringr...</span>
-<span id="cb16-41"><a href="index.html#cb16-41" tabindex="-1"></a>library(urca)          # tests de raíces unitarias</span>
-<span id="cb16-42"><a href="index.html#cb16-42" tabindex="-1"></a>library(utils)         # funciones base (adist, read.csv...)</span>
-<span id="cb16-43"><a href="index.html#cb16-43" tabindex="-1"></a>library(wordcloud)     # nubes de palabras</span>
-<span id="cb16-44"><a href="index.html#cb16-44" tabindex="-1"></a>library(zoo)           # series irregulares, ventana deslizante</span></code></pre></div>
+<span id="cb16-4"><a href="index.html#cb16-4" tabindex="-1"></a>library(devtools)      # instalar paquetes desde GitHub</span>
+<span id="cb16-5"><a href="index.html#cb16-5" tabindex="-1"></a>library(DT)            # tablas interactivas</span>
+<span id="cb16-6"><a href="index.html#cb16-6" tabindex="-1"></a>library(factoextra)    # visualización de ACP y clustering</span>
+<span id="cb16-7"><a href="index.html#cb16-7" tabindex="-1"></a>library(flexdashboard) # cuadros de mando con RMarkdown</span>
+<span id="cb16-8"><a href="index.html#cb16-8" tabindex="-1"></a>library(fpp3)          # análisis y predicción de series temporales</span>
+<span id="cb16-9"><a href="index.html#cb16-9" tabindex="-1"></a>library(GGally)        # matrices de gráficos y pares</span>
+<span id="cb16-10"><a href="index.html#cb16-10" tabindex="-1"></a>library(gganimate)     # animaciones sobre ggplot2</span>
+<span id="cb16-11"><a href="index.html#cb16-11" tabindex="-1"></a>library(ggplot2)       # gramática de gráficos</span>
+<span id="cb16-12"><a href="index.html#cb16-12" tabindex="-1"></a>library(ggrepel)       # etiquetas sin solapamientos</span>
+<span id="cb16-13"><a href="index.html#cb16-13" tabindex="-1"></a>library(gifski)        # renderizado de GIF (con gganimate)</span>
+<span id="cb16-14"><a href="index.html#cb16-14" tabindex="-1"></a>library(googlesheets4) # lectura de hojas de cálculo de Google Sheets</span>
+<span id="cb16-15"><a href="index.html#cb16-15" tabindex="-1"></a>library(gt)            # tablas estáticas de publicación</span>
+<span id="cb16-16"><a href="index.html#cb16-16" tabindex="-1"></a>library(highcharter)   # gráficos interactivos (Highcharts)</span>
+<span id="cb16-17"><a href="index.html#cb16-17" tabindex="-1"></a>library(htmltools)     # construir HTML (HTML(), tags) en tablas y mapas</span>
+<span id="cb16-18"><a href="index.html#cb16-18" tabindex="-1"></a>library(janitor)       # limpieza de nombres de columnas</span>
+<span id="cb16-19"><a href="index.html#cb16-19" tabindex="-1"></a>library(jsonlite)      # lectura/escritura de JSON</span>
+<span id="cb16-20"><a href="index.html#cb16-20" tabindex="-1"></a>library(kableExtra)    # formateo avanzado de tablas estáticas (alternativa a gt)</span>
+<span id="cb16-21"><a href="index.html#cb16-21" tabindex="-1"></a>library(knitr)         # motor de los documentos R Markdown (kable, opts_chunk...)</span>
+<span id="cb16-22"><a href="index.html#cb16-22" tabindex="-1"></a>library(leaflet)       # mapas interactivos</span>
+<span id="cb16-23"><a href="index.html#cb16-23" tabindex="-1"></a>library(lmtest)        # test de Breusch-Pagan (heterocedasticidad)</span>
+<span id="cb16-24"><a href="index.html#cb16-24" tabindex="-1"></a>library(MASS)          # métodos estadísticos clásicos (regresión robusta, discriminante...)</span>
+<span id="cb16-25"><a href="index.html#cb16-25" tabindex="-1"></a>library(naniar)        # visualización de valores faltantes</span>
+<span id="cb16-26"><a href="index.html#cb16-26" tabindex="-1"></a>library(openxlsx)      # lectura/escritura de Excel</span>
+<span id="cb16-27"><a href="index.html#cb16-27" tabindex="-1"></a>library(patchwork)     # combinar varios ggplot</span>
+<span id="cb16-28"><a href="index.html#cb16-28" tabindex="-1"></a>library(plotly)        # gráficos interactivos (ggplotly)</span>
+<span id="cb16-29"><a href="index.html#cb16-29" tabindex="-1"></a>library(Polychrome)    # paletas cualitativas distinguibles</span>
+<span id="cb16-30"><a href="index.html#cb16-30" tabindex="-1"></a>library(pxR)           # lectura de ficheros PC-Axis</span>
+<span id="cb16-31"><a href="index.html#cb16-31" tabindex="-1"></a>library(RColorBrewer)  # paletas de colores</span>
+<span id="cb16-32"><a href="index.html#cb16-32" tabindex="-1"></a>library(rmarkdown)     # documentos dinámicos R Markdown</span>
+<span id="cb16-33"><a href="index.html#cb16-33" tabindex="-1"></a>library(scales)        # formato de escalas y etiquetas (percent, comma...)</span>
+<span id="cb16-34"><a href="index.html#cb16-34" tabindex="-1"></a>library(sf)            # datos geoespaciales, lectura de GeoJSON</span>
+<span id="cb16-35"><a href="index.html#cb16-35" tabindex="-1"></a>library(shiny)         # apps web interactivas</span>
+<span id="cb16-36"><a href="index.html#cb16-36" tabindex="-1"></a>library(skimr)         # resumen exploratorio de una tabla</span>
+<span id="cb16-37"><a href="index.html#cb16-37" tabindex="-1"></a>library(tidyverse)     # ggplot2, dplyr, tidyr, readr, stringr...</span>
+<span id="cb16-38"><a href="index.html#cb16-38" tabindex="-1"></a>library(urca)          # tests de raíces unitarias</span>
+<span id="cb16-39"><a href="index.html#cb16-39" tabindex="-1"></a>library(utils)         # funciones base (adist, read.csv...)</span>
+<span id="cb16-40"><a href="index.html#cb16-40" tabindex="-1"></a>library(wordcloud)     # nubes de palabras</span>
+<span id="cb16-41"><a href="index.html#cb16-41" tabindex="-1"></a>library(zoo)           # series irregulares, ventana deslizante</span></code></pre></div>
 <p>Además, para gestionar datasets de los catálogos del INE, ISTAC, Eurostat, Banco Mundial, EDGAR y la AEMET hacen falta librerías específicas para cada tarea/catálogo y que no se usan en el resto del curso:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb17-1"><a href="index.html#cb17-1" tabindex="-1"></a>library(geojsonio)     # lectura/escritura de GeoJSON (geometrías de Eurostat)</span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb17-1"><a href="index.html#cb17-1" tabindex="-1"></a>library(eurostat)      # acceso a los datos de Eurostat</span>
 <span id="cb17-2"><a href="index.html#cb17-2" tabindex="-1"></a>library(httr)          # configuración de las peticiones HTTP (timeout de las API)</span>
 <span id="cb17-3"><a href="index.html#cb17-3" tabindex="-1"></a>library(ineapir)       # acceso a la API del INE</span>
 <span id="cb17-4"><a href="index.html#cb17-4" tabindex="-1"></a>library(istacr)        # acceso a la API del ISTAC</span>
 <span id="cb17-5"><a href="index.html#cb17-5" tabindex="-1"></a>library(mapSpain)      # geometría de municipios y provincias de España</span>
 <span id="cb17-6"><a href="index.html#cb17-6" tabindex="-1"></a>library(ncdf4)         # lectura de ficheros NetCDF (datos climáticos de AdapteCCa)</span>
-<span id="cb17-7"><a href="index.html#cb17-7" tabindex="-1"></a>library(pacman)        # instala y carga varios paquetes con una sola llamada</span>
-<span id="cb17-8"><a href="index.html#cb17-8" tabindex="-1"></a>library(readxl)        # lectura de Excel (alternativa a openxlsx)</span>
-<span id="cb17-9"><a href="index.html#cb17-9" tabindex="-1"></a>library(terra)         # datos en rejilla (raster): extracción por municipio/provincia</span>
-<span id="cb17-10"><a href="index.html#cb17-10" tabindex="-1"></a>library(wbstats)       # acceso a la API del Banco Mundial</span>
-<span id="cb17-11"><a href="index.html#cb17-11" tabindex="-1"></a>library(xml2)          # lectura de XML (catálogo THREDDS de AdapteCCa)</span></code></pre></div>
+<span id="cb17-7"><a href="index.html#cb17-7" tabindex="-1"></a>library(terra)         # datos en rejilla (raster): extracción por municipio/provincia</span>
+<span id="cb17-8"><a href="index.html#cb17-8" tabindex="-1"></a>library(wbstats)       # acceso a la API del Banco Mundial</span>
+<span id="cb17-9"><a href="index.html#cb17-9" tabindex="-1"></a>library(xml2)          # lectura de XML (catálogo THREDDS de AdapteCCa)</span></code></pre></div>
 <p>Para instalar de una sola vez todas las librerías anteriores (las del curso y las de gestión de catálogos datasets), ejecutar en la consola de R o RStudio:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb18-1"><a href="index.html#cb18-1" tabindex="-1"></a>install.packages(c(</span>
 <span id="cb18-2"><a href="index.html#cb18-2" tabindex="-1"></a>  # librerías del curso</span>
-<span id="cb18-3"><a href="index.html#cb18-3" tabindex="-1"></a>  &quot;arrow&quot;, &quot;bookdown&quot;, &quot;curl&quot;, &quot;devtools&quot;, &quot;DT&quot;, &quot;eurostat&quot;, &quot;factoextra&quot;,</span>
+<span id="cb18-3"><a href="index.html#cb18-3" tabindex="-1"></a>  &quot;arrow&quot;, &quot;bookdown&quot;, &quot;curl&quot;, &quot;devtools&quot;, &quot;DT&quot;,  &quot;factoextra&quot;,</span>
 <span id="cb18-4"><a href="index.html#cb18-4" tabindex="-1"></a>  &quot;flexdashboard&quot;, &quot;fpp3&quot;, &quot;GGally&quot;, &quot;gganimate&quot;, &quot;ggplot2&quot;, &quot;ggrepel&quot;,</span>
 <span id="cb18-5"><a href="index.html#cb18-5" tabindex="-1"></a>  &quot;gifski&quot;, &quot;googlesheets4&quot;, &quot;gt&quot;, &quot;highcharter&quot;, &quot;htmltools&quot;, &quot;janitor&quot;,</span>
 <span id="cb18-6"><a href="index.html#cb18-6" tabindex="-1"></a>  &quot;jsonlite&quot;, &quot;kableExtra&quot;, &quot;knitr&quot;, &quot;leaflet&quot;, &quot;lmtest&quot;, &quot;MASS&quot;, &quot;naniar&quot;,</span>
 <span id="cb18-7"><a href="index.html#cb18-7" tabindex="-1"></a>  &quot;openxlsx&quot;, &quot;patchwork&quot;, &quot;plotly&quot;, &quot;Polychrome&quot;, &quot;pxR&quot;, &quot;RColorBrewer&quot;,</span>
-<span id="cb18-8"><a href="index.html#cb18-8" tabindex="-1"></a>  &quot;rmarkdown&quot;, &quot;scales&quot;, &quot;sf&quot;, &quot;shiny&quot;, &quot;shinydashboard&quot;, &quot;skimr&quot;,</span>
+<span id="cb18-8"><a href="index.html#cb18-8" tabindex="-1"></a>  &quot;rmarkdown&quot;, &quot;scales&quot;, &quot;sf&quot;, &quot;shiny&quot;, &quot;skimr&quot;,</span>
 <span id="cb18-9"><a href="index.html#cb18-9" tabindex="-1"></a>  &quot;tidyverse&quot;, &quot;urca&quot;, &quot;wordcloud&quot;, &quot;zoo&quot;,</span>
 <span id="cb18-10"><a href="index.html#cb18-10" tabindex="-1"></a>  # librerías de gestión de catálogos de datasets</span>
-<span id="cb18-11"><a href="index.html#cb18-11" tabindex="-1"></a>  &quot;geojsonio&quot;, &quot;httr&quot;, &quot;ineapir&quot;, &quot;istacr&quot;, &quot;mapSpain&quot;, &quot;ncdf4&quot;, &quot;pacman&quot;,</span>
-<span id="cb18-12"><a href="index.html#cb18-12" tabindex="-1"></a>  &quot;readxl&quot;, &quot;terra&quot;, &quot;wbstats&quot;, &quot;xml2&quot;</span>
-<span id="cb18-13"><a href="index.html#cb18-13" tabindex="-1"></a>))</span></code></pre></div>
-<p><code>datasets</code> y <code>utils</code> no aparecen en el comando anterior porque son librerías <strong>base</strong> de R: vienen siempre instaladas y no se gestionan con <code>install.packages</code>.</p>
+<span id="cb18-11"><a href="index.html#cb18-11" tabindex="-1"></a>  &quot;eurostat&quot;,&quot;httr&quot;, &quot;ineapir&quot;, &quot;istacr&quot;, &quot;mapSpain&quot;, &quot;ncdf4&quot;, &quot;terra&quot;, &quot;wbstats&quot;, &quot;xml2&quot;</span>
+<span id="cb18-12"><a href="index.html#cb18-12" tabindex="-1"></a>))</span></code></pre></div>
+<p><code>utils</code> no aparece en el comando anterior porque es una librería <strong>base</strong> de R: viene siempre instalada y no se gestiona con <code>install.packages</code>.</p>
 <blockquote>
 <p><strong>Nota: Quarto + Positron.</strong> La empresa que desarrolla RStudio se llama desde 2022 <strong>Posit</strong> y desde hace unos años está desarrollando <strong>Quarto</strong> como una evolución de <strong>RMakdown</strong> que permite la integración de los lenguajes <strong>R</strong> y <strong>python</strong>. También desarrolla <strong>Positron</strong> un IDE similar a <strong>RStudio</strong> para editar/gestionar ficheros de <strong>Quarto</strong>. En este curso usamos el ecosistema <strong>RMarkdown</strong> + <strong>RStudio</strong> por estar muy consolidado pero conviene saber que <strong>Quarto</strong> + <strong>Positron</strong> es la <em>apuesta</em> actual de <strong>Posit</strong> como plataforma de desarrollo y seguramente cada vez se use más y vaya reemplazando a <strong>RMarkdown</strong> + <strong>RStudio</strong>.</p>
 </blockquote>
