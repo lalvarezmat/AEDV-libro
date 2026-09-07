@@ -160,7 +160,7 @@ fig:pca2-dispersion
 fig:biplot-factoextra
 fig:kmeans-pca
 fig:kmeans-pca-yj
-tab:unnamed-chunk-227
+tab:unnamed-chunk-228
 fig:chunk-label
 introducción
 fases-de-un-análisis-exploratorio-de-datos

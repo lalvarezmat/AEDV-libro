@@ -5090,7 +5090,7 @@ los campos y hacemos un <code>pivot_wider</code></p>
 <div id="diagnóstico-rápido-skimr-janitor-y-naniar" class="section level3 unnumbered hasAnchor">
 <h3>Diagnóstico rápido: <code>skimr</code>, <code>janitor</code> y <code>naniar</code><a href="datos.html#diagnóstico-rápido-skimr-janitor-y-naniar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El enfoque “manual” de las secciones anteriores (contar <code>NA</code> con <code>summarise</code>, examinar tipos con <code>glimpse</code>, etc.) tiene valor didáctico: obliga a entender qué se está comprobando. En los flujos de trabajo profesionales, sin embargo, es habitual apoyarse en herramientas dedicadas que hacen ese diagnóstico en una sola llamada.</p>
-<p>La función <code>skim()</code> de la librería <code>skimr</code> produce un resumen exploratorio completo de la tabla: número de filas y columnas, tipos, valores faltantes por columna y, para las variables numéricas, media, desviación, cuartiles e incluso un mini-histograma. Como el resumen tiene muchas columnas, imprimimos el chunk dentro de un <code>&lt;div&gt;</code> de clase <code>tabla-scroll</code> para poder recorrerlo con el <em>slider</em> horizontal (ver <a href="aspectos-básicos-de-r.html#tabla-scroll">Imprimir tablas anchas</a> en el capítulo 1):</p>
+<p>La función <code>skim()</code> de la librería <code>skimr</code> produce un resumen exploratorio completo de la tabla: número de filas y columnas, tipos, valores faltantes por columna y, para las variables numéricas, media, desviación, cuartiles e incluso un mini-histograma. El resumen tiene <strong>una fila por columna de la tabla original</strong>, así que solo se lee de un vistazo cuando el número de atributos es relativamente pequeño: sobre las 17 columnas de <code>owid_country</code> el resultado ya no cabría en una pantalla, así que antes seleccionamos las cuatro que nos interesan. Como aun así el resumen tiene muchas columnas propias, imprimimos el chunk dentro de un <code>&lt;div&gt;</code> de clase <code>tabla-scroll</code> para poder recorrerlo con el <em>slider</em> horizontal (ver <a href="aspectos-básicos-de-r.html#tabla-scroll">Imprimir tablas anchas</a> en el capítulo 1):</p>
 <div class="tabla-scroll">
 <div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="datos.html#cb409-1" tabindex="-1"></a>owid_country <span class="sc">|&gt;</span></span>
 <span id="cb409-2"><a href="datos.html#cb409-2" tabindex="-1"></a>  <span class="fu">select</span>(continent, life_expectancy, gdp_per_capit, population) <span class="sc">|&gt;</span> <span class="co"># columnas de interés</span></span>
@@ -5484,31 +5484,42 @@ Figure 3.4: Disponibilidad de datos de emisiones de CO2 por año y país (naniar
 </ul>
 <p>Es el mismo tipo de valor atípico que vimos antes, aplicado ahora a la <strong>duración de una serie</strong> en lugar de a un valor numérico. La lección se repite: antes de agregar o dibujar, hay que saber qué representa cada fila.</p>
 </div>
+<p><code>n_obs</code>, <code>inicio</code> y <code>fin</code> no distinguen una serie vacía de una serie con <strong>huecos por el medio</strong>: un país puede tener dato desde su <code>inicio</code> hasta su <code>fin</code> y aun así faltarle años intermedios, algo que no se ve comparando solo esas tres columnas. La forma más sencilla de detectarlo es comparar el tamaño del rango de fechas con el número de datos que realmente tiene la serie: si no falta ninguno, <code>fin - inicio + 1</code> y <code>n_obs</code> coinciden.</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="datos.html#cb419-1" tabindex="-1"></a>resumen_co2 <span class="ot">&lt;-</span> resumen_co2 <span class="sc">|&gt;</span></span>
+<span id="cb419-2"><a href="datos.html#cb419-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">huecos =</span> (fin <span class="sc">-</span> inicio <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">-</span> n_obs) <span class="co"># tamaño del rango menos años con dato</span></span>
+<span id="cb419-3"><a href="datos.html#cb419-3" tabindex="-1"></a></span>
+<span id="cb419-4"><a href="datos.html#cb419-4" tabindex="-1"></a>resumen_co2 <span class="sc">|&gt;</span></span>
+<span id="cb419-5"><a href="datos.html#cb419-5" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Belgium&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 5
+##   country n_obs inicio   fin huecos
+##   &lt;chr&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Belgium   193   1802  2021     27</code></pre>
+<p>Bélgica tiene datos entre 1802 y 2021, un rango de 220 años, pero solo 193 de ellos tienen dato: le faltan 27 años por el medio, un hueco que no aparece entre las series más cortas de la tabla anterior porque <code>n_obs</code> sigue siendo alto.</p>
 </div>
 <div id="exportación-de-datos" class="section level3 unnumbered hasAnchor">
 <h3>Exportación de datos<a href="datos.html#exportación-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Una vez procesados los datos, es habitual necesitar guardarlos para compartirlos o para usarlos posteriormente. Las funciones de escritura más habituales son:</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="datos.html#cb419-1" tabindex="-1"></a><span class="co"># Exportar a CSV (formato universal)</span></span>
-<span id="cb419-2"><a href="datos.html#cb419-2" tabindex="-1"></a><span class="fu">write_csv</span>(owid_country, <span class="st">&quot;owid_country_procesado.csv&quot;</span>)</span>
-<span id="cb419-3"><a href="datos.html#cb419-3" tabindex="-1"></a></span>
-<span id="cb419-4"><a href="datos.html#cb419-4" tabindex="-1"></a><span class="co"># Exportar a CSV con separador punto y coma (formato español)</span></span>
-<span id="cb419-5"><a href="datos.html#cb419-5" tabindex="-1"></a><span class="fu">write_csv2</span>(owid_country, <span class="st">&quot;owid_country_procesado_es.csv&quot;</span>)</span>
-<span id="cb419-6"><a href="datos.html#cb419-6" tabindex="-1"></a></span>
-<span id="cb419-7"><a href="datos.html#cb419-7" tabindex="-1"></a><span class="co"># Exportar a Excel</span></span>
-<span id="cb419-8"><a href="datos.html#cb419-8" tabindex="-1"></a><span class="fu">write.xlsx</span>(owid_country, <span class="st">&quot;owid_country_procesado.xlsx&quot;</span>)</span>
-<span id="cb419-9"><a href="datos.html#cb419-9" tabindex="-1"></a></span>
-<span id="cb419-10"><a href="datos.html#cb419-10" tabindex="-1"></a><span class="co"># Exportar a RDS (formato nativo R, conserva tipos)</span></span>
-<span id="cb419-11"><a href="datos.html#cb419-11" tabindex="-1"></a><span class="fu">saveRDS</span>(owid_country, <span class="st">&quot;owid_country_procesado.rds&quot;</span>)</span>
-<span id="cb419-12"><a href="datos.html#cb419-12" tabindex="-1"></a></span>
-<span id="cb419-13"><a href="datos.html#cb419-13" tabindex="-1"></a><span class="co"># Exportar a JSON</span></span>
-<span id="cb419-14"><a href="datos.html#cb419-14" tabindex="-1"></a><span class="fu">write_json</span>(owid_country, <span class="st">&quot;owid_country_procesado.json&quot;</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="datos.html#cb421-1" tabindex="-1"></a><span class="co"># Exportar a CSV (formato universal)</span></span>
+<span id="cb421-2"><a href="datos.html#cb421-2" tabindex="-1"></a><span class="fu">write_csv</span>(owid_country, <span class="st">&quot;owid_country_procesado.csv&quot;</span>)</span>
+<span id="cb421-3"><a href="datos.html#cb421-3" tabindex="-1"></a></span>
+<span id="cb421-4"><a href="datos.html#cb421-4" tabindex="-1"></a><span class="co"># Exportar a CSV con separador punto y coma (formato español)</span></span>
+<span id="cb421-5"><a href="datos.html#cb421-5" tabindex="-1"></a><span class="fu">write_csv2</span>(owid_country, <span class="st">&quot;owid_country_procesado_es.csv&quot;</span>)</span>
+<span id="cb421-6"><a href="datos.html#cb421-6" tabindex="-1"></a></span>
+<span id="cb421-7"><a href="datos.html#cb421-7" tabindex="-1"></a><span class="co"># Exportar a Excel</span></span>
+<span id="cb421-8"><a href="datos.html#cb421-8" tabindex="-1"></a><span class="fu">write.xlsx</span>(owid_country, <span class="st">&quot;owid_country_procesado.xlsx&quot;</span>)</span>
+<span id="cb421-9"><a href="datos.html#cb421-9" tabindex="-1"></a></span>
+<span id="cb421-10"><a href="datos.html#cb421-10" tabindex="-1"></a><span class="co"># Exportar a RDS (formato nativo R, conserva tipos)</span></span>
+<span id="cb421-11"><a href="datos.html#cb421-11" tabindex="-1"></a><span class="fu">saveRDS</span>(owid_country, <span class="st">&quot;owid_country_procesado.rds&quot;</span>)</span>
+<span id="cb421-12"><a href="datos.html#cb421-12" tabindex="-1"></a></span>
+<span id="cb421-13"><a href="datos.html#cb421-13" tabindex="-1"></a><span class="co"># Exportar a JSON</span></span>
+<span id="cb421-14"><a href="datos.html#cb421-14" tabindex="-1"></a><span class="fu">write_json</span>(owid_country, <span class="st">&quot;owid_country_procesado.json&quot;</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>En general, si los datos van a ser usados solo en R, el formato RDS es el más recomendable porque conserva los tipos de datos y es rápido de leer/escribir. Si los datos se van a compartir con otras herramientas o personas, CSV o Excel son las mejores opciones por su universalidad. JSON es útil cuando los datos se van a consumir desde aplicaciones web o APIs.</p>
 <div class="nota">
 <p><strong class="bloque-titulo">¿Dónde se guarda el fichero? Rutas y directorio de trabajo</strong></p>
 <p>En todas las instrucciones anteriores se ha escrito solo un <strong>nombre de fichero</strong>, sin indicar ninguna carpeta: eso es una <strong>ruta relativa</strong>, y el fichero se crea en el <strong>directorio de trabajo</strong>, que al compilar un documento <code>RMarkdown</code> es la carpeta donde está el propio <code>.Rmd</code>. Es también donde se buscan los ficheros al leerlos, así que <code>read_csv("datos.csv")</code> funciona si <code>datos.csv</code> está junto al documento. Para saber cuál es en cada momento se usa <code>getwd()</code>.</p>
 <p>Para cambiarlo manualmente se usa <code>setwd("ruta")</code> en la consola o en el chunk de configuración inicial con <code>knitr::opts_knit$set(root.dir = "ruta")</code>.</p>
 <p>Para organizar un proyecto conviene usar subcarpetas, indicándolas con <strong>barras normales</strong> (<code>/</code>), que funcionan igual en Windows, macOS y Linux:</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="datos.html#cb420-1" tabindex="-1"></a><span class="fu">saveRDS</span>(owid_country, <span class="st">&quot;datos/owid_country.rds&quot;</span>)   <span class="co"># subcarpeta &quot;datos&quot; (debe existir)</span></span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="datos.html#cb422-1" tabindex="-1"></a><span class="fu">saveRDS</span>(owid_country, <span class="st">&quot;datos/owid_country.rds&quot;</span>)   <span class="co"># subcarpeta &quot;datos&quot; (debe existir)</span></span></code></pre></div>
 <p>En Windows las rutas se escriben con barra invertida (<code>C:\datos\fichero.csv</code>) y eso da problemas en <code>R</code>, porque <code>\</code> inicia una secuencia de escape dentro de un texto (<code>\n</code> es un salto de línea). Hay dos formas de evitarlo: escribir la ruta con barras normales (<code>"C:/datos/fichero.csv"</code>, que <code>R</code> acepta sin problema) o duplicar las barras (<code>"C:\\datos\\fichero.csv"</code>).</p>
 <p>Salvo casos excepcionales, es preferible <strong>no</strong> usar rutas absolutas: un documento que solo funciona en la carpeta de un ordenador concreto no es reproducible. Por eso en este libro los datos se leen siempre desde una URL del repositorio del curso.</p>
 </div>
