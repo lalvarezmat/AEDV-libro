@@ -2,12 +2,12 @@ tab:unnamed-chunk-9
 tab:errores-comunes
 tab:unnamed-chunk-105
 fig:tipos-join
-tab:unnamed-chunk-127
-tab:unnamed-chunk-128
+tab:unnamed-chunk-130
+tab:unnamed-chunk-131
 fig:diagrama-pivot
-tab:unnamed-chunk-140
+tab:unnamed-chunk-143
 fig:gg-miss-var
-tab:unnamed-chunk-142
+tab:unnamed-chunk-145
 fig:vis-miss-co2
 tab:equivalencias-base-tidyverse
 tab:guia-seleccion
@@ -160,7 +160,7 @@ fig:pca2-dispersion
 fig:biplot-factoextra
 fig:kmeans-pca
 fig:kmeans-pca-yj
-tab:unnamed-chunk-224
+tab:unnamed-chunk-227
 fig:chunk-label
 introducción
 fases-de-un-análisis-exploratorio-de-datos
