@@ -176,7 +176,7 @@ la-tiranía-de-las-métricas
 el-ámbito-educativo-aprobar-no-es-aprender
 el-ámbito-político-la-manipulación-estadística-del-bienestar
 cómo-mitigar-la-tiranía-de-las-métricas
-aspectos-básicos-de-r
+aspectos-basicos-r
 tipos-y-estructuras-de-datos
 creación-manual-de-un-tibble
 acceso-primeros-y-últimos-valores-deltibble
@@ -192,7 +192,7 @@ formatos-de-ficheros-de-datos
 transformación-de-datos
 calidad-datos
 análisis-exploratorio-inicial
-visualización-estática-de-datos
+visualizacion-estatica
 la-gramática-de-los-gráficos
 anatomia-ggplot
 diagramas-de-barras
@@ -232,7 +232,7 @@ comparacion-modelos
 cv-temporal
 rellenar-huecos
 guia-practica
-visualización-dinámica
+visualizacion-dinamica
 diagramas-de-barras-interactivos
 gráficos-circulares-interactivos
 gráficos-de-donuts-interactivos
@@ -260,7 +260,7 @@ opciones-de-configuración
 exploración-de-datos-multidimensionales
 rendimiento-de-los-cuadros-de-mando
 publicar-un-cuadro-de-mando
-análisis-de-atributos
+analisis-atributos
 introducción-1
 la-elección-de-los-atributos-en-datos-multidimensionales
 relación-entre-dos-variables
