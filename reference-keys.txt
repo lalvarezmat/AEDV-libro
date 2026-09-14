@@ -1,13 +1,13 @@
 tab:unnamed-chunk-9
 tab:errores-comunes
-tab:unnamed-chunk-105
+tab:unnamed-chunk-106
 fig:tipos-join
-tab:unnamed-chunk-130
 tab:unnamed-chunk-131
+tab:unnamed-chunk-132
 fig:diagrama-pivot
-tab:unnamed-chunk-143
+tab:unnamed-chunk-144
 fig:gg-miss-var
-tab:unnamed-chunk-145
+tab:unnamed-chunk-146
 fig:vis-miss-co2
 tab:equivalencias-base-tidyverse
 tab:guia-seleccion
@@ -160,7 +160,7 @@ fig:pca2-dispersion
 fig:biplot-factoextra
 fig:kmeans-pca
 fig:kmeans-pca-yj
-tab:unnamed-chunk-228
+tab:unnamed-chunk-229
 fig:chunk-label
 introducción
 fases-de-un-análisis-exploratorio-de-datos
@@ -183,6 +183,7 @@ acceso-primeros-y-últimos-valores-deltibble
 añadir-un-registro-fila-a-un-tibble
 añadir-un-campo-columna-a-un-tibble
 seleccionar-registros-usando-slice
+seleccionar-los-registros-con-el-valor-máximo-o-mínimo-slice_maxslice_min
 imprimir-información-de-un-tibble
 funciones-en-r
 errores-comunes-de-principiante

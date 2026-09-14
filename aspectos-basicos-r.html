@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-09-11" />
+<meta name="date" content="2026-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -537,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="aspectos-basicos-r" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number">2</span> Aspectos básicos de <code>R</code><a href="aspectos-basicos-r.html#aspectos-basicos-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha última actualización: 2026-09-11</p>
+<p>Fecha última actualización: 2026-09-14</p>
 <p><font size="5"> <b> Instalación y carga de librerías </b> </font></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="aspectos-basicos-r.html#cb19-1" tabindex="-1"></a><span class="co"># Se instalan automáticamente si no están disponibles en el sistema</span></span>
 <span id="cb19-2"><a href="aspectos-basicos-r.html#cb19-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(fpp3)) <span class="fu">install.packages</span>(<span class="st">&#39;fpp3&#39;</span>) </span>
@@ -1091,10 +1091,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 2023-01-02     1         3 Spain  
 ## 3 2023-01-03     7         4 Spain</code></pre>
 </div>
+<div id="seleccionar-los-registros-con-el-valor-máximo-o-mínimo-slice_maxslice_min" class="section level4 hasAnchor" number="2.1.0.6">
+<h4><span class="header-section-number">2.1.0.6</span> Seleccionar los registros con el valor máximo o mínimo: <code>slice_max</code>/<code class="unnumbered">slice_min</code><a href="aspectos-basicos-r.html#seleccionar-los-registros-con-el-valor-máximo-o-mínimo-slice_maxslice_min" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="aspectos-basicos-r.html#cb204-1" tabindex="-1"></a><span class="fu">slice_max</span>(tb,value,<span class="at">n=</span><span class="dv">2</span>) <span class="co"># los 2 registros con mayor value</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 4
+##   date       value new_value country
+##   &lt;date&gt;     &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;  
+## 1 2022-12-31     9         1 Spain  
+## 2 2023-01-05     8         6 Spain</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="aspectos-basicos-r.html#cb206-1" tabindex="-1"></a><span class="fu">slice_min</span>(tb,value,<span class="at">n=</span><span class="dv">2</span>) <span class="co"># los 2 registros con menor value</span></span></code></pre></div>
+<pre><code>## # A tibble: 2 × 4
+##   date       value new_value country
+##   &lt;date&gt;     &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;  
+## 1 2023-01-02     1         3 Spain  
+## 2 2023-01-01     6         2 Spain</code></pre>
+</div>
 <div id="hacer-una-operación-en-todos-los-elementos-de-campos-seleccionados" class="section level4 unnumbered hasAnchor">
 <h4>Hacer una operación en todos los elementos de campos seleccionados<a href="aspectos-basicos-r.html#hacer-una-operación-en-todos-los-elementos-de-campos-seleccionados" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Vamos a convertir en tipo <code>character</code> todos los valores de los campos <code>value</code>y <code>new_value</code></p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="aspectos-basicos-r.html#cb204-1" tabindex="-1"></a>tb <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="fu">across</span>(value<span class="sc">:</span>new_value,as.character)) <span class="co"># ambas columnas a texto</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="aspectos-basicos-r.html#cb208-1" tabindex="-1"></a>tb <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="fu">across</span>(value<span class="sc">:</span>new_value,as.character)) <span class="co"># ambas columnas a texto</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   date       value new_value country
 ##   &lt;date&gt;     &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;  
@@ -1106,10 +1121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 2023-01-05 8     6         Spain</code></pre>
 <p>la función <code>mutate</code> pertenece a la librería <code>dplyr</code> y se verá en detalle más adelante</p>
 </div>
-<div id="imprimir-información-de-un-tibble" class="section level4 hasAnchor" number="2.1.0.6">
-<h4><span class="header-section-number">2.1.0.6</span> Imprimir información de un <code class="unnumbered">tibble</code><a href="aspectos-basicos-r.html#imprimir-información-de-un-tibble" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="imprimir-información-de-un-tibble" class="section level4 hasAnchor" number="2.1.0.7">
+<h4><span class="header-section-number">2.1.0.7</span> Imprimir información de un <code class="unnumbered">tibble</code><a href="aspectos-basicos-r.html#imprimir-información-de-un-tibble" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Además de ejecutar el nombre del <code>tibble</code> en la consola, otras formas de obtener información sobre el <code>tibble</code> por consola son:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="aspectos-basicos-r.html#cb206-1" tabindex="-1"></a><span class="fu">print</span>(tb,<span class="at">n=</span><span class="dv">3</span>)   <span class="co"># las 3 primeras filas</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="aspectos-basicos-r.html#cb210-1" tabindex="-1"></a><span class="fu">print</span>(tb,<span class="at">n=</span><span class="dv">3</span>)   <span class="co"># las 3 primeras filas</span></span></code></pre></div>
 <pre><code>## # A tibble: 6 × 4
 ##   date       value new_value country
 ##   &lt;date&gt;     &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;  
@@ -1117,20 +1132,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 2023-01-01     6         2 Spain  
 ## 3 2023-01-02     1         3 Spain  
 ## # ℹ 3 more rows</code></pre>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="aspectos-basicos-r.html#cb208-1" tabindex="-1"></a><span class="fu">str</span>(tb)         <span class="co"># estructura del tibble</span></span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="aspectos-basicos-r.html#cb212-1" tabindex="-1"></a><span class="fu">str</span>(tb)         <span class="co"># estructura del tibble</span></span></code></pre></div>
 <pre><code>## tibble [6 × 4] (S3: tbl_df/tbl/data.frame)
 ##  $ date     : Date[1:6], format: &quot;2022-12-31&quot; &quot;2023-01-01&quot; ...
 ##  $ value    : num [1:6] 9 6 1 7 NA 8
 ##  $ new_value: int [1:6] 1 2 3 4 NA 6
 ##  $ country  : chr [1:6] &quot;Spain&quot; &quot;Spain&quot; &quot;Spain&quot; &quot;Spain&quot; ...</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="aspectos-basicos-r.html#cb210-1" tabindex="-1"></a><span class="fu">glimpse</span>(tb)     <span class="co"># como str(), una línea por columna</span></span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="aspectos-basicos-r.html#cb214-1" tabindex="-1"></a><span class="fu">glimpse</span>(tb)     <span class="co"># como str(), una línea por columna</span></span></code></pre></div>
 <pre><code>## Rows: 6
 ## Columns: 4
 ## $ date      &lt;date&gt; 2022-12-31, 2023-01-01, 2023-01-02, 2023-01-03, 2023-01-04,…
 ## $ value     &lt;dbl&gt; 9, 6, 1, 7, NA, 8
 ## $ new_value &lt;int&gt; 1, 2, 3, 4, NA, 6
 ## $ country   &lt;chr&gt; &quot;Spain&quot;, &quot;Spain&quot;, &quot;Spain&quot;, &quot;Spain&quot;, &quot;Spain&quot;, &quot;Spain&quot;</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="aspectos-basicos-r.html#cb212-1" tabindex="-1"></a><span class="fu">summary</span>(tb)     <span class="co"># resumen estadístico</span></span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="aspectos-basicos-r.html#cb216-1" tabindex="-1"></a><span class="fu">summary</span>(tb)     <span class="co"># resumen estadístico</span></span></code></pre></div>
 <pre><code>##       date                value       new_value     country         
 ##  Min.   :2022-12-31   Min.   :1.0   Min.   :1.0   Length:6          
 ##  1st Qu.:2023-01-01   1st Qu.:6.0   1st Qu.:2.0   Class :character  
@@ -1144,23 +1159,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tabla-scroll" class="section level4 unnumbered hasAnchor">
 <h4>Imprimir tablas anchas con <em>slider</em> horizontal<a href="aspectos-basicos-r.html#tabla-scroll" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Cuando un <code>tibble</code> tiene muchas columnas, su impresión por consola se adapta sola al ancho disponible: muestra las columnas que caben y resume las restantes en una línea del tipo <code>... with n more variables</code>. Veámoslo con una tabla de temperaturas medias mensuales (una fila por ciudad y una columna por mes):</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="aspectos-basicos-r.html#cb214-1" tabindex="-1"></a><span class="co"># Tabla ancha: 13 columnas (la ciudad y los 12 meses)</span></span>
-<span id="cb214-2"><a href="aspectos-basicos-r.html#cb214-2" tabindex="-1"></a>temperaturas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb214-3"><a href="aspectos-basicos-r.html#cb214-3" tabindex="-1"></a>  <span class="at">ciudad     =</span> <span class="fu">c</span>(<span class="st">&quot;Las Palmas&quot;</span>, <span class="st">&quot;Madrid&quot;</span>, <span class="st">&quot;Barcelona&quot;</span>),</span>
-<span id="cb214-4"><a href="aspectos-basicos-r.html#cb214-4" tabindex="-1"></a>  <span class="at">enero      =</span> <span class="fu">c</span>(<span class="fl">20.8</span>,  <span class="fl">6.3</span>,  <span class="fl">9.8</span>),</span>
-<span id="cb214-5"><a href="aspectos-basicos-r.html#cb214-5" tabindex="-1"></a>  <span class="at">febrero    =</span> <span class="fu">c</span>(<span class="fl">20.9</span>,  <span class="fl">7.9</span>, <span class="fl">10.9</span>),</span>
-<span id="cb214-6"><a href="aspectos-basicos-r.html#cb214-6" tabindex="-1"></a>  <span class="at">marzo      =</span> <span class="fu">c</span>(<span class="fl">21.3</span>, <span class="fl">11.2</span>, <span class="fl">12.7</span>),</span>
-<span id="cb214-7"><a href="aspectos-basicos-r.html#cb214-7" tabindex="-1"></a>  <span class="at">abril      =</span> <span class="fu">c</span>(<span class="fl">21.6</span>, <span class="fl">12.9</span>, <span class="fl">14.5</span>),</span>
-<span id="cb214-8"><a href="aspectos-basicos-r.html#cb214-8" tabindex="-1"></a>  <span class="at">mayo       =</span> <span class="fu">c</span>(<span class="fl">22.4</span>, <span class="fl">16.7</span>, <span class="fl">17.6</span>),</span>
-<span id="cb214-9"><a href="aspectos-basicos-r.html#cb214-9" tabindex="-1"></a>  <span class="at">junio      =</span> <span class="fu">c</span>(<span class="fl">23.9</span>, <span class="fl">22.2</span>, <span class="fl">21.5</span>),</span>
-<span id="cb214-10"><a href="aspectos-basicos-r.html#cb214-10" tabindex="-1"></a>  <span class="at">julio      =</span> <span class="fu">c</span>(<span class="fl">24.9</span>, <span class="fl">25.6</span>, <span class="fl">24.3</span>),</span>
-<span id="cb214-11"><a href="aspectos-basicos-r.html#cb214-11" tabindex="-1"></a>  <span class="at">agosto     =</span> <span class="fu">c</span>(<span class="fl">25.4</span>, <span class="fl">25.1</span>, <span class="fl">24.8</span>),</span>
-<span id="cb214-12"><a href="aspectos-basicos-r.html#cb214-12" tabindex="-1"></a>  <span class="at">septiembre =</span> <span class="fu">c</span>(<span class="fl">25.2</span>, <span class="fl">20.9</span>, <span class="fl">22.1</span>),</span>
-<span id="cb214-13"><a href="aspectos-basicos-r.html#cb214-13" tabindex="-1"></a>  <span class="at">octubre    =</span> <span class="fu">c</span>(<span class="fl">24.6</span>, <span class="fl">15.1</span>, <span class="fl">18.4</span>),</span>
-<span id="cb214-14"><a href="aspectos-basicos-r.html#cb214-14" tabindex="-1"></a>  <span class="at">noviembre  =</span> <span class="fu">c</span>(<span class="fl">23.0</span>,  <span class="fl">9.9</span>, <span class="fl">13.5</span>),</span>
-<span id="cb214-15"><a href="aspectos-basicos-r.html#cb214-15" tabindex="-1"></a>  <span class="at">diciembre  =</span> <span class="fu">c</span>(<span class="fl">21.6</span>,  <span class="fl">6.9</span>, <span class="fl">10.6</span>)</span>
-<span id="cb214-16"><a href="aspectos-basicos-r.html#cb214-16" tabindex="-1"></a>)</span>
-<span id="cb214-17"><a href="aspectos-basicos-r.html#cb214-17" tabindex="-1"></a>temperaturas <span class="co"># la impresión por consola trunca las columnas que no caben</span></span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="aspectos-basicos-r.html#cb218-1" tabindex="-1"></a><span class="co"># Tabla ancha: 13 columnas (la ciudad y los 12 meses)</span></span>
+<span id="cb218-2"><a href="aspectos-basicos-r.html#cb218-2" tabindex="-1"></a>temperaturas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb218-3"><a href="aspectos-basicos-r.html#cb218-3" tabindex="-1"></a>  <span class="at">ciudad     =</span> <span class="fu">c</span>(<span class="st">&quot;Las Palmas&quot;</span>, <span class="st">&quot;Madrid&quot;</span>, <span class="st">&quot;Barcelona&quot;</span>),</span>
+<span id="cb218-4"><a href="aspectos-basicos-r.html#cb218-4" tabindex="-1"></a>  <span class="at">enero      =</span> <span class="fu">c</span>(<span class="fl">20.8</span>,  <span class="fl">6.3</span>,  <span class="fl">9.8</span>),</span>
+<span id="cb218-5"><a href="aspectos-basicos-r.html#cb218-5" tabindex="-1"></a>  <span class="at">febrero    =</span> <span class="fu">c</span>(<span class="fl">20.9</span>,  <span class="fl">7.9</span>, <span class="fl">10.9</span>),</span>
+<span id="cb218-6"><a href="aspectos-basicos-r.html#cb218-6" tabindex="-1"></a>  <span class="at">marzo      =</span> <span class="fu">c</span>(<span class="fl">21.3</span>, <span class="fl">11.2</span>, <span class="fl">12.7</span>),</span>
+<span id="cb218-7"><a href="aspectos-basicos-r.html#cb218-7" tabindex="-1"></a>  <span class="at">abril      =</span> <span class="fu">c</span>(<span class="fl">21.6</span>, <span class="fl">12.9</span>, <span class="fl">14.5</span>),</span>
+<span id="cb218-8"><a href="aspectos-basicos-r.html#cb218-8" tabindex="-1"></a>  <span class="at">mayo       =</span> <span class="fu">c</span>(<span class="fl">22.4</span>, <span class="fl">16.7</span>, <span class="fl">17.6</span>),</span>
+<span id="cb218-9"><a href="aspectos-basicos-r.html#cb218-9" tabindex="-1"></a>  <span class="at">junio      =</span> <span class="fu">c</span>(<span class="fl">23.9</span>, <span class="fl">22.2</span>, <span class="fl">21.5</span>),</span>
+<span id="cb218-10"><a href="aspectos-basicos-r.html#cb218-10" tabindex="-1"></a>  <span class="at">julio      =</span> <span class="fu">c</span>(<span class="fl">24.9</span>, <span class="fl">25.6</span>, <span class="fl">24.3</span>),</span>
+<span id="cb218-11"><a href="aspectos-basicos-r.html#cb218-11" tabindex="-1"></a>  <span class="at">agosto     =</span> <span class="fu">c</span>(<span class="fl">25.4</span>, <span class="fl">25.1</span>, <span class="fl">24.8</span>),</span>
+<span id="cb218-12"><a href="aspectos-basicos-r.html#cb218-12" tabindex="-1"></a>  <span class="at">septiembre =</span> <span class="fu">c</span>(<span class="fl">25.2</span>, <span class="fl">20.9</span>, <span class="fl">22.1</span>),</span>
+<span id="cb218-13"><a href="aspectos-basicos-r.html#cb218-13" tabindex="-1"></a>  <span class="at">octubre    =</span> <span class="fu">c</span>(<span class="fl">24.6</span>, <span class="fl">15.1</span>, <span class="fl">18.4</span>),</span>
+<span id="cb218-14"><a href="aspectos-basicos-r.html#cb218-14" tabindex="-1"></a>  <span class="at">noviembre  =</span> <span class="fu">c</span>(<span class="fl">23.0</span>,  <span class="fl">9.9</span>, <span class="fl">13.5</span>),</span>
+<span id="cb218-15"><a href="aspectos-basicos-r.html#cb218-15" tabindex="-1"></a>  <span class="at">diciembre  =</span> <span class="fu">c</span>(<span class="fl">21.6</span>,  <span class="fl">6.9</span>, <span class="fl">10.6</span>)</span>
+<span id="cb218-16"><a href="aspectos-basicos-r.html#cb218-16" tabindex="-1"></a>)</span>
+<span id="cb218-17"><a href="aspectos-basicos-r.html#cb218-17" tabindex="-1"></a>temperaturas <span class="co"># la impresión por consola trunca las columnas que no caben</span></span></code></pre></div>
 <pre><code>## # A tibble: 3 × 13
 ##   ciudad   enero febrero marzo abril  mayo junio julio agosto septiembre octubre
 ##   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;
@@ -1169,16 +1184,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 Barcelo…   9.8    10.9  12.7  14.5  17.6  21.5  24.3   24.8       22.1    18.4
 ## # ℹ 2 more variables: noviembre &lt;dbl&gt;, diciembre &lt;dbl&gt;</code></pre>
 <p>El problema aparece cuando queremos ver la tabla <strong>completa</strong> en el documento HTML: si la imprimimos como tabla —por ejemplo con <code>knitr::kable()</code>, que veremos con detalle más adelante— la tabla resulta más ancha que la página y se corta por el borde derecho. La solución que usaremos en este curso es envolver el chunk en un <code>&lt;div&gt;</code> con la clase <code>tabla-scroll</code>, que añade una barra de desplazamiento (<em>slider</em>) horizontal cuando la tabla no cabe:</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb216-1"><a href="aspectos-basicos-r.html#cb216-1" tabindex="-1"></a>&lt;div class=&quot;tabla-scroll&quot;&gt;</span>
-<span id="cb216-2"><a href="aspectos-basicos-r.html#cb216-2" tabindex="-1"></a></span>
-<span id="cb216-3"><a href="aspectos-basicos-r.html#cb216-3" tabindex="-1"></a>```{r}</span>
-<span id="cb216-4"><a href="aspectos-basicos-r.html#cb216-4" tabindex="-1"></a> knitr::kable(temperaturas)</span>
-<span id="cb216-5"><a href="aspectos-basicos-r.html#cb216-5" tabindex="-1"></a>```</span>
-<span id="cb216-6"><a href="aspectos-basicos-r.html#cb216-6" tabindex="-1"></a></span>
-<span id="cb216-7"><a href="aspectos-basicos-r.html#cb216-7" tabindex="-1"></a>&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb220-1"><a href="aspectos-basicos-r.html#cb220-1" tabindex="-1"></a>&lt;div class=&quot;tabla-scroll&quot;&gt;</span>
+<span id="cb220-2"><a href="aspectos-basicos-r.html#cb220-2" tabindex="-1"></a></span>
+<span id="cb220-3"><a href="aspectos-basicos-r.html#cb220-3" tabindex="-1"></a>```{r}</span>
+<span id="cb220-4"><a href="aspectos-basicos-r.html#cb220-4" tabindex="-1"></a> knitr::kable(temperaturas)</span>
+<span id="cb220-5"><a href="aspectos-basicos-r.html#cb220-5" tabindex="-1"></a>```</span>
+<span id="cb220-6"><a href="aspectos-basicos-r.html#cb220-6" tabindex="-1"></a></span>
+<span id="cb220-7"><a href="aspectos-basicos-r.html#cb220-7" tabindex="-1"></a>&lt;/div&gt;</span></code></pre></div>
 <p>El resultado es la tabla completa, que se puede recorrer con el <em>slider</em> horizontal que aparece bajo la tabla:</p>
 <div class="tabla-scroll">
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="aspectos-basicos-r.html#cb217-1" tabindex="-1"></a> knitr<span class="sc">::</span><span class="fu">kable</span>(temperaturas)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="aspectos-basicos-r.html#cb221-1" tabindex="-1"></a> knitr<span class="sc">::</span><span class="fu">kable</span>(temperaturas)</span></code></pre></div>
 <table>
 <colgroup>
 <col width="11%" />
@@ -1264,11 +1279,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="nota">
 <p><strong class="bloque-titulo">Nota: dónde está definida la clase <code>tabla-scroll</code></strong></p>
 <p>La clase <code>tabla-scroll</code> no forma parte de <code>R</code> ni de <code>RMarkdown</code>: está definida en la hoja de estilos <code>estilos.css</code> de este libro y de los documentos del curso (ejercicios, exámenes y modelo de memoria del proyecto). Para usarla en un documento <code>RMarkdown</code> propio basta con incluir estas líneas en un bloque <code>&lt;style&gt;</code> al principio del documento, justo después de la cabecera:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb218-1"><a href="aspectos-basicos-r.html#cb218-1" tabindex="-1"></a>&lt;style&gt;</span>
-<span id="cb218-2"><a href="aspectos-basicos-r.html#cb218-2" tabindex="-1"></a>.tabla-scroll { overflow-x: auto; }</span>
-<span id="cb218-3"><a href="aspectos-basicos-r.html#cb218-3" tabindex="-1"></a>.tabla-scroll table { width: auto; min-width: 100%; }</span>
-<span id="cb218-4"><a href="aspectos-basicos-r.html#cb218-4" tabindex="-1"></a>.tabla-scroll table td, .tabla-scroll table th { white-space: nowrap; }</span>
-<span id="cb218-5"><a href="aspectos-basicos-r.html#cb218-5" tabindex="-1"></a>&lt;/style&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb222-1"><a href="aspectos-basicos-r.html#cb222-1" tabindex="-1"></a>&lt;style&gt;</span>
+<span id="cb222-2"><a href="aspectos-basicos-r.html#cb222-2" tabindex="-1"></a>.tabla-scroll { overflow-x: auto; }</span>
+<span id="cb222-3"><a href="aspectos-basicos-r.html#cb222-3" tabindex="-1"></a>.tabla-scroll table { width: auto; min-width: 100%; }</span>
+<span id="cb222-4"><a href="aspectos-basicos-r.html#cb222-4" tabindex="-1"></a>.tabla-scroll table td, .tabla-scroll table th { white-space: nowrap; }</span>
+<span id="cb222-5"><a href="aspectos-basicos-r.html#cb222-5" tabindex="-1"></a>&lt;/style&gt;</span></code></pre></div>
 <p>El truco funciona con cualquier chunk cuya salida sea una tabla HTML (<code>kable</code>, <code>gt</code> o el resumen de <code>skim()</code> que veremos en el próximo capítulo). En la salida PDF el <code>&lt;div&gt;</code> se ignora sin causar errores. Las tablas que sí caben en la página no se ven afectadas: el <em>slider</em> solo aparece cuando hace falta.</p>
 </div>
 </div>
@@ -1276,8 +1291,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="listas" class="section level3 unnumbered hasAnchor">
 <h3>Listas<a href="aspectos-basicos-r.html#listas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Una lista es una colección de objetos que pueden tener estructuras y tamaños distintos. Nosotros no haremos mucho uso de las listas en este curso dado que nuestra principal fuente de información van a ser tablas de datos que vamos a manejar con <code>tibbles</code>. Típicamente, usaremos listas cuando definamos funciones que queremos que retornen varias cosas.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="aspectos-basicos-r.html#cb219-1" tabindex="-1"></a>li <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;date&quot;</span><span class="ot">=</span><span class="fu">as.Date</span>(<span class="st">&quot;2022-12-25&quot;</span>), <span class="st">&quot;value1&quot;</span><span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="st">&quot;value2&quot;</span><span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="co"># creación lista</span></span>
-<span id="cb219-2"><a href="aspectos-basicos-r.html#cb219-2" tabindex="-1"></a>li</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="aspectos-basicos-r.html#cb223-1" tabindex="-1"></a>li <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;date&quot;</span><span class="ot">=</span><span class="fu">as.Date</span>(<span class="st">&quot;2022-12-25&quot;</span>), <span class="st">&quot;value1&quot;</span><span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="st">&quot;value2&quot;</span><span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="co"># creación lista</span></span>
+<span id="cb223-2"><a href="aspectos-basicos-r.html#cb223-2" tabindex="-1"></a>li</span></code></pre></div>
 <pre><code>## $date
 ## [1] &quot;2022-12-25&quot;
 ## 
@@ -1287,72 +1302,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $value2
 ## [1] 1 2 3 4</code></pre>
 <p>Para acceder a los elementos de la lista haremos:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="aspectos-basicos-r.html#cb221-1" tabindex="-1"></a>li[[<span class="dv">2</span>]] <span class="co"># acceso por posición </span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="aspectos-basicos-r.html#cb225-1" tabindex="-1"></a>li[[<span class="dv">2</span>]] <span class="co"># acceso por posición </span></span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="aspectos-basicos-r.html#cb223-1" tabindex="-1"></a>li[<span class="st">&quot;date&quot;</span>] <span class="co"># acceso por nombre </span></span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="aspectos-basicos-r.html#cb227-1" tabindex="-1"></a>li[<span class="st">&quot;date&quot;</span>] <span class="co"># acceso por nombre </span></span></code></pre></div>
 <pre><code>## $date
 ## [1] &quot;2022-12-25&quot;</code></pre>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="aspectos-basicos-r.html#cb225-1" tabindex="-1"></a>li<span class="sc">$</span>value2 <span class="co"># acceso con el operador $</span></span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="aspectos-basicos-r.html#cb229-1" tabindex="-1"></a>li<span class="sc">$</span>value2 <span class="co"># acceso con el operador $</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 </div>
 </div>
 <div id="funciones-en-r" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Funciones en <code>R</code><a href="aspectos-basicos-r.html#funciones-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Las funciones permiten simplificar y organizar el código empaquetando operaciones para ser reutilizadas de forma compacta y legible. En <code>R</code>, las funciones suelen definirse en ficheros con extensión <code>.R</code>. Para poder utilizarlas desde un script de <code>R</code> es necesario incluir al principio del script la instrucción:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb227-1"><a href="aspectos-basicos-r.html#cb227-1" tabindex="-1"></a>source(&quot;NombreFichero.R&quot;)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb231-1"><a href="aspectos-basicos-r.html#cb231-1" tabindex="-1"></a>source(&quot;NombreFichero.R&quot;)</span></code></pre></div>
 <p>La estructura general de una función es la siguiente:</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb228-1"><a href="aspectos-basicos-r.html#cb228-1" tabindex="-1"></a>NombreFuncion &lt;- function(parámetro1, parámetro2, ...){</span>
-<span id="cb228-2"><a href="aspectos-basicos-r.html#cb228-2" tabindex="-1"></a>  # líneas de código</span>
-<span id="cb228-3"><a href="aspectos-basicos-r.html#cb228-3" tabindex="-1"></a>  .....</span>
-<span id="cb228-4"><a href="aspectos-basicos-r.html#cb228-4" tabindex="-1"></a>  return(resultado)</span>
-<span id="cb228-5"><a href="aspectos-basicos-r.html#cb228-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb232-1"><a href="aspectos-basicos-r.html#cb232-1" tabindex="-1"></a>NombreFuncion &lt;- function(parámetro1, parámetro2, ...){</span>
+<span id="cb232-2"><a href="aspectos-basicos-r.html#cb232-2" tabindex="-1"></a>  # líneas de código</span>
+<span id="cb232-3"><a href="aspectos-basicos-r.html#cb232-3" tabindex="-1"></a>  .....</span>
+<span id="cb232-4"><a href="aspectos-basicos-r.html#cb232-4" tabindex="-1"></a>  return(resultado)</span>
+<span id="cb232-5"><a href="aspectos-basicos-r.html#cb232-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>A continuación se define una función sencilla que suma dos números y se usa para calcular 2+3:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="aspectos-basicos-r.html#cb229-1" tabindex="-1"></a><span class="co"># recibe dos argumentos y devuelve su suma</span></span>
-<span id="cb229-2"><a href="aspectos-basicos-r.html#cb229-2" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
-<span id="cb229-3"><a href="aspectos-basicos-r.html#cb229-3" tabindex="-1"></a>  z <span class="ot">&lt;-</span> x<span class="sc">+</span>y <span class="co"># suma</span></span>
-<span id="cb229-4"><a href="aspectos-basicos-r.html#cb229-4" tabindex="-1"></a>  <span class="fu">return</span>(z)</span>
-<span id="cb229-5"><a href="aspectos-basicos-r.html#cb229-5" tabindex="-1"></a>}</span>
-<span id="cb229-6"><a href="aspectos-basicos-r.html#cb229-6" tabindex="-1"></a><span class="fu">suma</span>(<span class="dv">2</span>,<span class="dv">3</span>) <span class="co"># llamada de prueba</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="aspectos-basicos-r.html#cb233-1" tabindex="-1"></a><span class="co"># recibe dos argumentos y devuelve su suma</span></span>
+<span id="cb233-2"><a href="aspectos-basicos-r.html#cb233-2" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
+<span id="cb233-3"><a href="aspectos-basicos-r.html#cb233-3" tabindex="-1"></a>  z <span class="ot">&lt;-</span> x<span class="sc">+</span>y <span class="co"># suma</span></span>
+<span id="cb233-4"><a href="aspectos-basicos-r.html#cb233-4" tabindex="-1"></a>  <span class="fu">return</span>(z)</span>
+<span id="cb233-5"><a href="aspectos-basicos-r.html#cb233-5" tabindex="-1"></a>}</span>
+<span id="cb233-6"><a href="aspectos-basicos-r.html#cb233-6" tabindex="-1"></a><span class="fu">suma</span>(<span class="dv">2</span>,<span class="dv">3</span>) <span class="co"># llamada de prueba</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p><code>return()</code> <strong>no es obligatorio</strong>: si se omite, la función devuelve el valor de la última expresión evaluada, de modo que la función anterior daría el mismo resultado terminando simplemente en <code>z</code>. Aun así, escribirlo de forma explícita hace el código más legible y resulta imprescindible cuando se quiere salir de la función antes de llegar al final, como en los <code>if</code> encadenados que veremos más adelante en <code>asignar_grupo_edad()</code>.</p>
 <div id="argumentos-con-nombre-y-valores-por-defecto" class="section level3 unnumbered hasAnchor">
 <h3>Argumentos con nombre y valores por defecto<a href="aspectos-basicos-r.html#argumentos-con-nombre-y-valores-por-defecto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los valores que se pasan a una función (sus <strong>argumentos</strong>) se pueden indicar de dos formas: <strong>por posición</strong>, en el mismo orden en que se declararon los parámetros —<code>suma(2,3)</code>—, o <strong>por nombre</strong>, diciendo a qué parámetro corresponde cada valor —<code>suma(x=2, y=3)</code>, o incluso <code>suma(y=3, x=2)</code>, porque al escribir el nombre el orden deja de importar—.</p>
 <p>Además, un parámetro puede declararse con un <strong>valor por defecto</strong>: si quien llama a la función no lo indica, se usa ese valor. Es lo que convierte una función con muchas opciones en algo cómodo de usar, porque solo hay que escribir las que se quieren cambiar.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="aspectos-basicos-r.html#cb231-1" tabindex="-1"></a><span class="co"># &#39;decimales&#39; tiene un valor por defecto: si no se indica, vale 2</span></span>
-<span id="cb231-2"><a href="aspectos-basicos-r.html#cb231-2" tabindex="-1"></a>redondear <span class="ot">&lt;-</span> <span class="cf">function</span>(valor, <span class="at">decimales =</span> <span class="dv">2</span>){</span>
-<span id="cb231-3"><a href="aspectos-basicos-r.html#cb231-3" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">round</span>(valor, <span class="at">digits =</span> decimales))</span>
-<span id="cb231-4"><a href="aspectos-basicos-r.html#cb231-4" tabindex="-1"></a>}</span>
-<span id="cb231-5"><a href="aspectos-basicos-r.html#cb231-5" tabindex="-1"></a></span>
-<span id="cb231-6"><a href="aspectos-basicos-r.html#cb231-6" tabindex="-1"></a><span class="fu">redondear</span>(<span class="fl">3.14159</span>)                 <span class="co"># sin indicar decimales: usa 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="aspectos-basicos-r.html#cb235-1" tabindex="-1"></a><span class="co"># &#39;decimales&#39; tiene un valor por defecto: si no se indica, vale 2</span></span>
+<span id="cb235-2"><a href="aspectos-basicos-r.html#cb235-2" tabindex="-1"></a>redondear <span class="ot">&lt;-</span> <span class="cf">function</span>(valor, <span class="at">decimales =</span> <span class="dv">2</span>){</span>
+<span id="cb235-3"><a href="aspectos-basicos-r.html#cb235-3" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">round</span>(valor, <span class="at">digits =</span> decimales))</span>
+<span id="cb235-4"><a href="aspectos-basicos-r.html#cb235-4" tabindex="-1"></a>}</span>
+<span id="cb235-5"><a href="aspectos-basicos-r.html#cb235-5" tabindex="-1"></a></span>
+<span id="cb235-6"><a href="aspectos-basicos-r.html#cb235-6" tabindex="-1"></a><span class="fu">redondear</span>(<span class="fl">3.14159</span>)                 <span class="co"># sin indicar decimales: usa 2</span></span></code></pre></div>
 <pre><code>## [1] 3.14</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="aspectos-basicos-r.html#cb233-1" tabindex="-1"></a><span class="fu">redondear</span>(<span class="fl">3.14159</span>, <span class="dv">4</span>)              <span class="co"># por posición</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="aspectos-basicos-r.html#cb237-1" tabindex="-1"></a><span class="fu">redondear</span>(<span class="fl">3.14159</span>, <span class="dv">4</span>)              <span class="co"># por posición</span></span></code></pre></div>
 <pre><code>## [1] 3.1416</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="aspectos-basicos-r.html#cb235-1" tabindex="-1"></a><span class="fu">redondear</span>(<span class="fl">3.14159</span>, <span class="at">decimales =</span> <span class="dv">0</span>)  <span class="co"># por nombre</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="aspectos-basicos-r.html#cb239-1" tabindex="-1"></a><span class="fu">redondear</span>(<span class="fl">3.14159</span>, <span class="at">decimales =</span> <span class="dv">0</span>)  <span class="co"># por nombre</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>Este mecanismo explica el aspecto de casi todas las llamadas a funciones de librería que iremos viendo en el curso. En <code>read_csv(url, skip = 1)</code> (del próximo capítulo) se pasa la ruta del fichero por posición y se ajusta por nombre <strong>uno</strong> de los varios parámetros que la función admite; todos los demás se quedan con su valor por defecto. Lo mismo ocurre en <code>adist(a, b, ignore.case = TRUE)</code> o en <code>round(x, digits = 2)</code>. Por eso, al consultar la documentación de una función con <code>help()</code>, lo útil no es memorizar el orden de sus parámetros, sino localizar <strong>cuál</strong> hay que cambiar: escrito con el nombre delante, se pone siempre igual y en cualquier posición.</p>
 <p>La mayor parte de las funciones de las librerías estándar —como <code>paste</code>, <code>as.Date</code>, etc.— están diseñadas para operar sobre vectores: cuando reciben un vector como argumento, aplican la función a cada elemento y devuelven otro vector. Por ejemplo:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="aspectos-basicos-r.html#cb237-1" tabindex="-1"></a><span class="co"># ym() se aplica elemento a elemento sobre el vector de fechas &#39;d&#39;</span></span>
-<span id="cb237-2"><a href="aspectos-basicos-r.html#cb237-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2008-01&quot;</span>,<span class="st">&quot;2014-10&quot;</span>,<span class="st">&quot;2023-12&quot;</span>)</span>
-<span id="cb237-3"><a href="aspectos-basicos-r.html#cb237-3" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;la función ym() convierte&quot;</span>,d,<span class="st">&quot;en&quot;</span>,<span class="fu">ym</span>(d))</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="aspectos-basicos-r.html#cb241-1" tabindex="-1"></a><span class="co"># ym() se aplica elemento a elemento sobre el vector de fechas &#39;d&#39;</span></span>
+<span id="cb241-2"><a href="aspectos-basicos-r.html#cb241-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2008-01&quot;</span>,<span class="st">&quot;2014-10&quot;</span>,<span class="st">&quot;2023-12&quot;</span>)</span>
+<span id="cb241-3"><a href="aspectos-basicos-r.html#cb241-3" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;la función ym() convierte&quot;</span>,d,<span class="st">&quot;en&quot;</span>,<span class="fu">ym</span>(d))</span></code></pre></div>
 <pre><code>## [1] &quot;la función ym() convierte 2008-01 en 2008-01-01&quot;
 ## [2] &quot;la función ym() convierte 2014-10 en 2014-10-01&quot;
 ## [3] &quot;la función ym() convierte 2023-12 en 2023-12-01&quot;</code></pre>
 <p>De la misma manera, cuando una función recibe dos vectores como argumentos puede devolver una matriz con el resultado de aplicar la función a cada combinación de elementos. Veamos un ejemplo con <code>adist</code>:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="aspectos-basicos-r.html#cb239-1" tabindex="-1"></a><span class="co"># adist() calcula la distancia entre cada par de strings de los dos vectores → resultado: matriz 2×3</span></span>
-<span id="cb239-2"><a href="aspectos-basicos-r.html#cb239-2" tabindex="-1"></a><span class="fu">adist</span>(<span class="fu">c</span>(<span class="st">&quot;Teror&quot;</span>,<span class="st">&quot;Galdar&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;Telde&quot;</span>,<span class="st">&quot;Arucas&quot;</span>,<span class="st">&quot;San Mateo&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="aspectos-basicos-r.html#cb243-1" tabindex="-1"></a><span class="co"># adist() calcula la distancia entre cada par de strings de los dos vectores → resultado: matriz 2×3</span></span>
+<span id="cb243-2"><a href="aspectos-basicos-r.html#cb243-2" tabindex="-1"></a><span class="fu">adist</span>(<span class="fu">c</span>(<span class="st">&quot;Teror&quot;</span>,<span class="st">&quot;Galdar&quot;</span>),<span class="fu">c</span>(<span class="st">&quot;Telde&quot;</span>,<span class="st">&quot;Arucas&quot;</span>,<span class="st">&quot;San Mateo&quot;</span>))</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    3    6    9
 ## [2,]    4    5    7</code></pre>
 <p>Esa matriz es lo que permite resolver el problema que anunciábamos al presentar <code>adist</code>: encontrar, dado un <code>string</code>, el elemento más parecido dentro de un vector. Basta quedarse con la fila que corresponde al <code>string</code> buscado y localizar su valor mínimo con <code>which.min()</code>:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="aspectos-basicos-r.html#cb241-1" tabindex="-1"></a><span class="co"># Cada fila corresponde a un municipio buscado y cada columna a uno de referencia</span></span>
-<span id="cb241-2"><a href="aspectos-basicos-r.html#cb241-2" tabindex="-1"></a>referencia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Telde&quot;</span>,<span class="st">&quot;Arucas&quot;</span>,<span class="st">&quot;Gáldar&quot;</span>)</span>
-<span id="cb241-3"><a href="aspectos-basicos-r.html#cb241-3" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">adist</span>(<span class="fu">c</span>(<span class="st">&quot;Teror&quot;</span>,<span class="st">&quot;Galdar&quot;</span>),referencia,<span class="at">ignore.case=</span><span class="cn">TRUE</span>)</span>
-<span id="cb241-4"><a href="aspectos-basicos-r.html#cb241-4" tabindex="-1"></a>d</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="aspectos-basicos-r.html#cb245-1" tabindex="-1"></a><span class="co"># Cada fila corresponde a un municipio buscado y cada columna a uno de referencia</span></span>
+<span id="cb245-2"><a href="aspectos-basicos-r.html#cb245-2" tabindex="-1"></a>referencia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Telde&quot;</span>,<span class="st">&quot;Arucas&quot;</span>,<span class="st">&quot;Gáldar&quot;</span>)</span>
+<span id="cb245-3"><a href="aspectos-basicos-r.html#cb245-3" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">adist</span>(<span class="fu">c</span>(<span class="st">&quot;Teror&quot;</span>,<span class="st">&quot;Galdar&quot;</span>),referencia,<span class="at">ignore.case=</span><span class="cn">TRUE</span>)</span>
+<span id="cb245-4"><a href="aspectos-basicos-r.html#cb245-4" tabindex="-1"></a>d</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    3    6    5
 ## [2,]    4    5    1</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="aspectos-basicos-r.html#cb243-1" tabindex="-1"></a>referencia[<span class="fu">which.min</span>(d[<span class="dv">2</span>,])]  <span class="co"># fila 2: el más parecido a &quot;Galdar&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="aspectos-basicos-r.html#cb247-1" tabindex="-1"></a>referencia[<span class="fu">which.min</span>(d[<span class="dv">2</span>,])]  <span class="co"># fila 2: el más parecido a &quot;Galdar&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;Gáldar&quot;</code></pre>
 <p>Esta capacidad de las funciones para actuar en función del tipo de argumento que recibe depende de cómo se haya implementado la función.</p>
 </div>
@@ -1378,60 +1393,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>is.na(x)</code> comprueba si x es NA</p></li>
 </ul>
 <p>Estos operadores se combinan para seleccionar los elementos de un vector que cumplen una condición. Hay que prestar atención cuando el vector contiene valores faltantes, porque cualquier comparación con <code>NA</code> da <code>NA</code> y ese <code>NA</code> se cuela en el resultado de la selección:</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="aspectos-basicos-r.html#cb245-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">15</span>,<span class="cn">NA</span>,<span class="dv">30</span>)</span>
-<span id="cb245-2"><a href="aspectos-basicos-r.html#cb245-2" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">5</span>                  <span class="co"># la comparación sobre el NA devuelve NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="aspectos-basicos-r.html#cb249-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">15</span>,<span class="cn">NA</span>,<span class="dv">30</span>)</span>
+<span id="cb249-2"><a href="aspectos-basicos-r.html#cb249-2" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">5</span>                  <span class="co"># la comparación sobre el NA devuelve NA</span></span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE    NA  TRUE</code></pre>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="aspectos-basicos-r.html#cb247-1" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">5</span>]               <span class="co"># el NA aparece en el resultado</span></span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="aspectos-basicos-r.html#cb251-1" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">5</span>]               <span class="co"># el NA aparece en el resultado</span></span></code></pre></div>
 <pre><code>## [1]  8 15 NA 30</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="aspectos-basicos-r.html#cb249-1" tabindex="-1"></a>x[<span class="sc">!</span><span class="fu">is.na</span>(x) <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="dv">5</span>]   <span class="co"># forma correcta: descartar antes los NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="aspectos-basicos-r.html#cb253-1" tabindex="-1"></a>x[<span class="sc">!</span><span class="fu">is.na</span>(x) <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="dv">5</span>]   <span class="co"># forma correcta: descartar antes los NA</span></span></code></pre></div>
 <pre><code>## [1]  8 15 30</code></pre>
 </div>
 <div id="ejemplos-de-funciones" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplos de funciones<a href="aspectos-basicos-r.html#ejemplos-de-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vamos a implementar una función que calcule la media de un vector de números dejando fuera los posibles valores no disponibles <code>NA</code></p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="aspectos-basicos-r.html#cb251-1" tabindex="-1"></a>MiMedia <span class="ot">&lt;-</span> <span class="cf">function</span>(V){</span>
-<span id="cb251-2"><a href="aspectos-basicos-r.html#cb251-2" tabindex="-1"></a>  suma<span class="ot">=</span><span class="dv">0</span> <span class="co"># acumulador de la suma</span></span>
-<span id="cb251-3"><a href="aspectos-basicos-r.html#cb251-3" tabindex="-1"></a>  Nvalores<span class="ot">=</span><span class="dv">0</span> <span class="co"># contador de valores válidos</span></span>
-<span id="cb251-4"><a href="aspectos-basicos-r.html#cb251-4" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>((V))){</span>
-<span id="cb251-5"><a href="aspectos-basicos-r.html#cb251-5" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.na</span>(V[i])<span class="sc">==</span><span class="cn">TRUE</span>) <span class="cf">next</span> <span class="co"># saltamos los NA</span></span>
-<span id="cb251-6"><a href="aspectos-basicos-r.html#cb251-6" tabindex="-1"></a>    suma<span class="ot">=</span>suma<span class="sc">+</span>V[i]</span>
-<span id="cb251-7"><a href="aspectos-basicos-r.html#cb251-7" tabindex="-1"></a>    Nvalores<span class="ot">=</span>Nvalores<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb251-8"><a href="aspectos-basicos-r.html#cb251-8" tabindex="-1"></a>  }</span>
-<span id="cb251-9"><a href="aspectos-basicos-r.html#cb251-9" tabindex="-1"></a>  <span class="fu">return</span>(suma<span class="sc">/</span>Nvalores) <span class="co"># media</span></span>
-<span id="cb251-10"><a href="aspectos-basicos-r.html#cb251-10" tabindex="-1"></a>}</span>
-<span id="cb251-11"><a href="aspectos-basicos-r.html#cb251-11" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.</span>,<span class="cn">NA</span>,<span class="fl">2.</span>,<span class="fl">3.</span>)</span>
-<span id="cb251-12"><a href="aspectos-basicos-r.html#cb251-12" tabindex="-1"></a><span class="fu">MiMedia</span>(V)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="aspectos-basicos-r.html#cb255-1" tabindex="-1"></a>MiMedia <span class="ot">&lt;-</span> <span class="cf">function</span>(V){</span>
+<span id="cb255-2"><a href="aspectos-basicos-r.html#cb255-2" tabindex="-1"></a>  suma<span class="ot">=</span><span class="dv">0</span> <span class="co"># acumulador de la suma</span></span>
+<span id="cb255-3"><a href="aspectos-basicos-r.html#cb255-3" tabindex="-1"></a>  Nvalores<span class="ot">=</span><span class="dv">0</span> <span class="co"># contador de valores válidos</span></span>
+<span id="cb255-4"><a href="aspectos-basicos-r.html#cb255-4" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>((V))){</span>
+<span id="cb255-5"><a href="aspectos-basicos-r.html#cb255-5" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.na</span>(V[i])<span class="sc">==</span><span class="cn">TRUE</span>) <span class="cf">next</span> <span class="co"># saltamos los NA</span></span>
+<span id="cb255-6"><a href="aspectos-basicos-r.html#cb255-6" tabindex="-1"></a>    suma<span class="ot">=</span>suma<span class="sc">+</span>V[i]</span>
+<span id="cb255-7"><a href="aspectos-basicos-r.html#cb255-7" tabindex="-1"></a>    Nvalores<span class="ot">=</span>Nvalores<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb255-8"><a href="aspectos-basicos-r.html#cb255-8" tabindex="-1"></a>  }</span>
+<span id="cb255-9"><a href="aspectos-basicos-r.html#cb255-9" tabindex="-1"></a>  <span class="fu">return</span>(suma<span class="sc">/</span>Nvalores) <span class="co"># media</span></span>
+<span id="cb255-10"><a href="aspectos-basicos-r.html#cb255-10" tabindex="-1"></a>}</span>
+<span id="cb255-11"><a href="aspectos-basicos-r.html#cb255-11" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.</span>,<span class="cn">NA</span>,<span class="fl">2.</span>,<span class="fl">3.</span>)</span>
+<span id="cb255-12"><a href="aspectos-basicos-r.html#cb255-12" tabindex="-1"></a><span class="fu">MiMedia</span>(V)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Este mismo resultado se puede obtener llamando a la función <code>mean</code> pero previamente omitiendo los <code>NA</code> del cálculo, lo cual se puede hacer de dos formas:</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="aspectos-basicos-r.html#cb253-1" tabindex="-1"></a><span class="fu">mean</span>(V,<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co"># usando el parámetro na.rm de la función mean</span></span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="aspectos-basicos-r.html#cb257-1" tabindex="-1"></a><span class="fu">mean</span>(V,<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co"># usando el parámetro na.rm de la función mean</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="aspectos-basicos-r.html#cb255-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">na.omit</span>(V))   <span class="co"># eliminar previamente los NA con la función na.omit</span></span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="aspectos-basicos-r.html#cb259-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">na.omit</span>(V))   <span class="co"># eliminar previamente los NA con la función na.omit</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>La función <code>na.omit</code> se usa mucho cuando queremos hacer cálculos numéricos en vectores que pueden contener <code>NA</code>.</p>
 <p>Vamos ahora a implementar una función para calcular la primera posición en un vector de strings, <code>sV</code> donde se encuentra el string <code>s</code>. Si no se encuentra el string se devuelve <code>NA</code></p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="aspectos-basicos-r.html#cb257-1" tabindex="-1"></a>FindString <span class="ot">&lt;-</span> <span class="cf">function</span>(s,sV){</span>
-<span id="cb257-2"><a href="aspectos-basicos-r.html#cb257-2" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sV)){</span>
-<span id="cb257-3"><a href="aspectos-basicos-r.html#cb257-3" tabindex="-1"></a>    <span class="cf">if</span>(s<span class="sc">==</span>sV[i]){</span>
-<span id="cb257-4"><a href="aspectos-basicos-r.html#cb257-4" tabindex="-1"></a>      <span class="fu">return</span>(i) <span class="co"># posición donde coincide</span></span>
-<span id="cb257-5"><a href="aspectos-basicos-r.html#cb257-5" tabindex="-1"></a>    }</span>
-<span id="cb257-6"><a href="aspectos-basicos-r.html#cb257-6" tabindex="-1"></a>  }</span>
-<span id="cb257-7"><a href="aspectos-basicos-r.html#cb257-7" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NA</span>) <span class="co"># no encontrado</span></span>
-<span id="cb257-8"><a href="aspectos-basicos-r.html#cb257-8" tabindex="-1"></a>}</span>
-<span id="cb257-9"><a href="aspectos-basicos-r.html#cb257-9" tabindex="-1"></a>sV <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>,<span class="st">&quot;cde&quot;</span>,<span class="st">&quot;efg&quot;</span>)</span>
-<span id="cb257-10"><a href="aspectos-basicos-r.html#cb257-10" tabindex="-1"></a><span class="fu">FindString</span>(<span class="st">&quot;cde&quot;</span>,sV) <span class="co"># se encuentra</span></span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="aspectos-basicos-r.html#cb261-1" tabindex="-1"></a>FindString <span class="ot">&lt;-</span> <span class="cf">function</span>(s,sV){</span>
+<span id="cb261-2"><a href="aspectos-basicos-r.html#cb261-2" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sV)){</span>
+<span id="cb261-3"><a href="aspectos-basicos-r.html#cb261-3" tabindex="-1"></a>    <span class="cf">if</span>(s<span class="sc">==</span>sV[i]){</span>
+<span id="cb261-4"><a href="aspectos-basicos-r.html#cb261-4" tabindex="-1"></a>      <span class="fu">return</span>(i) <span class="co"># posición donde coincide</span></span>
+<span id="cb261-5"><a href="aspectos-basicos-r.html#cb261-5" tabindex="-1"></a>    }</span>
+<span id="cb261-6"><a href="aspectos-basicos-r.html#cb261-6" tabindex="-1"></a>  }</span>
+<span id="cb261-7"><a href="aspectos-basicos-r.html#cb261-7" tabindex="-1"></a>  <span class="fu">return</span>(<span class="cn">NA</span>) <span class="co"># no encontrado</span></span>
+<span id="cb261-8"><a href="aspectos-basicos-r.html#cb261-8" tabindex="-1"></a>}</span>
+<span id="cb261-9"><a href="aspectos-basicos-r.html#cb261-9" tabindex="-1"></a>sV <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>,<span class="st">&quot;cde&quot;</span>,<span class="st">&quot;efg&quot;</span>)</span>
+<span id="cb261-10"><a href="aspectos-basicos-r.html#cb261-10" tabindex="-1"></a><span class="fu">FindString</span>(<span class="st">&quot;cde&quot;</span>,sV) <span class="co"># se encuentra</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="aspectos-basicos-r.html#cb259-1" tabindex="-1"></a><span class="fu">FindString</span>(<span class="st">&quot;cd&quot;</span>,sV) <span class="co"># no se encuentra</span></span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="aspectos-basicos-r.html#cb263-1" tabindex="-1"></a><span class="fu">FindString</span>(<span class="st">&quot;cd&quot;</span>,sV) <span class="co"># no se encuentra</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>Este mismo resultado se puede obtener directamente usando la función <code>which</code>, con la salvedad de que si no encuentra el string devuelve un cero en lugar de <code>NA</code>:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="aspectos-basicos-r.html#cb261-1" tabindex="-1"></a><span class="fu">which</span>(sV<span class="sc">==</span><span class="st">&quot;cde&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="aspectos-basicos-r.html#cb265-1" tabindex="-1"></a><span class="fu">which</span>(sV<span class="sc">==</span><span class="st">&quot;cde&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="aspectos-basicos-r.html#cb263-1" tabindex="-1"></a><span class="fu">which</span>(sV<span class="sc">==</span><span class="st">&quot;cd&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="aspectos-basicos-r.html#cb267-1" tabindex="-1"></a><span class="fu">which</span>(sV<span class="sc">==</span><span class="st">&quot;cd&quot;</span>)</span></code></pre></div>
 <pre><code>## integer(0)</code></pre>
 </div>
 <div id="el-ámbito-de-las-funciones" class="section level3 unnumbered hasAnchor">
 <h3>El ámbito de las funciones<a href="aspectos-basicos-r.html#el-ámbito-de-las-funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Las funciones son la base para compartir código y funcionalidades entre programas y usuarios. Además, conceptualmente, identifica un objetivo (lo que queremos obtener con la función) e identifica también qué información (parámetros) es requerida para obtener ese objetivo, de tal manera que en la mayoría de los casos, el interior de una función es una <strong>caja negra</strong> que el usuario no necesita entender para usar la función. En un primer nivel, las funciones en <code>R</code> se almacenan en ficheros con extensión <code>.R</code>. A lo largo del curso utilizaremos el fichero <a href="https://ctim.es/AEDV/utilidades.R">utilidades.R</a>, donde hemos implementado algunas funciones auxiliares. Para incorporar estas funciones (y poder usarlas) en un fichero <code>Rmd</code>, basta con incluir al inicio:</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb265-1"><a href="aspectos-basicos-r.html#cb265-1" tabindex="-1"></a>source(&quot;utilidades.R&quot;)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb269-1"><a href="aspectos-basicos-r.html#cb269-1" tabindex="-1"></a>source(&quot;utilidades.R&quot;)</span></code></pre></div>
 <p>El nombre de todas las funciones declaradas en <code>utilidades.R</code> empieza por “aedv_”. Ello permite identificar que estamos usando funciones locales creadas para la asignatura AEDV, En un segundo nivel, las funciones se empaquetan en librerías que pueden compartirse con otros usuarios a través de repositorios como GitHub o CRAN.</p>
 <div class="nota">
 <p><strong class="bloque-titulo">Conflictos entre librerías: cómo evitarlos</strong></p>
@@ -1445,34 +1460,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Si reasignas nombres, hazlo <strong>al principio del script y de forma visible</strong>, y sé consciente de que estás modificando el significado de esos nombres en todo el documento.</li>
 </ul>
 </div>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="aspectos-basicos-r.html#cb266-1" tabindex="-1"></a><span class="co"># evitamos conflictos de nombres entre librerías</span></span>
-<span id="cb266-2"><a href="aspectos-basicos-r.html#cb266-2" tabindex="-1"></a>select <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>select</span>
-<span id="cb266-3"><a href="aspectos-basicos-r.html#cb266-3" tabindex="-1"></a>mutate <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>mutate</span>
-<span id="cb266-4"><a href="aspectos-basicos-r.html#cb266-4" tabindex="-1"></a>filter <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>filter</span>
-<span id="cb266-5"><a href="aspectos-basicos-r.html#cb266-5" tabindex="-1"></a>group_by <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>group_by</span>
-<span id="cb266-6"><a href="aspectos-basicos-r.html#cb266-6" tabindex="-1"></a>summarise <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>summarise</span>
-<span id="cb266-7"><a href="aspectos-basicos-r.html#cb266-7" tabindex="-1"></a>selectInput <span class="ot">&lt;-</span> shiny<span class="sc">::</span>selectInput</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="aspectos-basicos-r.html#cb270-1" tabindex="-1"></a><span class="co"># evitamos conflictos de nombres entre librerías</span></span>
+<span id="cb270-2"><a href="aspectos-basicos-r.html#cb270-2" tabindex="-1"></a>select <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>select</span>
+<span id="cb270-3"><a href="aspectos-basicos-r.html#cb270-3" tabindex="-1"></a>mutate <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>mutate</span>
+<span id="cb270-4"><a href="aspectos-basicos-r.html#cb270-4" tabindex="-1"></a>filter <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>filter</span>
+<span id="cb270-5"><a href="aspectos-basicos-r.html#cb270-5" tabindex="-1"></a>group_by <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>group_by</span>
+<span id="cb270-6"><a href="aspectos-basicos-r.html#cb270-6" tabindex="-1"></a>summarise <span class="ot">&lt;-</span> dplyr<span class="sc">::</span>summarise</span>
+<span id="cb270-7"><a href="aspectos-basicos-r.html#cb270-7" tabindex="-1"></a>selectInput <span class="ot">&lt;-</span> shiny<span class="sc">::</span>selectInput</span></code></pre></div>
 <p>Hay tanta gente que trabaja en <code>R</code> que, con frecuencia, nos encontramos que la misma funcionalidad está implementada en varias librerías. Para decidir qué librería utilizar podemos combinar dos criterios: el primero es el número de descargas que ha tenido la librería en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a> y el segundo es si la librería ha sido actualizada recientemente.</p>
 <p>La forma más inmediata de obtener ayuda sobre el uso de una función es ejecutar en la consola el comando <code>help(NombreFuncion)</code></p>
 </div>
 <div id="la-familia-de-funciones-apply" class="section level3 unnumbered hasAnchor">
 <h3>La familia de funciones apply<a href="aspectos-basicos-r.html#la-familia-de-funciones-apply" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Supongamos que hemos implementado una función que no está diseñada para trabajar con vectores pero queremos aplicarla a todos los elementos de un vector. Esto se podría hacer con un bucle, pero la familia de funciones <code>apply</code> permite escribirlo en una sola instrucción, sin tener que inicializar previamente el vector del resultado ni gestionar los índices. Veamos un ejemplo: vamos a implementar la función <code>asignar_grupo_edad()</code> que, a partir de una edad cualquiera asigna un string con el grupo de edad que le corresponde:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="aspectos-basicos-r.html#cb267-1" tabindex="-1"></a>asignar_grupo_edad <span class="ot">&lt;-</span> <span class="cf">function</span>(edad){</span>
-<span id="cb267-2"><a href="aspectos-basicos-r.html#cb267-2" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">26</span>) <span class="fu">return</span>(<span class="st">&quot;0-25 años&quot;</span>) <span class="co"># primer tramo</span></span>
-<span id="cb267-3"><a href="aspectos-basicos-r.html#cb267-3" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">51</span>) <span class="fu">return</span>(<span class="st">&quot;25-50 años&quot;</span>)</span>
-<span id="cb267-4"><a href="aspectos-basicos-r.html#cb267-4" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">76</span>) <span class="fu">return</span>(<span class="st">&quot;50-75 años&quot;</span>)</span>
-<span id="cb267-5"><a href="aspectos-basicos-r.html#cb267-5" tabindex="-1"></a>  <span class="fu">return</span>(<span class="st">&quot;76 años o más&quot;</span>) <span class="co"># el resto</span></span>
-<span id="cb267-6"><a href="aspectos-basicos-r.html#cb267-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="aspectos-basicos-r.html#cb271-1" tabindex="-1"></a>asignar_grupo_edad <span class="ot">&lt;-</span> <span class="cf">function</span>(edad){</span>
+<span id="cb271-2"><a href="aspectos-basicos-r.html#cb271-2" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">26</span>) <span class="fu">return</span>(<span class="st">&quot;0-25 años&quot;</span>) <span class="co"># primer tramo</span></span>
+<span id="cb271-3"><a href="aspectos-basicos-r.html#cb271-3" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">51</span>) <span class="fu">return</span>(<span class="st">&quot;25-50 años&quot;</span>)</span>
+<span id="cb271-4"><a href="aspectos-basicos-r.html#cb271-4" tabindex="-1"></a>  <span class="cf">if</span>(edad<span class="sc">&lt;</span><span class="dv">76</span>) <span class="fu">return</span>(<span class="st">&quot;50-75 años&quot;</span>)</span>
+<span id="cb271-5"><a href="aspectos-basicos-r.html#cb271-5" tabindex="-1"></a>  <span class="fu">return</span>(<span class="st">&quot;76 años o más&quot;</span>) <span class="co"># el resto</span></span>
+<span id="cb271-6"><a href="aspectos-basicos-r.html#cb271-6" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a aplicar esta función a un vector de edades usando <code>sapply</code></p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="aspectos-basicos-r.html#cb268-1" tabindex="-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">90</span>)</span>
-<span id="cb268-2"><a href="aspectos-basicos-r.html#cb268-2" tabindex="-1"></a><span class="fu">sapply</span>(edades,asignar_grupo_edad) <span class="co"># aplicamos la función a cada edad</span></span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="aspectos-basicos-r.html#cb272-1" tabindex="-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">90</span>)</span>
+<span id="cb272-2"><a href="aspectos-basicos-r.html#cb272-2" tabindex="-1"></a><span class="fu">sapply</span>(edades,asignar_grupo_edad) <span class="co"># aplicamos la función a cada edad</span></span></code></pre></div>
 <pre><code>## [1] &quot;0-25 años&quot;     &quot;0-25 años&quot;     &quot;25-50 años&quot;    &quot;50-75 años&quot;   
 ## [5] &quot;50-75 años&quot;    &quot;76 años o más&quot;</code></pre>
 <p>Veamos otro ejemplo: supongamos que tenemos 2 vectores de strings, <code>sV1</code> y <code>sV2</code> que queremos comparar usando la función <code>FindString(s,sV)</code>. Las funciones <code>sapply</code> y <code>lapply</code> se pueden usar para hacer un bucle aplicando la función <code>FindString(s,sV)</code>. La diferencia entre ellas es que <code>lapply</code> devuelve una lista y <code>sapply</code> un vector. Veamos cómo se aplica <code>sapply</code>para aplicar, con una sola instrucción, la función <code>FindString(s,sV)</code> a todos los elementos de <code>sV1</code></p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="aspectos-basicos-r.html#cb270-1" tabindex="-1"></a>sV1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>,<span class="st">&quot;cde&quot;</span>,<span class="st">&quot;efg&quot;</span>)</span>
-<span id="cb270-2"><a href="aspectos-basicos-r.html#cb270-2" tabindex="-1"></a>sV2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;efg&quot;</span>,<span class="st">&quot;abc&quot;</span>,<span class="st">&quot;cde&quot;</span>)</span>
-<span id="cb270-3"><a href="aspectos-basicos-r.html#cb270-3" tabindex="-1"></a><span class="fu">sapply</span>(sV1,FindString,<span class="at">sV=</span>sV2) <span class="co"># posición de cada elemento de sV1 dentro de sV2</span></span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="aspectos-basicos-r.html#cb274-1" tabindex="-1"></a>sV1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abc&quot;</span>,<span class="st">&quot;cde&quot;</span>,<span class="st">&quot;efg&quot;</span>)</span>
+<span id="cb274-2"><a href="aspectos-basicos-r.html#cb274-2" tabindex="-1"></a>sV2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;efg&quot;</span>,<span class="st">&quot;abc&quot;</span>,<span class="st">&quot;cde&quot;</span>)</span>
+<span id="cb274-3"><a href="aspectos-basicos-r.html#cb274-3" tabindex="-1"></a><span class="fu">sapply</span>(sV1,FindString,<span class="at">sV=</span>sV2) <span class="co"># posición de cada elemento de sV1 dentro de sV2</span></span></code></pre></div>
 <pre><code>## abc cde efg 
 ##   2   3   1</code></pre>
 <p>Los parámetros de <code>sapply()</code> son : (1) el vector <code>sV1</code>, (2) la función <code>FindString</code> que actúa sobre los elementos de <code>sV1</code> y (3) <code>sV=sV2</code> el segundo argumento de la función <code>FindString</code>.</p>
@@ -1481,41 +1496,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="clasificar-en-intervalos-cut" class="section level4 unnumbered hasAnchor">
 <h4>Clasificar en intervalos: <code>cut()</code><a href="aspectos-basicos-r.html#clasificar-en-intervalos-cut" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>El ejemplo de los grupos de edad responde a un patrón muy concreto —<strong>clasificar valores numéricos en intervalos</strong>— y para ese caso <code>R</code> tiene una herramienta específica, <code>cut()</code>, que no necesita ninguna función auxiliar ni <code>sapply</code>. Recibe los puntos de corte en <code>breaks</code> y las etiquetas de cada intervalo en <code>labels</code>:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="aspectos-basicos-r.html#cb272-1" tabindex="-1"></a><span class="fu">cut</span>(edades,</span>
-<span id="cb272-2"><a href="aspectos-basicos-r.html#cb272-2" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="cn">Inf</span>),                                <span class="co"># puntos de corte</span></span>
-<span id="cb272-3"><a href="aspectos-basicos-r.html#cb272-3" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-25 años&quot;</span>,<span class="st">&quot;25-50 años&quot;</span>,<span class="st">&quot;50-75 años&quot;</span>,<span class="st">&quot;76 años o más&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="aspectos-basicos-r.html#cb276-1" tabindex="-1"></a><span class="fu">cut</span>(edades,</span>
+<span id="cb276-2"><a href="aspectos-basicos-r.html#cb276-2" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="cn">Inf</span>),                                <span class="co"># puntos de corte</span></span>
+<span id="cb276-3"><a href="aspectos-basicos-r.html#cb276-3" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-25 años&quot;</span>,<span class="st">&quot;25-50 años&quot;</span>,<span class="st">&quot;50-75 años&quot;</span>,<span class="st">&quot;76 años o más&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 0-25 años     0-25 años     25-50 años    50-75 años    50-75 años   
 ## [6] 76 años o más
 ## Levels: 0-25 años 25-50 años 50-75 años 76 años o más</code></pre>
 <p>El resultado es el mismo que obtuvimos con <code>sapply</code>, pero escrito en una sola instrucción.</p>
 <p>Conviene fijarse en un parámetro que decide a qué intervalo va a parar cada punto de corte: <code>right</code>. Por defecto vale <code>TRUE</code>, es decir, cada intervalo <strong>excluye</strong> su extremo izquierdo e <strong>incluye</strong> el derecho —<code>(25,50]</code>—, que es lo que aquí encaja con la condición <code>edad&lt;26</code> de la función original. Con <code>right = FALSE</code> ocurre lo contrario, <code>[25,50)</code>, que es lo que hay que usar cuando la regla se escribe como <code>edad&lt;25</code>:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="aspectos-basicos-r.html#cb274-1" tabindex="-1"></a><span class="co"># Con right = FALSE cada intervalo incluye su extremo izquierdo: [-Inf,25), [25,50)...</span></span>
-<span id="cb274-2"><a href="aspectos-basicos-r.html#cb274-2" tabindex="-1"></a><span class="fu">cut</span>(<span class="fu">c</span>(<span class="dv">24</span>,<span class="dv">25</span>,<span class="dv">26</span>),</span>
-<span id="cb274-3"><a href="aspectos-basicos-r.html#cb274-3" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="cn">Inf</span>),</span>
-<span id="cb274-4"><a href="aspectos-basicos-r.html#cb274-4" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;menos de 25&quot;</span>,<span class="st">&quot;25 a 50&quot;</span>,<span class="st">&quot;más de 50&quot;</span>),</span>
-<span id="cb274-5"><a href="aspectos-basicos-r.html#cb274-5" tabindex="-1"></a>    <span class="at">right  =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="aspectos-basicos-r.html#cb278-1" tabindex="-1"></a><span class="co"># Con right = FALSE cada intervalo incluye su extremo izquierdo: [-Inf,25), [25,50)...</span></span>
+<span id="cb278-2"><a href="aspectos-basicos-r.html#cb278-2" tabindex="-1"></a><span class="fu">cut</span>(<span class="fu">c</span>(<span class="dv">24</span>,<span class="dv">25</span>,<span class="dv">26</span>),</span>
+<span id="cb278-3"><a href="aspectos-basicos-r.html#cb278-3" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="cn">Inf</span>),</span>
+<span id="cb278-4"><a href="aspectos-basicos-r.html#cb278-4" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;menos de 25&quot;</span>,<span class="st">&quot;25 a 50&quot;</span>,<span class="st">&quot;más de 50&quot;</span>),</span>
+<span id="cb278-5"><a href="aspectos-basicos-r.html#cb278-5" tabindex="-1"></a>    <span class="at">right  =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] menos de 25 25 a 50     25 a 50    
 ## Levels: menos de 25 25 a 50 más de 50</code></pre>
 <p>Cuando la regla de clasificación <strong>no</strong> es un intervalo —por ejemplo, si depende de dos variables a la vez— la alternativa es <code>case_when()</code>, que veremos en el próximo capítulo.</p>
 <div class="nota">
 <p><strong class="bloque-titulo">Velocidad: <code>sapply</code> no es más rápido que un bucle</strong></p>
 <p>Es una creencia muy extendida que la familia <code>apply</code> es más rápida que un bucle <code>for</code>. <strong>No es así</strong>: las dos formas recorren el vector elemento a elemento, llamando a la función una vez por cada valor, y <code>sapply</code> añade además el trabajo de simplificar el resultado. Lo que sí marca una diferencia grande es <strong>vectorizar</strong>, es decir, usar una función que resuelva todo el vector de una vez, como <code>cut()</code>. Podemos medirlo con <code>system.time()</code>, que devuelve el tiempo transcurrido en segundos:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="aspectos-basicos-r.html#cb276-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># reproducibilidad</span></span>
-<span id="cb276-2"><a href="aspectos-basicos-r.html#cb276-2" tabindex="-1"></a>edades_grandes <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">1000000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># un millón de edades</span></span>
-<span id="cb276-3"><a href="aspectos-basicos-r.html#cb276-3" tabindex="-1"></a></span>
-<span id="cb276-4"><a href="aspectos-basicos-r.html#cb276-4" tabindex="-1"></a>t_for <span class="ot">&lt;-</span> <span class="fu">system.time</span>({ <span class="co"># con bucle for</span></span>
-<span id="cb276-5"><a href="aspectos-basicos-r.html#cb276-5" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="fu">length</span>(edades_grandes))</span>
-<span id="cb276-6"><a href="aspectos-basicos-r.html#cb276-6" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(edades_grandes)) res[i] <span class="ot">&lt;-</span> <span class="fu">asignar_grupo_edad</span>(edades_grandes[i])</span>
-<span id="cb276-7"><a href="aspectos-basicos-r.html#cb276-7" tabindex="-1"></a>})</span>
-<span id="cb276-8"><a href="aspectos-basicos-r.html#cb276-8" tabindex="-1"></a></span>
-<span id="cb276-9"><a href="aspectos-basicos-r.html#cb276-9" tabindex="-1"></a>t_sapply <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">sapply</span>(edades_grandes, asignar_grupo_edad)) <span class="co"># con sapply</span></span>
-<span id="cb276-10"><a href="aspectos-basicos-r.html#cb276-10" tabindex="-1"></a></span>
-<span id="cb276-11"><a href="aspectos-basicos-r.html#cb276-11" tabindex="-1"></a>t_cut <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">cut</span>(edades_grandes, <span class="co"># con cut() vectorizado</span></span>
-<span id="cb276-12"><a href="aspectos-basicos-r.html#cb276-12" tabindex="-1"></a>                         <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="cn">Inf</span>),</span>
-<span id="cb276-13"><a href="aspectos-basicos-r.html#cb276-13" tabindex="-1"></a>                         <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-25 años&quot;</span>,<span class="st">&quot;25-50 años&quot;</span>,<span class="st">&quot;50-75 años&quot;</span>,<span class="st">&quot;76 años o más&quot;</span>)))</span>
-<span id="cb276-14"><a href="aspectos-basicos-r.html#cb276-14" tabindex="-1"></a></span>
-<span id="cb276-15"><a href="aspectos-basicos-r.html#cb276-15" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">metodo =</span> <span class="fu">c</span>(<span class="st">&quot;bucle for&quot;</span>,<span class="st">&quot;sapply&quot;</span>,<span class="st">&quot;cut() vectorizado&quot;</span>), <span class="co"># comparamos tiempos</span></span>
-<span id="cb276-16"><a href="aspectos-basicos-r.html#cb276-16" tabindex="-1"></a>       <span class="at">milisegundos =</span> <span class="fu">round</span>(<span class="dv">1000</span><span class="sc">*</span><span class="fu">c</span>(t_for[[<span class="st">&quot;elapsed&quot;</span>]], t_sapply[[<span class="st">&quot;elapsed&quot;</span>]], t_cut[[<span class="st">&quot;elapsed&quot;</span>]])))</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="aspectos-basicos-r.html#cb280-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>) <span class="co"># reproducibilidad</span></span>
+<span id="cb280-2"><a href="aspectos-basicos-r.html#cb280-2" tabindex="-1"></a>edades_grandes <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">1000000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># un millón de edades</span></span>
+<span id="cb280-3"><a href="aspectos-basicos-r.html#cb280-3" tabindex="-1"></a></span>
+<span id="cb280-4"><a href="aspectos-basicos-r.html#cb280-4" tabindex="-1"></a>t_for <span class="ot">&lt;-</span> <span class="fu">system.time</span>({ <span class="co"># con bucle for</span></span>
+<span id="cb280-5"><a href="aspectos-basicos-r.html#cb280-5" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="fu">length</span>(edades_grandes))</span>
+<span id="cb280-6"><a href="aspectos-basicos-r.html#cb280-6" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(edades_grandes)) res[i] <span class="ot">&lt;-</span> <span class="fu">asignar_grupo_edad</span>(edades_grandes[i])</span>
+<span id="cb280-7"><a href="aspectos-basicos-r.html#cb280-7" tabindex="-1"></a>})</span>
+<span id="cb280-8"><a href="aspectos-basicos-r.html#cb280-8" tabindex="-1"></a></span>
+<span id="cb280-9"><a href="aspectos-basicos-r.html#cb280-9" tabindex="-1"></a>t_sapply <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">sapply</span>(edades_grandes, asignar_grupo_edad)) <span class="co"># con sapply</span></span>
+<span id="cb280-10"><a href="aspectos-basicos-r.html#cb280-10" tabindex="-1"></a></span>
+<span id="cb280-11"><a href="aspectos-basicos-r.html#cb280-11" tabindex="-1"></a>t_cut <span class="ot">&lt;-</span> <span class="fu">system.time</span>(<span class="fu">cut</span>(edades_grandes, <span class="co"># con cut() vectorizado</span></span>
+<span id="cb280-12"><a href="aspectos-basicos-r.html#cb280-12" tabindex="-1"></a>                         <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="cn">Inf</span>),</span>
+<span id="cb280-13"><a href="aspectos-basicos-r.html#cb280-13" tabindex="-1"></a>                         <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-25 años&quot;</span>,<span class="st">&quot;25-50 años&quot;</span>,<span class="st">&quot;50-75 años&quot;</span>,<span class="st">&quot;76 años o más&quot;</span>)))</span>
+<span id="cb280-14"><a href="aspectos-basicos-r.html#cb280-14" tabindex="-1"></a></span>
+<span id="cb280-15"><a href="aspectos-basicos-r.html#cb280-15" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">metodo =</span> <span class="fu">c</span>(<span class="st">&quot;bucle for&quot;</span>,<span class="st">&quot;sapply&quot;</span>,<span class="st">&quot;cut() vectorizado&quot;</span>), <span class="co"># comparamos tiempos</span></span>
+<span id="cb280-16"><a href="aspectos-basicos-r.html#cb280-16" tabindex="-1"></a>       <span class="at">milisegundos =</span> <span class="fu">round</span>(<span class="dv">1000</span><span class="sc">*</span><span class="fu">c</span>(t_for[[<span class="st">&quot;elapsed&quot;</span>]], t_sapply[[<span class="st">&quot;elapsed&quot;</span>]], t_cut[[<span class="st">&quot;elapsed&quot;</span>]])))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   metodo            milisegundos
 ##   &lt;chr&gt;                    &lt;dbl&gt;
@@ -1532,7 +1547,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>El operador de pila (pipe) permite concatenar las llamadas a funciones de forma más clara y sin necesidad de usar paréntesis anidados. Es decir, si normalmente escribimos la concatenación de funciones como</p>
 <p><code>función2(función1(x))</code></p>
 <p>usando el operador pipe, la misma llamada se escribiría como:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb278-1"><a href="aspectos-basicos-r.html#cb278-1" tabindex="-1"></a>x |&gt; función1() |&gt; función2()</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb282-1"><a href="aspectos-basicos-r.html#cb282-1" tabindex="-1"></a>x |&gt; función1() |&gt; función2()</span></code></pre></div>
 <p>Como veremos, en muchas ocasiones, esta forma de escribir la llamada a las funciones concatenando la salida de una operación con la entrada de la siguiente, resulta más práctica y natural que la forma habitual que presenta el problema de que lo último que hacemos (la llamada a la última función) es lo primero que tenemos que escribir, es decir, escribimos en el orden opuesto al que vamos haciendo las operaciones. En general, resulta mucho más práctico cuando añadimos, al resultado obtenido, una nueva operación, escribirla al final del todo y no al principio de cuando empiezan a hacerse las operaciones. Haremos un uso intensivo de este operador de pila a partir del siguiente tema.</p>
 <div id="diferencias-entre-y" class="section level4 unnumbered hasAnchor">
 <h4>Diferencias entre <code>|&gt;</code> y <code>%&gt;%</code><a href="aspectos-basicos-r.html#diferencias-entre-y" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1542,11 +1557,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong><code>%&gt;%</code></strong> (pipe de magrittr/tidyverse): Fue el primer operador pipe en R, introducido por la librería <code>magrittr</code> y adoptado masivamente por <code>tidyverse</code>. Está disponible al cargar <code>tidyverse</code> o <code>dplyr</code>. Admite el uso del punto <code>.</code> como placeholder para el argumento: <code>x %&gt;% función(argumento, .)</code> pasa <code>x</code> como segundo argumento.</p></li>
 </ul>
 <p>En la práctica, para la mayor parte de las operaciones que haremos en este curso, ambos operadores son intercambiables. En este libro usaremos el pipe nativo <code>|&gt;</code>, que es hoy el estándar; no obstante, el estudiante debe reconocer también <code>%&gt;%</code> porque abunda en el código existente (documentación, Stack Overflow, proyectos anteriores a 2021). Veamos un ejemplo equivalente con ambos operadores:</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="aspectos-basicos-r.html#cb279-1" tabindex="-1"></a><span class="co"># con |&gt; (nativo de R, el que usaremos en el curso)</span></span>
-<span id="cb279-2"><a href="aspectos-basicos-r.html#cb279-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">sort</span>() <span class="sc">|&gt;</span> <span class="fu">rev</span>() <span class="co"># ordenamos y revertimos</span></span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="aspectos-basicos-r.html#cb283-1" tabindex="-1"></a><span class="co"># con |&gt; (nativo de R, el que usaremos en el curso)</span></span>
+<span id="cb283-2"><a href="aspectos-basicos-r.html#cb283-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">sort</span>() <span class="sc">|&gt;</span> <span class="fu">rev</span>() <span class="co"># ordenamos y revertimos</span></span></code></pre></div>
 <pre><code>## [1] 5 4 3 1 1</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="aspectos-basicos-r.html#cb281-1" tabindex="-1"></a><span class="co"># con %&gt;% (magrittr/tidyverse; frecuente en código antiguo)</span></span>
-<span id="cb281-2"><a href="aspectos-basicos-r.html#cb281-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">sort</span>() <span class="sc">%&gt;%</span> <span class="fu">rev</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="aspectos-basicos-r.html#cb285-1" tabindex="-1"></a><span class="co"># con %&gt;% (magrittr/tidyverse; frecuente en código antiguo)</span></span>
+<span id="cb285-2"><a href="aspectos-basicos-r.html#cb285-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">sort</span>() <span class="sc">%&gt;%</span> <span class="fu">rev</span>()</span></code></pre></div>
 <pre><code>## [1] 5 4 3 1 1</code></pre>
 </div>
 </div>
