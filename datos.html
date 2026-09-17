@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-09-16" />
+<meta name="date" content="2026-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -537,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="datos" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">3</span> Procesado de datos<a href="datos.html#datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha última actualización: 2026-09-16</p>
+<p>Fecha última actualización: 2026-09-17</p>
 <p><font size="5"> <b> Instalación y carga de librerías </b> </font></p>
 <div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="datos.html#cb287-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(openxlsx)) <span class="fu">install.packages</span>(<span class="st">&#39;openxlsx&#39;</span>)</span>
 <span id="cb287-2"><a href="datos.html#cb287-2" tabindex="-1"></a><span class="fu">library</span>(openxlsx)  <span class="co"># lectura/escritura de Excel</span></span>
@@ -553,9 +553,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb287-12"><a href="datos.html#cb287-12" tabindex="-1"></a><span class="fu">library</span>(janitor)   <span class="co"># limpieza de nombres de columnas</span></span>
 <span id="cb287-13"><a href="datos.html#cb287-13" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(naniar)) <span class="fu">install.packages</span>(<span class="st">&#39;naniar&#39;</span>)</span>
 <span id="cb287-14"><a href="datos.html#cb287-14" tabindex="-1"></a><span class="fu">library</span>(naniar)    <span class="co"># análisis de valores faltantes</span></span>
-<span id="cb287-15"><a href="datos.html#cb287-15" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</span>
-<span id="cb287-16"><a href="datos.html#cb287-16" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># dplyr, tidyr, readr, ggplot2...</span></span>
-<span id="cb287-17"><a href="datos.html#cb287-17" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;../utilidades.R&quot;</span>) <span class="co"># funciones auxiliares del curso</span></span></code></pre></div>
+<span id="cb287-15"><a href="datos.html#cb287-15" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(gt)) <span class="fu">install.packages</span>(<span class="st">&#39;gt&#39;</span>)</span>
+<span id="cb287-16"><a href="datos.html#cb287-16" tabindex="-1"></a><span class="fu">library</span>(gt)        <span class="co"># tablas con formato: revisión de emparejamientos coloreada</span></span>
+<span id="cb287-17"><a href="datos.html#cb287-17" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</span>
+<span id="cb287-18"><a href="datos.html#cb287-18" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># dplyr, tidyr, readr, ggplot2...</span></span>
+<span id="cb287-19"><a href="datos.html#cb287-19" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;../utilidades.R&quot;</span>) <span class="co"># funciones auxiliares del curso</span></span></code></pre></div>
 <hr />
 <div class="metodo">
 <p><strong class="bloque-titulo">Librerías utilizadas en este capítulo</strong></p>
@@ -568,6 +570,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong><code>skimr</code></strong>: el resumen exploratorio de una tabla completa, con <code>skim()</code>.</li>
 <li><strong><code>janitor</code></strong>: limpieza de los nombres de las columnas, con <code>clean_names()</code>.</li>
 <li><strong><code>naniar</code></strong>: visualización del patrón de los valores ausentes, con <code>gg_miss_var()</code> y <code>vis_miss()</code>.</li>
+<li><strong><code>gt</code></strong>: tablas estáticas con formato. Aquí se usa para colorear el resultado de la revisión de emparejamientos; se presenta con detalle en el capítulo <a href="visualizacion-estatica.html#visualizacion-estatica">4</a>.</li>
 </ul>
 </div>
 <p>Rara vez los datos se encuentran organizados exactamente en la forma que requiere nuestro análisis. De hecho, con frecuencia la tarea más compleja de una exploración de datos es precisamente localizar, extraer y comprender cómo están estructurados. Por esta razón, la primera etapa de cualquier análisis de datos consiste en procesarlos hasta obtener la forma y estructura deseadas, y es a este proceso al que dedicaremos buena parte de la atención en este capítulo. Como referencia rápida puede consultarse la <a href="https://rstudio.github.io/cheatsheets/translations/spanish/data-transformation_es.pdf">ficha resumen de transformación de datos</a>.</p>
@@ -4471,6 +4474,14 @@ sistemáticamente a las tablas que resultan de hacer una consulta en el <strong>
 ## $ Provincia        &lt;chr&gt; &quot;Palmas (Las)&quot;, &quot;Palmas (Las)&quot;, &quot;Palmas (Las)&quot;, &quot;Palm…
 ## $ CPJ              &lt;chr&gt; &quot;3504&quot;, &quot;3508&quot;, &quot;3503&quot;, &quot;3501&quot;, &quot;3507&quot;, &quot;3507&quot;, &quot;3503…
 ## $ Partido_Judicial &lt;chr&gt; &quot;Santa María de Guía de Gran Canaria&quot;, &quot;Santa Lucía d…</code></pre>
+<p>Antes de empezar conviene ver con qué contamos. De las once columnas de <strong>uclm_mun</strong> y las cinco de <strong>istac_poblacion</strong> solo nos interesan, de momento, las que contienen el nombre del municipio: son el <strong>campo común</strong> por el que hay que emparejar, y el problema es que están escritas de forma distinta en cada tabla. El resto de columnas (representadas por <code>...</code> en el esquema) viajarán solas una vez resuelto el emparejamiento:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:esquema-tablas-join"></span>
+<img src="AEDV_book_files/figure-html/esquema-tablas-join-1.png" alt="Las dos tablas que hay que combinar y su campo común" width="633.6" />
+<p class="caption">
+Figure 3.2: Las dos tablas que hay que combinar y su campo común
+</p>
+</div>
+<p>Obsérvese que en <strong>istac_poblacion</strong> el mismo municipio aparece <strong>repetido</strong> (<em>Arrecife</em> sale una vez por cada uno de los 22 años de la serie), mientras que en <strong>uclm_mun</strong> cada municipio ocupa una sola fila. La correspondencia, sin embargo, se establece entre <strong>nombres</strong>, no entre filas: lo que hay que decidir es a qué municipio de <code>uclm_mun</code> corresponde cada nombre distinto, y esa decisión es la misma se repita el nombre una vez o veintidós. Por eso el paso siguiente trabaja con los valores <strong>únicos</strong>.</p>
 <p><strong>Paso 1: emparejar los valores distintos.</strong></p>
 <p>En la tabla <strong>uclm_mun</strong> cada municipio ya aparece en una sola fila. En la tabla <strong>istac_poblacion</strong> vamos a extraer los valores únicos de los municipios (además lo pasamos a tipo <code>character</code> para que la comparación funcione bien)</p>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="datos.html#cb366-1" tabindex="-1"></a>unicos <span class="ot">&lt;-</span> istac_poblacion <span class="sc">|&gt;</span> <span class="co"># población ISTAC</span></span>
@@ -4492,33 +4503,623 @@ sistemáticamente a las tablas que resultan de hacer una consulta en el <strong>
 ##  9 Yaiza               
 ## 10 FUERTEVENTURA       
 ## # ℹ 86 more rows</code></pre>
-<p>Ahora lo combinamos con <strong>uclm_mun</strong></p>
+<p>Ahora lo combinamos con <strong>uclm_mun</strong>. El esquema siguiente resume la operación completa: entran los 96 valores únicos por un lado y los 88 municipios por otro, y sale una tabla <code>res</code> con una fila por valor único, en la que <code>value1</code> es el texto de partida, <code>value2</code> el mejor candidato encontrado y <code>dis</code> lo lejos que está uno de otro. Los colores recuerdan de qué tabla procede cada columna:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:esquema-paso1"></span>
+<img src="AEDV_book_files/figure-html/esquema-paso1-1.png" alt="Paso 1: de los valores únicos a la tabla de correspondencias res" width="633.6" />
+<p class="caption">
+Figure 3.3: Paso 1: de los valores únicos a la tabla de correspondencias res
+</p>
+</div>
+<p>Las cinco filas de <code>res</code> del esquema ya adelantan que el resultado no es homogéneo: <em>Arrecife</em> y <em>Haría</em> coinciden literalmente (<code>dis</code> 0), <em>Oliva (La)</em> y <em>Oliva, La</em> son el mismo municipio escrito de otra forma, <em>San Miguel</em> se ha emparejado con un municipio que no tiene nada que ver, y <em>CANARIAS</em> ni siquiera es un municipio. En código:</p>
 <div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="datos.html#cb368-1" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">aedv_left_join_nearest_string</span>(unicos, uclm_mun <span class="sc">|&gt;</span> <span class="fu">select</span>(Municipio)) <span class="co"># emparejamos por string más cercano</span></span>
 <span id="cb368-2"><a href="datos.html#cb368-2" tabindex="-1"></a></span>
-<span id="cb368-3"><a href="datos.html#cb368-3" tabindex="-1"></a>res <span class="sc">|&gt;</span></span>
+<span id="cb368-3"><a href="datos.html#cb368-3" tabindex="-1"></a>dudosos <span class="ot">&lt;-</span> res <span class="sc">|&gt;</span> <span class="co"># nos quedamos con los que hay que revisar</span></span>
 <span id="cb368-4"><a href="datos.html#cb368-4" tabindex="-1"></a>  <span class="fu">filter</span>(dis <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> <span class="co"># solo los que no coinciden literalmente</span></span>
-<span id="cb368-5"><a href="datos.html#cb368-5" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dis)) <span class="co"># de mayor a menor distancia</span></span></code></pre></div>
-<pre><code>## # A tibble: 32 × 5
-##     pos1  pos2 value1        value2      dis
-##    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;dbl&gt;
-##  1    10     8 FUERTEVENTURA Firgas       12
-##  2    17     1 GRAN CANARIA  Agaete       11
-##  3    93    14 EL HIERRO     Oliva, La     9
-##  4     2     1 LANZAROTE     Agaete        8
-##  5    53    14 Laguna (La)   Oliva, La     8
-##  6    71    36 LA GOMERA     Agulo         8
-##  7    78    47 LA PALMA      Frontera      8
-##  8     1     1 CANARIAS      Agaete        7
-##  9    39    80 TENERIFE      Tegueste      7
-## 10    60    55 San Miguel    Hermigua      7
-## # ℹ 22 more rows</code></pre>
+<span id="cb368-5"><a href="datos.html#cb368-5" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dis)) <span class="co"># de mayor a menor distancia</span></span>
+<span id="cb368-6"><a href="datos.html#cb368-6" tabindex="-1"></a></span>
+<span id="cb368-7"><a href="datos.html#cb368-7" tabindex="-1"></a><span class="fu">nrow</span>(dudosos) <span class="co"># cuántos hay que mirar a mano</span></span></code></pre></div>
+<pre><code>## [1] 32</code></pre>
+<p>De los 96 valores únicos, 64 coinciden <strong>literalmente</strong> con un municipio y se dan por buenos sin más. Quedan estos 32, que son los que hay que revisar uno a uno. La tabla siguiente los muestra <strong>todos</strong>, coloreados según las tres situaciones que describimos justo debajo. Conviene subrayar que <strong>ese color no lo ha calculado <code>R</code></strong>: es el resultado de la revisión manual del paso 2, que aquí se adelanta para que se vea de un vistazo cómo se reparten los casos y por qué la distancia, por sí sola, no permite decidir:</p>
+<div id="ldjxsphhjh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ldjxsphhjh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ldjxsphhjh thead, #ldjxsphhjh tbody, #ldjxsphhjh tfoot, #ldjxsphhjh tr, #ldjxsphhjh td, #ldjxsphhjh th {
+  border-style: none;
+}
+
+#ldjxsphhjh p {
+  margin: 0;
+  padding: 0;
+}
+
+#ldjxsphhjh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ldjxsphhjh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ldjxsphhjh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ldjxsphhjh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ldjxsphhjh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ldjxsphhjh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ldjxsphhjh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ldjxsphhjh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ldjxsphhjh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ldjxsphhjh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ldjxsphhjh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ldjxsphhjh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ldjxsphhjh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ldjxsphhjh .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ldjxsphhjh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ldjxsphhjh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ldjxsphhjh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ldjxsphhjh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ldjxsphhjh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ldjxsphhjh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ldjxsphhjh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ldjxsphhjh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ldjxsphhjh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ldjxsphhjh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ldjxsphhjh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ldjxsphhjh .gt_left {
+  text-align: left;
+}
+
+#ldjxsphhjh .gt_center {
+  text-align: center;
+}
+
+#ldjxsphhjh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ldjxsphhjh .gt_font_normal {
+  font-weight: normal;
+}
+
+#ldjxsphhjh .gt_font_bold {
+  font-weight: bold;
+}
+
+#ldjxsphhjh .gt_font_italic {
+  font-style: italic;
+}
+
+#ldjxsphhjh .gt_super {
+  font-size: 65%;
+}
+
+#ldjxsphhjh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ldjxsphhjh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ldjxsphhjh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ldjxsphhjh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ldjxsphhjh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ldjxsphhjh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ldjxsphhjh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ldjxsphhjh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ldjxsphhjh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="value1">value1 (istac_poblacion)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="value2">value2 (uclm_mun)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="dis">dis</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="veredicto">veredicto de la revisión manual</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">FUERTEVENTURA</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Firgas</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">12</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">GRAN CANARIA</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Agaete</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">11</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">EL HIERRO</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Oliva, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">9</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">LANZAROTE</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Agaete</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">8</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFF3E0;">Laguna (La)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFF3E0;">Oliva, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFF3E0;">8</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFF3E0; font-weight: bold;">incorrecto: hay que corregirlo a mano</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">LA GOMERA</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Agulo</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">8</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">LA PALMA</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Frontera</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">8</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">CANARIAS</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Agaete</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">7</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFEBEE;">TENERIFE</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFEBEE;">Tegueste</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFEBEE;">7</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFEBEE; font-weight: bold;">no es un municipio: hay que anularlo</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFF3E0;">San Miguel</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFF3E0;">Hermigua</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFF3E0;">7</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFF3E0; font-weight: bold;">incorrecto: hay que corregirlo a mano</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #FFF3E0;">Santa Lucía</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #FFF3E0;">Santa Úrsula</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #FFF3E0;">5</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #FFF3E0; font-weight: bold;">incorrecto: hay que corregirlo a mano</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Oliva (La)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Oliva, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Palmas de Gran Canaria (Las)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Palmas de Gran Canaria, Las</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Aldea de San Nicolás (La)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Aldea de San Nicolás, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Guancha (La)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Guancha, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Matanza de Acentejo (La)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Matanza de Acentejo, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Orotava (La)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Orotava, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Realejos (Los)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Realejos, Los</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Rosario (El)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Rosario, El</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Sauzal (El)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Sauzal, El</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Silos (Los)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Silos, Los</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Tanque (El)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Tanque, El</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Victoria de Acentejo (La)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Victoria de Acentejo, La</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Llanos de Aridane (Los)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Llanos de Aridane, Los</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Paso (El)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Paso, El</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Pinar de El Hierro (El)</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Pinar de El Hierro, El</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">3</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Güimar</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Güímar</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">1</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Icod de Los Vinos</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Icod de los Vinos</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">1</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Puerto de La Cruz</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Puerto de la Cruz</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">1</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">San Juan de La Rambla</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">San Juan de la Rambla</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">1</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">San Sebastián de La Gomera</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">San Sebastián de la Gomera</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">1</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+    <tr><td headers="value1" class="gt_row gt_left" style="background-color: #E8F5E9;">Santa Cruz de La Palma</td>
+<td headers="value2" class="gt_row gt_left" style="background-color: #E8F5E9;">Santa Cruz de la Palma</td>
+<td headers="dis" class="gt_row gt_center" style="background-color: #E8F5E9;">1</td>
+<td headers="veredicto" class="gt_row gt_left" style="background-color: #E8F5E9;">correcto: mismo municipio, otra grafía</td></tr>
+  </tbody>
+  
+</table>
+</div>
+<p><br></p>
+<p>El reparto es revelador: <strong>21</strong> de los 32 son correctos pese a no coincidir letra a letra, <strong>8</strong> son filas agregadas que no deberían emparejarse con nada, y solo <strong>3</strong> son emparejamientos equivocados que hay que rehacer. Y sobre todo, las tres categorías <strong>están mezcladas en todo el rango de distancias</strong>: arriba del todo, con las distancias más altas, hay agregados; pero el fallo de <em>Santa Lucía</em> tiene <code>dis</code> 5 y el de <em>Güimar</em> —que es correcto— tiene <code>dis</code> 1. No hay ningún umbral de <code>dis</code> que separe los aciertos de los fallos, y esa es exactamente la razón por la que el paso 2 no se puede automatizar.</p>
 <p><strong>Paso 2: verificar y corregir.</strong> La tabla anterior mezcla tres situaciones muy distintas, y distinguirlas es justo el trabajo que no puede hacer el ordenador:</p>
 <div class="metodo">
 <p><strong class="bloque-titulo">Cómo verificar los emparejamientos</strong></p>
 <p>Hay que <strong>inspeccionar <code>res</code> ordenada por distancia</strong> y comparar, fila a fila, <code>value1</code> (el texto de la primera tabla) y <code>value2</code> (el más parecido encontrado en la segunda):</p>
 <ul>
 <li>Una <strong>distancia alta no siempre indica error</strong>: <em>“Guancha (La)”</em> frente a <em>“Guancha, La”</em> es el mismo municipio escrito de otra forma. El emparejamiento es correcto, y lo mismo ocurre con todos los que llevan el artículo entre paréntesis.</li>
-<li>Una <strong>distancia baja no garantiza acierto</strong>: <em>“San Miguel”</em> se empareja con <em>“Santa Úrsula”</em>, que no tiene nada que ver; y <em>“Laguna (La)”</em> acaba en <em>“Oliva, La”</em>.</li>
+<li>Una <strong>distancia baja no garantiza acierto</strong>: <em>“San Miguel”</em> se empareja con <em>“Hermigua”</em>, que no tiene nada que ver; y <em>“Laguna (La)”</em> acaba en <em>“Oliva, La”</em>.</li>
 <li>Y hay textos que <strong>no tienen correspondencia posible</strong>: <code>CANARIAS</code> o <code>TENERIFE</code> son filas <strong>agregadas</strong> (el total de la comunidad y el de cada isla), no municipios. Aun así reciben un emparejamiento, porque la función siempre devuelve el más parecido: si no se detectan, el total de Canarias acabaría contando como un municipio más.</li>
 </ul>
 </div>
@@ -4531,7 +5132,7 @@ sistemáticamente a las tablas que resultan de hacer una consulta en el <strong>
 ## 2    55 Hermigua                7      55.6
 ## 3    75 Sauzal, El              7      52.6
 ## 4    78 Tanque, El              7      52.6</code></pre>
-<p>El caso correcto, <em>San Miguel de Abona</em>, obtiene una similitud de 100 frente al 55,6 del siguiente: la decisión es inequívoca. Y se ve por qué había fallado el automático: por distancia de edición está <strong>más lejos</strong> (<code>dis</code> 9) que la incorrecta <em>Santa Úrsula</em> (<code>dis</code> 7), porque <code>" de Abona"</code> son nueve caracteres de diferencia. La distancia de edición penaliza mucho las diferencias de longitud.</p>
+<p>El caso correcto, <em>San Miguel de Abona</em>, obtiene una similitud de 100 frente al 55,6 del siguiente: la decisión es inequívoca. Y se ve por qué había fallado el automático: por distancia de edición está <strong>más lejos</strong> (<code>dis</code> 9) que la incorrecta <em>Hermigua</em> (<code>dis</code> 7), porque <code>" de Abona"</code> son nueve caracteres de diferencia. La distancia de edición penaliza mucho las diferencias de longitud.</p>
 <p>Veamos ahora un texto que no tiene correspondencia:</p>
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="datos.html#cb372-1" tabindex="-1"></a><span class="fu">aedv_candidatos</span>(<span class="st">&quot;CANARIAS&quot;</span>, uclm_mun<span class="sc">$</span>Municipio, <span class="at">n =</span> <span class="dv">4</span>) <span class="co"># ningún candidato destaca</span></span></code></pre></div>
 <pre><code>## # A tibble: 4 × 4
@@ -4542,6 +5143,13 @@ sistemáticamente a las tablas que resultan de hacer una consulta en el <strong>
 ## 3     6 Arucas         7      57.1
 ## 4    46 Fasnia         8      57.1</code></pre>
 <p>Aquí <strong>ningún</strong> candidato llega a 100 ni destaca sobre los demás: no hay un nombre que contenga las mismas palabras, solo parecidos sueltos de letras. Esa es la señal de que no hay correspondencia.</p>
+<p>Los dos casos anteriores resumen todo el paso 2, y conviene verlos juntos porque llevan a <strong>decisiones opuestas</strong> partiendo de filas que en <code>res</code> tenían exactamente la misma distancia (<code>dis</code> 7). Lo que las separa no es <code>dis</code>, sino si en la lista de candidatos hay alguno que <strong>destaque</strong> sobre el resto:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:esquema-candidatos"></span>
+<img src="AEDV_book_files/figure-html/esquema-candidatos-1.png" alt="De la fila dudosa a la decisión: los dos desenlaces posibles" width="633.6" />
+<p class="caption">
+Figure 3.4: De la fila dudosa a la decisión: los dos desenlaces posibles
+</p>
+</div>
 <p>Este proceso lo tenemos que hacer manualmente para cada caso dudoso. Finalmente, con esa información corregimos <code>res</code>, usando <code>NA</code> para declarar que un texto <strong>no tiene correspondencia</strong>:</p>
 <div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="datos.html#cb374-1" tabindex="-1"></a><span class="co"># nombres que no tienen correspondencia en la otra tabla </span></span>
 <span id="cb374-2"><a href="datos.html#cb374-2" tabindex="-1"></a>agregados <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;CANARIAS&quot;</span>, <span class="st">&quot;LANZAROTE&quot;</span>, <span class="st">&quot;FUERTEVENTURA&quot;</span>, <span class="st">&quot;GRAN CANARIA&quot;</span>,</span>
@@ -4850,7 +5458,7 @@ sistemáticamente a las tablas que resultan de hacer una consulta en el <strong>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagrama-pivot"></span>
 <img src="AEDV_book_files/figure-html/diagrama-pivot-1.png" alt="Esquema visual de pivot_longer y pivot_wider" width="633.6" />
 <p class="caption">
-Figure 3.2: Esquema visual de pivot_longer y pivot_wider
+Figure 3.5: Esquema visual de pivot_longer y pivot_wider
 </p>
 </div>
 <p>En resumen: <code>pivot_longer</code> toma columnas y las convierte en filas (la tabla se hace más “larga” y más “estrecha”), mientras que <code>pivot_wider</code> toma valores de una columna y los convierte en columnas nuevas (la tabla se hace más “ancha” y más “corta”).</p>
@@ -5262,7 +5870,7 @@ los campos y hacemos un <code>pivot_wider</code></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:gg-miss-var"></span>
 <img src="AEDV_book_files/figure-html/gg-miss-var-1.png" alt="Valores faltantes por variable en la tabla `owid_country` usando `naniar`" width="672" />
 <p class="caption">
-Figure 3.3: Valores faltantes por variable en la tabla <code>owid_country</code> usando <code>naniar</code>
+Figure 3.6: Valores faltantes por variable en la tabla <code>owid_country</code> usando <code>naniar</code>
 </p>
 </div>
 <div class="metodo">
@@ -5446,7 +6054,7 @@ Figure 3.3: Valores faltantes por variable en la tabla <code>owid_country</code>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:vis-miss-co2"></span>
 <img src="AEDV_book_files/figure-html/vis-miss-co2-1.png" alt="Disponibilidad de datos de emisiones de CO2 por año y país (naniar, formato ancho)" width="768" />
 <p class="caption">
-Figure 3.4: Disponibilidad de datos de emisiones de CO2 por año y país (naniar, formato ancho)
+Figure 3.7: Disponibilidad de datos de emisiones de CO2 por año y país (naniar, formato ancho)
 </p>
 </div>
 <p>El resultado muestra un patrón en forma de <strong>escalera</strong>: el dato empieza a registrarse antes en unos países que en otros. Podemos comprobarlo pidiendo el primer año con dato de cada uno:</p>

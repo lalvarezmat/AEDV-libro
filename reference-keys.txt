@@ -2,6 +2,9 @@ tab:unnamed-chunk-9
 tab:errores-comunes
 tab:unnamed-chunk-106
 fig:tipos-join
+fig:esquema-tablas-join
+fig:esquema-paso1
+fig:esquema-candidatos
 tab:unnamed-chunk-131
 tab:unnamed-chunk-132
 fig:diagrama-pivot
