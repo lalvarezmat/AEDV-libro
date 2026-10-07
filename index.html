@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-09-18" />
+<meta name="date" content="2026-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,28 +60,6 @@
 <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
-<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
-<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
-<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
-<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.33/datatables.js"></script>
-<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="libs/dt-ext-fixedcolumns-1.13.6/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="libs/dt-ext-fixedcolumns-1.13.6/js/dataTables.fixedColumns.min.js"></script>
 <script src="libs/proj4js-2.3.15/proj4.js"></script>
 <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
 <script src="libs/highcharts-9.3.1/highcharts.js"></script>
@@ -123,6 +101,28 @@
 <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
 <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
 <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
+<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
+<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.13.6/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.13.6/js/dataTables.fixedColumns.min.js"></script>
 
 
 <style type="text/css">
@@ -223,17 +223,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#las-virtudes-de-un-científico-de-datos"><i class="fa fa-check"></i><b>1.5</b> Las virtudes de un científico de datos</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#el-uso-de-la-ia-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.6</b> El uso de la IA en el análisis de datos</a></li>
 <li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#ética-y-responsabilidad-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.7</b> Ética y responsabilidad en el análisis de datos</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad."><i class="fa fa-check"></i><b>1.8</b> La trampa del pensamiento binario y la simplificación de la realidad.</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad"><i class="fa fa-check"></i><b>1.8</b> La trampa del pensamiento binario y la simplificación de la realidad</a></li>
 <li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#el-principio-de-pareto-para-simplificar-los-datos"><i class="fa fa-check"></i><b>1.9</b> El principio de Pareto para simplificar los datos</a></li>
 <li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#la-tiranía-de-las-métricas"><i class="fa fa-check"></i><b>1.10</b> La tiranía de las métricas</a>
 <ul>
 <li class="chapter" data-level="1.10.1" data-path="index.html"><a href="index.html#el-ámbito-educativo-aprobar-no-es-aprender"><i class="fa fa-check"></i><b>1.10.1</b> El ámbito educativo: aprobar no es aprender</a></li>
-<li class="chapter" data-level="1.10.2" data-path="index.html"><a href="index.html#el-ámbito-político-la-manipulación-estadística-del-bienestar"><i class="fa fa-check"></i><b>1.10.2</b> El ámbito político: la manipulación estadística del bienestar</a></li>
+<li class="chapter" data-level="1.10.2" data-path="index.html"><a href="index.html#el-ámbito-de-la-gestión-pública-indicadores-de-empleo-y-de-sanidad"><i class="fa fa-check"></i><b>1.10.2</b> El ámbito de la gestión pública: indicadores de empleo y de sanidad</a></li>
 <li class="chapter" data-level="1.10.3" data-path="index.html"><a href="index.html#cómo-mitigar-la-tiranía-de-las-métricas"><i class="fa fa-check"></i><b>1.10.3</b> Cómo mitigar la tiranía de las métricas</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#referencias"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html"><i class="fa fa-check"></i><b>2</b> Aspectos básicos de <code>R</code></a>
 <ul>
+<li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#instalación-y-carga-de-librerías"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="2.1" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#tipos-y-estructuras-de-datos"><i class="fa fa-check"></i><b>2.1</b> Tipos y estructuras de datos</a>
 <ul>
 <li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#tipos-de-datos"><i class="fa fa-check"></i>Tipos de datos</a></li>
@@ -254,9 +256,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#el-operador-de-pila-pipe-y"><i class="fa fa-check"></i>El operador de pila (pipe) <code>|&gt;</code> y <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#errores-comunes-de-principiante"><i class="fa fa-check"></i><b>2.3</b> Errores comunes de principiante</a></li>
+<li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#referencias-1"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>3</b> Procesado de datos</a>
 <ul>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#instalación-y-carga-de-librerías-1"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="3.1" data-path="datos.html"><a href="datos.html#bases-de-datos"><i class="fa fa-check"></i><b>3.1</b> Bases de datos</a></li>
 <li class="chapter" data-level="3.2" data-path="datos.html"><a href="datos.html#formatos-de-ficheros-de-datos"><i class="fa fa-check"></i><b>3.2</b> Formatos de ficheros de datos</a>
 <ul>
@@ -288,9 +292,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="datos.html"><a href="datos.html#análisis-exploratorio-inicial"><i class="fa fa-check"></i><b>3.5</b> Análisis exploratorio inicial</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#equivalencias-entre-r-base-y-tidyverse"><i class="fa fa-check"></i>Equivalencias entre R base y tidyverse</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#referencias-2"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html"><i class="fa fa-check"></i><b>4</b> Visualización estática de datos</a>
 <ul>
+<li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#instalación-y-carga-de-librerías-2"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="4.1" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#la-gramática-de-los-gráficos"><i class="fa fa-check"></i><b>4.1</b> La gramática de los gráficos</a></li>
 <li class="chapter" data-level="4.2" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#anatomia-ggplot"><i class="fa fa-check"></i><b>4.2</b> Anatomía de un <code>ggplot</code>: construcción por capas</a></li>
 <li class="chapter" data-level="4.3" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#diagramas-de-barras"><i class="fa fa-check"></i><b>4.3</b> Diagramas de barras</a></li>
@@ -323,9 +329,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#color-condicional-en-gt-la-filosofía-de-capas"><i class="fa fa-check"></i>Color condicional en <code>gt</code>: la filosofía de capas</a></li>
 </ul></li>
 <li class="chapter" data-level="4.22" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#exportar-gráficos-con-ggsave"><i class="fa fa-check"></i><b>4.22</b> Exportar gráficos con <code>ggsave</code></a></li>
+<li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#referencias-3"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="series-temporales.html"><a href="series-temporales.html"><i class="fa fa-check"></i><b>5</b> Series temporales</a>
 <ul>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#instalación-y-carga-de-librerías-3"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="5.1" data-path="series-temporales.html"><a href="series-temporales.html#los-objetos-tsibble"><i class="fa fa-check"></i><b>5.1</b> Los objetos <code>tsibble</code></a></li>
 <li class="chapter" data-level="5.2" data-path="series-temporales.html"><a href="series-temporales.html#tsibble"><i class="fa fa-check"></i><b>5.2</b> Visualización</a></li>
 <li class="chapter" data-level="5.3" data-path="series-temporales.html"><a href="series-temporales.html#estacionalidad"><i class="fa fa-check"></i><b>5.3</b> Estacionalidad</a></li>
@@ -376,6 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#el-aicc-compara-modelos-de-la-misma-clase"><i class="fa fa-check"></i>El AICc compara modelos de la misma clase</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#comparar-entre-métodos-la-desviación-típica-de-los-residuos"><i class="fa fa-check"></i>Comparar entre métodos: la desviación típica de los residuos</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-del-ajuste-del-arima-rmse-mae-y-mase"><i class="fa fa-check"></i>Métricas del ajuste del ARIMA: RMSE, MAE y MASE</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#tabla-comparativa-de-los-tres-métodos"><i class="fa fa-check"></i>Tabla comparativa de los tres métodos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.13" data-path="series-temporales.html"><a href="series-temporales.html#cv-temporal"><i class="fa fa-check"></i><b>5.13</b> Validación cruzada temporal</a>
@@ -383,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#pib-de-china-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>PIB de China: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#llegada-de-pasajeros-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>Llegada de pasajeros: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-por-horizonte-de-predicción"><i class="fa fa-check"></i>Métricas por horizonte de predicción</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de confianza no paramétricos por horizonte</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de predicción no paramétricos por horizonte</a></li>
 </ul></li>
 <li class="chapter" data-level="5.14" data-path="series-temporales.html"><a href="series-temporales.html#rellenar-huecos"><i class="fa fa-check"></i><b>5.14</b> Rellenar huecos en una serie temporal y sustituir datos anómalos</a>
 <ul>
@@ -391,46 +400,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#interpolación-de-un-hueco-con-estacionalidad-semanal-y-calendario"><i class="fa fa-check"></i>Interpolación de un hueco con estacionalidad semanal y calendario ⚠️</a></li>
 </ul></li>
 <li class="chapter" data-level="5.15" data-path="series-temporales.html"><a href="series-temporales.html#guia-practica"><i class="fa fa-check"></i><b>5.15</b> Guía práctica: cómo abordar una serie temporal</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#referencias-4"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html"><i class="fa fa-check"></i><b>6</b> Visualización dinámica</a>
 <ul>
+<li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#instalación-y-carga-de-librerías-4"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="6.1" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#diagramas-de-barras-interactivos"><i class="fa fa-check"></i><b>6.1</b> Diagramas de barras interactivos</a></li>
 <li class="chapter" data-level="6.2" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-circulares-interactivos"><i class="fa fa-check"></i><b>6.2</b> Gráficos circulares interactivos</a></li>
 <li class="chapter" data-level="6.3" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-de-donuts-interactivos"><i class="fa fa-check"></i><b>6.3</b> Gráficos de donuts interactivos</a></li>
 <li class="chapter" data-level="6.4" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#diagramas-de-cajas-interactivos"><i class="fa fa-check"></i><b>6.4</b> Diagramas de cajas interactivos</a></li>
 <li class="chapter" data-level="6.5" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#diagramas-de-dispersión-interactivos"><i class="fa fa-check"></i><b>6.5</b> Diagramas de dispersión interactivos</a></li>
 <li class="chapter" data-level="6.6" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#combinando-gráficos-interactivos-con-subplot"><i class="fa fa-check"></i><b>6.6</b> Combinando gráficos interactivos con <code>subplot</code></a></li>
-<li class="chapter" data-level="6.7" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-de-línea-interactivos"><i class="fa fa-check"></i><b>6.7</b> Gráficos de línea interactivos</a></li>
-<li class="chapter" data-level="6.8" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-de-calor-interactivo"><i class="fa fa-check"></i><b>6.8</b> Mapas de calor interactivo</a></li>
-<li class="chapter" data-level="6.9" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#series-temporales-interactivas-y-gráficos-de-área."><i class="fa fa-check"></i><b>6.9</b> Series temporales interactivas y gráficos de área.</a>
+<li class="chapter" data-level="6.7" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-interactivos-con-highcharter"><i class="fa fa-check"></i><b>6.7</b> Gráficos interactivos con <code>highcharter</code></a></li>
+<li class="chapter" data-level="6.8" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-de-línea-interactivos"><i class="fa fa-check"></i><b>6.8</b> Gráficos de línea interactivos</a></li>
+<li class="chapter" data-level="6.9" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-de-calor-interactivo"><i class="fa fa-check"></i><b>6.9</b> Mapas de calor interactivo</a></li>
+<li class="chapter" data-level="6.10" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#series-temporales-interactivas-y-gráficos-de-área"><i class="fa fa-check"></i><b>6.10</b> Series temporales interactivas y gráficos de área</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#representación-interactiva-de-una-predicción"><i class="fa fa-check"></i>Representación interactiva de una predicción</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-interactivos-con-leaflet"><i class="fa fa-check"></i><b>6.10</b> Mapas interactivos con <code>leaflet</code></a>
+<li class="chapter" data-level="6.11" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-interactivos-con-leaflet"><i class="fa fa-check"></i><b>6.11</b> Mapas interactivos con <code>leaflet</code></a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#países-del-mundo"><i class="fa fa-check"></i>Países del mundo</a></li>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#datos-de-canarias"><i class="fa fa-check"></i>Datos de Canarias</a></li>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#datos-de-españa"><i class="fa fa-check"></i>Datos de España</a></li>
 </ul></li>
-<li class="chapter" data-level="6.11" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-con-openstreetmap"><i class="fa fa-check"></i><b>6.11</b> Mapas con OpenStreetMap</a>
+<li class="chapter" data-level="6.12" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-con-openstreetmap"><i class="fa fa-check"></i><b>6.12</b> Mapas con OpenStreetMap</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#control-de-capas-en-mapas"><i class="fa fa-check"></i>Control de capas en mapas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.12" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-coropléticos"><i class="fa fa-check"></i><b>6.12</b> Mapas coropléticos</a>
+<li class="chapter" data-level="6.13" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-coropléticos"><i class="fa fa-check"></i><b>6.13</b> Mapas coropléticos</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapa-coroplético-de-españa-por-comunidades-autónomas"><i class="fa fa-check"></i>Mapa coroplético de España por comunidades autónomas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.13" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-animados"><i class="fa fa-check"></i><b>6.13</b> Gráficos animados</a>
+<li class="chapter" data-level="6.14" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-animados"><i class="fa fa-check"></i><b>6.14</b> Gráficos animados</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#otras-transiciones-de-gganimate"><i class="fa fa-check"></i>Otras transiciones de <code>gganimate</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.14" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#visualización-dinámica-de-tablas"><i class="fa fa-check"></i><b>6.14</b> Visualización dinámica de tablas</a>
+<li class="chapter" data-level="6.15" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#visualización-dinámica-de-tablas"><i class="fa fa-check"></i><b>6.15</b> Visualización dinámica de tablas</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#formato-condicional-en-tablas"><i class="fa fa-check"></i>Formato condicional en tablas</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#referencias-5"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html"><i class="fa fa-check"></i><b>7</b> Cuadros de mando (dashboards)</a>
 <ul>
+<li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#instalación-y-carga-de-librerías-5"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="7.1" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#principios-de-diseño-de-cuadros-de-mando"><i class="fa fa-check"></i><b>7.1</b> Principios de diseño de cuadros de mando</a></li>
 <li class="chapter" data-level="7.2" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#la-estructura-de-un-cuadro-de-mando"><i class="fa fa-check"></i><b>7.2</b> La estructura de un cuadro de mando</a></li>
 <li class="chapter" data-level="7.3" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ejemplo-básico"><i class="fa fa-check"></i><b>7.3</b> Ejemplo básico</a></li>
@@ -451,9 +465,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#rendimiento-de-los-cuadros-de-mando"><i class="fa fa-check"></i><b>7.11</b> Rendimiento de los cuadros de mando</a></li>
 <li class="chapter" data-level="7.12" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#publicar-un-cuadro-de-mando"><i class="fa fa-check"></i><b>7.12</b> Publicar un cuadro de mando</a></li>
+<li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#referencias-6"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="analisis-atributos.html"><a href="analisis-atributos.html"><i class="fa fa-check"></i><b>8</b> Análisis de atributos</a>
 <ul>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#instalación-y-carga-de-librerías-6"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="8.1" data-path="analisis-atributos.html"><a href="analisis-atributos.html#introducción-1"><i class="fa fa-check"></i><b>8.1</b> Introducción</a></li>
 <li class="chapter" data-level="8.2" data-path="analisis-atributos.html"><a href="analisis-atributos.html#la-elección-de-los-atributos-en-datos-multidimensionales"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
 <li class="chapter" data-level="8.3" data-path="analisis-atributos.html"><a href="analisis-atributos.html#relación-entre-dos-variables"><i class="fa fa-check"></i><b>8.3</b> Relación entre dos variables</a>
@@ -476,6 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#biplot-del-acp-todos-los-indicadores"><i class="fa fa-check"></i>Biplot del ACP (todos los indicadores)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i>Aplicación del ACP: agrupación con k-means ⚠️</a></li>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#referencias-7"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html"><i class="fa fa-check"></i>Apéndice 1. Sintaxis de Markdown</a>
 <ul>
@@ -538,7 +555,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Análisis Exploratorio de Datos y Visualización</h1>
 <p class="author"><em>Luis Alvarez</em></p>
-<p class="date"><em>2026-09-18</em></p>
+<p class="date"><em>2026-10-07</em></p>
 </div>
 <div id="introducción" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -569,7 +586,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Tema 3 : Procesado de datos</strong>. Se introducirán las bases de datos que usaremos, el manejo de los formatos habituales de almacenamiento de datos y las herramientas de manipulación de datos que suministra la librería <code>dplyr</code>.</p></li>
 <li><p><strong>Tema 4 : Visualización estática de datos</strong>. Se abordará la gramática de los gráficos, su implementación en el contexto de la potente librería <code>ggplot</code> y su uso para la generación de gráficos estáticos.</p></li>
 <li><p><strong>Tema 5 : Series temporales</strong>. Por su importancia práctica, se estudia, en este tema, el caso particular del análisis exploratorio de series temporales incluyendo modelos de predicción.</p></li>
-<li><p><strong>Tema 6 : Visualización dinámica</strong>. A través del uso de las librerías <code>ggplotly</code>, <code>highcharter</code> y <code>leaflet</code> se introducen potentes herramientas de visualización interactiva donde el usuario puede interactuar con los gráficos o generar animaciones.</p></li>
+<li><p><strong>Tema 6 : Visualización dinámica</strong>. A través del uso de las librerías <code>plotly</code> (con su función <code>ggplotly</code>), <code>highcharter</code> y <code>leaflet</code> se introducen potentes herramientas de visualización interactiva donde el usuario puede interactuar con los gráficos o generar animaciones.</p></li>
 <li><p><strong>Tema 7 : Cuadros de mando</strong>. A través del uso de las librerías <code>shiny</code> y <code>flexdashboard</code> se introduce el diseño e implementación de cuadros de mandos que permiten representar, de forma dinámica, atractiva y coherente, los indicadores principales de nuestra exploración de datos.</p></li>
 <li><p><strong>Tema 8 : Análisis de atributos</strong>. Se estudia la relación entre diferentes variables usando transformaciones no lineales como Yeo-Johnson, matriz de correlación y el análisis de componentes principales.</p></li>
 </ul>
@@ -610,14 +627,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="la-elección-de-r" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> La elección de <code>R</code><a href="index.html#la-elección-de-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El entorno de trabajo que vamos a usar se basa en la habitual combinación de <code>R</code>, <code>Rstudio</code> y <code>RMarkdown</code>. En este curso, supondremos que el estudiante está mínimamente familiarizado con estas herramientas. Se recomiendan los siguientes tutoriales: <a href="https://estadistica-dma.ulpgc.es/cursoR4ULPGC/">tutorial 1</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook/getting-started.html#installing-r-packages">tutorial 2</a> y <a href="https://socviz.co/02-intro.html#work-in-plain-text">tutorial 3</a> como introducción básica al uso combinado de estas herramientas. También pueden ser útiles la <a href="https://rstudio.github.io/cheatsheets/translations/spanish/rstudio-ide_es.pdf">ficha resumen de Rstudio</a> y la <a href="https://rstudio.github.io/cheatsheets/translations/spanish/rmarkdown_es.pdf">ficha resumen de Markdown</a>. En cualquier caso, el tema 1 se dedica a repasar el uso básico de <code>R</code> y se ha añadido el <a href="apendice-markdown.html#apendice-markdown">Apéndice 1</a> con la sintaxis básica de <code>RMarkdown</code>, que conviene consultar desde el primer momento en que se escriba un fichero <code>.Rmd</code>.</p>
+<p>El entorno de trabajo que vamos a usar se basa en la habitual combinación de <code>R</code>, <code>RStudio</code> y <code>RMarkdown</code>. En este curso, supondremos que el estudiante está mínimamente familiarizado con estas herramientas. Se recomiendan los siguientes tutoriales: <a href="https://estadistica-dma.ulpgc.es/cursoR4ULPGC/">tutorial 1</a>, <a href="http://rafalab.dfci.harvard.edu/dsbook/getting-started.html#installing-r-packages">tutorial 2</a> y <a href="https://socviz.co/02-intro.html#work-in-plain-text">tutorial 3</a> como introducción básica al uso combinado de estas herramientas. También pueden ser útiles la <a href="https://rstudio.github.io/cheatsheets/translations/spanish/rstudio-ide_es.pdf">ficha resumen de RStudio</a> y la <a href="https://rstudio.github.io/cheatsheets/translations/spanish/rmarkdown_es.pdf">ficha resumen de Markdown</a>. En cualquier caso, el tema 2 se dedica a repasar el uso básico de <code>R</code> y se ha añadido el <a href="apendice-markdown.html#apendice-markdown">Apéndice 1</a> con la sintaxis básica de <code>RMarkdown</code>, que conviene consultar desde el primer momento en que se escriba un fichero <code>.Rmd</code>.</p>
 <p>De entre las diferentes posibilidades de plataformas de desarrollo utilizables en Ciencias de Datos se ha decidido unificar todo el contenido del curso alrededor de <code>R</code> por los siguientes motivos :</p>
 <ul>
 <li><p><code>R</code> es un entorno libre de desarrollo de aplicaciones estadísticas y análisis de datos que ha tenido un enorme éxito e implantación a nivel mundial. Funciona muy bien, es robusto, es decir genera muy pocos fallos inesperados y se instala y gestiona fácilmente.</p></li>
 <li><p>Al ser <code>R</code> la plataforma de referencia para el análisis de datos, para cualquier librería importante relacionada con el tema que se implemente en otros lenguajes como <code>python</code>, <code>javascript</code>, etc.., aparecen paquetes en <code>R</code> que sirven de interfaz para estas librerías. Esto es algo que se usa intensamente en este curso y tiene como efecto que la curva de aprendizaje de esas herramientas es mucho menor dado que se realiza todo desde el mismo entorno de desarrollo. Esto permite, en particular, abordar en un solo curso una gran colección de potentes herramientas que si se estudiaran cada una en sus particulares entornos de desarrollo, el aprendizaje sería mucho más complejo y sería imposible abordarlas en un solo curso.</p></li>
 <li><p>Unificar todas las herramientas alrededor de <code>R</code> nos permite concentrarnos en los aspectos conceptuales, que es, sin duda, lo más importante que vamos a aprender en este curso. Por otro lado, las herramientas de IA que existen actualmente permiten, fácilmente, transformar los códigos de un entorno de programación a otro, por ejemplo del entorno dado por la combinación de python - jupyter - notebook, que también es muy usado en Ciencias de Datos, al entorno R - RStudio - Rmarkdown.</p></li>
-<li><p>La combinación de <code>R</code>, <code>Rstudio</code> y <code>RMarkdown</code> resulta idónea para experimentar y familiarizarse con todos los conceptos que se estudian en el curso. Además, estas herramientas son usadas por un número tan grande de personas, que prácticamente, cualquier problema o error que surja, ha sido ya resuelto y buscando por Internet, generalmente es fácil encontrar la solución.</p></li>
-<li><p>El número de librerías con herramientas desarrolladas en <code>R</code> es inmenso, solo en el repositorio <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>, que es el repositorio oficial de referencia para almacenar y gestionar las librerías, hay más de 23000 librerías registradas. Hay librerías, como <code>ggplot2</code>, que usamos en el curso, que tienen más de 190 millones de descargas. El autor de este libro ha publicado en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a> la librería <a href="https://cran.r-project.org/web/packages/EpiInvert/index.html">EpiInvert</a> especializada en el procesado de series temporales en Epidemiología. Cualquier persona puede, en teoría, publicar gratuitamente una librería en <a href="https://www.datasciencemeta.com/rpackages">CRAN</a>. Ahora bien, se piden unos requisitos técnicos de calidad bastante exigentes para que la librería sea aceptada.</p></li>
+<li><p>La combinación de <code>R</code>, <code>RStudio</code> y <code>RMarkdown</code> resulta idónea para experimentar y familiarizarse con todos los conceptos que se estudian en el curso. Además, estas herramientas son usadas por un número tan grande de personas, que prácticamente, cualquier problema o error que surja, ha sido ya resuelto y buscando por Internet, generalmente es fácil encontrar la solución.</p></li>
+<li><p>El número de librerías con herramientas desarrolladas en <code>R</code> es inmenso, solo en el repositorio <a href="https://cran.r-project.org/">CRAN</a>, que es el repositorio oficial de referencia para almacenar y gestionar las librerías, hay más de 23000 librerías registradas (las estadísticas de descargas pueden consultarse, por ejemplo, en <a href="https://www.datasciencemeta.com/rpackages">datasciencemeta.com</a>). Hay librerías, como <code>ggplot2</code>, que usamos en el curso, que tienen más de 190 millones de descargas. El autor de este libro ha publicado en <a href="https://cran.r-project.org/">CRAN</a> la librería <a href="https://cran.r-project.org/web/packages/EpiInvert/index.html">EpiInvert</a> especializada en el procesado de series temporales en Epidemiología. Cualquier persona puede, en teoría, publicar gratuitamente una librería en <a href="https://cran.r-project.org/">CRAN</a>. Ahora bien, se piden unos requisitos técnicos de calidad bastante exigentes para que la librería sea aceptada.</p></li>
 </ul>
 <div id="librerías-de-r-utilizadas-en-el-curso" class="section level3 unnumbered hasAnchor">
 <h3>Librerías de <code>R</code> utilizadas en el curso<a href="index.html#librerías-de-r-utilizadas-en-el-curso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -688,7 +705,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-12"><a href="index.html#cb18-12" tabindex="-1"></a>))</span></code></pre></div>
 <p><code>utils</code> no aparece en el comando anterior porque es una librería <strong>base</strong> de R: viene siempre instalada y no se gestiona con <code>install.packages</code>.</p>
 <blockquote>
-<p><strong>Nota: Quarto + Positron.</strong> La empresa que desarrolla RStudio se llama desde 2022 <strong>Posit</strong> y desde hace unos años está desarrollando <strong>Quarto</strong> como una evolución de <strong>RMakdown</strong> que permite la integración de los lenguajes <strong>R</strong> y <strong>python</strong>. También desarrolla <strong>Positron</strong> un IDE similar a <strong>RStudio</strong> para editar/gestionar ficheros de <strong>Quarto</strong>. En este curso usamos el ecosistema <strong>RMarkdown</strong> + <strong>RStudio</strong> por estar muy consolidado pero conviene saber que <strong>Quarto</strong> + <strong>Positron</strong> es la <em>apuesta</em> actual de <strong>Posit</strong> como plataforma de desarrollo y seguramente cada vez se use más y vaya reemplazando a <strong>RMarkdown</strong> + <strong>RStudio</strong>.</p>
+<p><strong>Nota: Quarto + Positron.</strong> La empresa que desarrolla RStudio se llama desde 2022 <strong>Posit</strong> y desde hace unos años está desarrollando <strong>Quarto</strong> como una evolución de <strong>RMarkdown</strong> que permite la integración de los lenguajes <strong>R</strong> y <strong>python</strong>. También desarrolla <strong>Positron</strong> un IDE similar a <strong>RStudio</strong> para editar/gestionar ficheros de <strong>Quarto</strong>. En este curso usamos el ecosistema <strong>RMarkdown</strong> + <strong>RStudio</strong> por estar muy consolidado pero conviene saber que <strong>Quarto</strong> + <strong>Positron</strong> es la <em>apuesta</em> actual de <strong>Posit</strong> como plataforma de desarrollo y seguramente cada vez se use más y vaya reemplazando a <strong>RMarkdown</strong> + <strong>RStudio</strong>.</p>
 </blockquote>
 </div>
 </div>
@@ -697,13 +714,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="discusion">
 <p><strong class="bloque-titulo">Actitudes fundamentales del científico de datos</strong></p>
 <ul>
-<li><p><strong>Neutralidad:</strong> Los datos deben hablar por sí solos, hay que eliminar cualquier idea preconcebida que tengamos sobre los resultados de nuestro Análisis de Datos que pueden introducir un sesgo en la selección de datos y conclusiones.</p></li>
+<li><p><strong>Neutralidad:</strong> La neutralidad que se exige es la del <strong>analista</strong>: hay que eliminar cualquier idea preconcebida que tengamos sobre los resultados de nuestro Análisis de Datos, porque puede introducir un sesgo en la selección de datos y en las conclusiones. Los datos, en cambio, no son neutros (ver la sección de ética más abajo): reflejan las decisiones de quien los recoge, y eso también hay que tenerlo en cuenta.</p></li>
 <li><p><strong>Espíritu crítico.</strong> Hay que analizar y valorar en detalle la calidad, veracidad y fiabilidad de la fuente de los datos que manejamos. Por ejemplo, los datos que suministra una estación meteorológica son muy fiables porque los instrumentos de medida que utiliza lo son. Los datos sobre el número de infectados diarios por la COVID-19 contienen errores importantes porque la forma de medir no es precisa dado que la logística de registro de casos no es capaz, sobre todo al principio de la epidemia, de gestionar y registrar todos los casos. Además, muchos casos, como los que no presentan síntomas, quedan directamente fuera del radar. Más allá de los errores en los sistemas de medición, otra fuente importante de falta de fiabilidad es el sesgo con el que pueden ser comunicados, en función del interés del que comunica los datos. Por ejemplo, decir que se han bajado los impuestos cuando el volumen de lo que se ha bajado es irrelevante y solo afecta a un grupo escaso de la población, no es técnicamente falso, pero el dato se está comunicando con un sesgo que desvirtúa la información que aportan los datos en su conjunto.
 De acuerdo con este espíritu crítico, al valorar la fiabilidad de la información que suministra una encuesta hay que tener muy en cuenta si la selección de la muestra de la población ha sido adecuada, por ejemplo, los encuestados no pueden proponerse ellos mismos para responder (por ejemplo una encuesta online voluntaria). Un ejemplo paradigmático sobre este asunto es la pregunta que realizó a sus lectores la periodista <a href="https://userpages.umbc.edu/~nmiller/POLI300/stat353annlanders.pdf">Ann Landers</a> en 1976 donde consultaba a los padres en USA si volverían a tener hijos en caso de volver atrás y tener la opción de elegir. De los 10000 padres que respondieron a la pregunta de forma voluntaria, el 70% respondió que no volverían a tener hijos. Posteriormente, el periódico <em>NewsDay</em> realizó una encuesta seleccionando ellos de forma aleatoria a los padres para responder a la pregunta, y el resultado fue que el 91% respondió que sí volvería a tener hijos, es decir algo diametralmente opuesto a lo obtenido en la primera encuesta. La justificación de esta enorme diferencia es muy sencilla. Los padres que están más inclinados a responder voluntariamente a la pregunta son aquellos que tienen problemas con sus hijos, los padres a los que les va bien con sus hijos y están contentos de haberlos tenido, tienen mucho menos interés en participar voluntariamente en la encuesta. Este mismo principio se puede aplicar a las encuestas online voluntarias que se realizan a los alumnos para evaluar a los profesores.</p></li>
 <li><p><strong>Valoración relevancia de atributos.</strong> No todos los atributos son igualmente importantes. Por ejemplo, a la hora de valorar el grado de desarrollo de un país (ver [<a href="https://www.amazon.es/Factfulness-razones-estamos-equivocados-colecci%C3%B3n/dp/8423429962">RRR18</a>]), el dato de mortalidad infantil es especialmente relevante porque el esfuerzo de las familias para mantener vivos a sus hijos es siempre máximo y es uno de los primeros parámetros que mejora/empeora cuando varía la situación de un país.</p></li>
-<li><p><strong>Un ratio es mejor que un valor numérico aislado.</strong> En general un valor numérico aislado suministra información difícil de interpretar. Por ejemplo, el beneficio anual de una empresa es un dato difícil de interpretar si no se compara con algo. Comparar ese dato, con los beneficios de la anualidad anterior o con la cantidad de capital invertido y gastos de funcionamiento suministra una información más útil. De la misma forma, a efectos de comparar la riqueza entre países, la renta per cápita, suministra un dato más útil que la renta de todo el país.</p></li>
+<li><p><strong>Una ratio es mejor que un valor numérico aislado.</strong> En general un valor numérico aislado suministra información difícil de interpretar. Por ejemplo, el beneficio anual de una empresa es un dato difícil de interpretar si no se compara con algo. Comparar ese dato, con los beneficios de la anualidad anterior o con la cantidad de capital invertido y gastos de funcionamiento suministra una información más útil. De la misma forma, a efectos de comparar la riqueza entre países, la renta per cápita, suministra un dato más útil que la renta de todo el país.</p></li>
 <li><p><strong>Ser consciente de la limitación de los datos que manejamos.</strong> En general, los datos que manejamos son el resultado de la acumulación de valores muy diversos. Por ejemplo, la renta per cápita de un país no nos dice nada de las desigualdades, en términos de riqueza, que existen dentro de dicho país.</p></li>
-<li><p><strong>Evitar las generalizaciones.</strong> Nuestra tendencia natural es generalizar a partir de los datos particulares conocidos. Por ejemplo, los medios de comunicación ponen mucho énfasis en comunicar los actos violentos, lo que nos puede llevar a pensar, generalizando, que vivimos en una sociedad muy violenta. Sin embargo, la realidad que suministran los datos es que vivimos en la sociedad menos violenta que ha existido nunca.</p></li>
+<li><p><strong>Evitar las generalizaciones.</strong> Nuestra tendencia natural es generalizar a partir de los datos particulares conocidos. Por ejemplo, los medios de comunicación ponen mucho énfasis en comunicar los actos violentos, lo que nos puede llevar a pensar, generalizando, que vivimos en una sociedad muy violenta. Sin embargo, las series históricas de homicidios y de muertes en conflictos armados indican que, a largo plazo, la violencia ha disminuido mucho (ver, por ejemplo, los datos de <a href="https://ourworldindata.org/homicides">OWID sobre homicidios</a> o el libro de Steven Pinker <em>The Better Angels of Our Nature</em>, 2011).</p></li>
 <li><p><strong>Las conclusiones siempre deben estar soportadas por datos.</strong> En cualquier memoria, proyecto o informe realizado por un científico de datos, todas las afirmaciones y conclusiones deben estar soportadas por una correcta interpretación de datos con indicación de la fuente.</p></li>
 </ul>
 </div>
@@ -740,15 +757,15 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 <p>Como referencia fundamental sobre estos temas se recomienda la lectura de [<a href="https://www.amazon.es/Weapons-Math-Destruction-Increases-Inequality/dp/0553418815">ONe16</a>] <em>Weapons of Math Destruction</em> de Cathy O’Neil, que analiza cómo los algoritmos y modelos basados en datos pueden perpetuar y amplificar desigualdades sociales.</p>
 </div>
 </div>
-<div id="la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad." class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> La trampa del pensamiento binario y la simplificación de la realidad.<a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad" class="section level2 hasAnchor" number="1.8">
+<h2><span class="header-section-number">1.8</span> La trampa del pensamiento binario y la simplificación de la realidad<a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Los seres humanos nos encontramos cómodos dividiendo la realidad que nos rodea en 2 partes que se contraponen. Por ejemplo países ricos versus países pobres, ser de izquierdas o ser de derechas, personas buenas versus personas malas, nuestro entorno versus el resto del mundo, etc.. Nuestra tendencia natural a este pensamiento binario nos facilita la interpretación de la realidad y nos hace la vida más fácil. Sin embargo, y es algo que debe tener en cuenta siempre el científico de datos, la realidad es mucho más compleja y tiene muchos más matices que lo que puede reflejar esta tendencia a separarla en dos grupos contrapuestos. Otra forma de simplificación frecuente es el uso de un único atributo para analizar una realidad compleja. Tomemos como ejemplo la media de ingresos diarios por persona, en dólares, y en algunos países, obtenidos a partir de la <a href="https://github.com/owid/poverty-data">OWID</a> y reflejada en el siguiente gráfico:</p>
 <p><img src="AEDV_book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Vemos que la media de ingresos proporciona una primera comparativa útil entre países. Sin embargo, el uso exclusivo de la media, aunque ofrece información valiosa, oculta matices relevantes de la realidad, como los niveles de igualdad en la distribución de los ingresos dentro de cada país. Por ejemplo, Estados Unidos presenta una media de ingresos significativamente superior a la de Noruega. Sin embargo, si dividimos el nivel salarial en diez grupos (deciles) y comparamos los resultados para ambos países, obtenemos:</p>
 <p><img src="AEDV_book_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div class="resultado">
 <p><strong class="bloque-titulo">Conclusión clave: los datos admiten múltiples interpretaciones válidas</strong></p>
-<p>es decir, en Estados Unidos hay un 10 % de la población que gana más de 158 dólares diarios y, en el extremo opuesto, otro 10 % que gana menos de 23 dólares. En Noruega, en cambio, el decil superior supera los 116 dólares, mientras que el inferior no baja de 34 dólares: se trata, por tanto, de un país con una desigualdad de ingresos sensiblemente menor. Lo que eleva la media de Estados Unidos por encima de la de Noruega es que los ingresos de los más ricos son notablemente superiores. Utilizando la mediana (decile5), en lugar de la media, se observa que los ingresos diarios en Noruega (64 dólares) son superiores a los de Estados Unidos (62 dólares). De esta forma, la pregunta <em>¿en cuál de los dos países la población tiene un mayor nivel de ingresos?</em> puede tener respuestas distintas dependiendo del indicador elegido. En el análisis de datos, <strong>una misma cuestión puede admitir respuestas aparentemente contradictorias, siendo ambas coherentes y bien fundamentadas en función de los datos, los indicadores utilizados y su interpretación</strong>. Las conclusiones que extraemos no son una verdad absoluta; a lo más que podemos aspirar es a que sean coherentes con los datos analizados y con los criterios metodológicos utilizados.</p>
+<p>En el gráfico se observa que en Estados Unidos hay un 10 % de la población que gana más de 158 dólares diarios y, en el extremo opuesto, otro 10 % que gana menos de 23 dólares. En Noruega, en cambio, el decil superior supera los 116 dólares, mientras que el inferior no baja de 34 dólares: se trata, por tanto, de un país con una desigualdad de ingresos sensiblemente menor. Lo que eleva la media de Estados Unidos por encima de la de Noruega es que los ingresos de los más ricos son notablemente superiores. Utilizando la mediana (decile5), en lugar de la media, se observa que los ingresos diarios en Noruega (64 dólares) son superiores a los de Estados Unidos (62 dólares). De esta forma, la pregunta <em>¿en cuál de los dos países la población tiene un mayor nivel de ingresos?</em> puede tener respuestas distintas dependiendo del indicador elegido. En el análisis de datos, <strong>una misma cuestión puede admitir respuestas aparentemente contradictorias, siendo ambas coherentes y bien fundamentadas en función de los datos, los indicadores utilizados y su interpretación</strong>. Las conclusiones que extraemos no son una verdad absoluta; a lo más que podemos aspirar es a que sean coherentes con los datos analizados y con los criterios metodológicos utilizados.</p>
 </div>
 <p>Volviendo al ejemplo de los ingresos, otro aspecto relevante es la variabilidad geográfica dentro de un mismo país. Si examinamos la distribución del salario medio bruto mensual por comunidades autónomas en España en 2022 ordenadas de menor a mayor para facilitar la comparación:</p>
 <p><img src="AEDV_book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
@@ -757,7 +774,7 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 </div>
 <div id="el-principio-de-pareto-para-simplificar-los-datos" class="section level2 hasAnchor" number="1.9">
 <h2><span class="header-section-number">1.9</span> El principio de Pareto para simplificar los datos<a href="index.html#el-principio-de-pareto-para-simplificar-los-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Con frecuencia, al manejar tablas con gran cantidad de registros, resulta difícil extraer una visión global de la información. Por ejemplo, al estudiar las emisiones de gases de efecto invernadero (GHG) por países en 2024. Para obtener una perspectiva manejable podemos concentrarnos en los países responsables de la mayor parte de las emisiones totales, aplicando el <strong>principio de Pareto</strong>, también denominado regla 80/20: <strong>el 80 % de los efectos proviene del 20 % de las causas</strong>. Este principio puede aplicarse de dos formas: seleccionando el 20 % de los países que más emiten, o —una opción metodológicamente más sólida— seleccionando el menor número de países cuya emisión acumulada supera el 80 % del total mundial. De esta manera garantizamos que el análisis cubre una porción significativa y representativa del problema. Apliquemos esto a los datos de 2024, año en que las emisiones globales alcanzaron aproximadamente 53.206 millones de toneladas. En la siguiente tabla, elaborada a partir de la base de datos <strong>EDGAR</strong>, se muestran las siguientes variables: <strong>GHG</strong> : las emisiones por país ordenadas de mayor a menor, <strong>PORC_VAR_ANUAL</strong>: la variación porcentual respecto a 2023, <strong>PORC_TOTAL</strong>: el porcentaje de emisiones del país sobre el total mundial y <strong>PORC_ACUMULADO</strong>: el porcentaje sobre el total acumulado al ir añadiendo países (nos quedamos con los países hasta que este porcentaje llega al 80%). Como puede observarse, solo China emite el 29,2% del total, y los cuatro primeros países ya superan conjuntamente el 50%. Para alcanzar el umbral del 80% es necesario incluir los primeros 24 países. El umbral del 80% es orientativo y puede ajustarse en función de los objetivos del estudio. Otro dato interesante es que los países en vías de desarrollo son donde más crecen anualmente las emisiones, como la India (un 3,92%), Indonesia (4,95%) o Vietnam (7,61%), mientras que los países europeos están en fase de decrecimiento de las emisiones. Observamos que la navegación por barcos a nivel mundial produce emisiones de una magnitud similar a un país como Canadá y que la aviación a nivel mundial produce emisiones de una magnitud similar a un país como Australia y con un fuerte crecimiento anual (7,61%)</p>
+<p>Con frecuencia, al manejar tablas con gran cantidad de registros, resulta difícil extraer una visión global de la información. Por ejemplo, al estudiar las emisiones de gases de efecto invernadero (GHG) por países en 2024. Para obtener una perspectiva manejable podemos concentrarnos en los países responsables de la mayor parte de las emisiones totales, aplicando el <strong>principio de Pareto</strong>, también denominado regla 80/20: <strong>el 80 % de los efectos proviene del 20 % de las causas</strong>. Este principio puede aplicarse de dos formas: seleccionando el 20 % de los países que más emiten, o —una opción metodológicamente más sólida— seleccionando el menor número de países cuya emisión acumulada supera el 80 % del total mundial. De esta manera garantizamos que el análisis cubre una porción significativa y representativa del problema. Apliquemos esto a los datos de 2024, año en que las emisiones globales alcanzaron aproximadamente 53.206 millones de toneladas. En la siguiente tabla, elaborada a partir de la base de datos <strong>EDGAR</strong>, se muestran las siguientes variables: <strong>GHG</strong> : las emisiones por país ordenadas de mayor a menor, <strong>PORC_VAR_ANUAL</strong>: la variación porcentual respecto a 2023, <strong>PORC_TOTAL</strong>: el porcentaje de emisiones del país sobre el total mundial y <strong>PORC_ACUMULADO</strong>: el porcentaje sobre el total acumulado al ir añadiendo países (nos quedamos con los países hasta que este porcentaje llega al 80%). Como puede observarse, solo China emite el 29,2% del total, y los cuatro primeros países ya superan conjuntamente el 50%. Para alcanzar el umbral del 80% es necesario incluir las primeras 24 filas de la tabla, que corresponden a 22 países y a 2 categorías que no son países: el transporte marítimo y la aviación internacionales. El umbral del 80% es orientativo y puede ajustarse en función de los objetivos del estudio. Otro dato interesante es que los países en vías de desarrollo son donde más crecen anualmente las emisiones, como la India (un 3,92%), Indonesia (4,95%) o Vietnam (7,61%), mientras que los países europeos están en fase de decrecimiento de las emisiones. Observamos que la navegación por barcos a nivel mundial produce emisiones de una magnitud similar a un país como Canadá y que la aviación a nivel mundial produce emisiones de una magnitud similar a un país como Australia y con un fuerte crecimiento anual (7,61%)</p>
 <table>
 <caption><span id="tab:unnamed-chunk-9">Table 1.1: </span>Emisiones GHG por países en 2024</caption>
 <colgroup>
@@ -962,10 +979,10 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 <p>El caso de las Matemáticas es paradigmático: su preparación se basa frecuentemente en la repetición mecánica de técnicas de resolución de ejercicios extraídos de exámenes de años anteriores. Desde una perspectiva puramente pragmática, resulta más efectivo memorizar la mecánica algorítmica —aun sin comprender la lógica subyacente— que asimilar el razonamiento abstracto, que es lo verdaderamente valioso en esta disciplina. De este modo, se sustituyen los objetivos del aprendizaje por la optimización de una métrica que, irónicamente, fue diseñada para evaluar dicho aprendizaje.</p>
 <p>Esta distorsión se traslada a la gestión institucional a través de métricas como la tasa de aprobados o la ratio de promoción de curso. En todos los niveles educativos, desde la primaria hasta la universidad, los centros compiten entre sí por mejorar estos indicadores para atraer alumnado y obtener beneficios vinculados a resultados. Dado que las políticas de mejora del aprendizaje real solo ofrecen resultados a medio o largo plazo, el atajo administrativo consiste en presionar al profesorado para que incremente los aprobados mediante la devaluación de los estándares de exigencia. En el entorno universitario, donde no existe, de facto, un sistema de verificación real de las competencias de los alumnos que han terminado la carrera, un docente que no enseñe nada y apruebe a todos los alumnos habrá cumplido formalmente con los objetivos de la métrica sin que el sistema lo penalice. El precio latente de esta dinámica son las severas carencias que tendrán estos egresados en términos de pensamiento crítico y en su capacidad para la resolución de problemas en el ejercicio profesional.</p>
 </div>
-<div id="el-ámbito-político-la-manipulación-estadística-del-bienestar" class="section level3 hasAnchor" number="1.10.2">
-<h3><span class="header-section-number">1.10.2</span> El ámbito político: la manipulación estadística del bienestar<a href="index.html#el-ámbito-político-la-manipulación-estadística-del-bienestar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>La instrumentalización de las métricas es especialmente habitual en la arena política, donde los gestores necesitan exhibir mejoras cuantitativas como evidencia de una gestión exitosa.</p>
-<p>En el mercado laboral español, la reforma de 2021 restringió severamente la contratación temporal ordinaria. Para los sectores estacionales (como la hostelería, el turismo o la agricultura), la alternativa legal pasó a ser el contrato fijo-discontinuo. Sobre el papel, el trabajador pasa a computar como indefinido, lo que provocó un desplome inmediato de la tasa de temporalidad oficial. Además, cuando estos trabajadores entran en periodo de inactividad —aunque perciban la prestación por desempleo— no se contabilizan como desempleados. Esta modificación normativa generó una mejora extraordinaria en las métricas de empleo; sin embargo, la realidad material subyacente no varió: el trabajador sigue desempeñando una labor intermitente y afrontando periodos de desocupación en temporada baja. La métrica mejoró, pero no porque mejorara la realidad que pretendía medir.</p>
+<div id="el-ámbito-de-la-gestión-pública-indicadores-de-empleo-y-de-sanidad" class="section level3 hasAnchor" number="1.10.2">
+<h3><span class="header-section-number">1.10.2</span> El ámbito de la gestión pública: indicadores de empleo y de sanidad<a href="index.html#el-ámbito-de-la-gestión-pública-indicadores-de-empleo-y-de-sanidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La gestión pública es especialmente propensa a este fenómeno, porque los gestores necesitan exhibir mejoras cuantitativas como evidencia de una gestión exitosa.</p>
+<p>En el mercado laboral español, la reforma de 2021 restringió severamente la contratación temporal ordinaria. Para los sectores estacionales (como la hostelería, el turismo o la agricultura), la alternativa legal pasó a ser el contrato fijo-discontinuo. Sobre el papel, el trabajador pasa a computar como indefinido, lo que provocó un desplome inmediato de la tasa de temporalidad oficial. Además, cuando estos trabajadores entran en periodo de inactividad —aunque perciban la prestación por desempleo— no figuran como parados en el <strong>paro registrado</strong> que publican los servicios públicos de empleo (SEPE), que los clasifica como demandantes de empleo con relación laboral. Conviene precisarlo porque el paro no se mide de una sola forma: la <strong>Encuesta de Población Activa</strong> (EPA) del INE, que pregunta directamente a los hogares, sí los cuenta como parados si en ese periodo buscan activamente empleo y están disponibles para trabajar. Es un buen ejemplo de por qué hay que saber <strong>cómo se define</strong> un indicador antes de interpretarlo. Esta modificación normativa generó una mejora extraordinaria en las métricas de empleo; sin embargo, la realidad material subyacente no varió: el trabajador sigue desempeñando una labor intermitente y afrontando periodos de desocupación en temporada baja. La métrica mejoró, pero no porque mejorara la realidad que pretendía medir.</p>
 <p>Un comportamiento homólogo se observa en la gestión sanitaria, donde la reducción de los tiempos de espera para atención primaria, especialistas, pruebas diagnósticas e intervenciones quirúrgicas constituye una prioridad política. Para optimizar estos indicadores sin incrementar proporcionalmente los recursos estructurales, se recurre a la <strong>manipulación de los indicadores</strong> (<em>gaming the metrics</em>); se han documentado prácticas como:</p>
 <ul>
 <li><strong>Bloqueo de agendas:</strong> se impide informáticamente la asignación de citas cuando no hay disponibilidad inmediata. Al no registrarse la solicitud, el “reloj” de la lista de espera oficial no se activa.</li>
@@ -985,9 +1002,12 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 </ul>
 <div class="resultado">
 <p><strong class="bloque-titulo">Conclusión</strong></p>
-<p>El análisis de estos escenarios demuestra que cualquier métrica cuya evaluación dependa de factores humanos o condicione incentivos tiende a corromperse. La capacidad adaptativa del ser humano le impulsa a diseñar soluciones ingeniosas para “hackear” el indicador y maximizar el beneficio aparente con el menor esfuerzo operativo posible, sacrificando por completo el propósito y los valores fundamentales que la métrica originalmente intentaba salvaguardar; de ahí la responsabilidad del científico de datos de elegir, interpretar y comunicar sus métricas con sentido crítico.</p>
+<p>Estos escenarios muestran que una métrica cuya evaluación depende de factores humanos o condiciona incentivos está <strong>expuesta</strong> a corromperse. La capacidad adaptativa del ser humano puede llevar a diseñar soluciones ingeniosas para “hackear” el indicador y maximizar el beneficio aparente con el menor esfuerzo, hasta llegar a sacrificar el propósito que la métrica intentaba salvaguardar. No ocurre con todas las métricas ni siempre en la misma medida, pero es un riesgo que hay que vigilar; de ahí la responsabilidad del científico de datos de elegir, interpretar y comunicar sus métricas con sentido crítico.</p>
 </div>
-<p><font size="5"> <b> Referencias </b> </font></p>
+</div>
+</div>
+<div id="referencias" class="section level2 unnumbered hasAnchor">
+<h2>Referencias<a href="index.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>[<a href="https://socviz.co/">He19</a>] Kieran Healy. <em>Data Visualization</em>, Princeton University Press, 2019.</p>
 <p>[<a href="http://rafalab.dfci.harvard.edu/dsbook/">Ir19</a>] Rafael A. Irizarry. <em>Introduction to Data Science</em>, Taylor &amp; Francis, 2019.</p>
 <p>[<a href="https://press.princeton.edu/books/hardcover/9780691174952/the-tyranny-of-metrics">Mul18</a>] Jerry Z. Muller. <em>The Tyranny of Metrics</em>, Princeton University Press, 2018.</p>
@@ -996,10 +1016,9 @@ De acuerdo con este espíritu crítico, al valorar la fiabilidad de la informaci
 <p>[<a href="https://estadistica-dma.ulpgc.es/cursoR4ULPGC/">SH16</a>] Angelo Santana y Carmen N. Hernández. <em>R4ULPGC: Introducción a R</em>, Grupo de Estadística de la Universidad de Las Palmas de G.C., 2016.</p>
 <p>[<a href="https://r4ds.hadley.nz/">WiÇeGa23</a>] Wickham, Hadley, Mine Çetinkaya-Rundel and Garrett Grolemund. <em>R for Data Science (2e)</em>, O’Reilly Media, 2023.</p>
 <p>[<a href="https://clauswilke.com/dataviz/">Wil19</a>] Claus O. Wilke. <em>Fundamentals of Data Visualization</em>, O’Reilly, 2019.</p>
-<p>[<a href="http://yihui.name/knitr/">Xie15</a>] Xie, Yihui. <em>Dynamic Documents with R and Knitr. (2e). </em>Boca Raton, Florida: Chapman; Hall/CRC*, 2015.</p>
-<p>[<a href="https://CRAN.R-project.org/package=bookdown">Xie23</a>] Xie, Yihui. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>, 2023.</p>
+<p>[<a href="http://yihui.name/knitr/">Xie15</a>] Xie, Yihui. <em>Dynamic Documents with R and knitr</em> (2.ª ed.). Boca Raton, Florida: Chapman &amp; Hall/CRC, 2015.</p>
+<p>[<a href="https://CRAN.R-project.org/package=bookdown">Xie23</a>] Xie, Yihui. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>, 2023.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -1039,8 +1058,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
@@ -1050,7 +1069,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["AEDV_book.pdf", "AEDV_book.epub"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null

@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-09-18" />
+<meta name="date" content="2026-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,28 +60,6 @@
 <script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
-<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
-<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
-<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
-<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
-<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.33/datatables.js"></script>
-<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="libs/dt-ext-fixedcolumns-1.13.6/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="libs/dt-ext-fixedcolumns-1.13.6/js/dataTables.fixedColumns.min.js"></script>
 <script src="libs/proj4js-2.3.15/proj4.js"></script>
 <link href="libs/highcharts-9.3.1/css/motion.css" rel="stylesheet" />
 <script src="libs/highcharts-9.3.1/highcharts.js"></script>
@@ -123,6 +101,28 @@
 <script src="libs/highcharts-9.3.1/custom/reset.js"></script>
 <script src="libs/highcharts-9.3.1/modules/boost.js"></script>
 <script src="libs/highchart-binding-0.9.4/highchart.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+<link href="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
+<script src="libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
+<script src="libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.33/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.13.6/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.13.6/js/dataTables.fixedColumns.min.js"></script>
 
 
 <style type="text/css">
@@ -223,17 +223,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#las-virtudes-de-un-científico-de-datos"><i class="fa fa-check"></i><b>1.5</b> Las virtudes de un científico de datos</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#el-uso-de-la-ia-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.6</b> El uso de la IA en el análisis de datos</a></li>
 <li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#ética-y-responsabilidad-en-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.7</b> Ética y responsabilidad en el análisis de datos</a></li>
-<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad."><i class="fa fa-check"></i><b>1.8</b> La trampa del pensamiento binario y la simplificación de la realidad.</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#la-trampa-del-pensamiento-binario-y-la-simplificación-de-la-realidad"><i class="fa fa-check"></i><b>1.8</b> La trampa del pensamiento binario y la simplificación de la realidad</a></li>
 <li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#el-principio-de-pareto-para-simplificar-los-datos"><i class="fa fa-check"></i><b>1.9</b> El principio de Pareto para simplificar los datos</a></li>
 <li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#la-tiranía-de-las-métricas"><i class="fa fa-check"></i><b>1.10</b> La tiranía de las métricas</a>
 <ul>
 <li class="chapter" data-level="1.10.1" data-path="index.html"><a href="index.html#el-ámbito-educativo-aprobar-no-es-aprender"><i class="fa fa-check"></i><b>1.10.1</b> El ámbito educativo: aprobar no es aprender</a></li>
-<li class="chapter" data-level="1.10.2" data-path="index.html"><a href="index.html#el-ámbito-político-la-manipulación-estadística-del-bienestar"><i class="fa fa-check"></i><b>1.10.2</b> El ámbito político: la manipulación estadística del bienestar</a></li>
+<li class="chapter" data-level="1.10.2" data-path="index.html"><a href="index.html#el-ámbito-de-la-gestión-pública-indicadores-de-empleo-y-de-sanidad"><i class="fa fa-check"></i><b>1.10.2</b> El ámbito de la gestión pública: indicadores de empleo y de sanidad</a></li>
 <li class="chapter" data-level="1.10.3" data-path="index.html"><a href="index.html#cómo-mitigar-la-tiranía-de-las-métricas"><i class="fa fa-check"></i><b>1.10.3</b> Cómo mitigar la tiranía de las métricas</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#referencias"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html"><i class="fa fa-check"></i><b>2</b> Aspectos básicos de <code>R</code></a>
 <ul>
+<li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#instalación-y-carga-de-librerías"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="2.1" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#tipos-y-estructuras-de-datos"><i class="fa fa-check"></i><b>2.1</b> Tipos y estructuras de datos</a>
 <ul>
 <li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#tipos-de-datos"><i class="fa fa-check"></i>Tipos de datos</a></li>
@@ -254,9 +256,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#el-operador-de-pila-pipe-y"><i class="fa fa-check"></i>El operador de pila (pipe) <code>|&gt;</code> y <code>%&gt;%</code></a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#errores-comunes-de-principiante"><i class="fa fa-check"></i><b>2.3</b> Errores comunes de principiante</a></li>
+<li class="chapter" data-level="" data-path="aspectos-basicos-r.html"><a href="aspectos-basicos-r.html#referencias-1"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>3</b> Procesado de datos</a>
 <ul>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#instalación-y-carga-de-librerías-1"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="3.1" data-path="datos.html"><a href="datos.html#bases-de-datos"><i class="fa fa-check"></i><b>3.1</b> Bases de datos</a></li>
 <li class="chapter" data-level="3.2" data-path="datos.html"><a href="datos.html#formatos-de-ficheros-de-datos"><i class="fa fa-check"></i><b>3.2</b> Formatos de ficheros de datos</a>
 <ul>
@@ -288,9 +292,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="datos.html"><a href="datos.html#análisis-exploratorio-inicial"><i class="fa fa-check"></i><b>3.5</b> Análisis exploratorio inicial</a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#equivalencias-entre-r-base-y-tidyverse"><i class="fa fa-check"></i>Equivalencias entre R base y tidyverse</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#referencias-2"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html"><i class="fa fa-check"></i><b>4</b> Visualización estática de datos</a>
 <ul>
+<li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#instalación-y-carga-de-librerías-2"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="4.1" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#la-gramática-de-los-gráficos"><i class="fa fa-check"></i><b>4.1</b> La gramática de los gráficos</a></li>
 <li class="chapter" data-level="4.2" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#anatomia-ggplot"><i class="fa fa-check"></i><b>4.2</b> Anatomía de un <code>ggplot</code>: construcción por capas</a></li>
 <li class="chapter" data-level="4.3" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#diagramas-de-barras"><i class="fa fa-check"></i><b>4.3</b> Diagramas de barras</a></li>
@@ -323,9 +329,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#color-condicional-en-gt-la-filosofía-de-capas"><i class="fa fa-check"></i>Color condicional en <code>gt</code>: la filosofía de capas</a></li>
 </ul></li>
 <li class="chapter" data-level="4.22" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#exportar-gráficos-con-ggsave"><i class="fa fa-check"></i><b>4.22</b> Exportar gráficos con <code>ggsave</code></a></li>
+<li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#referencias-3"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="series-temporales.html"><a href="series-temporales.html"><i class="fa fa-check"></i><b>5</b> Series temporales</a>
 <ul>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#instalación-y-carga-de-librerías-3"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="5.1" data-path="series-temporales.html"><a href="series-temporales.html#los-objetos-tsibble"><i class="fa fa-check"></i><b>5.1</b> Los objetos <code>tsibble</code></a></li>
 <li class="chapter" data-level="5.2" data-path="series-temporales.html"><a href="series-temporales.html#tsibble"><i class="fa fa-check"></i><b>5.2</b> Visualización</a></li>
 <li class="chapter" data-level="5.3" data-path="series-temporales.html"><a href="series-temporales.html#estacionalidad"><i class="fa fa-check"></i><b>5.3</b> Estacionalidad</a></li>
@@ -376,6 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#el-aicc-compara-modelos-de-la-misma-clase"><i class="fa fa-check"></i>El AICc compara modelos de la misma clase</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#comparar-entre-métodos-la-desviación-típica-de-los-residuos"><i class="fa fa-check"></i>Comparar entre métodos: la desviación típica de los residuos</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-del-ajuste-del-arima-rmse-mae-y-mase"><i class="fa fa-check"></i>Métricas del ajuste del ARIMA: RMSE, MAE y MASE</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#tabla-comparativa-de-los-tres-métodos"><i class="fa fa-check"></i>Tabla comparativa de los tres métodos</a></li>
 </ul></li>
 <li class="chapter" data-level="5.13" data-path="series-temporales.html"><a href="series-temporales.html#cv-temporal"><i class="fa fa-check"></i><b>5.13</b> Validación cruzada temporal</a>
@@ -383,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#pib-de-china-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>PIB de China: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#llegada-de-pasajeros-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>Llegada de pasajeros: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-por-horizonte-de-predicción"><i class="fa fa-check"></i>Métricas por horizonte de predicción</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de confianza no paramétricos por horizonte</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de predicción no paramétricos por horizonte</a></li>
 </ul></li>
 <li class="chapter" data-level="5.14" data-path="series-temporales.html"><a href="series-temporales.html#rellenar-huecos"><i class="fa fa-check"></i><b>5.14</b> Rellenar huecos en una serie temporal y sustituir datos anómalos</a>
 <ul>
@@ -391,46 +400,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#interpolación-de-un-hueco-con-estacionalidad-semanal-y-calendario"><i class="fa fa-check"></i>Interpolación de un hueco con estacionalidad semanal y calendario ⚠️</a></li>
 </ul></li>
 <li class="chapter" data-level="5.15" data-path="series-temporales.html"><a href="series-temporales.html#guia-practica"><i class="fa fa-check"></i><b>5.15</b> Guía práctica: cómo abordar una serie temporal</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#referencias-4"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html"><i class="fa fa-check"></i><b>6</b> Visualización dinámica</a>
 <ul>
+<li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#instalación-y-carga-de-librerías-4"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="6.1" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#diagramas-de-barras-interactivos"><i class="fa fa-check"></i><b>6.1</b> Diagramas de barras interactivos</a></li>
 <li class="chapter" data-level="6.2" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-circulares-interactivos"><i class="fa fa-check"></i><b>6.2</b> Gráficos circulares interactivos</a></li>
 <li class="chapter" data-level="6.3" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-de-donuts-interactivos"><i class="fa fa-check"></i><b>6.3</b> Gráficos de donuts interactivos</a></li>
 <li class="chapter" data-level="6.4" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#diagramas-de-cajas-interactivos"><i class="fa fa-check"></i><b>6.4</b> Diagramas de cajas interactivos</a></li>
 <li class="chapter" data-level="6.5" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#diagramas-de-dispersión-interactivos"><i class="fa fa-check"></i><b>6.5</b> Diagramas de dispersión interactivos</a></li>
 <li class="chapter" data-level="6.6" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#combinando-gráficos-interactivos-con-subplot"><i class="fa fa-check"></i><b>6.6</b> Combinando gráficos interactivos con <code>subplot</code></a></li>
-<li class="chapter" data-level="6.7" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-de-línea-interactivos"><i class="fa fa-check"></i><b>6.7</b> Gráficos de línea interactivos</a></li>
-<li class="chapter" data-level="6.8" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-de-calor-interactivo"><i class="fa fa-check"></i><b>6.8</b> Mapas de calor interactivo</a></li>
-<li class="chapter" data-level="6.9" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#series-temporales-interactivas-y-gráficos-de-área."><i class="fa fa-check"></i><b>6.9</b> Series temporales interactivas y gráficos de área.</a>
+<li class="chapter" data-level="6.7" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-interactivos-con-highcharter"><i class="fa fa-check"></i><b>6.7</b> Gráficos interactivos con <code>highcharter</code></a></li>
+<li class="chapter" data-level="6.8" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-de-línea-interactivos"><i class="fa fa-check"></i><b>6.8</b> Gráficos de línea interactivos</a></li>
+<li class="chapter" data-level="6.9" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-de-calor-interactivo"><i class="fa fa-check"></i><b>6.9</b> Mapas de calor interactivo</a></li>
+<li class="chapter" data-level="6.10" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#series-temporales-interactivas-y-gráficos-de-área"><i class="fa fa-check"></i><b>6.10</b> Series temporales interactivas y gráficos de área</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#representación-interactiva-de-una-predicción"><i class="fa fa-check"></i>Representación interactiva de una predicción</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-interactivos-con-leaflet"><i class="fa fa-check"></i><b>6.10</b> Mapas interactivos con <code>leaflet</code></a>
+<li class="chapter" data-level="6.11" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-interactivos-con-leaflet"><i class="fa fa-check"></i><b>6.11</b> Mapas interactivos con <code>leaflet</code></a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#países-del-mundo"><i class="fa fa-check"></i>Países del mundo</a></li>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#datos-de-canarias"><i class="fa fa-check"></i>Datos de Canarias</a></li>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#datos-de-españa"><i class="fa fa-check"></i>Datos de España</a></li>
 </ul></li>
-<li class="chapter" data-level="6.11" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-con-openstreetmap"><i class="fa fa-check"></i><b>6.11</b> Mapas con OpenStreetMap</a>
+<li class="chapter" data-level="6.12" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-con-openstreetmap"><i class="fa fa-check"></i><b>6.12</b> Mapas con OpenStreetMap</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#control-de-capas-en-mapas"><i class="fa fa-check"></i>Control de capas en mapas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.12" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-coropléticos"><i class="fa fa-check"></i><b>6.12</b> Mapas coropléticos</a>
+<li class="chapter" data-level="6.13" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapas-coropléticos"><i class="fa fa-check"></i><b>6.13</b> Mapas coropléticos</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#mapa-coroplético-de-españa-por-comunidades-autónomas"><i class="fa fa-check"></i>Mapa coroplético de España por comunidades autónomas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.13" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-animados"><i class="fa fa-check"></i><b>6.13</b> Gráficos animados</a>
+<li class="chapter" data-level="6.14" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#gráficos-animados"><i class="fa fa-check"></i><b>6.14</b> Gráficos animados</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#otras-transiciones-de-gganimate"><i class="fa fa-check"></i>Otras transiciones de <code>gganimate</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.14" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#visualización-dinámica-de-tablas"><i class="fa fa-check"></i><b>6.14</b> Visualización dinámica de tablas</a>
+<li class="chapter" data-level="6.15" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#visualización-dinámica-de-tablas"><i class="fa fa-check"></i><b>6.15</b> Visualización dinámica de tablas</a>
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#formato-condicional-en-tablas"><i class="fa fa-check"></i>Formato condicional en tablas</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="visualizacion-dinamica.html"><a href="visualizacion-dinamica.html#referencias-5"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html"><i class="fa fa-check"></i><b>7</b> Cuadros de mando (dashboards)</a>
 <ul>
+<li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#instalación-y-carga-de-librerías-5"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="7.1" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#principios-de-diseño-de-cuadros-de-mando"><i class="fa fa-check"></i><b>7.1</b> Principios de diseño de cuadros de mando</a></li>
 <li class="chapter" data-level="7.2" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#la-estructura-de-un-cuadro-de-mando"><i class="fa fa-check"></i><b>7.2</b> La estructura de un cuadro de mando</a></li>
 <li class="chapter" data-level="7.3" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#ejemplo-básico"><i class="fa fa-check"></i><b>7.3</b> Ejemplo básico</a></li>
@@ -451,9 +465,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7.11" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#rendimiento-de-los-cuadros-de-mando"><i class="fa fa-check"></i><b>7.11</b> Rendimiento de los cuadros de mando</a></li>
 <li class="chapter" data-level="7.12" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#publicar-un-cuadro-de-mando"><i class="fa fa-check"></i><b>7.12</b> Publicar un cuadro de mando</a></li>
+<li class="chapter" data-level="" data-path="cuadros-de-mando-dashboards.html"><a href="cuadros-de-mando-dashboards.html#referencias-6"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="analisis-atributos.html"><a href="analisis-atributos.html"><i class="fa fa-check"></i><b>8</b> Análisis de atributos</a>
 <ul>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#instalación-y-carga-de-librerías-6"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="8.1" data-path="analisis-atributos.html"><a href="analisis-atributos.html#introducción-1"><i class="fa fa-check"></i><b>8.1</b> Introducción</a></li>
 <li class="chapter" data-level="8.2" data-path="analisis-atributos.html"><a href="analisis-atributos.html#la-elección-de-los-atributos-en-datos-multidimensionales"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
 <li class="chapter" data-level="8.3" data-path="analisis-atributos.html"><a href="analisis-atributos.html#relación-entre-dos-variables"><i class="fa fa-check"></i><b>8.3</b> Relación entre dos variables</a>
@@ -476,6 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#biplot-del-acp-todos-los-indicadores"><i class="fa fa-check"></i>Biplot del ACP (todos los indicadores)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i>Aplicación del ACP: agrupación con k-means ⚠️</a></li>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#referencias-7"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html"><i class="fa fa-check"></i>Apéndice 1. Sintaxis de Markdown</a>
 <ul>
@@ -578,8 +595,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
@@ -589,7 +606,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["AEDV_book.pdf", "AEDV_book.epub"],
+"download": null,
 "search": {
 "engine": "fuse",
 "options": null
