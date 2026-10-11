@@ -151,7 +151,7 @@ fig:animate3
 fig:diagrama-reactivo
 tab:tabla-render
 fig:YeoJohnson
-tab:tabla-asimetria
+tab:tabla-lambda
 fig:heatmap-yeo-johnson
 fig:cor2
 fig:cor-spearman

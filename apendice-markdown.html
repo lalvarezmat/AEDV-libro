@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-10-08" />
+<meta name="date" content="2026-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -554,7 +554,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="apendice-markdown" class="section level1 unnumbered hasAnchor">
 <h1>Apéndice 1. Sintaxis de Markdown<a href="apendice-markdown.html#apendice-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de compilación: 2026-10-08</p>
+<p>Fecha de compilación: 2026-10-11</p>
 <p>Este apéndice recoge la sintaxis básica de <code>R Markdown</code> que se utiliza a lo largo del libro. Gran parte de esta referencia también está disponible en RStudio a través de la opción <code>Markdown quick reference</code> del menú de ayuda. Como referencia rápida puede consultarse también la <a href="https://rstudio.github.io/cheatsheets/translations/spanish/rmarkdown_es.pdf">ficha resumen de R Markdown</a>.</p>
 <blockquote>
 <p><strong>Nota sobre Quarto.</strong> <a href="https://quarto.org/">Quarto</a> (<code>.qmd</code>) es el sucesor de RMarkdown desarrollado por Posit (antes RStudio). Utiliza una sintaxis muy similar, pero incorpora mejoras como soporte nativo para múltiples lenguajes (R, Python, Julia, Observable), cuadros de mando, presentaciones y publicaciones web. La mayor parte de la sintaxis presentada en este apéndice es directamente compatible con Quarto. Para nuevos proyectos, se recomienda considerar Quarto como alternativa.</p>
@@ -563,18 +563,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Formato de texto con Pandoc<a href="apendice-markdown.html#formato-de-texto-con-pandoc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="formato-de-negritas-itálicas-y-código" class="section level3 unnumbered hasAnchor">
 <h3>Formato de <strong>negritas</strong>, <em>itálicas</em> y <code>código</code><a href="apendice-markdown.html#formato-de-negritas-itálicas-y-código" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb777"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb777-1"><a href="apendice-markdown.html#cb777-1" tabindex="-1"></a>**negritas**, *itálicas* y `código`</span></code></pre></div>
+<div class="sourceCode" id="cb781"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb781-1"><a href="apendice-markdown.html#cb781-1" tabindex="-1"></a>**negritas**, *itálicas* y `código`</span></code></pre></div>
 </div>
 <div id="formato-cabeceras-de-las-secciones-y-subsecciones" class="section level3 unnumbered hasAnchor">
 <h3>Formato cabeceras de las secciones y subsecciones<a href="apendice-markdown.html#formato-cabeceras-de-las-secciones-y-subsecciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb778"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb778-1"><a href="apendice-markdown.html#cb778-1" tabindex="-1"></a> # Título sección</span>
-<span id="cb778-2"><a href="apendice-markdown.html#cb778-2" tabindex="-1"></a> ## Título subsección</span>
-<span id="cb778-3"><a href="apendice-markdown.html#cb778-3" tabindex="-1"></a> ### Título subsubsección</span></code></pre></div>
+<div class="sourceCode" id="cb782"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb782-1"><a href="apendice-markdown.html#cb782-1" tabindex="-1"></a> # Título sección</span>
+<span id="cb782-2"><a href="apendice-markdown.html#cb782-2" tabindex="-1"></a> ## Título subsección</span>
+<span id="cb782-3"><a href="apendice-markdown.html#cb782-3" tabindex="-1"></a> ### Título subsubsección</span></code></pre></div>
 </div>
 <div id="formato-listas-numeradas" class="section level3 unnumbered hasAnchor">
 <h3>Formato listas numeradas<a href="apendice-markdown.html#formato-listas-numeradas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb779"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb779-1"><a href="apendice-markdown.html#cb779-1" tabindex="-1"></a>1. item 1</span>
-<span id="cb779-2"><a href="apendice-markdown.html#cb779-2" tabindex="-1"></a>1. item 2</span></code></pre></div>
+<div class="sourceCode" id="cb783"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb783-1"><a href="apendice-markdown.html#cb783-1" tabindex="-1"></a>1. item 1</span>
+<span id="cb783-2"><a href="apendice-markdown.html#cb783-2" tabindex="-1"></a>1. item 2</span></code></pre></div>
 <p>Resultado compilado:</p>
 <ol style="list-style-type: decimal">
 <li>item 1</li>
@@ -583,8 +583,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formato-listas-con-puntos" class="section level3 unnumbered hasAnchor">
 <h3>Formato listas con puntos<a href="apendice-markdown.html#formato-listas-con-puntos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb780"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb780-1"><a href="apendice-markdown.html#cb780-1" tabindex="-1"></a>+ item 1</span>
-<span id="cb780-2"><a href="apendice-markdown.html#cb780-2" tabindex="-1"></a>+ item 2</span></code></pre></div>
+<div class="sourceCode" id="cb784"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb784-1"><a href="apendice-markdown.html#cb784-1" tabindex="-1"></a>+ item 1</span>
+<span id="cb784-2"><a href="apendice-markdown.html#cb784-2" tabindex="-1"></a>+ item 2</span></code></pre></div>
 <p>Resultado compilado:</p>
 <ul>
 <li>item 1</li>
@@ -594,10 +594,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="formato-listas-anidadas" class="section level3 unnumbered hasAnchor">
 <h3>Formato listas anidadas<a href="apendice-markdown.html#formato-listas-anidadas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los elementos de la sublista se escriben con 4 espacios en blanco como margen por la izquierda:</p>
-<div class="sourceCode" id="cb781"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb781-1"><a href="apendice-markdown.html#cb781-1" tabindex="-1"></a>1. item 1</span>
-<span id="cb781-2"><a href="apendice-markdown.html#cb781-2" tabindex="-1"></a>    + item 1.1</span>
-<span id="cb781-3"><a href="apendice-markdown.html#cb781-3" tabindex="-1"></a>    + item 1.2</span>
-<span id="cb781-4"><a href="apendice-markdown.html#cb781-4" tabindex="-1"></a>1. item 2</span></code></pre></div>
+<div class="sourceCode" id="cb785"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb785-1"><a href="apendice-markdown.html#cb785-1" tabindex="-1"></a>1. item 1</span>
+<span id="cb785-2"><a href="apendice-markdown.html#cb785-2" tabindex="-1"></a>    + item 1.1</span>
+<span id="cb785-3"><a href="apendice-markdown.html#cb785-3" tabindex="-1"></a>    + item 1.2</span>
+<span id="cb785-4"><a href="apendice-markdown.html#cb785-4" tabindex="-1"></a>1. item 2</span></code></pre></div>
 <p>Resultado compilado:</p>
 <ol style="list-style-type: decimal">
 <li>item 1
@@ -610,21 +610,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formato-línea-horizontal" class="section level3 unnumbered hasAnchor">
 <h3>Formato línea horizontal<a href="apendice-markdown.html#formato-línea-horizontal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb782"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb782-1"><a href="apendice-markdown.html#cb782-1" tabindex="-1"></a>****</span></code></pre></div>
+<div class="sourceCode" id="cb786"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb786-1"><a href="apendice-markdown.html#cb786-1" tabindex="-1"></a>****</span></code></pre></div>
 <p>Resultado compilado:</p>
 <hr />
 </div>
 <div id="formato-tablas" class="section level3 unnumbered hasAnchor">
 <h3>Formato tablas<a href="apendice-markdown.html#formato-tablas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb783"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb783-1"><a href="apendice-markdown.html#cb783-1" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
-<span id="cb783-2"><a href="apendice-markdown.html#cb783-2" tabindex="-1"></a>| A             | B             | C                  |</span>
-<span id="cb783-3"><a href="apendice-markdown.html#cb783-3" tabindex="-1"></a>+===============+===============+====================+</span>
-<span id="cb783-4"><a href="apendice-markdown.html#cb783-4" tabindex="-1"></a>| A0            | B1            | - C10              |</span>
-<span id="cb783-5"><a href="apendice-markdown.html#cb783-5" tabindex="-1"></a>|               |               | - C11              |</span>
-<span id="cb783-6"><a href="apendice-markdown.html#cb783-6" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
-<span id="cb783-7"><a href="apendice-markdown.html#cb783-7" tabindex="-1"></a>| A1            | B2            | - C20              |</span>
-<span id="cb783-8"><a href="apendice-markdown.html#cb783-8" tabindex="-1"></a>|               |               | - C21              |</span>
-<span id="cb783-9"><a href="apendice-markdown.html#cb783-9" tabindex="-1"></a>+---------------+---------------+--------------------+</span></code></pre></div>
+<div class="sourceCode" id="cb787"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb787-1"><a href="apendice-markdown.html#cb787-1" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
+<span id="cb787-2"><a href="apendice-markdown.html#cb787-2" tabindex="-1"></a>| A             | B             | C                  |</span>
+<span id="cb787-3"><a href="apendice-markdown.html#cb787-3" tabindex="-1"></a>+===============+===============+====================+</span>
+<span id="cb787-4"><a href="apendice-markdown.html#cb787-4" tabindex="-1"></a>| A0            | B1            | - C10              |</span>
+<span id="cb787-5"><a href="apendice-markdown.html#cb787-5" tabindex="-1"></a>|               |               | - C11              |</span>
+<span id="cb787-6"><a href="apendice-markdown.html#cb787-6" tabindex="-1"></a>+---------------+---------------+--------------------+</span>
+<span id="cb787-7"><a href="apendice-markdown.html#cb787-7" tabindex="-1"></a>| A1            | B2            | - C20              |</span>
+<span id="cb787-8"><a href="apendice-markdown.html#cb787-8" tabindex="-1"></a>|               |               | - C21              |</span>
+<span id="cb787-9"><a href="apendice-markdown.html#cb787-9" tabindex="-1"></a>+---------------+---------------+--------------------+</span></code></pre></div>
 <p>Resultado compilado:</p>
 <table style="width:74%;">
 <colgroup>
@@ -659,12 +659,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Construcción de una tabla formateada a partir de un <code>tibble</code> mediante <code>knitr::kable</code>:</p>
-<div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="apendice-markdown.html#cb784-1" tabindex="-1"></a><span class="fu">tibble</span>( <span class="co"># tabla de ejemplo</span></span>
-<span id="cb784-2"><a href="apendice-markdown.html#cb784-2" tabindex="-1"></a>  año<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1985</span>,<span class="dv">2000</span>,<span class="dv">2015</span>),</span>
-<span id="cb784-3"><a href="apendice-markdown.html#cb784-3" tabindex="-1"></a>  España<span class="ot">=</span><span class="fu">c</span>(<span class="fl">38.734</span>,<span class="fl">40.75</span>,<span class="fl">46.122</span>),</span>
-<span id="cb784-4"><a href="apendice-markdown.html#cb784-4" tabindex="-1"></a>  <span class="at">Francia=</span><span class="fu">c</span>(<span class="fl">55.38</span>,<span class="fl">59.387</span>,<span class="fl">64.395</span>),</span>
-<span id="cb784-5"><a href="apendice-markdown.html#cb784-5" tabindex="-1"></a>  <span class="at">Alemania=</span><span class="fu">c</span>(<span class="fl">77.57</span>,<span class="fl">81.896</span>,<span class="fl">80.689</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb784-6"><a href="apendice-markdown.html#cb784-6" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Población anual en millones&quot;</span>) <span class="co"># tabla formateada</span></span></code></pre></div>
+<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="apendice-markdown.html#cb788-1" tabindex="-1"></a><span class="fu">tibble</span>( <span class="co"># tabla de ejemplo</span></span>
+<span id="cb788-2"><a href="apendice-markdown.html#cb788-2" tabindex="-1"></a>  año<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1985</span>,<span class="dv">2000</span>,<span class="dv">2015</span>),</span>
+<span id="cb788-3"><a href="apendice-markdown.html#cb788-3" tabindex="-1"></a>  España<span class="ot">=</span><span class="fu">c</span>(<span class="fl">38.734</span>,<span class="fl">40.75</span>,<span class="fl">46.122</span>),</span>
+<span id="cb788-4"><a href="apendice-markdown.html#cb788-4" tabindex="-1"></a>  <span class="at">Francia=</span><span class="fu">c</span>(<span class="fl">55.38</span>,<span class="fl">59.387</span>,<span class="fl">64.395</span>),</span>
+<span id="cb788-5"><a href="apendice-markdown.html#cb788-5" tabindex="-1"></a>  <span class="at">Alemania=</span><span class="fu">c</span>(<span class="fl">77.57</span>,<span class="fl">81.896</span>,<span class="fl">80.689</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb788-6"><a href="apendice-markdown.html#cb788-6" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Población anual en millones&quot;</span>) <span class="co"># tabla formateada</span></span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-233">Table 8.4: </span>Población anual en millones</caption>
 <thead>
@@ -699,13 +699,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="formato-enlaces-web" class="section level3 unnumbered hasAnchor">
 <h3>Formato enlaces web<a href="apendice-markdown.html#formato-enlaces-web" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb785"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb785-1"><a href="apendice-markdown.html#cb785-1" tabindex="-1"></a>[enlace web](https://www.google.es/)</span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb789-1"><a href="apendice-markdown.html#cb789-1" tabindex="-1"></a>[enlace web](https://www.google.es/)</span></code></pre></div>
 <p>Resultado compilado:</p>
 <p><a href="https://www.google.es/">enlace web</a></p>
 </div>
 <div id="formato-inserción-imagen" class="section level3 unnumbered hasAnchor">
 <h3>Formato inserción imagen<a href="apendice-markdown.html#formato-inserción-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb786"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb786-1"><a href="apendice-markdown.html#cb786-1" tabindex="-1"></a>![Título imagen](https://ctim.es/Delmond.png){ width=50% }</span></code></pre></div>
+<div class="sourceCode" id="cb790"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb790-1"><a href="apendice-markdown.html#cb790-1" tabindex="-1"></a>![Título imagen](https://ctim.es/Delmond.png){ width=50% }</span></code></pre></div>
 <p>Resultado compilado:</p>
 <div class="float">
 <img src="https://ctim.es/Delmond.png" style="width:50.0%" alt="Título imagen" />
@@ -719,15 +719,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="fórmulas-inline" class="section level3 unnumbered hasAnchor">
 <h3>Fórmulas inline<a href="apendice-markdown.html#fórmulas-inline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para insertar una fórmula dentro del texto se encierra entre signos de dólar simples:</p>
-<div class="sourceCode" id="cb787"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb787-1"><a href="apendice-markdown.html#cb787-1" tabindex="-1"></a>La famosa ecuación de Einstein es $E = mc^2$ y la identidad de Euler $e^{i\pi} + 1 = 0$.</span></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb791-1"><a href="apendice-markdown.html#cb791-1" tabindex="-1"></a>La famosa ecuación de Einstein es $E = mc^2$ y la identidad de Euler $e^{i\pi} + 1 = 0$.</span></code></pre></div>
 <p>Resultado compilado: La famosa ecuación de Einstein es <span class="math inline">\(E = mc^2\)</span> y la identidad de Euler <span class="math inline">\(e^{i\pi} + 1 = 0\)</span>.</p>
 </div>
 <div id="fórmulas-en-bloque" class="section level3 unnumbered hasAnchor">
 <h3>Fórmulas en bloque<a href="apendice-markdown.html#fórmulas-en-bloque" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para fórmulas centradas en su propia línea se usan dobles signos de dólar:</p>
-<div class="sourceCode" id="cb788"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb788-1"><a href="apendice-markdown.html#cb788-1" tabindex="-1"></a>$$</span>
-<span id="cb788-2"><a href="apendice-markdown.html#cb788-2" tabindex="-1"></a>\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i</span>
-<span id="cb788-3"><a href="apendice-markdown.html#cb788-3" tabindex="-1"></a>$$</span></code></pre></div>
+<div class="sourceCode" id="cb792"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb792-1"><a href="apendice-markdown.html#cb792-1" tabindex="-1"></a>$$</span>
+<span id="cb792-2"><a href="apendice-markdown.html#cb792-2" tabindex="-1"></a>\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i</span>
+<span id="cb792-3"><a href="apendice-markdown.html#cb792-3" tabindex="-1"></a>$$</span></code></pre></div>
 <p>Resultado compilado:</p>
 <p><span class="math display">\[
 \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
@@ -756,10 +756,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ejemplo-de-fórmula-compleja" class="section level3 unnumbered hasAnchor">
 <h3>Ejemplo de fórmula compleja<a href="apendice-markdown.html#ejemplo-de-fórmula-compleja" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La fórmula de la correlación que usamos en el curso se escribiría así:</p>
-<div class="sourceCode" id="cb789"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb789-1"><a href="apendice-markdown.html#cb789-1" tabindex="-1"></a>$$</span>
-<span id="cb789-2"><a href="apendice-markdown.html#cb789-2" tabindex="-1"></a>r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}</span>
-<span id="cb789-3"><a href="apendice-markdown.html#cb789-3" tabindex="-1"></a>{\sqrt{\sum_{k=1}^{m}(x_k - \bar{x})^2 \sum_{k=1}^{m}(y_k - \bar{y})^2}}</span>
-<span id="cb789-4"><a href="apendice-markdown.html#cb789-4" tabindex="-1"></a>$$</span></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb793-1"><a href="apendice-markdown.html#cb793-1" tabindex="-1"></a>$$</span>
+<span id="cb793-2"><a href="apendice-markdown.html#cb793-2" tabindex="-1"></a>r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}</span>
+<span id="cb793-3"><a href="apendice-markdown.html#cb793-3" tabindex="-1"></a>{\sqrt{\sum_{k=1}^{m}(x_k - \bar{x})^2 \sum_{k=1}^{m}(y_k - \bar{y})^2}}</span>
+<span id="cb793-4"><a href="apendice-markdown.html#cb793-4" tabindex="-1"></a>$$</span></code></pre></div>
 <p>Resultado compilado:</p>
 <p><span class="math display">\[
 r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}
@@ -771,19 +771,19 @@ r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}
 <h2>Códigos en el fichero Markdown<a href="apendice-markdown.html#códigos-en-el-fichero-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="cabecera-del-fichero-markdown" class="section level3 unnumbered hasAnchor">
 <h3>Cabecera del fichero Markdown<a href="apendice-markdown.html#cabecera-del-fichero-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb790"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb790-1"><a href="apendice-markdown.html#cb790-1" tabindex="-1"></a>---</span>
-<span id="cb790-2"><a href="apendice-markdown.html#cb790-2" tabindex="-1"></a>title: &quot;Mi título del trabajo&quot;</span>
-<span id="cb790-3"><a href="apendice-markdown.html#cb790-3" tabindex="-1"></a>author: &quot;Mi nombre y apellidos&quot;</span>
-<span id="cb790-4"><a href="apendice-markdown.html#cb790-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
-<span id="cb790-5"><a href="apendice-markdown.html#cb790-5" tabindex="-1"></a>output: html_document</span>
-<span id="cb790-6"><a href="apendice-markdown.html#cb790-6" tabindex="-1"></a>---</span></code></pre></div>
+<div class="sourceCode" id="cb794"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb794-1"><a href="apendice-markdown.html#cb794-1" tabindex="-1"></a>---</span>
+<span id="cb794-2"><a href="apendice-markdown.html#cb794-2" tabindex="-1"></a>title: &quot;Mi título del trabajo&quot;</span>
+<span id="cb794-3"><a href="apendice-markdown.html#cb794-3" tabindex="-1"></a>author: &quot;Mi nombre y apellidos&quot;</span>
+<span id="cb794-4"><a href="apendice-markdown.html#cb794-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
+<span id="cb794-5"><a href="apendice-markdown.html#cb794-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb794-6"><a href="apendice-markdown.html#cb794-6" tabindex="-1"></a>---</span></code></pre></div>
 </div>
 <div id="fragmentos-de-código-chunks" class="section level3 unnumbered hasAnchor">
 <h3>Fragmentos de código (<code>chunks</code>)<a href="apendice-markdown.html#fragmentos-de-código-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La sintaxis de los <code>chunks</code> es la siguiente:</p>
-<div class="sourceCode" id="cb791"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb791-1"><a href="apendice-markdown.html#cb791-1" tabindex="-1"></a>```{r, opciones de knitr separadas por comas} </span>
-<span id="cb791-2"><a href="apendice-markdown.html#cb791-2" tabindex="-1"></a>   código </span>
-<span id="cb791-3"><a href="apendice-markdown.html#cb791-3" tabindex="-1"></a>``` </span></code></pre></div>
+<div class="sourceCode" id="cb795"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb795-1"><a href="apendice-markdown.html#cb795-1" tabindex="-1"></a>```{r, opciones de knitr separadas por comas} </span>
+<span id="cb795-2"><a href="apendice-markdown.html#cb795-2" tabindex="-1"></a>   código </span>
+<span id="cb795-3"><a href="apendice-markdown.html#cb795-3" tabindex="-1"></a>``` </span></code></pre></div>
 <div class="metodo">
 <p><strong class="bloque-titulo">Opciones más útiles de los chunks de R Markdown</strong></p>
 <p>Las opciones más habituales de los <code>chunks</code> son:</p>
@@ -802,11 +802,11 @@ r = \frac{\sum_{k=1}^{m}(x_k - \bar{x})(y_k - \bar{y})}
 </ul>
 </div>
 <p>Además, es posible asociar una <strong>etiqueta</strong> (<em>label</em>) a cada chunk escribiéndola al principio, justo después de <code>```{r</code>. Esta etiqueta es imprescindible para poder referenciar figuras y tablas en el texto. El siguiente ejemplo muestra un chunk con etiqueta y sus principales opciones gráficas:</p>
-<div class="sourceCode" id="cb792"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb792-1"><a href="apendice-markdown.html#cb792-1" tabindex="-1"></a>```{r chunk-label,fig.cap = &quot;Leyenda figura&quot;,out.width=&#39;50%&#39;,fig.asp=0.8,fig.align=&#39;center&#39;,cache=TRUE} </span>
-<span id="cb792-2"><a href="apendice-markdown.html#cb792-2" tabindex="-1"></a>tibble(var=c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;),value=1:3) |&gt;</span>
-<span id="cb792-3"><a href="apendice-markdown.html#cb792-3" tabindex="-1"></a>  ggplot(aes(x=var,y=value,fill=var)) +</span>
-<span id="cb792-4"><a href="apendice-markdown.html#cb792-4" tabindex="-1"></a>    geom_col()</span>
-<span id="cb792-5"><a href="apendice-markdown.html#cb792-5" tabindex="-1"></a>``` </span></code></pre></div>
+<div class="sourceCode" id="cb796"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb796-1"><a href="apendice-markdown.html#cb796-1" tabindex="-1"></a>```{r chunk-label,fig.cap = &quot;Leyenda figura&quot;,out.width=&#39;50%&#39;,fig.asp=0.8,fig.align=&#39;center&#39;,cache=TRUE} </span>
+<span id="cb796-2"><a href="apendice-markdown.html#cb796-2" tabindex="-1"></a>tibble(var=c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;),value=1:3) |&gt;</span>
+<span id="cb796-3"><a href="apendice-markdown.html#cb796-3" tabindex="-1"></a>  ggplot(aes(x=var,y=value,fill=var)) +</span>
+<span id="cb796-4"><a href="apendice-markdown.html#cb796-4" tabindex="-1"></a>    geom_col()</span>
+<span id="cb796-5"><a href="apendice-markdown.html#cb796-5" tabindex="-1"></a>``` </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:chunk-label"></span>
 <img src="AEDV_book_files/figure-html/chunk-label-1.png" alt="Leyenda figura" width="50%" />
 <p class="caption">
@@ -814,23 +814,23 @@ Figure 8.16: Leyenda figura
 </p>
 </div>
 <p>Para establecer opciones por defecto que apliquen a <strong>todos</strong> los chunks del documento, se incluye al principio el siguiente bloque de configuración. Esto es especialmente útil para generar informes limpios sin código <code>R</code> visible:</p>
-<div class="sourceCode" id="cb793"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb793-1"><a href="apendice-markdown.html#cb793-1" tabindex="-1"></a>```{r setup, include=FALSE}</span>
-<span id="cb793-2"><a href="apendice-markdown.html#cb793-2" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE)</span>
-<span id="cb793-3"><a href="apendice-markdown.html#cb793-3" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb797"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb797-1"><a href="apendice-markdown.html#cb797-1" tabindex="-1"></a>```{r setup, include=FALSE}</span>
+<span id="cb797-2"><a href="apendice-markdown.html#cb797-2" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE)</span>
+<span id="cb797-3"><a href="apendice-markdown.html#cb797-3" tabindex="-1"></a>```</span></code></pre></div>
 </div>
 <div id="código-r-inline" class="section level3 unnumbered hasAnchor">
 <h3>Código R inline<a href="apendice-markdown.html#código-r-inline" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Además de los chunks, podemos insertar el resultado de una expresión de R directamente dentro del texto. La sintaxis consiste en escribir, dentro de un par de acentos graves, la letra <code>r</code> seguida de la expresión R que se quiere evaluar:</p>
-<div class="sourceCode" id="cb794"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb794-1"><a href="apendice-markdown.html#cb794-1" tabindex="-1"></a>`r expresión`</span></code></pre></div>
+<div class="sourceCode" id="cb798"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb798-1"><a href="apendice-markdown.html#cb798-1" tabindex="-1"></a>`r expresión`</span></code></pre></div>
 <p>Esto es muy útil para generar informes donde los valores se actualizan automáticamente al cambiar los datos. Por ejemplo, al escribir en el texto:</p>
-<div class="sourceCode" id="cb795"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb795-1"><a href="apendice-markdown.html#cb795-1" tabindex="-1"></a>La tabla tiene `r nrow(owid_country)` países y `r ncol(owid_country)` variables.</span></code></pre></div>
+<div class="sourceCode" id="cb799"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb799-1"><a href="apendice-markdown.html#cb799-1" tabindex="-1"></a>La tabla tiene `r nrow(owid_country)` países y `r ncol(owid_country)` variables.</span></code></pre></div>
 <p>Al compilar, el texto anterior produce: “La tabla tiene 237 países y 17 variables.” (con los valores reales calculados en el momento de compilación; esta misma frase de este libro está escrita así). Esta funcionalidad se usa frecuentemente para incluir en el texto resultados de cálculos, fechas actualizadas o valores estadísticos sin necesidad de mantenerlos manualmente.</p>
 </div>
 <div id="inclusión-de-ficheros-externos-con-child" class="section level3 unnumbered hasAnchor">
 <h3>Inclusión de ficheros externos con <code>child</code><a href="apendice-markdown.html#inclusión-de-ficheros-externos-con-child" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Cuando un documento es muy largo, se puede dividir en varios ficheros <code>.Rmd</code> e incluirlos desde un fichero principal usando la opción <code>child</code>:</p>
-<div class="sourceCode" id="cb796"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb796-1"><a href="apendice-markdown.html#cb796-1" tabindex="-1"></a>```{r, child=&quot;capitulo2.Rmd&quot;}</span>
-<span id="cb796-2"><a href="apendice-markdown.html#cb796-2" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb800-1"><a href="apendice-markdown.html#cb800-1" tabindex="-1"></a>```{r, child=&quot;capitulo2.Rmd&quot;}</span>
+<span id="cb800-2"><a href="apendice-markdown.html#cb800-2" tabindex="-1"></a>```</span></code></pre></div>
 <p><code>bookdown</code>, que es la herramienta con la que está hecho este libro, resuelve el mismo problema de otra manera: no usa <code>child</code>, sino que <strong>une</strong> los ficheros <code>.Rmd</code> de los capítulos en un único documento y lo compila de una vez (<em>merge and knit</em>). Cada capítulo se escribe en un fichero <code>.Rmd</code> independiente, y el orden de los capítulos se puede fijar con la opción <code>rmd_files</code> del fichero de configuración <code>_bookdown.yml</code> o, como en este libro, con el prefijo numérico de los nombres de los ficheros (<code>01-R.Rmd</code>, <code>02-datos.Rmd</code>…), que <code>bookdown</code> usa por defecto para ordenarlos.</p>
 </div>
 </div>
@@ -840,44 +840,44 @@ Figure 8.16: Leyenda figura
 <div id="referencias-a-figuras" class="section level3 unnumbered hasAnchor">
 <h3>Referencias a figuras<a href="apendice-markdown.html#referencias-a-figuras" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para que una figura sea referenciable, su chunk debe tener una etiqueta (label) y un <code>fig.cap</code>:</p>
-<div class="sourceCode" id="cb797"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb797-1"><a href="apendice-markdown.html#cb797-1" tabindex="-1"></a>```{r mi-figura, fig.cap=&quot;Descripción de la figura&quot;}</span>
-<span id="cb797-2"><a href="apendice-markdown.html#cb797-2" tabindex="-1"></a>plot(1:10)</span>
-<span id="cb797-3"><a href="apendice-markdown.html#cb797-3" tabindex="-1"></a>```</span>
-<span id="cb797-4"><a href="apendice-markdown.html#cb797-4" tabindex="-1"></a></span>
-<span id="cb797-5"><a href="apendice-markdown.html#cb797-5" tabindex="-1"></a>Como se puede observar en la Figura \@ref(fig:mi-figura), los valores crecen linealmente.</span></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb801-1"><a href="apendice-markdown.html#cb801-1" tabindex="-1"></a>```{r mi-figura, fig.cap=&quot;Descripción de la figura&quot;}</span>
+<span id="cb801-2"><a href="apendice-markdown.html#cb801-2" tabindex="-1"></a>plot(1:10)</span>
+<span id="cb801-3"><a href="apendice-markdown.html#cb801-3" tabindex="-1"></a>```</span>
+<span id="cb801-4"><a href="apendice-markdown.html#cb801-4" tabindex="-1"></a></span>
+<span id="cb801-5"><a href="apendice-markdown.html#cb801-5" tabindex="-1"></a>Como se puede observar en la Figura \@ref(fig:mi-figura), los valores crecen linealmente.</span></code></pre></div>
 <p>La referencia <code>\@ref(fig:...)</code> se reemplaza automáticamente por el número de la figura al compilar. Es importante que la etiqueta del chunk no contenga guiones bajos (<code>_</code>), solo guiones normales (<code>-</code>).</p>
 </div>
 <div id="referencias-a-tablas" class="section level3 unnumbered hasAnchor">
 <h3>Referencias a tablas<a href="apendice-markdown.html#referencias-a-tablas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Para tablas generadas con <code>knitr::kable</code>, la referencia se genera a partir del <code>caption</code>:</p>
-<div class="sourceCode" id="cb798"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb798-1"><a href="apendice-markdown.html#cb798-1" tabindex="-1"></a>```{r mi-tabla}</span>
-<span id="cb798-2"><a href="apendice-markdown.html#cb798-2" tabindex="-1"></a>knitr::kable(head(mtcars, 3), caption = &quot;Primeras filas de mtcars&quot;)</span>
-<span id="cb798-3"><a href="apendice-markdown.html#cb798-3" tabindex="-1"></a>```</span>
-<span id="cb798-4"><a href="apendice-markdown.html#cb798-4" tabindex="-1"></a></span>
-<span id="cb798-5"><a href="apendice-markdown.html#cb798-5" tabindex="-1"></a>Los datos se muestran en la Tabla \@ref(tab:mi-tabla).</span></code></pre></div>
+<div class="sourceCode" id="cb802"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb802-1"><a href="apendice-markdown.html#cb802-1" tabindex="-1"></a>```{r mi-tabla}</span>
+<span id="cb802-2"><a href="apendice-markdown.html#cb802-2" tabindex="-1"></a>knitr::kable(head(mtcars, 3), caption = &quot;Primeras filas de mtcars&quot;)</span>
+<span id="cb802-3"><a href="apendice-markdown.html#cb802-3" tabindex="-1"></a>```</span>
+<span id="cb802-4"><a href="apendice-markdown.html#cb802-4" tabindex="-1"></a></span>
+<span id="cb802-5"><a href="apendice-markdown.html#cb802-5" tabindex="-1"></a>Los datos se muestran en la Tabla \@ref(tab:mi-tabla).</span></code></pre></div>
 </div>
 <div id="referencias-a-secciones" class="section level3 unnumbered hasAnchor">
 <h3>Referencias a secciones<a href="apendice-markdown.html#referencias-a-secciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Las secciones se pueden referenciar si tienen un identificador. El identificador se asigna automáticamente a partir del título o se puede especificar manualmente:</p>
-<div class="sourceCode" id="cb799"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb799-1"><a href="apendice-markdown.html#cb799-1" tabindex="-1"></a>## Mi sección importante {#mi-seccion}</span>
-<span id="cb799-2"><a href="apendice-markdown.html#cb799-2" tabindex="-1"></a></span>
-<span id="cb799-3"><a href="apendice-markdown.html#cb799-3" tabindex="-1"></a>...</span>
-<span id="cb799-4"><a href="apendice-markdown.html#cb799-4" tabindex="-1"></a></span>
-<span id="cb799-5"><a href="apendice-markdown.html#cb799-5" tabindex="-1"></a>Como vimos en la Sección \@ref(mi-seccion), ...</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb803-1"><a href="apendice-markdown.html#cb803-1" tabindex="-1"></a>## Mi sección importante {#mi-seccion}</span>
+<span id="cb803-2"><a href="apendice-markdown.html#cb803-2" tabindex="-1"></a></span>
+<span id="cb803-3"><a href="apendice-markdown.html#cb803-3" tabindex="-1"></a>...</span>
+<span id="cb803-4"><a href="apendice-markdown.html#cb803-4" tabindex="-1"></a></span>
+<span id="cb803-5"><a href="apendice-markdown.html#cb803-5" tabindex="-1"></a>Como vimos en la Sección \@ref(mi-seccion), ...</span></code></pre></div>
 <p>Este sistema de referencias es una de las principales ventajas de <code>bookdown</code> sobre RMarkdown estándar, ya que permite que los números de figuras, tablas y secciones se actualicen automáticamente al añadir o reordenar contenido.</p>
 </div>
 </div>
 <div id="bloques-destacados-callout-blocks" class="section level2 unnumbered hasAnchor">
 <h2>Bloques destacados (callout blocks)<a href="apendice-markdown.html#bloques-destacados-callout-blocks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En material docente es habitual usar bloques visuales para resaltar notas, avisos o información importante. En <code>bookdown</code> se pueden crear usando bloques <code>div</code> con clases CSS personalizadas cuya definición se encuentra habitualmente en un fichero de estilos <code>estilos.css</code>. Por ejemplo el código</p>
-<div class="sourceCode" id="cb800"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb800-1"><a href="apendice-markdown.html#cb800-1" tabindex="-1"></a>&lt;div class=&quot;nota&quot;&gt;</span>
-<span id="cb800-2"><a href="apendice-markdown.html#cb800-2" tabindex="-1"></a>&lt;strong class=&quot;bloque-titulo&quot;&gt;Atajos de teclado útiles en RStudio&lt;/strong&gt;</span>
-<span id="cb800-3"><a href="apendice-markdown.html#cb800-3" tabindex="-1"></a></span>
-<span id="cb800-4"><a href="apendice-markdown.html#cb800-4" tabindex="-1"></a>* **Ejecutar una línea:** `Ctrl+Enter` (Windows/Linux) o `Cmd+Enter` (Mac).</span>
-<span id="cb800-5"><a href="apendice-markdown.html#cb800-5" tabindex="-1"></a>* **Ejecutar varias líneas:** seleccionarlas con el ratón y usar el mismo atajo.</span>
-<span id="cb800-6"><a href="apendice-markdown.html#cb800-6" tabindex="-1"></a>* **Ejecutar un chunk completo:** `Alt+Ctrl+C` (Windows) o `Alt+Cmd+Enter` (Mac), con el cursor en cualquier punto del chunk.</span>
-<span id="cb800-7"><a href="apendice-markdown.html#cb800-7" tabindex="-1"></a>* **Maximizar ventana de edición:** `Mayúsculas+Ctrl+1` — alterna entre mostrar y ocultar los paneles secundarios de RStudio.</span>
-<span id="cb800-8"><a href="apendice-markdown.html#cb800-8" tabindex="-1"></a>&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb804"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb804-1"><a href="apendice-markdown.html#cb804-1" tabindex="-1"></a>&lt;div class=&quot;nota&quot;&gt;</span>
+<span id="cb804-2"><a href="apendice-markdown.html#cb804-2" tabindex="-1"></a>&lt;strong class=&quot;bloque-titulo&quot;&gt;Atajos de teclado útiles en RStudio&lt;/strong&gt;</span>
+<span id="cb804-3"><a href="apendice-markdown.html#cb804-3" tabindex="-1"></a></span>
+<span id="cb804-4"><a href="apendice-markdown.html#cb804-4" tabindex="-1"></a>* **Ejecutar una línea:** `Ctrl+Enter` (Windows/Linux) o `Cmd+Enter` (Mac).</span>
+<span id="cb804-5"><a href="apendice-markdown.html#cb804-5" tabindex="-1"></a>* **Ejecutar varias líneas:** seleccionarlas con el ratón y usar el mismo atajo.</span>
+<span id="cb804-6"><a href="apendice-markdown.html#cb804-6" tabindex="-1"></a>* **Ejecutar un chunk completo:** `Alt+Ctrl+C` (Windows) o `Alt+Cmd+Enter` (Mac), con el cursor en cualquier punto del chunk.</span>
+<span id="cb804-7"><a href="apendice-markdown.html#cb804-7" tabindex="-1"></a>* **Maximizar ventana de edición:** `Mayúsculas+Ctrl+1` — alterna entre mostrar y ocultar los paneles secundarios de RStudio.</span>
+<span id="cb804-8"><a href="apendice-markdown.html#cb804-8" tabindex="-1"></a>&lt;/div&gt;</span></code></pre></div>
 <p>genera la siguiente salida al compilar:</p>
 <div class="nota">
 <p><strong class="bloque-titulo">Atajos de teclado útiles en RStudio</strong></p>
@@ -889,8 +889,8 @@ Figure 8.16: Leyenda figura
 </ul>
 </div>
 <p>También se puede usar la sintaxis de Pandoc:</p>
-<div class="sourceCode" id="cb801"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb801-1"><a href="apendice-markdown.html#cb801-1" tabindex="-1"></a>&gt; **Nota:** Este es un texto destacado usando la sintaxis de bloque de cita </span>
-<span id="cb801-2"><a href="apendice-markdown.html#cb801-2" tabindex="-1"></a>&gt; de Markdown. Es la forma más sencilla y compatible de crear una nota visual.</span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb805-1"><a href="apendice-markdown.html#cb805-1" tabindex="-1"></a>&gt; **Nota:** Este es un texto destacado usando la sintaxis de bloque de cita </span>
+<span id="cb805-2"><a href="apendice-markdown.html#cb805-2" tabindex="-1"></a>&gt; de Markdown. Es la forma más sencilla y compatible de crear una nota visual.</span></code></pre></div>
 <p>Resultado compilado:</p>
 <blockquote>
 <p><strong>Nota:</strong> Este es un texto destacado usando la sintaxis de bloque de cita de Markdown. Es la forma más sencilla y compatible de crear una nota visual.</p>
@@ -899,47 +899,47 @@ Figure 8.16: Leyenda figura
 <div id="plantilla-de-informe-de-análisis-de-datos" class="section level2 unnumbered hasAnchor">
 <h2>Plantilla de informe de análisis de datos<a href="apendice-markdown.html#plantilla-de-informe-de-análisis-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como cierre práctico del apéndice, se ofrece un <strong>esqueleto de informe reproducible</strong> que integra los elementos vistos a lo largo del libro: cabecera YAML, chunk de configuración, carga de librerías y datos, y una estructura de secciones que sigue las fases del análisis exploratorio de datos presentadas en la introducción. Puede copiarse en un fichero <code>.Rmd</code> nuevo y usarse como punto de partida:</p>
-<div class="sourceCode" id="cb802"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb802-1"><a href="apendice-markdown.html#cb802-1" tabindex="-1"></a>---</span>
-<span id="cb802-2"><a href="apendice-markdown.html#cb802-2" tabindex="-1"></a>title: &quot;Informe de análisis de datos&quot;</span>
-<span id="cb802-3"><a href="apendice-markdown.html#cb802-3" tabindex="-1"></a>author: &quot;Nombre y apellidos&quot;</span>
-<span id="cb802-4"><a href="apendice-markdown.html#cb802-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
-<span id="cb802-5"><a href="apendice-markdown.html#cb802-5" tabindex="-1"></a>output: html_document</span>
-<span id="cb802-6"><a href="apendice-markdown.html#cb802-6" tabindex="-1"></a>---</span>
-<span id="cb802-7"><a href="apendice-markdown.html#cb802-7" tabindex="-1"></a></span>
-<span id="cb802-8"><a href="apendice-markdown.html#cb802-8" tabindex="-1"></a>```{r setup, include=FALSE}</span>
-<span id="cb802-9"><a href="apendice-markdown.html#cb802-9" tabindex="-1"></a># Opciones por defecto para todos los chunks</span>
-<span id="cb802-10"><a href="apendice-markdown.html#cb802-10" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)</span>
-<span id="cb802-11"><a href="apendice-markdown.html#cb802-11" tabindex="-1"></a>library(tidyverse)</span>
-<span id="cb802-12"><a href="apendice-markdown.html#cb802-12" tabindex="-1"></a>```</span>
-<span id="cb802-13"><a href="apendice-markdown.html#cb802-13" tabindex="-1"></a></span>
-<span id="cb802-14"><a href="apendice-markdown.html#cb802-14" tabindex="-1"></a># Introducción</span>
-<span id="cb802-15"><a href="apendice-markdown.html#cb802-15" tabindex="-1"></a></span>
-<span id="cb802-16"><a href="apendice-markdown.html#cb802-16" tabindex="-1"></a>Objetivo del análisis y descripción de la fuente de datos.</span>
-<span id="cb802-17"><a href="apendice-markdown.html#cb802-17" tabindex="-1"></a></span>
-<span id="cb802-18"><a href="apendice-markdown.html#cb802-18" tabindex="-1"></a># Datos</span>
-<span id="cb802-19"><a href="apendice-markdown.html#cb802-19" tabindex="-1"></a></span>
-<span id="cb802-20"><a href="apendice-markdown.html#cb802-20" tabindex="-1"></a>```{r cargar-datos}</span>
-<span id="cb802-21"><a href="apendice-markdown.html#cb802-21" tabindex="-1"></a>datos &lt;- read_csv(&quot;mis_datos.csv&quot;)</span>
-<span id="cb802-22"><a href="apendice-markdown.html#cb802-22" tabindex="-1"></a>```</span>
-<span id="cb802-23"><a href="apendice-markdown.html#cb802-23" tabindex="-1"></a></span>
-<span id="cb802-24"><a href="apendice-markdown.html#cb802-24" tabindex="-1"></a>La tabla contiene `r nrow(datos)` registros y `r ncol(datos)` variables.</span>
-<span id="cb802-25"><a href="apendice-markdown.html#cb802-25" tabindex="-1"></a></span>
-<span id="cb802-26"><a href="apendice-markdown.html#cb802-26" tabindex="-1"></a># Procesado y calidad de los datos</span>
-<span id="cb802-27"><a href="apendice-markdown.html#cb802-27" tabindex="-1"></a></span>
-<span id="cb802-28"><a href="apendice-markdown.html#cb802-28" tabindex="-1"></a>Limpieza, tipos, valores faltantes y transformaciones (formato tidy).</span>
-<span id="cb802-29"><a href="apendice-markdown.html#cb802-29" tabindex="-1"></a>Un `skim(datos)` inicial ayuda a diagnosticar la tabla de un vistazo.</span>
-<span id="cb802-30"><a href="apendice-markdown.html#cb802-30" tabindex="-1"></a></span>
-<span id="cb802-31"><a href="apendice-markdown.html#cb802-31" tabindex="-1"></a># Análisis y visualización</span>
-<span id="cb802-32"><a href="apendice-markdown.html#cb802-32" tabindex="-1"></a></span>
-<span id="cb802-33"><a href="apendice-markdown.html#cb802-33" tabindex="-1"></a>```{r grafico-principal, fig.cap=&quot;Descripción de la figura&quot;, fig.align=&#39;center&#39;}</span>
-<span id="cb802-34"><a href="apendice-markdown.html#cb802-34" tabindex="-1"></a># ggplot / plotly / ...</span>
-<span id="cb802-35"><a href="apendice-markdown.html#cb802-35" tabindex="-1"></a>```</span>
-<span id="cb802-36"><a href="apendice-markdown.html#cb802-36" tabindex="-1"></a></span>
-<span id="cb802-37"><a href="apendice-markdown.html#cb802-37" tabindex="-1"></a>Comentario e interpretación de los resultados, siempre apoyados en los datos.</span>
-<span id="cb802-38"><a href="apendice-markdown.html#cb802-38" tabindex="-1"></a></span>
-<span id="cb802-39"><a href="apendice-markdown.html#cb802-39" tabindex="-1"></a># Conclusiones</span>
-<span id="cb802-40"><a href="apendice-markdown.html#cb802-40" tabindex="-1"></a></span>
-<span id="cb802-41"><a href="apendice-markdown.html#cb802-41" tabindex="-1"></a>Síntesis de los hallazgos, con sus limitaciones y la fuente de los datos.</span></code></pre></div>
+<div class="sourceCode" id="cb806"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb806-1"><a href="apendice-markdown.html#cb806-1" tabindex="-1"></a>---</span>
+<span id="cb806-2"><a href="apendice-markdown.html#cb806-2" tabindex="-1"></a>title: &quot;Informe de análisis de datos&quot;</span>
+<span id="cb806-3"><a href="apendice-markdown.html#cb806-3" tabindex="-1"></a>author: &quot;Nombre y apellidos&quot;</span>
+<span id="cb806-4"><a href="apendice-markdown.html#cb806-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
+<span id="cb806-5"><a href="apendice-markdown.html#cb806-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb806-6"><a href="apendice-markdown.html#cb806-6" tabindex="-1"></a>---</span>
+<span id="cb806-7"><a href="apendice-markdown.html#cb806-7" tabindex="-1"></a></span>
+<span id="cb806-8"><a href="apendice-markdown.html#cb806-8" tabindex="-1"></a>```{r setup, include=FALSE}</span>
+<span id="cb806-9"><a href="apendice-markdown.html#cb806-9" tabindex="-1"></a># Opciones por defecto para todos los chunks</span>
+<span id="cb806-10"><a href="apendice-markdown.html#cb806-10" tabindex="-1"></a>knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)</span>
+<span id="cb806-11"><a href="apendice-markdown.html#cb806-11" tabindex="-1"></a>library(tidyverse)</span>
+<span id="cb806-12"><a href="apendice-markdown.html#cb806-12" tabindex="-1"></a>```</span>
+<span id="cb806-13"><a href="apendice-markdown.html#cb806-13" tabindex="-1"></a></span>
+<span id="cb806-14"><a href="apendice-markdown.html#cb806-14" tabindex="-1"></a># Introducción</span>
+<span id="cb806-15"><a href="apendice-markdown.html#cb806-15" tabindex="-1"></a></span>
+<span id="cb806-16"><a href="apendice-markdown.html#cb806-16" tabindex="-1"></a>Objetivo del análisis y descripción de la fuente de datos.</span>
+<span id="cb806-17"><a href="apendice-markdown.html#cb806-17" tabindex="-1"></a></span>
+<span id="cb806-18"><a href="apendice-markdown.html#cb806-18" tabindex="-1"></a># Datos</span>
+<span id="cb806-19"><a href="apendice-markdown.html#cb806-19" tabindex="-1"></a></span>
+<span id="cb806-20"><a href="apendice-markdown.html#cb806-20" tabindex="-1"></a>```{r cargar-datos}</span>
+<span id="cb806-21"><a href="apendice-markdown.html#cb806-21" tabindex="-1"></a>datos &lt;- read_csv(&quot;mis_datos.csv&quot;)</span>
+<span id="cb806-22"><a href="apendice-markdown.html#cb806-22" tabindex="-1"></a>```</span>
+<span id="cb806-23"><a href="apendice-markdown.html#cb806-23" tabindex="-1"></a></span>
+<span id="cb806-24"><a href="apendice-markdown.html#cb806-24" tabindex="-1"></a>La tabla contiene `r nrow(datos)` registros y `r ncol(datos)` variables.</span>
+<span id="cb806-25"><a href="apendice-markdown.html#cb806-25" tabindex="-1"></a></span>
+<span id="cb806-26"><a href="apendice-markdown.html#cb806-26" tabindex="-1"></a># Procesado y calidad de los datos</span>
+<span id="cb806-27"><a href="apendice-markdown.html#cb806-27" tabindex="-1"></a></span>
+<span id="cb806-28"><a href="apendice-markdown.html#cb806-28" tabindex="-1"></a>Limpieza, tipos, valores faltantes y transformaciones (formato tidy).</span>
+<span id="cb806-29"><a href="apendice-markdown.html#cb806-29" tabindex="-1"></a>Un `skim(datos)` inicial ayuda a diagnosticar la tabla de un vistazo.</span>
+<span id="cb806-30"><a href="apendice-markdown.html#cb806-30" tabindex="-1"></a></span>
+<span id="cb806-31"><a href="apendice-markdown.html#cb806-31" tabindex="-1"></a># Análisis y visualización</span>
+<span id="cb806-32"><a href="apendice-markdown.html#cb806-32" tabindex="-1"></a></span>
+<span id="cb806-33"><a href="apendice-markdown.html#cb806-33" tabindex="-1"></a>```{r grafico-principal, fig.cap=&quot;Descripción de la figura&quot;, fig.align=&#39;center&#39;}</span>
+<span id="cb806-34"><a href="apendice-markdown.html#cb806-34" tabindex="-1"></a># ggplot / plotly / ...</span>
+<span id="cb806-35"><a href="apendice-markdown.html#cb806-35" tabindex="-1"></a>```</span>
+<span id="cb806-36"><a href="apendice-markdown.html#cb806-36" tabindex="-1"></a></span>
+<span id="cb806-37"><a href="apendice-markdown.html#cb806-37" tabindex="-1"></a>Comentario e interpretación de los resultados, siempre apoyados en los datos.</span>
+<span id="cb806-38"><a href="apendice-markdown.html#cb806-38" tabindex="-1"></a></span>
+<span id="cb806-39"><a href="apendice-markdown.html#cb806-39" tabindex="-1"></a># Conclusiones</span>
+<span id="cb806-40"><a href="apendice-markdown.html#cb806-40" tabindex="-1"></a></span>
+<span id="cb806-41"><a href="apendice-markdown.html#cb806-41" tabindex="-1"></a>Síntesis de los hallazgos, con sus limitaciones y la fuente de los datos.</span></code></pre></div>
 <p>Esta plantilla materializa las buenas prácticas del curso: parámetros de chunk (<code>echo</code>, <code>message</code>, <code>warning</code>), código R <em>inline</em> para que las cifras se actualicen solas, figuras con <code>fig.cap</code> referenciables y una narrativa que va de los objetivos a las conclusiones sustentadas en datos.</p>
 
 </div>
