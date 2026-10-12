@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-10-11" />
+<meta name="date" content="2026-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -482,16 +482,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#matriz-de-correlación-tras-normalizar-con-yeo-johnson"><i class="fa fa-check"></i>Matriz de correlación tras normalizar con Yeo-Johnson</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="analisis-atributos.html"><a href="analisis-atributos.html#análisis-de-componentes-principales-acp"><i class="fa fa-check"></i><b>8.6</b> Análisis de componentes principales (ACP)</a>
+<li class="chapter" data-level="8.6" data-path="analisis-atributos.html"><a href="analisis-atributos.html#análisis-de-componentes-principales-pca"><i class="fa fa-check"></i><b>8.6</b> Análisis de componentes principales (PCA)</a>
 <ul>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#fundamento-teórico"><i class="fa fa-check"></i>Fundamento teórico ⚠️</a></li>
-<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#cálculo-acp-con-prcomp"><i class="fa fa-check"></i>Cálculo ACP con <code>prcomp</code></a></li>
-<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#visualización-acp"><i class="fa fa-check"></i>Visualización ACP</a></li>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#cálculo-pca-con-prcomp"><i class="fa fa-check"></i>Cálculo PCA con <code>prcomp</code></a></li>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#visualización-pca"><i class="fa fa-check"></i>Visualización PCA</a></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#criterios-para-elegir-el-número-de-componentes"><i class="fa fa-check"></i>Criterios para elegir el número de componentes</a></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#interpretación-de-los-loadings"><i class="fa fa-check"></i>Interpretación de los loadings</a></li>
-<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#biplot-del-acp-todos-los-indicadores"><i class="fa fa-check"></i>Biplot del ACP (todos los indicadores)</a></li>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#biplot-del-pca-todos-los-indicadores"><i class="fa fa-check"></i>Biplot del PCA (todos los indicadores)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i>Aplicación del ACP: agrupación con k-means ⚠️</a></li>
+<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i>Aplicación del PCA: agrupación con k-means ⚠️</a></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#referencias-7"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html"><i class="fa fa-check"></i>Apéndice 1. Sintaxis de Markdown</a>
@@ -554,7 +554,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="cuadros-de-mando-dashboards" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">7</span> Cuadros de mando (dashboards)<a href="cuadros-de-mando-dashboards.html#cuadros-de-mando-dashboards" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de compilación: 2026-10-11</p>
+<p>Fecha de compilación: 2026-10-12</p>
 <div id="instalación-y-carga-de-librerías-5" class="section level2 unnumbered hasAnchor">
 <h2>Instalación y carga de librerías<a href="cuadros-de-mando-dashboards.html#instalación-y-carga-de-librerías-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="cuadros-de-mando-dashboards.html#cb703-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(shiny)) <span class="fu">install.packages</span>(<span class="st">&#39;shiny&#39;</span>)</span>
@@ -989,10 +989,10 @@ Figure 7.1: Esquema del modelo reactivo de Shiny
 <h2><span class="header-section-number">7.5</span> Ejemplo organización cuadro de mandos completo<a href="cuadros-de-mando-dashboards.html#ejemplo-organización-cuadro-de-mandos-completo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A continuación se presenta el código completo de un cuadro de mando funcional que combina los elementos vistos: <code>valueBox</code>, <code>selectInput</code>, <code>reactive</code>, <code>renderPlotly</code>, <code>DT::renderDataTable</code> y <code>validate/need</code>. La apariencia de la ventana principal es la siguiente:</p>
 <div class="float">
-<img src="dashboard01.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard01.Rmd" />
-<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard01.Rmd</strong></div>
+<img src="dashboard01.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard_basico2.Rmd" />
+<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard_basico2.Rmd</strong></div>
 </div>
-<p>Observamos que se ocupa todo el espacio de forma razonable, con los <code>valueBox</code> arriba de forma destacada y la selección de inputs a la izquierda. Para aprovechar el espacio, debajo de esa columna se pone una tabla con los países seleccionados. Finalmente, debajo de los <code>valueBox</code> se ponen dos pestañas con un gráfico y una tabla dinámica respectivamente. El diseño resulta visualmente equilibrado, se aprovecha todo el espacio sin saturar de información. El código de este cuadro de mandos se encuentra en <a href="https://ctim.es/AEDV/Dashboard01.Rmd">Dashboard01.Rmd</a></p>
+<p>Observamos que se ocupa todo el espacio de forma razonable, con los <code>valueBox</code> arriba de forma destacada y la selección de inputs a la izquierda. Para aprovechar el espacio, debajo de esa columna se pone una tabla con los países seleccionados. Finalmente, debajo de los <code>valueBox</code> se ponen dos pestañas con un gráfico y una tabla dinámica respectivamente. El diseño resulta visualmente equilibrado, se aprovecha todo el espacio sin saturar de información. El código de este cuadro de mandos se encuentra en <a href="https://ctim.es/AEDV/Dashboard_basico2.Rmd">Dashboard_basico2.Rmd</a></p>
 <p>Este ejemplo ilustra un patrón habitual de cuadro de mando profesional: barra lateral con controles, fila superior con KPIs en <code>valueBox</code> con colores condicionales, y panel principal con pestañas para gráfico y tabla.</p>
 <div class="discusion">
 <p><strong class="bloque-titulo">Un cálculo reactivo, seis paneles</strong></p>
@@ -1002,12 +1002,12 @@ Figure 7.1: Esquema del modelo reactivo de Shiny
 </div>
 <div id="cuadro-de-mandos-con-hchart" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> Cuadro de mandos con <code>hchart</code><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-hchart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Vamos a estudiar el ejemplo de cuadro de mando dinámico que se encuentra en <a href="https://ctim.es/AEDV/Dashboard1.Rmd">Dashboard1.Rmd</a>, cuya ejecución se visualiza a continuación (para poder interactuar con el gráfico hay que ejecutar el fichero <code>Rmd</code> desde <code>RStudio</code>) :</p>
+<p>Vamos a estudiar el ejemplo de cuadro de mando dinámico que se encuentra en <a href="https://ctim.es/AEDV/Dashboard_hchart.Rmd">Dashboard_hchart.Rmd</a>, cuya ejecución se visualiza a continuación (para poder interactuar con el gráfico hay que ejecutar el fichero <code>Rmd</code> desde <code>RStudio</code>) :</p>
 <div class="float">
-<img src="dashboard1.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard1.Rmd" />
-<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard1.Rmd</strong></div>
+<img src="dashboard1.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard_hchart.Rmd" />
+<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard_hchart.Rmd</strong></div>
 </div>
-<p>En este cuadro de mando se presentan 4 gráficos comparativos, realizados con <code>hchart</code>, de la evolución de la población en 4 países o regiones del mundo. A la izquierda aparece un menú desplegable múltiple para elegir hasta 4 países/región (uno por gráfico), dos menús con los años de inicio y fin del periodo, y un botón que dispara el dibujado conjunto de los 4 gráficos: mientras no se pulsa, cambiar los desplegables no actualiza nada, de modo que el usuario completa toda la selección antes de lanzar el cálculo. Para generar este cuadro de mando localmente, hay que cargar el fichero <a href="https://ctim.es/AEDV/Dashboard1.Rmd">Dashboard1.Rmd</a> en <code>RStudio</code> y ejecutar <code>run document</code>. Observamos que este cuadro de mando se organiza en 3 columnas: en la primera columna aparecen los menús desplegables y el botón, en la segunda columna aparecen dos gráficos generados con <code>hchart</code> y en la tercera columna otros 2 gráficos similares. Usando <code>flexdashboard</code> este cuadro de mando se organiza de la siguiente forma :</p>
+<p>En este cuadro de mando se presentan 4 gráficos comparativos, realizados con <code>hchart</code>, de la evolución de la población en 4 países o regiones del mundo. A la izquierda aparece un menú desplegable múltiple para elegir hasta 4 países/región (uno por gráfico), dos menús con los años de inicio y fin del periodo, y un botón que dispara el dibujado conjunto de los 4 gráficos: mientras no se pulsa, cambiar los desplegables no actualiza nada, de modo que el usuario completa toda la selección antes de lanzar el cálculo. Para generar este cuadro de mando localmente, hay que cargar el fichero <a href="https://ctim.es/AEDV/Dashboard_hchart.Rmd">Dashboard_hchart.Rmd</a> en <code>RStudio</code> y ejecutar <code>run document</code>. Observamos que este cuadro de mando se organiza en 3 columnas: en la primera columna aparecen los menús desplegables y el botón, en la segunda columna aparecen dos gráficos generados con <code>hchart</code> y en la tercera columna otros 2 gráficos similares. Usando <code>flexdashboard</code> este cuadro de mando se organiza de la siguiente forma :</p>
 <ul>
 <li><p>Lectura de los datos que usa el cuadro de mandos.</p></li>
 <li><p>Creación de una función auxiliar, <code>dibujar_poblacion(pais, anyo_inicio, anyo_fin)</code>, que encapsula el código que construye el gráfico <code>hchart</code> de un país a partir de esos tres argumentos. Al escribir la lógica de dibujo una sola vez, los 4 gráficos se reducen a invocar esta función con argumentos distintos, en vez de repetir el mismo bloque de código 4 veces.</p></li>
@@ -1045,28 +1045,28 @@ Figure 7.1: Esquema del modelo reactivo de Shiny
 </div>
 <div id="cuadro-de-mandos-con-leaflet" class="section level2 hasAnchor" number="7.7">
 <h2><span class="header-section-number">7.7</span> Cuadro de mandos con <code>Leaflet</code><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-leaflet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Vamos a estudiar el cuadro de mandos que se encuentra en el fichero <a href="https://ctim.es/AEDV/Dashboard2.Rmd">Dashboard2.Rmd</a>, cuya ejecución se visualiza a continuación:</p>
+<p>Vamos a estudiar el cuadro de mandos que se encuentra en el fichero <a href="https://ctim.es/AEDV/Dashboard_mapa_coropletico.Rmd">Dashboard_mapa_coropletico.Rmd</a>, cuya ejecución se visualiza a continuación:</p>
 <div class="float">
-<img src="dashboard2.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard2.Rmd" />
-<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard2.Rmd</strong></div>
+<img src="dashboard2.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard_mapa_coropletico.Rmd" />
+<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard_mapa_coropletico.Rmd</strong></div>
 </div>
 <p>En este caso, el cuadro de mandos tiene dos columnas. En la primera columna aparece un menú desplegable para elegir el indicador de los países que vamos a usar y aparece también una tabla con los datos del indicador en orden descendente. Las tablas en <code>flexdashboard</code>, se generan usando la función <code>renderTable</code> (para tablas estáticas) o <code>DT::renderDataTable</code> (para tablas interactivas con búsqueda y ordenación). A la derecha aparece una columna con un mapa coroplético con los valores del indicador (para interactuar con el gráfico hay que ejecutar el fichero <code>Rmd</code> desde <code>RStudio</code>)</p>
 </div>
 <div id="cuadro-de-mandos-con-plotly" class="section level2 hasAnchor" number="7.8">
 <h2><span class="header-section-number">7.8</span> Cuadro de mandos con <code>Plotly</code><a href="cuadros-de-mando-dashboards.html#cuadro-de-mandos-con-plotly" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Vamos a estudiar el cuadro de mandos que se encuentra en el fichero <a href="https://ctim.es/AEDV/Dashboard3.Rmd">Dashboard3.Rmd</a>, cuya ejecución se visualiza a continuación:</p>
-<p><img src="dashboard3.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard3.Rmd" />
+<p>Vamos a estudiar el cuadro de mandos que se encuentra en el fichero <a href="https://ctim.es/AEDV/Dashboard_atributos_comparacion.Rmd">Dashboard_atributos_comparacion.Rmd</a>, cuya ejecución se visualiza a continuación:</p>
+<p><img src="dashboard3.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard_atributos_comparacion.Rmd" />
 Este cuadro de mando se organiza en 3 columnas. En la primera columna se muestran una casilla de verificación, cuatro menús desplegables y los resultados del análisis; en la segunda, un diagrama de dispersión y, debajo, la gráfica de los residuos de la recta de regresión, los dos con <code>plotly</code>; y en la tercera, una tabla con los datos. Los dos paneles de la segunda columna se reparten la altura con <code>data-height</code>, en proporción <span class="math inline">\(750\)</span> a <span class="math inline">\(250\)</span>, según lo explicado más arriba.</p>
 <p>El objetivo de este cuadro de mando es estudiar la relación entre cualquier par de indicadores sobre los países publicados por la <strong>OWID</strong> y utilizados en el cuadro de mandos anterior. Al primer indicador lo llamaremos <span class="math inline">\(x\)</span> y al segundo <span class="math inline">\(y\)</span>. Por ejemplo, en la imagen anterior se muestra la comparación entre <span class="math inline">\(x=\)</span>life_expectancy e <span class="math inline">\(y=\)</span>gdp_per_capit. El modelo que usaremos es la conocida regresión lineal, es decir, buscamos una relación lineal entre <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, dada por</p>
 <p><span class="math display">\[y=ax+b\]</span></p>
 <p>donde <span class="math inline">\(a\)</span> es la pendiente y <span class="math inline">\(b\)</span> es el término independiente. Para mejorar el ajuste de las dos variables por la recta de regresión se permite al usuario escalar las variables antes de hacer la comparación. Escalar <span class="math inline">\(x\)</span> significa que sustituimos <span class="math inline">\(x\)</span> por <span class="math inline">\(s_x(x)\)</span>, donde <span class="math inline">\(s_x()\)</span> es la transformada utilizada, en nuestro caso, damos como opciones <span class="math inline">\(s_x(x)=sgn(x)log(|x|)\)</span>, o <span class="math inline">\(s_x(x)=sgn(x)sqrt(|x|)\)</span>. Este tipo de escalado ya lo hemos usado en <code>ggplot</code> a efectos de visualización. De la misma forma, opcionalmente, escalamos <span class="math inline">\(y\)</span> con <span class="math inline">\(s_y(y)\)</span>, permitiendo elegir las mismas transformadas o <span class="math inline">\(s_y(y;\lambda)\)</span> dada por la transformada de Yeo-Johnson (ver <a href="https://doi.org/10.1093/biomet/87.4.954">[YeJo00]</a>), cuyo parámetro <span class="math inline">\(\lambda\)</span> se calcula automáticamente para maximizar el ajuste lineal entre las dos variables.</p>
 <p>La casilla de la parte superior, <strong>Normalizar antes cada variable (Yeo-Johnson)</strong>, responde a un criterio distinto: transforma <strong>cada variable por separado</strong>, buscando para cada una el <span class="math inline">\(\lambda\)</span> que la aproxima a una distribución normal, sin mirar a la otra. Al activarla se imprime el <span class="math inline">\(\lambda\)</span> empleado en cada una.</p>
 <p>Debajo de los resultados del ajuste (correlación, <span class="math inline">\(R^2\)</span> y desviación típica de los residuos) se muestran los p-valores de tres contrastes: el test <strong>F</strong> de significación global del modelo, el de <strong>Shapiro-Wilk</strong> sobre la normalidad de los residuos y el de <strong>Breusch-Pagan</strong> sobre su homocedasticidad, cada uno marcado con un ✔ o un ✘ según se supere o no. La gráfica de residuos de la parte inferior es la lectura visual de estos dos últimos.</p>
-<p>Conviene señalar, por último, que este cuadro de mandos está escrito como <strong>plantilla</strong>, en la misma línea que el <code>Dashboard5.Rmd</code> que veremos más adelante: los indicadores de los desplegables no se enumeran a mano, sino que se deducen de las columnas numéricas de la tabla, de modo que para aplicarlo a otros datos basta con cambiar la tabla y decir cuál es la columna que identifica cada observación. Veremos en más detalle este cuadro de mandos en el próximo tema.</p>
+<p>Conviene señalar, por último, que este cuadro de mandos está escrito como <strong>plantilla</strong>, en la misma línea que el <code>Dashboard_exploracion_series.Rmd</code> que veremos más adelante: los indicadores de los desplegables no se enumeran a mano, sino que se deducen de las columnas numéricas de la tabla, de modo que para aplicarlo a otros datos basta con cambiar la tabla y decir cuál es la columna que identifica cada observación. Veremos en más detalle este cuadro de mandos en el próximo tema.</p>
 </div>
 <div id="opciones-de-configuración" class="section level2 hasAnchor" number="7.9">
 <h2><span class="header-section-number">7.9</span> Opciones de configuración<a href="cuadros-de-mando-dashboards.html#opciones-de-configuración" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Existen múltiples <a href="https://rstudio.github.io/flexdashboard/articles/shiny.html#inputs-outputs">opciones de configuración</a> para la salida de un cuadro de mandos. Para ilustrar algunas de ellas vamos a usar el cuadro de mandos de ejemplo <a href="https://ctim.es/AEDV/Dashboard4.Rmd">Dashboard4.Rmd</a>. Este cuadro de mandos tiene un menú en la parte superior para acceder a 3 páginas. En la primera página vemos un ejemplo de renderizado de código html:</p>
+<p>Existen múltiples <a href="https://rstudio.github.io/flexdashboard/articles/shiny.html#inputs-outputs">opciones de configuración</a> para la salida de un cuadro de mandos. Para ilustrar algunas de ellas vamos a usar el cuadro de mandos de ejemplo <a href="https://ctim.es/AEDV/Dashboard_formato_inputs.Rmd">Dashboard_formato_inputs.Rmd</a>. Este cuadro de mandos tiene un menú en la parte superior para acceder a 3 páginas. En la primera página vemos un ejemplo de renderizado de código html:</p>
 <p><img src="dashboard41.png" style="width:80.0%" /></p>
 <p>En la segunda página vemos algunos ejemplos de formato de entrada para diferentes tipos de variables: desplegable de una opción, desplegable de varias opciones, <code>slider</code>, texto libre, número, <code>checkbox</code>, fecha, rango de fechas (<code>dateRangeInput</code>, con los dos calendarios de inicio y fin uno a cada lado) y botones de radio. Un único <code>actionButton</code> afecta a todos estos inputs a la vez: los textos de la derecha solo se actualizan al pulsarlo, siguiendo el mismo patrón <code>eventReactive</code> del cuadro de mando anterior.</p>
 <p><img src="dashboard42.png" style="width:80.0%" /></p>
@@ -1075,10 +1075,10 @@ Este cuadro de mando se organiza en 3 columnas. En la primera columna se muestra
 </div>
 <div id="exploración-de-datos-multidimensionales" class="section level2 hasAnchor" number="7.10">
 <h2><span class="header-section-number">7.10</span> Exploración de datos multidimensionales<a href="cuadros-de-mando-dashboards.html#exploración-de-datos-multidimensionales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Los cuadros de mando anteriores están escritos a la medida de sus datos. El del fichero <a href="https://ctim.es/AEDV/Dashboard5.Rmd">Dashboard5.Rmd</a> responde a un objetivo distinto: es una <strong>plantilla</strong> pensada para adaptarse a cualquier conjunto de datos multidimensional cambiando solo su configuración inicial. En el ejemplo se aplica a las series temporales de las solicitudes de asilo en Europa, un conjunto de datos con cinco dimensiones (región de acogida, país de origen, sexo, edad y unidad de medida):</p>
+<p>Los cuadros de mando anteriores están escritos a la medida de sus datos. El del fichero <a href="https://ctim.es/AEDV/Dashboard_exploracion_series.Rmd">Dashboard_exploracion_series.Rmd</a> responde a un objetivo distinto: es una <strong>plantilla</strong> pensada para adaptarse a cualquier conjunto de datos multidimensional cambiando solo su configuración inicial. En el ejemplo se aplica a las series temporales de las solicitudes de asilo en Europa, un conjunto de datos con cinco dimensiones (región de acogida, país de origen, sexo, edad y unidad de medida):</p>
 <div class="float">
-<img src="dashboard5.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard5.Rmd" />
-<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard5.Rmd</strong></div>
+<img src="dashboard5.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard_exploracion_series.Rmd" />
+<div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard_exploracion_series.Rmd</strong></div>
 </div>
 <p>La idea de diseño consiste en repartir los atributos del conjunto de datos en tres papeles distintos, que son los tres primeros bloques del menú de la izquierda:</p>
 <ol style="list-style-type: decimal">

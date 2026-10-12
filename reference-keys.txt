@@ -150,6 +150,9 @@ fig:animate-states
 fig:animate3
 fig:diagrama-reactivo
 tab:tabla-render
+fig:lm-error-pan
+fig:lm-error-pib
+fig:lm-error-log-pib
 fig:YeoJohnson
 tab:tabla-lambda
 fig:heatmap-yeo-johnson
@@ -276,4 +279,4 @@ la-elección-de-los-atributos-en-datos-multidimensionales
 relación-entre-dos-variables
 yeo-johnson-color
 la-matriz-de-correlación
-análisis-de-componentes-principales-acp
+análisis-de-componentes-principales-pca
