@@ -169,7 +169,6 @@ fig:var-explicada2-yj
 tab:loadings-pca2
 fig:contrib-pc1
 fig:contrib-pc2
-fig:pca2-dispersion
 fig:biplot-factoextra
 fig:kmeans-pca
 tab:kmeans-pca-resumen
