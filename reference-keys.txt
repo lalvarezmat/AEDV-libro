@@ -15,6 +15,7 @@ fig:vis-miss-co2
 tab:equivalencias-base-tidyverse
 tab:guia-seleccion
 fig:anatomia-ggplot
+fig:escala-logaritmica
 fig:geom-bar
 fig:geom-bar-reorder
 fig:geom-bar-apilado01
@@ -105,6 +106,7 @@ fig:aeropuertos-arima-directo
 tab:comparacion-pib
 tab:comparacion-aeropuertos
 tab:comparacion-periodic
+fig:residuos-aeropuertos-arima
 tab:comparacion-accuracy-arima
 tab:tabla-ets-arima
 tab:cv-pib-china
@@ -117,6 +119,7 @@ fig:cv-intervalos-noparam-aeropuertos-arima
 fig:cv-intervalos-noparam-aeropuertos-stl
 fig:comercio-hueco-arima
 fig:geom-bar-apilado
+fig:ggplotly-subtitulo
 fig:geom-col2
 fig:geom-col3
 fig:geom-jitter
@@ -171,7 +174,7 @@ fig:biplot-factoextra
 fig:kmeans-pca
 tab:kmeans-pca-resumen
 fig:kmeans-pca-yj
-tab:unnamed-chunk-233
+tab:unnamed-chunk-234
 fig:chunk-label
 introducción
 fases-de-un-análisis-exploratorio-de-datos
@@ -275,8 +278,10 @@ rendimiento-de-los-cuadros-de-mando
 publicar-un-cuadro-de-mando
 analisis-atributos
 introducción-1
-la-elección-de-los-atributos-en-datos-multidimensionales
+eleccion-atributos
 relación-entre-dos-variables
 yeo-johnson-color
 la-matriz-de-correlación
 análisis-de-componentes-principales-pca
+mas-alla-acp
+guia-practica-atributos

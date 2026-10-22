@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-10-13" />
+<meta name="date" content="2026-10-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -277,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#el-paquete-dplyr"><i class="fa fa-check"></i>El paquete <code>dplyr</code></a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#combinando-datos-de-varias-tablas"><i class="fa fa-check"></i>Combinando datos de varias tablas</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#tidy-data-datos-ordenados-o-largo"><i class="fa fa-check"></i>Tidy data (datos ordenados o largo)</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#formato-largo-formato-ancho-y-tidy-data"><i class="fa fa-check"></i>Formato largo, formato ancho y <em>tidy data</em></a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#hacer-un-join-usando-una-tabla-auxiliar-pivote"><i class="fa fa-check"></i>Hacer un join usando una tabla auxiliar pivote</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="datos.html"><a href="datos.html#calidad-datos"><i class="fa fa-check"></i><b>3.4</b> Calidad de los datos</a>
@@ -298,7 +298,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#instalación-y-carga-de-librerías-2"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="4.1" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#la-gramática-de-los-gráficos"><i class="fa fa-check"></i><b>4.1</b> La gramática de los gráficos</a></li>
-<li class="chapter" data-level="4.2" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#anatomia-ggplot"><i class="fa fa-check"></i><b>4.2</b> Anatomía de un <code>ggplot</code>: construcción por capas</a></li>
+<li class="chapter" data-level="4.2" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#anatomia-ggplot"><i class="fa fa-check"></i><b>4.2</b> Anatomía de un <code>ggplot</code>: construcción por capas</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#escala-logaritmica"><i class="fa fa-check"></i>La escala logarítmica</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#diagramas-de-barras"><i class="fa fa-check"></i><b>4.3</b> Diagramas de barras</a></li>
 <li class="chapter" data-level="4.4" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#geom-bar-agrupadas"><i class="fa fa-check"></i><b>4.4</b> Diagramas de barras agrupadas</a></li>
 <li class="chapter" data-level="4.5" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#gráficos-circulares"><i class="fa fa-check"></i><b>4.5</b> Gráficos circulares</a></li>
@@ -384,6 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#el-aicc-compara-modelos-de-la-misma-clase"><i class="fa fa-check"></i>El AICc compara modelos de la misma clase</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#comparar-entre-métodos-la-desviación-típica-de-los-residuos"><i class="fa fa-check"></i>Comparar entre métodos: la desviación típica de los residuos</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#residuos-ajuste"><i class="fa fa-check"></i>Los residuos del ajuste: <code>aedv_residuos()</code></a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-del-ajuste-del-arima-rmse-mae-y-mase"><i class="fa fa-check"></i>Métricas del ajuste del ARIMA: RMSE, MAE y MASE</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#tabla-comparativa-de-los-tres-métodos"><i class="fa fa-check"></i>Tabla comparativa de los tres métodos</a></li>
 </ul></li>
@@ -392,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#pib-de-china-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>PIB de China: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#llegada-de-pasajeros-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>Llegada de pasajeros: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-por-horizonte-de-predicción"><i class="fa fa-check"></i>Métricas por horizonte de predicción</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de predicción no paramétricos por horizonte</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de confianza no paramétricos por horizonte</a></li>
 </ul></li>
 <li class="chapter" data-level="5.14" data-path="series-temporales.html"><a href="series-temporales.html#rellenar-huecos"><i class="fa fa-check"></i><b>5.14</b> Rellenar huecos en una serie temporal y sustituir datos anómalos</a>
 <ul>
@@ -471,7 +475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#instalación-y-carga-de-librerías-6"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="8.1" data-path="analisis-atributos.html"><a href="analisis-atributos.html#introducción-1"><i class="fa fa-check"></i><b>8.1</b> Introducción</a></li>
-<li class="chapter" data-level="8.2" data-path="analisis-atributos.html"><a href="analisis-atributos.html#la-elección-de-los-atributos-en-datos-multidimensionales"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
+<li class="chapter" data-level="8.2" data-path="analisis-atributos.html"><a href="analisis-atributos.html#eleccion-atributos"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
 <li class="chapter" data-level="8.3" data-path="analisis-atributos.html"><a href="analisis-atributos.html#relación-entre-dos-variables"><i class="fa fa-check"></i><b>8.3</b> Relación entre dos variables</a>
 <ul>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#correlación"><i class="fa fa-check"></i>Correlación</a></li>
@@ -491,7 +495,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#interpretación-de-los-loadings"><i class="fa fa-check"></i>Interpretación de los loadings</a></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#biplot-del-pca-todos-los-indicadores"><i class="fa fa-check"></i>Biplot del PCA (todos los indicadores)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i>Aplicación del PCA: agrupación con k-means ⚠️</a></li>
+<li class="chapter" data-level="8.7" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i><b>8.7</b> Aplicación del PCA: agrupación con k-means</a></li>
+<li class="chapter" data-level="8.8" data-path="analisis-atributos.html"><a href="analisis-atributos.html#guia-practica-atributos"><i class="fa fa-check"></i><b>8.8</b> Guía práctica: cómo abordar un análisis de atributos</a></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#referencias-7"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html"><i class="fa fa-check"></i>Apéndice 1. Sintaxis de Markdown</a>
@@ -529,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#referencias-a-secciones"><i class="fa fa-check"></i>Referencias a secciones</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#bloques-destacados-callout-blocks"><i class="fa fa-check"></i>Bloques destacados (callout blocks)</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#plantilla-de-informe-de-análisis-de-datos"><i class="fa fa-check"></i>Plantilla de informe de análisis de datos</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#el-modelo-de-memoria-del-proyecto"><i class="fa fa-check"></i>El modelo de memoria del proyecto</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -554,7 +559,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="datos" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">3</span> Procesado de datos<a href="datos.html#datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de compilación: 2026-10-13</p>
+<p>Fecha de compilación: 2026-10-22</p>
 <div id="instalación-y-carga-de-librerías-1" class="section level2 unnumbered hasAnchor">
 <h2>Instalación y carga de librerías<a href="datos.html#instalación-y-carga-de-librerías-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="datos.html#cb309-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(openxlsx)) <span class="fu">install.packages</span>(<span class="st">&#39;openxlsx&#39;</span>)</span>
@@ -5373,8 +5378,8 @@ Figure 3.4: De la fila dudosa a la decisión: los dos desenlaces posibles
 </div>
 </div>
 </div>
-<div id="tidy-data-datos-ordenados-o-largo" class="section level3 unnumbered hasAnchor">
-<h3>Tidy data (datos ordenados o largo)<a href="datos.html#tidy-data-datos-ordenados-o-largo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="formato-largo-formato-ancho-y-tidy-data" class="section level3 unnumbered hasAnchor">
+<h3>Formato largo, formato ancho y <em>tidy data</em><a href="datos.html#formato-largo-formato-ancho-y-tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La misma información se puede organizar de muy diversas formas. Por ejemplo, la información de los datos de población (en millones) de España, Francia y Alemania en los años 1985, 2000 y 2015 se puede organizar de las siguientes formas:</p>
 <div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="datos.html#cb405-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">tibble</span>( <span class="co"># un país por columna: formato ancho</span></span>
 <span id="cb405-2"><a href="datos.html#cb405-2" tabindex="-1"></a>  año<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1985</span>,<span class="dv">2000</span>,<span class="dv">2015</span>),</span>
@@ -5382,9 +5387,9 @@ Figure 3.4: De la fila dudosa a la decisión: los dos desenlaces posibles
 <span id="cb405-4"><a href="datos.html#cb405-4" tabindex="-1"></a>  <span class="at">Francia=</span><span class="fu">c</span>(<span class="fl">55.38</span>,<span class="fl">59.387</span>,<span class="fl">64.395</span>),</span>
 <span id="cb405-5"><a href="datos.html#cb405-5" tabindex="-1"></a>  <span class="at">Alemania=</span><span class="fu">c</span>(<span class="fl">77.57</span>,<span class="fl">81.896</span>,<span class="fl">80.689</span>))</span>
 <span id="cb405-6"><a href="datos.html#cb405-6" tabindex="-1"></a>data<span class="sc">|&gt;</span></span>
-<span id="cb405-7"><a href="datos.html#cb405-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Tabla de datos formato convencional o ancho (no tidy)&quot;</span>)</span></code></pre></div>
+<span id="cb405-7"><a href="datos.html#cb405-7" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Tabla de datos en formato convencional o ancho&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-135">Table 3.2: </span>Tabla de datos formato convencional o ancho (no tidy)</caption>
+<caption><span id="tab:unnamed-chunk-135">Table 3.2: </span>Tabla de datos en formato convencional o ancho</caption>
 <thead>
 <tr class="header">
 <th align="right">año</th>
@@ -5416,9 +5421,9 @@ Figure 3.4: De la fila dudosa a la decisión: los dos desenlaces posibles
 </table>
 <div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="datos.html#cb406-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
 <span id="cb406-2"><a href="datos.html#cb406-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">España</span><span class="st">`</span>, <span class="st">`</span><span class="at">Francia</span><span class="st">`</span>, <span class="st">`</span><span class="at">Alemania</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;population&quot;</span>)<span class="sc">|&gt;</span> <span class="co"># a formato largo</span></span>
-<span id="cb406-3"><a href="datos.html#cb406-3" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Tabla de datos formato ordenado o largo (tidy)&quot;</span>)</span></code></pre></div>
+<span id="cb406-3"><a href="datos.html#cb406-3" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="at">caption =</span> <span class="st">&quot;Tabla de datos en formato largo (en este caso, además, tidy)&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-136">Table 3.3: </span>Tabla de datos formato ordenado o largo (tidy)</caption>
+<caption><span id="tab:unnamed-chunk-136">Table 3.3: </span>Tabla de datos en formato largo (en este caso, además, tidy)</caption>
 <thead>
 <tr class="header">
 <th align="right">año</th>
@@ -5489,14 +5494,14 @@ Figure 3.5: Esquema visual de pivot_longer y pivot_wider
 <p>Siguiendo la definición de Wickham en <em>R for Data Science</em>, diremos que una tabla está organizada de forma <strong>ordenada</strong> o <strong>tidy</strong> si se cumple lo siguiente:</p>
 <ul>
 <li><p><strong>Cada variable es una columna.</strong> Las instancias de una misma variable no pueden estar repartidas en columnas distintas. Por ejemplo, en una tabla de datos de países, cada país no puede ser una columna distinta de la tabla: debe haber una única columna (por ejemplo <code>country</code>) y los nombres de los países deben ser elementos de esa columna.</p></li>
-<li><p><strong>Cada observación es una fila.</strong> Una observación es todo lo que se mide sobre una misma unidad (por ejemplo, un país en un año), acompañado de las variables categóricas que la identifican. Si sobre esa unidad se miden varias variables (población y PIB, por ejemplo), cada una va en su propia columna dentro de la misma fila.</p></li>
+<li><p><strong>Cada observación es una fila.</strong> Una observación es todo lo que se mide sobre una misma unidad (por ejemplo, un país en un año), acompañado de las variables categóricas que la identifican. Si sobre esa unidad se miden varias variables (población y PIB, por ejemplo), cada una va en su propia columna dentro de la misma fila. Ojo con el vocabulario: en esta definición de Wickham, «observación» es la <strong>unidad</strong> sobre la que se mide (con todas sus variables); en el resto del curso llamamos observación a <strong>cada dato</strong> medido, como el valor de población de cada fila de la tabla larga anterior.</p></li>
 <li><p><strong>Cada celda contiene un único valor.</strong></p></li>
 </ul>
 <div class="nota">
 <p><strong class="bloque-titulo">«Tidy» no es lo mismo que «formato largo»</strong></p>
 <p><strong>Largo</strong> y <strong>ancho</strong> describen la <strong>forma</strong> de la tabla; <strong>tidy</strong> describe si sus columnas son variables y sus filas observaciones. A menudo coinciden, como en el ejemplo de los países, pero no siempre. Una tabla con una fila por país y año y dos columnas, <code>population</code> y <code>gdp</code>, es más ancha que una que apilase las dos en una única columna <code>valor</code>, y sin embargo <strong>es tidy</strong>: población y PIB son dos variables distintas medidas sobre la misma observación. Al revés, una tabla larga con una columna <code>indicador</code> que mezcla la renta media y la tasa de paro, y una columna <code>valor</code> con los dos, <strong>no es tidy</strong>: en la columna <code>valor</code> conviven dos variables distintas, con unidades distintas.</p>
 </div>
-<p>Además, si se van a combinar varias tablas, conviene que compartan una columna identificadora común que permita combinarlas sin errores, como veremos más adelante al estudiar las combinaciones de tablas.</p>
+<p>Además, si se van a combinar varias tablas, conviene que compartan una columna identificadora común que permita combinarlas sin errores, como se ha visto al combinar tablas y se verá de nuevo en la sección siguiente, con una tabla auxiliar pivote.</p>
 <p>Una ventaja importante de los “tidy data” es que hay muchos procesos y funciones diseñados para trabajar con esta organización de la información. En particular, muchos procesos de visualización de datos requieren “tidy data”. Es importante resaltar que el formato largo usa más memoria que el ancho al almacenar la misma información debido a la repetición de los posibles valores de las variables categóricas.</p>
 <p>En ocasiones es interesante hacer la operación contraria a <code>pivot_longer</code> que es <code>pivot_wider</code> que organiza la tabla añadiendo columnas y quitando filas. Esto permite separar los campos y manejarlos individualmente :</p>
 <div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="datos.html#cb407-1" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>

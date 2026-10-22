@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-10-13" />
+<meta name="date" content="2026-10-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -277,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#el-paquete-dplyr"><i class="fa fa-check"></i>El paquete <code>dplyr</code></a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#combinando-datos-de-varias-tablas"><i class="fa fa-check"></i>Combinando datos de varias tablas</a></li>
-<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#tidy-data-datos-ordenados-o-largo"><i class="fa fa-check"></i>Tidy data (datos ordenados o largo)</a></li>
+<li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#formato-largo-formato-ancho-y-tidy-data"><i class="fa fa-check"></i>Formato largo, formato ancho y <em>tidy data</em></a></li>
 <li class="chapter" data-level="" data-path="datos.html"><a href="datos.html#hacer-un-join-usando-una-tabla-auxiliar-pivote"><i class="fa fa-check"></i>Hacer un join usando una tabla auxiliar pivote</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="datos.html"><a href="datos.html#calidad-datos"><i class="fa fa-check"></i><b>3.4</b> Calidad de los datos</a>
@@ -298,7 +298,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#instalación-y-carga-de-librerías-2"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="4.1" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#la-gramática-de-los-gráficos"><i class="fa fa-check"></i><b>4.1</b> La gramática de los gráficos</a></li>
-<li class="chapter" data-level="4.2" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#anatomia-ggplot"><i class="fa fa-check"></i><b>4.2</b> Anatomía de un <code>ggplot</code>: construcción por capas</a></li>
+<li class="chapter" data-level="4.2" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#anatomia-ggplot"><i class="fa fa-check"></i><b>4.2</b> Anatomía de un <code>ggplot</code>: construcción por capas</a>
+<ul>
+<li class="chapter" data-level="" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#escala-logaritmica"><i class="fa fa-check"></i>La escala logarítmica</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#diagramas-de-barras"><i class="fa fa-check"></i><b>4.3</b> Diagramas de barras</a></li>
 <li class="chapter" data-level="4.4" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#geom-bar-agrupadas"><i class="fa fa-check"></i><b>4.4</b> Diagramas de barras agrupadas</a></li>
 <li class="chapter" data-level="4.5" data-path="visualizacion-estatica.html"><a href="visualizacion-estatica.html#gráficos-circulares"><i class="fa fa-check"></i><b>4.5</b> Gráficos circulares</a></li>
@@ -384,6 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#el-aicc-compara-modelos-de-la-misma-clase"><i class="fa fa-check"></i>El AICc compara modelos de la misma clase</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#comparar-entre-métodos-la-desviación-típica-de-los-residuos"><i class="fa fa-check"></i>Comparar entre métodos: la desviación típica de los residuos</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#residuos-ajuste"><i class="fa fa-check"></i>Los residuos del ajuste: <code>aedv_residuos()</code></a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-del-ajuste-del-arima-rmse-mae-y-mase"><i class="fa fa-check"></i>Métricas del ajuste del ARIMA: RMSE, MAE y MASE</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#tabla-comparativa-de-los-tres-métodos"><i class="fa fa-check"></i>Tabla comparativa de los tres métodos</a></li>
 </ul></li>
@@ -392,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#pib-de-china-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>PIB de China: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#llegada-de-pasajeros-validación-cruzada-con-arima-y-stl-arima"><i class="fa fa-check"></i>Llegada de pasajeros: validación cruzada con ARIMA y STL + ARIMA</a></li>
 <li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#métricas-por-horizonte-de-predicción"><i class="fa fa-check"></i>Métricas por horizonte de predicción</a></li>
-<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de predicción no paramétricos por horizonte</a></li>
+<li class="chapter" data-level="" data-path="series-temporales.html"><a href="series-temporales.html#intervalos-no-parametricos"><i class="fa fa-check"></i>Predicción a partir de la validación cruzada temporal con intervalos de confianza no paramétricos por horizonte</a></li>
 </ul></li>
 <li class="chapter" data-level="5.14" data-path="series-temporales.html"><a href="series-temporales.html#rellenar-huecos"><i class="fa fa-check"></i><b>5.14</b> Rellenar huecos en una serie temporal y sustituir datos anómalos</a>
 <ul>
@@ -471,7 +475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#instalación-y-carga-de-librerías-6"><i class="fa fa-check"></i>Instalación y carga de librerías</a></li>
 <li class="chapter" data-level="8.1" data-path="analisis-atributos.html"><a href="analisis-atributos.html#introducción-1"><i class="fa fa-check"></i><b>8.1</b> Introducción</a></li>
-<li class="chapter" data-level="8.2" data-path="analisis-atributos.html"><a href="analisis-atributos.html#la-elección-de-los-atributos-en-datos-multidimensionales"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
+<li class="chapter" data-level="8.2" data-path="analisis-atributos.html"><a href="analisis-atributos.html#eleccion-atributos"><i class="fa fa-check"></i><b>8.2</b> La elección de los atributos en datos multidimensionales</a></li>
 <li class="chapter" data-level="8.3" data-path="analisis-atributos.html"><a href="analisis-atributos.html#relación-entre-dos-variables"><i class="fa fa-check"></i><b>8.3</b> Relación entre dos variables</a>
 <ul>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#correlación"><i class="fa fa-check"></i>Correlación</a></li>
@@ -491,7 +495,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#interpretación-de-los-loadings"><i class="fa fa-check"></i>Interpretación de los loadings</a></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#biplot-del-pca-todos-los-indicadores"><i class="fa fa-check"></i>Biplot del PCA (todos los indicadores)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i>Aplicación del PCA: agrupación con k-means ⚠️</a></li>
+<li class="chapter" data-level="8.7" data-path="analisis-atributos.html"><a href="analisis-atributos.html#mas-alla-acp"><i class="fa fa-check"></i><b>8.7</b> Aplicación del PCA: agrupación con k-means</a></li>
+<li class="chapter" data-level="8.8" data-path="analisis-atributos.html"><a href="analisis-atributos.html#guia-practica-atributos"><i class="fa fa-check"></i><b>8.8</b> Guía práctica: cómo abordar un análisis de atributos</a></li>
 <li class="chapter" data-level="" data-path="analisis-atributos.html"><a href="analisis-atributos.html#referencias-7"><i class="fa fa-check"></i>Referencias</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html"><i class="fa fa-check"></i>Apéndice 1. Sintaxis de Markdown</a>
@@ -529,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#referencias-a-secciones"><i class="fa fa-check"></i>Referencias a secciones</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#bloques-destacados-callout-blocks"><i class="fa fa-check"></i>Bloques destacados (callout blocks)</a></li>
-<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#plantilla-de-informe-de-análisis-de-datos"><i class="fa fa-check"></i>Plantilla de informe de análisis de datos</a></li>
+<li class="chapter" data-level="" data-path="apendice-markdown.html"><a href="apendice-markdown.html#el-modelo-de-memoria-del-proyecto"><i class="fa fa-check"></i>El modelo de memoria del proyecto</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
