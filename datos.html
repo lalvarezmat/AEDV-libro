@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-10-23" />
+<meta name="date" content="2026-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -559,7 +559,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="datos" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">3</span> Procesado de datos<a href="datos.html#datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de compilación: 2026-10-23</p>
+<p>Fecha de compilación: 2026-10-24</p>
 <div id="instalación-y-carga-de-librerías-1" class="section level2 unnumbered hasAnchor">
 <h2>Instalación y carga de librerías<a href="datos.html#instalación-y-carga-de-librerías-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="datos.html#cb309-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(openxlsx)) <span class="fu">install.packages</span>(<span class="st">&#39;openxlsx&#39;</span>)</span>
@@ -5902,7 +5902,8 @@ los campos y hacemos un <code>pivot_wider</code></p>
 ## 1 Canarias                                  23500 NA</code></pre>
 <p>Finalmente, la función <code>gg_miss_var()</code> de la librería <code>naniar</code> visualiza cuántos valores faltantes tiene cada variable, lo que conecta el diagnóstico de calidad con la visualización que veremos en el próximo capítulo:</p>
 <div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="datos.html#cb440-1" tabindex="-1"></a>owid_country <span class="sc">|&gt;</span></span>
-<span id="cb440-2"><a href="datos.html#cb440-2" tabindex="-1"></a>  <span class="fu">gg_miss_var</span>() <span class="co"># nº de NA por variable</span></span></code></pre></div>
+<span id="cb440-2"><a href="datos.html#cb440-2" tabindex="-1"></a>  <span class="fu">gg_miss_var</span>() <span class="sc">+</span> <span class="co"># nº de NA por variable</span></span>
+<span id="cb440-3"><a href="datos.html#cb440-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Valores faltantes por variable en owid_country&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:gg-miss-var"></span>
 <img src="AEDV_book_files/figure-html/gg-miss-var-1.png" alt="Valores faltantes por variable en la tabla `owid_country` usando `naniar`" width="672" />
 <p class="caption">
@@ -6084,9 +6085,10 @@ Figure 3.6: Valores faltantes por variable en la tabla <code>owid_country</code>
 <div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="datos.html#cb442-1" tabindex="-1"></a>co2_ancho <span class="sc">|&gt;</span></span>
 <span id="cb442-2"><a href="datos.html#cb442-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>year) <span class="sc">|&gt;</span>          <span class="co"># el año no tiene ausentes: solo añadiría ruido al gráfico</span></span>
 <span id="cb442-3"><a href="datos.html#cb442-3" tabindex="-1"></a>  <span class="fu">vis_miss</span>() <span class="sc">+</span></span>
-<span id="cb442-4"><a href="datos.html#cb442-4" tabindex="-1"></a>  <span class="co"># las etiquetas de las columnas se dibujan giradas sobre el gráfico:</span></span>
-<span id="cb442-5"><a href="datos.html#cb442-5" tabindex="-1"></a>  <span class="co"># ampliamos el margen superior para que no queden cortadas</span></span>
-<span id="cb442-6"><a href="datos.html#cb442-6" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">34</span>, <span class="at">r =</span> <span class="dv">12</span>, <span class="at">b =</span> <span class="dv">4</span>, <span class="at">l =</span> <span class="dv">4</span>))</span></code></pre></div>
+<span id="cb442-4"><a href="datos.html#cb442-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Disponibilidad de datos de emisiones de CO2 por año y país&quot;</span>) <span class="sc">+</span></span>
+<span id="cb442-5"><a href="datos.html#cb442-5" tabindex="-1"></a>  <span class="co"># las etiquetas de las columnas se dibujan giradas sobre el gráfico:</span></span>
+<span id="cb442-6"><a href="datos.html#cb442-6" tabindex="-1"></a>  <span class="co"># ampliamos el margen superior para que no queden cortadas</span></span>
+<span id="cb442-7"><a href="datos.html#cb442-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">34</span>, <span class="at">r =</span> <span class="dv">12</span>, <span class="at">b =</span> <span class="dv">4</span>, <span class="at">l =</span> <span class="dv">4</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:vis-miss-co2"></span>
 <img src="AEDV_book_files/figure-html/vis-miss-co2-1.png" alt="Disponibilidad de datos de emisiones de CO2 por año y país (naniar, formato ancho)" width="768" />
 <p class="caption">

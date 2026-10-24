@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-10-23" />
+<meta name="date" content="2026-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -559,7 +559,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="series-temporales" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Series temporales<a href="series-temporales.html#series-temporales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de compilación: 2026-10-23</p>
+<p>Fecha de compilación: 2026-10-24</p>
 <div id="instalación-y-carga-de-librerías-3" class="section level2 unnumbered hasAnchor">
 <h2>Instalación y carga de librerías<a href="series-temporales.html#instalación-y-carga-de-librerías-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="series-temporales.html#cb506-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(zoo)) <span class="fu">install.packages</span>(<span class="st">&#39;zoo&#39;</span>)</span>
@@ -692,7 +692,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.2</span> Visualización<a href="series-temporales.html#tsibble" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos a visualizar estas series temporales usando la función <code>autoplot</code>:</p>
 <div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="series-temporales.html#cb512-1" tabindex="-1"></a>owid_population <span class="sc">|&gt;</span></span>
-<span id="cb512-2"><a href="series-temporales.html#cb512-2" tabindex="-1"></a><span class="fu">autoplot</span>(population) <span class="co"># una línea por región</span></span></code></pre></div>
+<span id="cb512-2"><a href="series-temporales.html#cb512-2" tabindex="-1"></a><span class="fu">autoplot</span>(population) <span class="sc">+</span> <span class="co"># una línea por región</span></span>
+<span id="cb512-3"><a href="series-temporales.html#cb512-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evolución de la población: mundo, África, Asia y Europa&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population"></span>
 <img src="AEDV_book_files/figure-html/owid-population-1.png" alt="Dibujo de la evolución de la población en el mundo, África, Asia y Europa usando `autoplot`" width="672" />
 <p class="caption">
@@ -701,7 +702,8 @@ Figure 5.1: Dibujo de la evolución de la población en el mundo, África, Asia 
 </div>
 <p>A continuación dibujamos las mismas series separando cada una en una gráfica:</p>
 <div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="series-temporales.html#cb513-1" tabindex="-1"></a>owid_population <span class="sc">|&gt;</span></span>
-<span id="cb513-2"><a href="series-temporales.html#cb513-2" tabindex="-1"></a><span class="fu">gg_subseries</span>(population) <span class="co"># un panel por región</span></span></code></pre></div>
+<span id="cb513-2"><a href="series-temporales.html#cb513-2" tabindex="-1"></a><span class="fu">gg_subseries</span>(population) <span class="sc">+</span> <span class="co"># un panel por región</span></span>
+<span id="cb513-3"><a href="series-temporales.html#cb513-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evolución de la población por región, un panel por región&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-subseries"></span>
 <img src="AEDV_book_files/figure-html/owid-population-subseries-1.png" alt="Dibujo por separado de la evolución de la población en el mundo, África, Asia y Europa usando `gg_subseries`" width="672" />
 <p class="caption">
@@ -712,7 +714,8 @@ Figure 5.2: Dibujo por separado de la evolución de la población en el mundo, �
 <div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="series-temporales.html#cb514-1" tabindex="-1"></a>owid_population <span class="sc">|&gt;</span></span>
 <span id="cb514-2"><a href="series-temporales.html#cb514-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>year,<span class="at">y=</span>population)) <span class="sc">+</span> <span class="co"># población en el tiempo</span></span>
 <span id="cb514-3"><a href="series-temporales.html#cb514-3" tabindex="-1"></a><span class="fu">geom_line</span>() <span class="sc">+</span> <span class="co"># línea</span></span>
-<span id="cb514-4"><a href="series-temporales.html#cb514-4" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>location,<span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="co"># un panel por región, escala libre</span></span></code></pre></div>
+<span id="cb514-4"><a href="series-temporales.html#cb514-4" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span>location,<span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>) <span class="sc">+</span> <span class="co"># un panel por región, escala libre</span></span>
+<span id="cb514-5"><a href="series-temporales.html#cb514-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Evolución de la población, por región (cuadrícula)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-facet"></span>
 <img src="AEDV_book_files/figure-html/owid-population-facet-1.png" alt="Dibujo por separado, en una cuadrícula, de la evolución  de la población en el mundo, África, Asia y Europa usando `facet_wrap`" width="672" />
 <p class="caption">
@@ -722,7 +725,8 @@ Figure 5.3: Dibujo por separado, en una cuadrícula, de la evolución de la pobl
 <p>Podemos también comparar las series temporales entre sí. En la siguiente tabla con gráficos, construida usando la función <code>pivot_wider</code> y <code>ggpairs</code> de la librería <code>GGally</code> se muestra, en la diagonal, la función de densidad de la distribución de valores, en la parte inferior los gráficos de puntos que ponen en correspondencia los valores de una serie con otra y en la parte superior el valor de la correlación entre cada par de series de datos, cuanto más cerca de 1 está ese valor, mejor se ajusta a la recta de regresión los valores combinados de cada par de series temporales. Podemos observar que la evolución de la población en Europa tiene un comportamiento diferente que en las otras regiones lo que produce un menor valor de la correlación al comparar Europa con las otras regiones. Hay que interpretar estas correlaciones con cuidado: que sean casi 1 no significa que la población de una región dependa de la de otra, sino que todas las series <strong>crecen con el tiempo</strong>. Dos series cualesquiera con tendencia creciente dan una correlación alta aunque no tengan ninguna relación entre sí (es lo que se llama una <strong>correlación espuria</strong>).</p>
 <div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="series-temporales.html#cb515-1" tabindex="-1"></a>owid_population <span class="sc">|&gt;</span></span>
 <span id="cb515-2"><a href="series-temporales.html#cb515-2" tabindex="-1"></a><span class="fu">pivot_wider</span>(<span class="at">values_from=</span>population, <span class="at">names_from=</span>location) <span class="sc">|&gt;</span> <span class="co"># una región por columna</span></span>
-<span id="cb515-3"><a href="series-temporales.html#cb515-3" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>) <span class="co"># matriz de comparación</span></span></code></pre></div>
+<span id="cb515-3"><a href="series-temporales.html#cb515-3" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">columns =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>, <span class="co"># matriz de comparación</span></span>
+<span id="cb515-4"><a href="series-temporales.html#cb515-4" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">&quot;Relación entre la evolución de la población de mundo, África, Asia y Europa&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-ggpairs"></span>
 <img src="AEDV_book_files/figure-html/owid-population-ggpairs-1.png" alt="Ilustración de la relación entre la evolución de la población en el mundo, África, Asia y Europa usando la función `ggpairs`" width="672" />
 <p class="caption">
@@ -786,7 +790,8 @@ Figure 5.4: Ilustración de la relación entre la evolución de la población en
 ## # ℹ 242 more rows</code></pre>
 <p>A continuación dibujamos la serie temporal donde se aprecia una clara estacionalidad.</p>
 <div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="series-temporales.html#cb522-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span></span>
-<span id="cb522-2"><a href="series-temporales.html#cb522-2" tabindex="-1"></a><span class="fu">autoplot</span>(pasajeros) <span class="co"># evolución mensual</span></span></code></pre></div>
+<span id="cb522-2"><a href="series-temporales.html#cb522-2" tabindex="-1"></a><span class="fu">autoplot</span>(pasajeros) <span class="sc">+</span> <span class="co"># evolución mensual</span></span>
+<span id="cb522-3"><a href="series-temporales.html#cb522-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Llegada mensual de pasajeros a Canarias&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-1.png" alt="Evolución de la llegada de pasajeros a Canarias" width="672" />
 <p class="caption">
@@ -795,7 +800,8 @@ Figure 5.5: Evolución de la llegada de pasajeros a Canarias
 </div>
 <p>Otro gráfico interesante es dibujar la serie temporal separándola en periodos de 12 meses. De esta manera se aprecia claramente que el mes con más movimiento de viajeros es agosto.</p>
 <div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="series-temporales.html#cb523-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span></span>
-<span id="cb523-2"><a href="series-temporales.html#cb523-2" tabindex="-1"></a><span class="fu">gg_season</span>(pasajeros, <span class="at">period =</span> <span class="st">&quot;year&quot;</span>) <span class="co"># una curva por año</span></span></code></pre></div>
+<span id="cb523-2"><a href="series-temporales.html#cb523-2" tabindex="-1"></a><span class="fu">gg_season</span>(pasajeros, <span class="at">period =</span> <span class="st">&quot;year&quot;</span>) <span class="sc">+</span> <span class="co"># una curva por año</span></span>
+<span id="cb523-3"><a href="series-temporales.html#cb523-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Estacionalidad anual de la llegada de pasajeros a Canarias&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-season"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-season-1.png" alt="Para la serie de llegada de pasajeros a Canarias, se representa cada serie anual como una curva independiente" width="672" />
 <p class="caption">
@@ -804,7 +810,8 @@ Figure 5.6: Para la serie de llegada de pasajeros a Canarias, se representa cada
 </div>
 <p>En la siguiente gráfica se separa por meses y vemos para cada mes cómo va evolucionando por años. La línea azul horizontal representa el valor de la media para cada mes.</p>
 <div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="series-temporales.html#cb524-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span></span>
-<span id="cb524-2"><a href="series-temporales.html#cb524-2" tabindex="-1"></a><span class="fu">gg_subseries</span>(pasajeros, <span class="at">period =</span> <span class="st">&quot;year&quot;</span>) <span class="co"># un panel por mes</span></span></code></pre></div>
+<span id="cb524-2"><a href="series-temporales.html#cb524-2" tabindex="-1"></a><span class="fu">gg_subseries</span>(pasajeros, <span class="at">period =</span> <span class="st">&quot;year&quot;</span>) <span class="sc">+</span> <span class="co"># un panel por mes</span></span>
+<span id="cb524-3"><a href="series-temporales.html#cb524-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Llegada de pasajeros a Canarias, por mes del año&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-gg-subseries"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-gg-subseries-1.png" alt="Para la serie de llegada de pasajeros a Canarias se representa la evolución por meses" width="672" />
 <p class="caption">
@@ -814,7 +821,8 @@ Figure 5.7: Para la serie de llegada de pasajeros a Canarias se representa la ev
 <p>En la siguiente gráfica se representa un diagrama de dispersión con la variable observada, que llamaremos
 <span class="math inline">\(y_t\)</span>, con respecto al valor de la misma variable <span class="math inline">\(l\)</span> meses antes <span class="math inline">\(y_{t-l}\)</span>. Es decir para <span class="math inline">\(l=1\)</span> (lag 1) se dibujan los puntos <span class="math inline">\((y_{t},y_{t-1})\)</span>. Es decir, estaríamos comparando el dato de febrero con el de enero, el de marzo con febrero, etc.. En este caso, como tenemos una estacionalidad de 12 meses, podemos observar que la nube de puntos <span class="math inline">\((y_{t},y_{t-12})\)</span> (lag 12) es la que más se concentra alrededor de la recta de regresión que aparece dibujada. Es decir cuando comparamos el dato de cada mes, con el dato del mismo mes del año anterior. Una forma de “adivinar” la estacionalidad de una serie temporal sería mirar estas gráficas y ver cuándo los puntos se concentran alrededor de la recta de regresión.</p>
 <div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="series-temporales.html#cb525-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span></span>
-<span id="cb525-2"><a href="series-temporales.html#cb525-2" tabindex="-1"></a><span class="fu">gg_lag</span>(pasajeros, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>,<span class="at">lags =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="co"># comparamos con 1 a 12 meses de retraso</span></span></code></pre></div>
+<span id="cb525-2"><a href="series-temporales.html#cb525-2" tabindex="-1"></a><span class="fu">gg_lag</span>(pasajeros, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>,<span class="at">lags =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">+</span> <span class="co"># comparamos con 1 a 12 meses de retraso</span></span>
+<span id="cb525-3"><a href="series-temporales.html#cb525-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Diagrama de rezagos (lag) de la llegada de pasajeros a Canarias&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-gg-lag"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-gg-lag-1.png" alt="Para la serie de llegada de pasajeros a Canarias $y_t$, se representan los puntos $(y_{t},y_{t-l})$" width="672" />
 <p class="caption">
@@ -865,7 +873,7 @@ r=\frac{\sum_{k=1}^m(x_{k}-\bar x)(y_{k}-\bar y)}
 <p>La función de autocorrelación (ACF) cuantifica la correlación entre <span class="math inline">\(y_t\)</span> e <span class="math inline">\(y_{t-l}\)</span> para diferentes valores del desfase (<em>lag</em>) <span class="math inline">\(l\)</span>. Es una herramienta fundamental para detectar la estacionalidad y la estructura de dependencia temporal de una serie. Se calcula con la función <code>ACF</code> y se dibuja con <code>autoplot</code>:</p>
 <div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="series-temporales.html#cb530-1" tabindex="-1"></a>istac_aeropuertos <span class="sc">|&gt;</span></span>
 <span id="cb530-2"><a href="series-temporales.html#cb530-2" tabindex="-1"></a>  <span class="fu">ACF</span>(pasajeros, <span class="at">lag_max =</span> <span class="dv">36</span>) <span class="sc">|&gt;</span> <span class="co"># autocorrelación hasta 36 meses</span></span>
-<span id="cb530-3"><a href="series-temporales.html#cb530-3" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
+<span id="cb530-3"><a href="series-temporales.html#cb530-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;ACF de la llegada de pasajeros a Canarias&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:acf-aeropuertos"></span>
 <img src="AEDV_book_files/figure-html/acf-aeropuertos-1.png" alt="Función de autocorrelación (ACF) de la serie de llegadas de pasajeros a Canarias" width="672" />
 <p class="caption">
@@ -902,7 +910,7 @@ y_t = L_t + S_t + \mathcal{E}_t
 <span id="cb531-4"><a href="series-temporales.html#cb531-4" tabindex="-1"></a>    <span class="at">robust =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb531-5"><a href="series-temporales.html#cb531-5" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb531-6"><a href="series-temporales.html#cb531-6" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">|&gt;</span> <span class="co"># extraemos tendencia, estacionalidad y error</span></span>
-<span id="cb531-7"><a href="series-temporales.html#cb531-7" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
+<span id="cb531-7"><a href="series-temporales.html#cb531-7" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Descomposición STL de la llegada de pasajeros a Canarias&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-STL"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-STL-1.png" alt="Descomposición de una serie temporal usando el método STL" width="672" />
 <p class="caption">
@@ -944,28 +952,30 @@ Figure 5.10: Descomposición de una serie temporal usando el método STL
 <span id="cb532-20"><a href="series-temporales.html#cb532-20" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> anyo, <span class="at">y =</span> pico<span class="sc">/</span><span class="dv">1000</span>, <span class="at">color =</span> configuracion)) <span class="sc">+</span></span>
 <span id="cb532-21"><a href="series-temporales.html#cb532-21" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
 <span id="cb532-22"><a href="series-temporales.html#cb532-22" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb532-23"><a href="series-temporales.html#cb532-23" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;pico estacional (miles)&quot;</span>, <span class="at">color =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb532-24"><a href="series-temporales.html#cb532-24" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb532-25"><a href="series-temporales.html#cb532-25" tabindex="-1"></a></span>
-<span id="cb532-26"><a href="series-temporales.html#cb532-26" tabindex="-1"></a><span class="co"># Tendencia con dos ventanas distintas, sobre la serie original</span></span>
-<span id="cb532-27"><a href="series-temporales.html#cb532-27" tabindex="-1"></a>tendencias <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
-<span id="cb532-28"><a href="series-temporales.html#cb532-28" tabindex="-1"></a>  istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">model</span>(<span class="fu">STL</span>(pasajeros <span class="sc">~</span> <span class="fu">trend</span>(<span class="at">window =</span> <span class="dv">13</span>), <span class="at">robust =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb532-29"><a href="series-temporales.html#cb532-29" tabindex="-1"></a>    <span class="fu">components</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
-<span id="cb532-30"><a href="series-temporales.html#cb532-30" tabindex="-1"></a>    <span class="fu">transmute</span>(date, <span class="at">valor =</span> trend, <span class="at">configuracion =</span> <span class="st">&quot;trend = 13 (sigue de cerca)&quot;</span>),</span>
-<span id="cb532-31"><a href="series-temporales.html#cb532-31" tabindex="-1"></a>  istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">model</span>(<span class="fu">STL</span>(pasajeros <span class="sc">~</span> <span class="fu">trend</span>(<span class="at">window =</span> <span class="dv">101</span>), <span class="at">robust =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb532-32"><a href="series-temporales.html#cb532-32" tabindex="-1"></a>    <span class="fu">components</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
-<span id="cb532-33"><a href="series-temporales.html#cb532-33" tabindex="-1"></a>    <span class="fu">transmute</span>(date, <span class="at">valor =</span> trend, <span class="at">configuracion =</span> <span class="st">&quot;trend = 101 (muy suave)&quot;</span>)</span>
-<span id="cb532-34"><a href="series-temporales.html#cb532-34" tabindex="-1"></a>)</span>
-<span id="cb532-35"><a href="series-temporales.html#cb532-35" tabindex="-1"></a></span>
-<span id="cb532-36"><a href="series-temporales.html#cb532-36" tabindex="-1"></a>p_tendencia <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb532-37"><a href="series-temporales.html#cb532-37" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">as_tibble</span>(istac_aeropuertos),</span>
-<span id="cb532-38"><a href="series-temporales.html#cb532-38" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> pasajeros<span class="sc">/</span><span class="dv">1000</span>), <span class="at">color =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb532-39"><a href="series-temporales.html#cb532-39" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> tendencias,</span>
-<span id="cb532-40"><a href="series-temporales.html#cb532-40" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> valor<span class="sc">/</span><span class="dv">1000</span>, <span class="at">color =</span> configuracion), <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb532-41"><a href="series-temporales.html#cb532-41" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;tendencia (miles)&quot;</span>, <span class="at">color =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb532-42"><a href="series-temporales.html#cb532-42" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb532-43"><a href="series-temporales.html#cb532-43" tabindex="-1"></a></span>
-<span id="cb532-44"><a href="series-temporales.html#cb532-44" tabindex="-1"></a>p_estacionalidad <span class="sc">/</span> p_tendencia</span></code></pre></div>
+<span id="cb532-23"><a href="series-temporales.html#cb532-23" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;pico estacional (miles)&quot;</span>, <span class="at">color =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb532-24"><a href="series-temporales.html#cb532-24" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Pico estacional de verano según la ventana de estacionalidad STL&quot;</span>) <span class="sc">+</span></span>
+<span id="cb532-25"><a href="series-temporales.html#cb532-25" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb532-26"><a href="series-temporales.html#cb532-26" tabindex="-1"></a></span>
+<span id="cb532-27"><a href="series-temporales.html#cb532-27" tabindex="-1"></a><span class="co"># Tendencia con dos ventanas distintas, sobre la serie original</span></span>
+<span id="cb532-28"><a href="series-temporales.html#cb532-28" tabindex="-1"></a>tendencias <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb532-29"><a href="series-temporales.html#cb532-29" tabindex="-1"></a>  istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">model</span>(<span class="fu">STL</span>(pasajeros <span class="sc">~</span> <span class="fu">trend</span>(<span class="at">window =</span> <span class="dv">13</span>), <span class="at">robust =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb532-30"><a href="series-temporales.html#cb532-30" tabindex="-1"></a>    <span class="fu">components</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb532-31"><a href="series-temporales.html#cb532-31" tabindex="-1"></a>    <span class="fu">transmute</span>(date, <span class="at">valor =</span> trend, <span class="at">configuracion =</span> <span class="st">&quot;trend = 13 (sigue de cerca)&quot;</span>),</span>
+<span id="cb532-32"><a href="series-temporales.html#cb532-32" tabindex="-1"></a>  istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">model</span>(<span class="fu">STL</span>(pasajeros <span class="sc">~</span> <span class="fu">trend</span>(<span class="at">window =</span> <span class="dv">101</span>), <span class="at">robust =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb532-33"><a href="series-temporales.html#cb532-33" tabindex="-1"></a>    <span class="fu">components</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb532-34"><a href="series-temporales.html#cb532-34" tabindex="-1"></a>    <span class="fu">transmute</span>(date, <span class="at">valor =</span> trend, <span class="at">configuracion =</span> <span class="st">&quot;trend = 101 (muy suave)&quot;</span>)</span>
+<span id="cb532-35"><a href="series-temporales.html#cb532-35" tabindex="-1"></a>)</span>
+<span id="cb532-36"><a href="series-temporales.html#cb532-36" tabindex="-1"></a></span>
+<span id="cb532-37"><a href="series-temporales.html#cb532-37" tabindex="-1"></a>p_tendencia <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb532-38"><a href="series-temporales.html#cb532-38" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">as_tibble</span>(istac_aeropuertos),</span>
+<span id="cb532-39"><a href="series-temporales.html#cb532-39" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> pasajeros<span class="sc">/</span><span class="dv">1000</span>), <span class="at">color =</span> <span class="st">&quot;grey80&quot;</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb532-40"><a href="series-temporales.html#cb532-40" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> tendencias,</span>
+<span id="cb532-41"><a href="series-temporales.html#cb532-41" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> valor<span class="sc">/</span><span class="dv">1000</span>, <span class="at">color =</span> configuracion), <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb532-42"><a href="series-temporales.html#cb532-42" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;tendencia (miles)&quot;</span>, <span class="at">color =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb532-43"><a href="series-temporales.html#cb532-43" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Tendencia según la ventana de suavizado STL (trend window)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb532-44"><a href="series-temporales.html#cb532-44" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb532-45"><a href="series-temporales.html#cb532-45" tabindex="-1"></a></span>
+<span id="cb532-46"><a href="series-temporales.html#cb532-46" tabindex="-1"></a>p_estacionalidad <span class="sc">/</span> p_tendencia</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:stl-parametros"></span>
 <img src="AEDV_book_files/figure-html/stl-parametros-1.png" alt="Efecto de los parámetros de la descomposición: capacidad de evolución de la estacionalidad (arriba) y suavidad de la tendencia (abajo)" width="768" />
 <p class="caption">
@@ -1651,7 +1661,8 @@ Figure 5.15: Gráfico cuantil-cuantil (QQ-plot) del remainder de la descomposici
 <p>Para ilustrar la doble estacionalidad vamos a dibujar la serie temporal <code>ine_comercio_diario</code> en un periodo de 3 meses. Donde se puede apreciar la estacionalidad semanal (las mayores ventas corresponden a viernes y sábados y las menores a domingos) y la estacionalidad anual (cada año en los últimos días de diciembre se vende más, después las ventas bajan a partir de la segunda semana de enero y empiezan a subir en marzo). Además, a final de cada mes se produce un fuerte repunte de las ventas registradas debido a que, por el sistema de contabilidad que usan muchas empresas, el día último de cada mes se contabilizan más ventas.</p>
 <div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="series-temporales.html#cb541-1" tabindex="-1"></a> ine_comercio_diario <span class="sc">|&gt;</span></span>
 <span id="cb541-2"><a href="series-temporales.html#cb541-2" tabindex="-1"></a>   <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-12-15&quot;</span>) <span class="sc">&amp;</span> date<span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2023-03-15&quot;</span>)) <span class="sc">|&gt;</span> <span class="co"># solo 3 meses</span></span>
-<span id="cb541-3"><a href="series-temporales.html#cb541-3" tabindex="-1"></a>   <span class="fu">autoplot</span>(value)</span></code></pre></div>
+<span id="cb541-3"><a href="series-temporales.html#cb541-3" tabindex="-1"></a>   <span class="fu">autoplot</span>(value) <span class="sc">+</span></span>
+<span id="cb541-4"><a href="series-temporales.html#cb541-4" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Ventas diarias de comercio en España&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Diciembre 2022 a marzo 2023&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario"></span>
 <img src="AEDV_book_files/figure-html/ine-comercio-diario-1.png" alt="Datos de ventas de comercio en España en un periodo de 3 meses" width="672" />
 <p class="caption">
@@ -1667,7 +1678,7 @@ Figure 5.16: Datos de ventas de comercio en España en un periodo de 3 meses
 <span id="cb542-6"><a href="series-temporales.html#cb542-6" tabindex="-1"></a>  <span class="fu">components</span>() <span class="co"># guardamos las componentes para diagnosticar el remainder</span></span>
 <span id="cb542-7"><a href="series-temporales.html#cb542-7" tabindex="-1"></a></span>
 <span id="cb542-8"><a href="series-temporales.html#cb542-8" tabindex="-1"></a>componentes_comercio <span class="sc">|&gt;</span></span>
-<span id="cb542-9"><a href="series-temporales.html#cb542-9" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
+<span id="cb542-9"><a href="series-temporales.html#cb542-9" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Descomposición STL con doble estacionalidad de las ventas de comercio&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario-STL"></span>
 <img src="AEDV_book_files/figure-html/ine-comercio-diario-STL-1.png" alt="Cálculo de la descomposición *STL* con doble estacionalidad" width="672" />
 <p class="caption">
@@ -2503,7 +2514,8 @@ de la predicción se dibuja el valor observado de la población posterior al añ
 <div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="series-temporales.html#cb547-1" tabindex="-1"></a><span class="co"># El 3er argumento (fit) superpone en rojo discontinuo el ajuste del modelo</span></span>
 <span id="cb547-2"><a href="series-temporales.html#cb547-2" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion,</span>
 <span id="cb547-3"><a href="series-temporales.html#cb547-3" tabindex="-1"></a>                   owid_population <span class="sc">|&gt;</span> <span class="fu">filter</span>(location<span class="sc">==</span><span class="st">&quot;World&quot;</span> <span class="sc">&amp;</span> year <span class="sc">&gt;=</span> <span class="dv">2000</span>),</span>
-<span id="cb547-4"><a href="series-temporales.html#cb547-4" tabindex="-1"></a>                   fit)</span></code></pre></div>
+<span id="cb547-4"><a href="series-temporales.html#cb547-4" tabindex="-1"></a>                   fit) <span class="sc">+</span></span>
+<span id="cb547-5"><a href="series-temporales.html#cb547-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción a 20 años de la población mundial (ETS)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-ets"></span>
 <img src="AEDV_book_files/figure-html/owid-population-ets-1.png" alt="Predicción a 20 años de la población mundial usando el modelo de suavizado exponencial. En rojo discontinuo, el ajuste (fitted) del modelo sobre la serie observada" width="672" />
 <p class="caption">
@@ -3242,7 +3254,8 @@ de evolución, la fiabilidad de la predicción se puede deteriorar mucho.</p>
 <div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="series-temporales.html#cb558-1" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion,</span>
 <span id="cb558-2"><a href="series-temporales.html#cb558-2" tabindex="-1"></a>                   istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">yearmonth</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2017-01-01&quot;</span>))),</span>
 <span id="cb558-3"><a href="series-temporales.html#cb558-3" tabindex="-1"></a>                   fit) <span class="sc">+</span></span>
-<span id="cb558-4"><a href="series-temporales.html#cb558-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> pasajeros_2020, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> value), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="co"># datos reales de 2020</span></span></code></pre></div>
+<span id="cb558-4"><a href="series-temporales.html#cb558-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> pasajeros_2020, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> value), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> <span class="co"># datos reales de 2020</span></span>
+<span id="cb558-5"><a href="series-temporales.html#cb558-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción a 2 años de la llegada de pasajeros a Canarias (ETS)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-ets"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-ets-1.png" alt="Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo de suavizado exponencial. En rojo discontinuo, el ajuste (fitted) del modelo sobre la serie observada; los puntos rojos son los datos reales de enero a abril de 2020, que no se usaron en el ajuste" width="672" />
 <p class="caption">
@@ -3253,7 +3266,7 @@ Figure 5.22: Predicción a 2 años de la llegada de pasajeros a Canarias usando 
 descomposición:</p>
 <div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="series-temporales.html#cb559-1" tabindex="-1"></a>fit <span class="sc">|&gt;</span></span>
 <span id="cb559-2"><a href="series-temporales.html#cb559-2" tabindex="-1"></a>  <span class="fu">components</span>() <span class="sc">|&gt;</span> <span class="co"># nivel, tendencia, estacionalidad y error</span></span>
-<span id="cb559-3"><a href="series-temporales.html#cb559-3" tabindex="-1"></a>  <span class="fu">autoplot</span>()</span></code></pre></div>
+<span id="cb559-3"><a href="series-temporales.html#cb559-3" tabindex="-1"></a>  <span class="fu">autoplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Descomposición del modelo de suavizado exponencial (ETS) de la llegada de pasajeros&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-descomp"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-descomp-1.png" alt="Descomposición de la serie temporal de llegadas a los aeropuertos canarios usando el modelo de suavizado exponencial." width="672" />
 <p class="caption">
@@ -3318,16 +3331,16 @@ La derivada segunda sería la derivada de la derivada, es decir:</p>
 Por tanto, con esta notación, la derivada de orden <span class="math inline">\(d\)</span> sería <span class="math inline">\((1-B)^dy_t\)</span>. Al calcular las derivadas de una serie temporal, ésta va perdiendo su tendencia. Para ilustrar esto, en las siguientes gráficas mostramos la serie temporal de la población mundial y sus primeras 3 derivadas. Como se puede observar, en la derivada tercera ya la serie temporal no tiene un patrón de crecimiento definido.</p>
 <div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="series-temporales.html#cb560-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> owid_population <span class="sc">|&gt;</span></span>
 <span id="cb560-2"><a href="series-temporales.html#cb560-2" tabindex="-1"></a>  <span class="fu">filter</span>(location<span class="sc">==</span><span class="st">&quot;World&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb560-3"><a href="series-temporales.html#cb560-3" tabindex="-1"></a>  <span class="fu">autoplot</span>(population) <span class="co"># serie original</span></span>
+<span id="cb560-3"><a href="series-temporales.html#cb560-3" tabindex="-1"></a>  <span class="fu">autoplot</span>(population) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Población mundial&quot;</span>) <span class="co"># serie original</span></span>
 <span id="cb560-4"><a href="series-temporales.html#cb560-4" tabindex="-1"></a></span>
 <span id="cb560-5"><a href="series-temporales.html#cb560-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> owid_population <span class="sc">|&gt;</span></span>
 <span id="cb560-6"><a href="series-temporales.html#cb560-6" tabindex="-1"></a><span class="fu">filter</span>(location<span class="sc">==</span><span class="st">&quot;World&quot;</span>)</span>
 <span id="cb560-7"><a href="series-temporales.html#cb560-7" tabindex="-1"></a>data<span class="sc">$</span>derivada_1 <span class="ot">&lt;-</span> <span class="fu">aedv_derivada</span>(data<span class="sc">$</span>population) <span class="co"># primera derivada</span></span>
-<span id="cb560-8"><a href="series-temporales.html#cb560-8" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(derivada_1)</span>
+<span id="cb560-8"><a href="series-temporales.html#cb560-8" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(derivada_1) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Primera derivada&quot;</span>)</span>
 <span id="cb560-9"><a href="series-temporales.html#cb560-9" tabindex="-1"></a>data<span class="sc">$</span>derivada_2 <span class="ot">&lt;-</span> <span class="fu">aedv_derivada</span>(data<span class="sc">$</span>derivada_1) <span class="co"># segunda derivada</span></span>
-<span id="cb560-10"><a href="series-temporales.html#cb560-10" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(derivada_2)</span>
+<span id="cb560-10"><a href="series-temporales.html#cb560-10" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(derivada_2) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Segunda derivada&quot;</span>)</span>
 <span id="cb560-11"><a href="series-temporales.html#cb560-11" tabindex="-1"></a>data<span class="sc">$</span>derivada_3 <span class="ot">&lt;-</span> <span class="fu">aedv_derivada</span>(data<span class="sc">$</span>derivada_2) <span class="co"># tercera derivada</span></span>
-<span id="cb560-12"><a href="series-temporales.html#cb560-12" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(derivada_3)</span>
+<span id="cb560-12"><a href="series-temporales.html#cb560-12" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> <span class="fu">autoplot</span>(derivada_3) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Tercera derivada&quot;</span>)</span>
 <span id="cb560-13"><a href="series-temporales.html#cb560-13" tabindex="-1"></a><span class="fu">wrap_plots</span>(p1, p2, p3, p4, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="co"># las 4 series juntas</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:derivadas"></span>
 <img src="AEDV_book_files/figure-html/derivadas-1.png" alt="Serie temporal de la población mundial y sus derivadas" width="672" />
@@ -4149,7 +4162,8 @@ Figure 5.27: Histograma de los residuos del modelo ARIMA
 confianza junto a la serie observada desde el año 2000. Visualmente observamos que los intervalos de confianza son más estrechos que los de la gráfica para el modelo ETS. Esto <strong>no</strong> indica por sí solo un mejor ajuste: un intervalo estrecho dice cuánta confianza tiene el modelo en su propia predicción, y un modelo puede estar simplemente <strong>demasiado seguro</strong> de sí mismo. Solo comparando las predicciones con datos que el modelo no ha visto (validación cruzada) se puede saber si esa confianza está justificada.</p>
 <div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="series-temporales.html#cb574-1" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion,</span>
 <span id="cb574-2"><a href="series-temporales.html#cb574-2" tabindex="-1"></a>                   owid_population <span class="sc">|&gt;</span> <span class="fu">filter</span>(location<span class="sc">==</span><span class="st">&quot;World&quot;</span> <span class="sc">&amp;</span> year <span class="sc">&gt;=</span> <span class="dv">2000</span>),</span>
-<span id="cb574-3"><a href="series-temporales.html#cb574-3" tabindex="-1"></a>                   fit)</span></code></pre></div>
+<span id="cb574-3"><a href="series-temporales.html#cb574-3" tabindex="-1"></a>                   fit) <span class="sc">+</span></span>
+<span id="cb574-4"><a href="series-temporales.html#cb574-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción a 20 años de la población mundial (ARIMA)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:owid-population-arima"></span>
 <img src="AEDV_book_files/figure-html/owid-population-arima-1.png" alt="Predicción a 20 años de la población mundial usando el modelo ARIMA. En rojo discontinuo, el ajuste (fitted) del modelo sobre la serie observada" width="672" />
 <p class="caption">
@@ -4186,7 +4200,8 @@ con la predicción, los intervalos de confianza y los datos observados desde 201
 <span id="cb577-2"><a href="series-temporales.html#cb577-2" tabindex="-1"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">&quot;2 years&quot;</span>)  </span></code></pre></div>
 <div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="series-temporales.html#cb578-1" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion,</span>
 <span id="cb578-2"><a href="series-temporales.html#cb578-2" tabindex="-1"></a>                   istac_aeropuertos <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">yearmonth</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2017-01-01&quot;</span>))),</span>
-<span id="cb578-3"><a href="series-temporales.html#cb578-3" tabindex="-1"></a>                   fit)</span></code></pre></div>
+<span id="cb578-3"><a href="series-temporales.html#cb578-3" tabindex="-1"></a>                   fit) <span class="sc">+</span></span>
+<span id="cb578-4"><a href="series-temporales.html#cb578-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción a 2 años de la llegada de pasajeros a Canarias (ARIMA)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:istac-aeropuertos-arima"></span>
 <img src="AEDV_book_files/figure-html/istac-aeropuertos-arima-1.png" alt="Predicción a 2 años de la llegada de pasajeros a Canarias usando el modelo ARIMA. En rojo discontinuo, el ajuste (fitted) del modelo sobre la serie observada" width="672" />
 <p class="caption">
@@ -4223,7 +4238,8 @@ Figure 5.29: Predicción a 2 años de la llegada de pasajeros a Canarias usando 
 ## 15  2023      242326
 ## 16  2024      236666</code></pre>
 <div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="series-temporales.html#cb581-1" tabindex="-1"></a>nacimientos <span class="sc">|&gt;</span></span>
-<span id="cb581-2"><a href="series-temporales.html#cb581-2" tabindex="-1"></a>  <span class="fu">autoplot</span>(nacimientos)</span></code></pre></div>
+<span id="cb581-2"><a href="series-temporales.html#cb581-2" tabindex="-1"></a>  <span class="fu">autoplot</span>(nacimientos) <span class="sc">+</span></span>
+<span id="cb581-3"><a href="series-temporales.html#cb581-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Nacimientos anuales en España de madres españolas&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-serie"></span>
 <img src="AEDV_book_files/figure-html/nacimientos-serie-1.png" alt="Evolución del número de nacimientos en España de madres españolas" width="672" />
 <p class="caption">
@@ -4272,7 +4288,8 @@ Figure 5.30: Evolución del número de nacimientos en España de madres español
 <p>Para hacer visible este contraste, representamos la predicción de ambos modelos con un horizonte largo, <strong>hasta 2050</strong>. Empezamos con el modelo sobre la serie logarítmica. Nótese que <code>fable</code> devuelve automáticamente la predicción en la escala original (número de nacimientos) y que, gracias a la transformación, los intervalos de confianza son <strong>asimétricos</strong> y nunca cruzan el cero:</p>
 <div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="series-temporales.html#cb586-1" tabindex="-1"></a>prediccion_log <span class="ot">&lt;-</span> fit_log <span class="sc">|&gt;</span></span>
 <span id="cb586-2"><a href="series-temporales.html#cb586-2" tabindex="-1"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">&quot;26 years&quot;</span>) <span class="co"># horizonte hasta 2050</span></span></code></pre></div>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="series-temporales.html#cb587-1" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion_log, nacimientos, fit_log)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="series-temporales.html#cb587-1" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion_log, nacimientos, fit_log) <span class="sc">+</span></span>
+<span id="cb587-2"><a href="series-temporales.html#cb587-2" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción de nacimientos hasta 2050 (ARIMA sobre la serie logarítmica)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-arima-pred"></span>
 <img src="AEDV_book_files/figure-html/nacimientos-arima-pred-1.png" alt="Predicción hasta 2050 del número de nacimientos de madres españolas usando ARIMA sobre la serie logarítmica. En rojo discontinuo, el ajuste (fitted) del modelo sobre la serie observada" width="672" />
 <p class="caption">
@@ -4284,7 +4301,8 @@ Figure 5.31: Predicción hasta 2050 del número de nacimientos de madres españo
 <span id="cb588-2"><a href="series-temporales.html#cb588-2" tabindex="-1"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">&quot;26 years&quot;</span>) <span class="co"># horizonte hasta 2050</span></span></code></pre></div>
 <div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="series-temporales.html#cb589-1" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion_lin, nacimientos, fit_lin) <span class="sc">+</span></span>
 <span id="cb589-2"><a href="series-temporales.html#cb589-2" tabindex="-1"></a>  <span class="co"># Línea horizontal en 0 para resaltar el cruce por cero</span></span>
-<span id="cb589-3"><a href="series-temporales.html#cb589-3" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<span id="cb589-3"><a href="series-temporales.html#cb589-3" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb589-4"><a href="series-temporales.html#cb589-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción de nacimientos hasta 2050 (ARIMA sin transformar)&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-arima-pred-lin"></span>
 <img src="AEDV_book_files/figure-html/nacimientos-arima-pred-lin-1.png" alt="Predicción hasta 2050 usando ARIMA sobre la serie sin transformar: la media y los intervalos cruzan el cero (valores negativos imposibles). En rojo discontinuo, el ajuste (fitted) del modelo sobre la serie observada" width="672" />
 <p class="caption">
@@ -4322,7 +4340,9 @@ w_t = \log\!\left(\frac{y_t - a}{b - y_t}\right), \qquad\qquad y_t = a + \frac{(
 <span id="cb590-11"><a href="series-temporales.html#cb590-11" tabindex="-1"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="st">&quot;26 years&quot;</span>) <span class="co"># horizonte hasta 2050</span></span></code></pre></div>
 <div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="series-temporales.html#cb591-1" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion_acotada, nacimientos, fit_acotado) <span class="sc">+</span></span>
 <span id="cb591-2"><a href="series-temporales.html#cb591-2" tabindex="-1"></a>  <span class="co"># Dibujamos las cotas inferior (a) y superior (b) del intervalo</span></span>
-<span id="cb591-3"><a href="series-temporales.html#cb591-3" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">100000</span>, <span class="dv">400000</span>), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<span id="cb591-3"><a href="series-temporales.html#cb591-3" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="dv">100000</span>, <span class="dv">400000</span>), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb591-4"><a href="series-temporales.html#cb591-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción de nacimientos hasta 2050 acotada a [100000, 400000]&quot;</span>,</span>
+<span id="cb591-5"><a href="series-temporales.html#cb591-5" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Transformación logit escalada&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nacimientos-logit-pred"></span>
 <img src="AEDV_book_files/figure-html/nacimientos-logit-pred-1.png" alt="Predicción hasta 2050 acotada al intervalo [100000, 400000] mediante una transformación logit escalada. En rojo discontinuo, el ajuste (fitted) del modelo sobre la serie observada" width="672" />
 <p class="caption">
@@ -4365,7 +4385,8 @@ Figure 5.33: Predicción hasta 2050 acotada al intervalo [100000, 400000] median
 <span id="cb592-11"><a href="series-temporales.html#cb592-11" tabindex="-1"></a>  <span class="fu">forecast</span>(<span class="at">h =</span> <span class="dv">365</span>)</span>
 <span id="cb592-12"><a href="series-temporales.html#cb592-12" tabindex="-1"></a><span class="co"># Dibujo</span></span>
 <span id="cb592-13"><a href="series-temporales.html#cb592-13" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion_comercio,</span>
-<span id="cb592-14"><a href="series-temporales.html#cb592-14" tabindex="-1"></a>                   ine_comercio_diario <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>)))</span></code></pre></div>
+<span id="cb592-14"><a href="series-temporales.html#cb592-14" tabindex="-1"></a>                   ine_comercio_diario <span class="sc">|&gt;</span> <span class="fu">filter</span>(date<span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>))) <span class="sc">+</span></span>
+<span id="cb592-15"><a href="series-temporales.html#cb592-15" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción de ventas de comercio: descomposición STL + suavizado exponencial&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario-ETS"></span>
 <img src="AEDV_book_files/figure-html/ine-comercio-diario-ETS-1.png" alt="Predicción usando la descomposición STL y el suavizado exponencial." width="672" />
 <p class="caption">
@@ -4475,7 +4496,8 @@ y_t = \beta_0 + \delta\, D_t + f_{7,3}(t) + f_{365.25,\,6}(t) + \eta_t,
 <span id="cb595-4"><a href="series-temporales.html#cb595-4" tabindex="-1"></a></span>
 <span id="cb595-5"><a href="series-temporales.html#cb595-5" tabindex="-1"></a>prediccion_fourier <span class="ot">&lt;-</span> fit <span class="sc">|&gt;</span> <span class="fu">forecast</span>(<span class="at">new_data =</span> futuro)</span>
 <span id="cb595-6"><a href="series-temporales.html#cb595-6" tabindex="-1"></a><span class="fu">aedv_dibujar_prediccion</span>(prediccion_fourier,</span>
-<span id="cb595-7"><a href="series-temporales.html#cb595-7" tabindex="-1"></a>                   ine_comercio_diario <span class="sc">|&gt;</span> <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>)))</span></code></pre></div>
+<span id="cb595-7"><a href="series-temporales.html#cb595-7" tabindex="-1"></a>                   ine_comercio_diario <span class="sc">|&gt;</span> <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">&quot;2022-01-01&quot;</span>))) <span class="sc">+</span></span>
+<span id="cb595-8"><a href="series-temporales.html#cb595-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Predicción de ventas de comercio: regresión armónica dinámica (Fourier) con ARIMA&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ine-comercio-diario-arima"></span>
 <img src="AEDV_book_files/figure-html/ine-comercio-diario-arima-1.png" alt="Predicción con doble estacionalidad usando series de Fourier, un regresor de calendario y el modelo ARIMA" width="672" />
 <p class="caption">
@@ -6630,7 +6652,8 @@ e_{t+h,t} = y_{t+h} - \hat{y}_{t+h,t},
 <span id="cb622-8"><a href="series-temporales.html#cb622-8" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb622-9"><a href="series-temporales.html#cb622-9" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb622-10"><a href="series-temporales.html#cb622-10" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb622-11"><a href="series-temporales.html#cb622-11" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Horizonte de predicción (años)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;MASE&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Método&quot;</span>)</span></code></pre></div>
+<span id="cb622-11"><a href="series-temporales.html#cb622-11" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Horizonte de predicción (años)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;MASE&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Método&quot;</span>,</span>
+<span id="cb622-12"><a href="series-temporales.html#cb622-12" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">&quot;MASE por horizonte de predicción: PIB de China&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:horizonte-pib"></span>
 <img src="AEDV_book_files/figure-html/horizonte-pib-1.png" alt="MASE de la validación cruzada por horizonte de predicción del PIB de China (de 1 a 5 años)" width="672" />
 <p class="caption">
@@ -6647,7 +6670,8 @@ Figure 5.43: MASE de la validación cruzada por horizonte de predicción del PIB
 <span id="cb623-8"><a href="series-temporales.html#cb623-8" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb623-9"><a href="series-temporales.html#cb623-9" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">+</span></span>
 <span id="cb623-10"><a href="series-temporales.html#cb623-10" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_width</span>(<span class="fl">0.1</span>)) <span class="sc">+</span> <span class="co"># ticks del eje Y cada 0.1</span></span>
-<span id="cb623-11"><a href="series-temporales.html#cb623-11" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Horizonte de predicción (meses)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;MASE&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Método&quot;</span>)</span></code></pre></div>
+<span id="cb623-11"><a href="series-temporales.html#cb623-11" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Horizonte de predicción (meses)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;MASE&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Método&quot;</span>,</span>
+<span id="cb623-12"><a href="series-temporales.html#cb623-12" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">&quot;MASE por horizonte de predicción: llegada de pasajeros a Canarias&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:horizonte-aeropuertos"></span>
 <img src="AEDV_book_files/figure-html/horizonte-aeropuertos-1.png" alt="MASE de la validación cruzada por horizonte de predicción de la llegada de pasajeros (de 1 a 12 meses)" width="672" />
 <p class="caption">
@@ -6866,7 +6890,9 @@ Figure 5.48: Predicción STL + ARIMA de la llegada de pasajeros a 12 meses (entr
 <span id="cb638-42"><a href="series-temporales.html#cb638-42" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="cn">NULL</span>,</span>
 <span id="cb638-43"><a href="series-temporales.html#cb638-43" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;Real (borrado)&quot;</span>    <span class="ot">=</span> <span class="st">&quot;grey50&quot;</span>,</span>
 <span id="cb638-44"><a href="series-temporales.html#cb638-44" tabindex="-1"></a>                                <span class="st">&quot;Interpolado ARIMA&quot;</span> <span class="ot">=</span> <span class="st">&quot;firebrick&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb638-45"><a href="series-temporales.html#cb638-45" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Ventas diarias (% del mes anterior)&quot;</span>)</span></code></pre></div>
+<span id="cb638-45"><a href="series-temporales.html#cb638-45" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Ventas diarias (% del mes anterior)&quot;</span>,</span>
+<span id="cb638-46"><a href="series-temporales.html#cb638-46" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Interpolación ARIMA de un hueco en las ventas de comercio&quot;</span>,</span>
+<span id="cb638-47"><a href="series-temporales.html#cb638-47" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">&quot;Mes de junio de 2022, borrado a propósito y reconstruido&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:comercio-hueco-arima"></span>
 <img src="AEDV_book_files/figure-html/comercio-hueco-arima-1.png" alt="Reconstrucción con ARIMA (estacionalidad semanal y regresor de calendario) de un mes completo borrado de la serie diaria de comercio, comparada con los valores reales" width="672" />
 <p class="caption">
