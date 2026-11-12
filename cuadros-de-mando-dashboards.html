@@ -23,7 +23,7 @@
 <meta name="author" content="Luis Alvarez" />
 
 
-<meta name="date" content="2026-11-10" />
+<meta name="date" content="2026-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -559,7 +559,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="fuse/fuse.min.js"></script>
 <div id="cuadros-de-mando-dashboards" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">7</span> Cuadros de mando (dashboards)<a href="cuadros-de-mando-dashboards.html#cuadros-de-mando-dashboards" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Fecha de compilación: 2026-11-10</p>
+<p>Fecha de compilación: 2026-11-12</p>
 <div id="instalación-y-carga-de-librerías-5" class="section level2 unnumbered hasAnchor">
 <h2>Instalación y carga de librerías<a href="cuadros-de-mando-dashboards.html#instalación-y-carga-de-librerías-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="cuadros-de-mando-dashboards.html#cb708-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(shiny)) <span class="fu">install.packages</span>(<span class="st">&#39;shiny&#39;</span>)</span>
@@ -1055,7 +1055,20 @@ Figure 7.1: Esquema del modelo reactivo de Shiny
 <img src="Dashboard_mapa_coropletico.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard_mapa_coropletico.Rmd" />
 <div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard_mapa_coropletico.Rmd</strong></div>
 </div>
-<p>En este caso, el cuadro de mandos tiene dos columnas. En la primera columna aparece un menú desplegable para elegir el indicador de los países que vamos a usar y aparece también una tabla con los datos del indicador en orden descendente. Las tablas en <code>flexdashboard</code>, se generan usando la función <code>renderTable</code> (para tablas estáticas) o <code>DT::renderDataTable</code> (para tablas interactivas con búsqueda y ordenación). A la derecha aparece una columna con un mapa coroplético con los valores del indicador (para interactuar con el gráfico hay que ejecutar el fichero <code>Rmd</code> desde <code>RStudio</code>)</p>
+<p>En el ejemplo se aplica al gasto de las administraciones públicas por sectores de 30 países europeos (Eurostat). El cuadro de mandos tiene dos columnas. En la primera, con menús desplegables, se elige el indicador (el gasto per cápita, en % del PIB…), el sector, y el año: uno concreto, el <strong>último año disponible</strong> de cada país o la <strong>media en el periodo</strong> de todos sus años. Con unos botones de radio se elige además la <strong>unidad</strong>: el valor del indicador o su <strong>incremento anual en porcentaje</strong> respecto al año anterior. Nada se calcula hasta pulsar el botón <strong>Calcular</strong> (ver la nota sobre <code>actionButton</code> en la sección anterior). Debajo aparece una tabla con los valores, de mayor a menor. Las tablas en <code>flexdashboard</code>, se generan usando la función <code>renderTable</code> (para tablas estáticas) o <code>DT::renderDataTable</code> (para tablas interactivas con búsqueda y ordenación). A la derecha aparece una columna con un mapa coroplético con los valores (para interactuar con el gráfico hay que ejecutar el fichero <code>Rmd</code> desde <code>RStudio</code>).</p>
+<p>El incremento anual no se calcula cada vez que se pulsa el botón: se calcula <strong>una sola vez al arrancar</strong>, en el <code>chunk</code> inicial, para todos los países, sectores, años e indicadores, y se guarda junto a los valores en una misma tabla con una columna <code>unidad</code>. Así, elegir la unidad es solo un filtro más:</p>
+<div class="sourceCode" id="cb724"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb724-1"><a href="cuadros-de-mando-dashboards.html#cb724-1" tabindex="-1"></a># incremento (%) de cada indicador respecto al año anterior, por país y sector</span>
+<span id="cb724-2"><a href="cuadros-de-mando-dashboards.html#cb724-2" tabindex="-1"></a>DATOS_INCREMENTO &lt;- DATOS |&gt;</span>
+<span id="cb724-3"><a href="cuadros-de-mando-dashboards.html#cb724-3" tabindex="-1"></a>  arrange(anio) |&gt;</span>
+<span id="cb724-4"><a href="cuadros-de-mando-dashboards.html#cb724-4" tabindex="-1"></a>  group_by(codigo, atributo) |&gt;</span>
+<span id="cb724-5"><a href="cuadros-de-mando-dashboards.html#cb724-5" tabindex="-1"></a>  mutate(across(all_of(INDICADORES),</span>
+<span id="cb724-6"><a href="cuadros-de-mando-dashboards.html#cb724-6" tabindex="-1"></a>                \(v) if_else(lag(anio) == anio - 1 &amp; lag(v) &gt; 0, 100 * (v - lag(v)) / lag(v), NA))) |&gt;</span>
+<span id="cb724-7"><a href="cuadros-de-mando-dashboards.html#cb724-7" tabindex="-1"></a>  filter(anio &gt; min(anio)) |&gt; # el primer año no tiene incremento</span>
+<span id="cb724-8"><a href="cuadros-de-mando-dashboards.html#cb724-8" tabindex="-1"></a>  ungroup() |&gt;</span>
+<span id="cb724-9"><a href="cuadros-de-mando-dashboards.html#cb724-9" tabindex="-1"></a>  mutate(unidad = &quot;Incremento anual (%)&quot;)</span>
+<span id="cb724-10"><a href="cuadros-de-mando-dashboards.html#cb724-10" tabindex="-1"></a></span>
+<span id="cb724-11"><a href="cuadros-de-mando-dashboards.html#cb724-11" tabindex="-1"></a>DATOS_UNIDAD &lt;- bind_rows(DATOS |&gt; mutate(unidad = &quot;Valor indicador&quot;), DATOS_INCREMENTO)</span></code></pre></div>
+<p>Este fichero es una <strong>plantilla</strong>: lo que hay que cambiar para aplicarlo a otros datos está marcado con ✎ al principio (el título, la lectura de los datos —en formato largo, con el código y el nombre del área, el atributo, el año y una columna por indicador— y de la geometría, y los rótulos y el centro del mapa); los indicadores, los atributos, los años y el incremento anual se deducen de los datos.</p>
 </div>
 <div id="opciones-de-configuración" class="section level2 hasAnchor" number="7.8">
 <h2><span class="header-section-number">7.8</span> Opciones de configuración<a href="cuadros-de-mando-dashboards.html#opciones-de-configuración" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1068,72 +1081,77 @@ Figure 7.1: Esquema del modelo reactivo de Shiny
 </div>
 <div id="exploración-de-datos-multidimensionales" class="section level2 hasAnchor" number="7.9">
 <h2><span class="header-section-number">7.9</span> Exploración de datos multidimensionales<a href="cuadros-de-mando-dashboards.html#exploración-de-datos-multidimensionales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Los cuadros de mando anteriores están escritos a la medida de sus datos. El del fichero <a href="https://ctim.es/AEDV/Dashboard_exploracion_series.Rmd">Dashboard_exploracion_series.Rmd</a> responde a un objetivo distinto: es una <strong>plantilla</strong> pensada para adaptarse a cualquier conjunto de datos multidimensional cambiando solo su configuración inicial. En el ejemplo se aplica a las series temporales de las solicitudes de asilo en Europa, un conjunto de datos con cinco dimensiones (región de acogida, país de origen, sexo, edad y unidad de medida):</p>
+<p>Los cuadros de mando anteriores están escritos a la medida de sus datos. El del fichero <a href="https://ctim.es/AEDV/Dashboard_exploracion_series.Rmd">Dashboard_exploracion_series.Rmd</a> responde a un objetivo distinto: es una <strong>plantilla</strong> pensada para adaptarse a cualquier conjunto de datos multidimensional cambiando solo su configuración inicial. En el ejemplo se aplica a las series temporales del gasto de las administraciones públicas por sectores en Europa (Eurostat), un conjunto de datos con cuatro dimensiones: el país, el sector, el indicador (gasto per cápita, en % del PIB…) y la unidad (el valor del indicador o su incremento anual en porcentaje, calculado al leer los datos):</p>
 <div class="float">
 <img src="Dashboard_exploracion_series.png" style="width:100.0%" alt="Cuadro de mando asociado al fichero Dashboard_exploracion_series.Rmd" />
 <div class="figcaption"><strong>Cuadro de mando asociado al fichero Dashboard_exploracion_series.Rmd</strong></div>
 </div>
 <p>La idea de diseño consiste en repartir los atributos del conjunto de datos en tres papeles distintos, que son los tres primeros bloques del menú de la izquierda:</p>
 <ol style="list-style-type: decimal">
-<li><p>Un <strong>atributo principal</strong>, que separa la pantalla en un gráfico por cada una de sus opciones mediante <code>facet_wrap</code> (en el ejemplo, la región de acogida). Se pueden mostrar todas las opciones o elegir unas cuantas a mano, según esté marcada o no la casilla del primer bloque.</p></li>
-<li><p>Unos <strong>atributos combinables</strong>, de los que el usuario puede marcar varias opciones. Si marca varias de dos atributos distintos, ambos se combinan en un único atributo que da color a las series dentro de cada gráfico.</p></li>
-<li><p>Unos <strong>atributos de valor único</strong>, de los que se fija una sola opción y que no participan en la combinación.</p></li>
+<li><p>Un <strong>atributo principal</strong>, que separa la pantalla en un gráfico por cada una de sus opciones mediante <code>facet_wrap</code> (en el ejemplo, el país). Se pueden mostrar todas las opciones o elegir unas cuantas a mano, según esté marcada o no la casilla del primer bloque.</p></li>
+<li><p>Unos <strong>atributos combinables</strong>, de los que el usuario puede marcar varias opciones (en el ejemplo, el sector: una serie de cada color por sector). Si hay varios y se marcan varias opciones de dos atributos distintos, ambos se combinan en un único atributo que da color a las series dentro de cada gráfico.</p></li>
+<li><p>Unos <strong>atributos de valor único</strong>, de los que se fija una sola opción y que no participan en la combinación (en el ejemplo, el indicador y la unidad).</p></li>
 </ol>
 <p>A ellos se añade un cuarto bloque de controles de formato: número de filas y columnas de gráficos, escala del eje <span class="math inline">\(y\)</span> libre o compartida, y página de datos mostrada, porque el número de gráficos puede ser mayor que lo que cabe en la pantalla. Debajo de ese bloque se añade un <code>actionButton</code> que dispara el dibujado: mientras no se pulsa, cambiar cualquier control del menú no recalcula la gráfica, lo que interesa especialmente aquí porque el <code>facet_wrap</code> puede llegar a dibujar muchos paneles a la vez (ver la nota sobre <code>actionButton</code> en la sección anterior).</p>
 <p>Lo interesante es que toda esa lógica está escrita <strong>una sola vez</strong> y funciona a partir de unas listas de configuración declaradas al principio del fichero:</p>
-<div class="sourceCode" id="cb724"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb724-1"><a href="cuadros-de-mando-dashboards.html#cb724-1" tabindex="-1"></a>input.main.config.pageId  &lt;- list(</span>
-<span id="cb724-2"><a href="cuadros-de-mando-dashboards.html#cb724-2" tabindex="-1"></a>  list(col.name=&quot;geo.name&quot;, label=&quot;Región acogida&quot;, choices=RegionAcogida,</span>
-<span id="cb724-3"><a href="cuadros-de-mando-dashboards.html#cb724-3" tabindex="-1"></a>       selected=RegionAcogida[1:6], multiple=TRUE)</span>
-<span id="cb724-4"><a href="cuadros-de-mando-dashboards.html#cb724-4" tabindex="-1"></a>)</span>
-<span id="cb724-5"><a href="cuadros-de-mando-dashboards.html#cb724-5" tabindex="-1"></a></span>
-<span id="cb724-6"><a href="cuadros-de-mando-dashboards.html#cb724-6" tabindex="-1"></a>input.multiple.config.pageId  &lt;- list(</span>
-<span id="cb724-7"><a href="cuadros-de-mando-dashboards.html#cb724-7" tabindex="-1"></a>  list(col.name=&quot;citizen.name&quot;, label=&quot;País de Origen Solicitante&quot;,</span>
-<span id="cb724-8"><a href="cuadros-de-mando-dashboards.html#cb724-8" tabindex="-1"></a>       choices=PaisOrigen, selected=&quot;TOTAL&quot;, multiple=TRUE),</span>
-<span id="cb724-9"><a href="cuadros-de-mando-dashboards.html#cb724-9" tabindex="-1"></a>  list(col.name=&quot;sex&quot;, label=&quot;Sexo&quot;, choices=c(&quot;T&quot;,&quot;F&quot;,&quot;M&quot;),</span>
-<span id="cb724-10"><a href="cuadros-de-mando-dashboards.html#cb724-10" tabindex="-1"></a>       selected=c(&quot;F&quot;,&quot;M&quot;), multiple=TRUE),</span>
-<span id="cb724-11"><a href="cuadros-de-mando-dashboards.html#cb724-11" tabindex="-1"></a>  ...</span>
-<span id="cb724-12"><a href="cuadros-de-mando-dashboards.html#cb724-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb725-1"><a href="cuadros-de-mando-dashboards.html#cb725-1" tabindex="-1"></a>input.main.config.pageId  &lt;- list(</span>
+<span id="cb725-2"><a href="cuadros-de-mando-dashboards.html#cb725-2" tabindex="-1"></a>  list(col.name=&quot;area&quot;, label=&quot;País&quot;, choices=Paises,</span>
+<span id="cb725-3"><a href="cuadros-de-mando-dashboards.html#cb725-3" tabindex="-1"></a>       selected=c(&quot;España&quot;,&quot;UE-27&quot;,&quot;France&quot;,&quot;Portugal&quot;,&quot;Germany&quot;,&quot;Italy&quot;), multiple=TRUE)</span>
+<span id="cb725-4"><a href="cuadros-de-mando-dashboards.html#cb725-4" tabindex="-1"></a>)</span>
+<span id="cb725-5"><a href="cuadros-de-mando-dashboards.html#cb725-5" tabindex="-1"></a></span>
+<span id="cb725-6"><a href="cuadros-de-mando-dashboards.html#cb725-6" tabindex="-1"></a>input.multiple.config.pageId  &lt;- list(</span>
+<span id="cb725-7"><a href="cuadros-de-mando-dashboards.html#cb725-7" tabindex="-1"></a>  list(col.name=&quot;sector&quot;, label=&quot;Sector&quot;, choices=Sectores,</span>
+<span id="cb725-8"><a href="cuadros-de-mando-dashboards.html#cb725-8" tabindex="-1"></a>       selected=c(&quot;Salud&quot;,&quot;Educación&quot;,&quot;Protección social&quot;), multiple=TRUE)</span>
+<span id="cb725-9"><a href="cuadros-de-mando-dashboards.html#cb725-9" tabindex="-1"></a>)</span>
+<span id="cb725-10"><a href="cuadros-de-mando-dashboards.html#cb725-10" tabindex="-1"></a></span>
+<span id="cb725-11"><a href="cuadros-de-mando-dashboards.html#cb725-11" tabindex="-1"></a>input.single.config.pageId  &lt;- list(</span>
+<span id="cb725-12"><a href="cuadros-de-mando-dashboards.html#cb725-12" tabindex="-1"></a>  list(col.name=&quot;indicador&quot;, label=&quot;Indicador&quot;, choices=INDICADORES,</span>
+<span id="cb725-13"><a href="cuadros-de-mando-dashboards.html#cb725-13" tabindex="-1"></a>       selected=&quot;pct_pib&quot;, multiple=FALSE),</span>
+<span id="cb725-14"><a href="cuadros-de-mando-dashboards.html#cb725-14" tabindex="-1"></a>  list(col.name=&quot;unidad&quot;, label=&quot;Unidad&quot;,</span>
+<span id="cb725-15"><a href="cuadros-de-mando-dashboards.html#cb725-15" tabindex="-1"></a>       choices=c(&quot;Valor indicador&quot;,&quot;Incremento anual (%)&quot;),</span>
+<span id="cb725-16"><a href="cuadros-de-mando-dashboards.html#cb725-16" tabindex="-1"></a>       selected=&quot;Valor indicador&quot;, multiple=FALSE)</span>
+<span id="cb725-17"><a href="cuadros-de-mando-dashboards.html#cb725-17" tabindex="-1"></a>)</span></code></pre></div>
 <p>Cada atributo declara la columna de la tabla que le corresponde (<code>col.name</code>), el rótulo con el que se presenta (<code>label</code>), las opciones que ofrece (<code>choices</code>) y las que vienen marcadas de partida (<code>selected</code>). Los menús desplegables se generan recorriendo esas listas con <code>lapply</code>, de modo que añadir o quitar un atributo del cuadro de mandos consiste en añadir o quitar un elemento de la lista, sin tocar el código que dibuja.</p>
 <p>Los identificadores de los controles se construyen todos de la misma forma, anteponiendo al nombre de la columna el identificador de la página:</p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb725-1"><a href="cuadros-de-mando-dashboards.html#cb725-1" tabindex="-1"></a>id_control &lt;- function(nombre) paste0(pageId, &quot;.&quot;, nombre)</span></code></pre></div>
-<p>de manera que el menú del atributo <code>geo.name</code> de la página <code>p1</code> se lee con <code>input[[id_control("geo.name")]]</code>. Tenerlo en una sola función evita el error más molesto al reutilizar esta plantilla: si se copia la página entera para poner dos exploradores en el mismo cuadro de mandos, basta con cambiar el valor de <code>pageId</code> para que ningún control comparta nombre con los de la otra página.</p>
+<div class="sourceCode" id="cb726"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb726-1"><a href="cuadros-de-mando-dashboards.html#cb726-1" tabindex="-1"></a>id_control &lt;- function(nombre) paste0(pageId, &quot;.&quot;, nombre)</span></code></pre></div>
+<p>de manera que el menú del atributo <code>area</code> de la página <code>p1</code> se lee con <code>input[[id_control("area")]]</code>. Tenerlo en una sola función evita el error más molesto al reutilizar esta plantilla: si se copia la página entera para poner dos exploradores en el mismo cuadro de mandos, basta con cambiar el valor de <code>pageId</code> para que ningún control comparta nombre con los de la otra página.</p>
 <p>El mismo problema de duplicidad aparece con la reactiva que empaqueta la selección al pulsar el <code>actionButton</code>: <code>seleccion[[pageId]] &lt;- eventReactive(input[[id_control("dibujar")]], {...})</code> la guarda en una lista indexada por <code>pageId</code>, en vez de en una variable suelta como <code>seleccion.p1</code>. Así, si se duplica la página, cada copia obtiene su propia entrada en la lista (<code>seleccion[[pageId]]()</code> dentro del <code>renderPlotly</code>) sin tener que renombrar nada a mano, exactamente igual que ocurre con <code>id_control()</code>.</p>
 <div id="interfaz-que-depende-de-la-propia-interfaz" class="section level3 unnumbered hasAnchor">
 <h3>Interfaz que depende de la propia interfaz<a href="cuadros-de-mando-dashboards.html#interfaz-que-depende-de-la-propia-interfaz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Queda un problema de fondo que este cuadro de mandos resuelve y que no aparece en ninguno de los anteriores. Los menús no pueden escribirse en el fichero, por dos motivos: <strong>cuáles hay</strong> lo decide la configuración, que cambia con los datos, y <strong>cuáles se ven</strong> depende de lo que el usuario haya marcado —el desplegable para elegir regiones a mano solo debe aparecer si la casilla “todas las regiones” está desmarcada—. Es decir, parte de la interfaz depende de un control de la propia interfaz.</p>
+<p>Queda un problema de fondo que este cuadro de mandos resuelve y que no aparece en ninguno de los anteriores. Los menús no pueden escribirse en el fichero, por dos motivos: <strong>cuáles hay</strong> lo decide la configuración, que cambia con los datos, y <strong>cuáles se ven</strong> depende de lo que el usuario haya marcado —el desplegable para elegir países a mano solo debe aparecer si la casilla “todos los países” está desmarcada—. Es decir, parte de la interfaz depende de un control de la propia interfaz.</p>
 <p>Eso no se puede resolver en el texto del fichero, que se compone una sola vez al arrancar. Los controles hay que <strong>construirlos desde el código</strong>, con la pareja <code>renderUI</code> / <code>uiOutput</code>: <code>renderUI</code> es una función de renderizado más —como <code>renderPlot</code> o <code>renderValueBox</code>—, solo que en vez de un gráfico devuelve controles, y <code>uiOutput</code> marca el lugar de la página donde han de colocarse:</p>
-<div class="sourceCode" id="cb726"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb726-1"><a href="cuadros-de-mando-dashboards.html#cb726-1" tabindex="-1"></a># el selector solo se genera si la casilla está desmarcada</span>
-<span id="cb726-2"><a href="cuadros-de-mando-dashboards.html#cb726-2" tabindex="-1"></a>output$main_ui &lt;- renderUI({</span>
-<span id="cb726-3"><a href="cuadros-de-mando-dashboards.html#cb726-3" tabindex="-1"></a>  if (isFALSE(input[[id_control(&quot;checkboxInput&quot;)]]))</span>
-<span id="cb726-4"><a href="cuadros-de-mando-dashboards.html#cb726-4" tabindex="-1"></a>    selectInput(id_control(&quot;geo.name&quot;), &quot;Región acogida&quot;,</span>
-<span id="cb726-5"><a href="cuadros-de-mando-dashboards.html#cb726-5" tabindex="-1"></a>                choices = RegionAcogida, multiple = TRUE)</span>
-<span id="cb726-6"><a href="cuadros-de-mando-dashboards.html#cb726-6" tabindex="-1"></a>  else</span>
-<span id="cb726-7"><a href="cuadros-de-mando-dashboards.html#cb726-7" tabindex="-1"></a>    NULL</span>
-<span id="cb726-8"><a href="cuadros-de-mando-dashboards.html#cb726-8" tabindex="-1"></a>})</span>
-<span id="cb726-9"><a href="cuadros-de-mando-dashboards.html#cb726-9" tabindex="-1"></a></span>
-<span id="cb726-10"><a href="cuadros-de-mando-dashboards.html#cb726-10" tabindex="-1"></a># y aquí es donde aparece</span>
-<span id="cb726-11"><a href="cuadros-de-mando-dashboards.html#cb726-11" tabindex="-1"></a>uiOutput(&quot;main_ui&quot;)</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb727-1"><a href="cuadros-de-mando-dashboards.html#cb727-1" tabindex="-1"></a># el selector solo se genera si la casilla está desmarcada</span>
+<span id="cb727-2"><a href="cuadros-de-mando-dashboards.html#cb727-2" tabindex="-1"></a>output$main_ui &lt;- renderUI({</span>
+<span id="cb727-3"><a href="cuadros-de-mando-dashboards.html#cb727-3" tabindex="-1"></a>  if (isFALSE(input[[id_control(&quot;checkboxInput&quot;)]]))</span>
+<span id="cb727-4"><a href="cuadros-de-mando-dashboards.html#cb727-4" tabindex="-1"></a>    selectInput(id_control(&quot;area&quot;), &quot;País&quot;,</span>
+<span id="cb727-5"><a href="cuadros-de-mando-dashboards.html#cb727-5" tabindex="-1"></a>                choices = Paises, multiple = TRUE)</span>
+<span id="cb727-6"><a href="cuadros-de-mando-dashboards.html#cb727-6" tabindex="-1"></a>  else</span>
+<span id="cb727-7"><a href="cuadros-de-mando-dashboards.html#cb727-7" tabindex="-1"></a>    NULL</span>
+<span id="cb727-8"><a href="cuadros-de-mando-dashboards.html#cb727-8" tabindex="-1"></a>})</span>
+<span id="cb727-9"><a href="cuadros-de-mando-dashboards.html#cb727-9" tabindex="-1"></a></span>
+<span id="cb727-10"><a href="cuadros-de-mando-dashboards.html#cb727-10" tabindex="-1"></a># y aquí es donde aparece</span>
+<span id="cb727-11"><a href="cuadros-de-mando-dashboards.html#cb727-11" tabindex="-1"></a>uiOutput(&quot;main_ui&quot;)</span></code></pre></div>
 <p>Al ser una función de renderizado, se recalcula sola cuando cambia la casilla, y el desplegable aparece y desaparece sin más código. Es la misma idea del <code>valueBox</code> con color en semáforo: <strong>cuando algo tiene que cambiar, deja de escribirse en el fichero y pasa a construirse en el código.</strong></p>
 <div class="nota">
 <p><strong class="bloque-titulo">Los controles construidos con <code>renderUI</code> no existen al arrancar</strong></p>
 <p>Esta comodidad tiene un precio que conviene conocer, porque el síntoma es desconcertante. Las reactivas que leen esos controles se ejecutan <strong>una vez antes</strong> de que <code>renderUI</code> los haya creado, así que en ese primer instante <code>input[[...]]</code> vale <code>NULL</code> y el panel muestra un error —del tipo <em>“argumento de tipo inválido”</em>— que desaparece solo un momento después.</p>
 <p>La solución es abrir la reactiva con un <code>req</code> que espere a que los controles existan:</p>
-<div class="sourceCode" id="cb727"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb727-1"><a href="cuadros-de-mando-dashboards.html#cb727-1" tabindex="-1"></a>seleccion[[pageId]] &lt;- eventReactive(input[[id_control(&quot;dibujar&quot;)]], {</span>
-<span id="cb727-2"><a href="cuadros-de-mando-dashboards.html#cb727-2" tabindex="-1"></a>  req(!is.null(input[[id_control(&quot;checkboxInput&quot;)]]),</span>
-<span id="cb727-3"><a href="cuadros-de-mando-dashboards.html#cb727-3" tabindex="-1"></a>      input[[id_control(&quot;ncol&quot;)]],</span>
-<span id="cb727-4"><a href="cuadros-de-mando-dashboards.html#cb727-4" tabindex="-1"></a>      input[[id_control(&quot;nrow&quot;)]])</span>
-<span id="cb727-5"><a href="cuadros-de-mando-dashboards.html#cb727-5" tabindex="-1"></a>  ...</span>
-<span id="cb727-6"><a href="cuadros-de-mando-dashboards.html#cb727-6" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb728-1"><a href="cuadros-de-mando-dashboards.html#cb728-1" tabindex="-1"></a>seleccion[[pageId]] &lt;- eventReactive(input[[id_control(&quot;dibujar&quot;)]], {</span>
+<span id="cb728-2"><a href="cuadros-de-mando-dashboards.html#cb728-2" tabindex="-1"></a>  req(!is.null(input[[id_control(&quot;checkboxInput&quot;)]]),</span>
+<span id="cb728-3"><a href="cuadros-de-mando-dashboards.html#cb728-3" tabindex="-1"></a>      input[[id_control(&quot;ncol&quot;)]],</span>
+<span id="cb728-4"><a href="cuadros-de-mando-dashboards.html#cb728-4" tabindex="-1"></a>      input[[id_control(&quot;nrow&quot;)]])</span>
+<span id="cb728-5"><a href="cuadros-de-mando-dashboards.html#cb728-5" tabindex="-1"></a>  ...</span>
+<span id="cb728-6"><a href="cuadros-de-mando-dashboards.html#cb728-6" tabindex="-1"></a>})</span></code></pre></div>
 <p>Nótese que las casillas se comprueban con <code>!is.null()</code> y los campos numéricos van directos, por lo que se explicó al presentar <code>req</code>: una casilla desmarcada vale <code>FALSE</code>, y para <code>req</code> un <code>FALSE</code> significa “todavía no disponible”. Con los campos numéricos, en cambio, pasarlos directamente es justo lo que se quiere, porque así el panel también espera si el usuario borra el contenido del campo.</p>
 </div>
 <div class="metodo">
 <p><strong class="bloque-titulo">Una plantilla tiene que decir qué hay que tocar</strong></p>
 <p>Un fichero pensado para adaptarlo a otros datos debería poder recorrerse buscando las marcas de lo que cambia. En este ejemplo están señaladas como <code>PASO 1</code> a <code>PASO 4</code>, en el sitio exacto donde se aplican: la lectura de los datos, los vectores con las opciones de cada atributo en el orden deseado, la configuración de los tres bloques de atributos y, por último, el <strong>título</strong> del cuadro de mandos, que es el único que queda fuera del código porque vive en la cabecera <code>YAML</code> del fichero.</p>
 <p>Conviene además <strong>comprobar la configuración</strong> justo después de escribirla, y bastan tres líneas que verifiquen que las columnas que nombra existen de verdad en la tabla:</p>
-<div class="sourceCode" id="cb728"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb728-1"><a href="cuadros-de-mando-dashboards.html#cb728-1" tabindex="-1"></a>faltan &lt;- setdiff(columnas.configuradas, names(data))</span>
-<span id="cb728-2"><a href="cuadros-de-mando-dashboards.html#cb728-2" tabindex="-1"></a>if (length(faltan) &gt; 0)</span>
-<span id="cb728-3"><a href="cuadros-de-mando-dashboards.html#cb728-3" tabindex="-1"></a>  stop(&quot;Estas columnas no están en los datos: &quot;, paste(faltan, collapse=&quot;, &quot;),</span>
-<span id="cb728-4"><a href="cuadros-de-mando-dashboards.html#cb728-4" tabindex="-1"></a>       &quot;. Las que hay son: &quot;, paste(names(data), collapse=&quot;, &quot;))</span></code></pre></div>
+<div class="sourceCode" id="cb729"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb729-1"><a href="cuadros-de-mando-dashboards.html#cb729-1" tabindex="-1"></a>faltan &lt;- setdiff(columnas.configuradas, names(data))</span>
+<span id="cb729-2"><a href="cuadros-de-mando-dashboards.html#cb729-2" tabindex="-1"></a>if (length(faltan) &gt; 0)</span>
+<span id="cb729-3"><a href="cuadros-de-mando-dashboards.html#cb729-3" tabindex="-1"></a>  stop(&quot;Estas columnas no están en los datos: &quot;, paste(faltan, collapse=&quot;, &quot;),</span>
+<span id="cb729-4"><a href="cuadros-de-mando-dashboards.html#cb729-4" tabindex="-1"></a>       &quot;. Las que hay son: &quot;, paste(names(data), collapse=&quot;, &quot;))</span></code></pre></div>
 <p>Es una costumbre barata que evita el peor modo de fallo de un cuadro de mando: un nombre de columna mal escrito no protesta al arrancar, sino más tarde y dentro de una función <code>render</code>, donde el único síntoma es un gráfico vacío del que no se sabe nada.</p>
 </div>
 <p>Adaptar este cuadro de mandos a otros datos consiste, por tanto, en recorrer esos cuatro pasos: el filtrado, la combinación de atributos, la paginación y el dibujado funcionan sin tocar nada más.</p>
@@ -1148,13 +1166,12 @@ Figure 7.1: Esquema del modelo reactivo de Shiny
 </div>
 <p>En la barra lateral se elige, con menús desplegables, la serie (la isla, o <code>Canarias</code> para el total del archipiélago), el horizonte de predicción y el número de periodos observados con los que se ajusta el modelo, y con unos botones de radio, el método. Al elegir STL + ARIMA aparecen además dos desplegables con las ventanas del suavizado de la tendencia y de la estacionalidad; con ARIMA no intervienen y no se muestran, así que se construyen desde el código con la pareja <code>renderUI</code> / <code>uiOutput</code> vista en la sección anterior. Debajo, solo con ARIMA, aparece la tabla con las métricas del ajuste (RMSE, MAE y MASE), calculadas con <code>aedv_arima_accuracy()</code>.</p>
 <p>Los <strong>periodos observados</strong> no son solo los que se dibujan: son los últimos periodos de la serie con los que se <strong>ajusta</strong> el modelo (el argumento <code>periodos_atras</code> de <code>aedv_prediccion_arima()</code> y <code>aedv_prediccion_stl_arima()</code>). Sobre ese mismo tramo se calculan también las métricas, el error del ajuste y los tests. Las opciones de los desplegables no están escritas a mano: se deducen de la longitud y del periodo de cada serie, de modo que el mismo fichero sirve para series anuales (sin estacionalidad, en cuyo caso no se ofrece la ventana estacional) y para series mensuales o trimestrales.</p>
-<p>La columna de la derecha se organiza en tres pestañas:</p>
+<p>La columna de la derecha se organiza en dos pestañas:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Predicción</strong>: el tramo observado, el ajuste del modelo y la predicción con su intervalo de confianza, dibujados con <code>aedv_dibujar_arima_dinamico()</code> o <code>aedv_dibujar_stl_arima_dinamico()</code>. Con STL + ARIMA se superpone además la tendencia de la descomposición, que es lo que cambia al mover las ventanas del suavizado.</li>
-<li><strong>Error del ajuste y tests de ruido blanco</strong>: el error (valor observado menos ajuste) en el mismo tramo y, debajo, la tabla de los cuatro tests de ruido blanco, calculados con <code>aedv_tests_residuos()</code> y presentados con <code>aedv_tabla_tests()</code>. Las dos salidas se reparten el alto de la pestaña con <code>fillCol()</code>.</li>
+<li><strong>Predicción y tests de ruido blanco</strong>, uno debajo de otro: el tramo observado, el ajuste del modelo y la predicción con su intervalo de confianza, dibujados con <code>aedv_dibujar_arima_dinamico()</code> o <code>aedv_dibujar_stl_arima_dinamico()</code> (con STL + ARIMA se superpone además la tendencia de la descomposición, que es lo que cambia al mover las ventanas del suavizado); el error del ajuste (valor observado menos ajuste) en el mismo tramo, o con STL + ARIMA el resto (<em>remainder</em>) de la descomposición; y la tabla de los cuatro tests de ruido blanco de ese error, calculados con <code>aedv_tests_residuos()</code> y presentados con <code>aedv_tabla_tests()</code>. Las tres salidas se reparten el alto de la pestaña con <code>fillCol()</code>.</li>
 <li><strong>Descomposición STL</strong> del tramo de ajuste: serie observada, tendencia, estacionalidad y resto, uno debajo de otro.</li>
 </ol>
-<p>Todas las pestañas comparten <strong>un solo cálculo</strong>: el modelo se ajusta en una función <code>reactive</code> que leen los tres paneles, de modo que cambiar de pestaña no vuelve a ajustar nada.</p>
+<p>Todas las salidas comparten <strong>un solo cálculo</strong>: el modelo se ajusta en una función <code>eventReactive</code> (al pulsar el botón <strong>Calcular</strong>) que leen todos los paneles, de modo que cambiar de pestaña no vuelve a ajustar nada.</p>
 <p>La isla de <strong>La Gomera</strong> está incluida a propósito: le faltan los datos de abril y mayo de 2020 (el confinamiento). Si el tramo de ajuste incluye esos meses, ninguno de los dos métodos puede ajustarla, y ninguno de los dos lo dice claramente. El cuadro de mandos cuenta los huecos del tramo antes de ajustar y, con <code>validate(need(...))</code>, sustituye cada panel por una explicación del problema en lugar de dejarlo en blanco; basta con reducir los periodos observados para que el tramo empiece después del hueco.</p>
 <p>Igual que el cuadro de mandos anterior, este fichero está escrito como <strong>plantilla de una página</strong>: lo que hay que cambiar para aplicarlo a otros datos está marcado con ✎ al principio del fichero (el título, el identificador de la página, la lectura de los datos como un <code>tsibble</code> en formato largo con una columna <code>key</code> y los rótulos). Además, todos los identificadores de los controles llevan delante el de la página y los datos de cada página se guardan por separado, de modo que la página puede copiarse varias veces dentro del mismo cuadro de mandos con datos distintos.</p>
 </div>
@@ -1166,21 +1183,21 @@ Figure 7.1: Esquema del modelo reactivo de Shiny
 <li><p><strong>Usar <code>reactive</code> para cálculos intermedios.</strong> Si varios outputs comparten el mismo procesado de datos, encapsularlo en un <code>reactive</code> evita recalcular lo mismo múltiples veces.</p></li>
 <li><p><strong>Evitar recálculos innecesarios.</strong> Para controles como sliders que el usuario mueve rápidamente, la función <code>debounce(reactive_expr, millis)</code> retrasa la ejecución hasta que el usuario deja de mover el slider durante el tiempo especificado (en milisegundos):</p></li>
 </ul>
-<div class="sourceCode" id="cb729"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb729-1"><a href="cuadros-de-mando-dashboards.html#cb729-1" tabindex="-1"></a>datos &lt;- reactive({ owid_country |&gt; filter(population &gt; input$min_poblacion) })</span>
-<span id="cb729-2"><a href="cuadros-de-mando-dashboards.html#cb729-2" tabindex="-1"></a>datos_debounced &lt;- datos |&gt; debounce(500)  # espera 500ms antes de recalcular</span></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb730-1"><a href="cuadros-de-mando-dashboards.html#cb730-1" tabindex="-1"></a>datos &lt;- reactive({ owid_country |&gt; filter(population &gt; input$min_poblacion) })</span>
+<span id="cb730-2"><a href="cuadros-de-mando-dashboards.html#cb730-2" tabindex="-1"></a>datos_debounced &lt;- datos |&gt; debounce(500)  # espera 500ms antes de recalcular</span></code></pre></div>
 <ul>
 <li><strong>Diferir el cálculo con <code>actionButton</code>.</strong> Cuando el gráfico es realmente costoso —o hay varios inputs que el usuario quiere ajustar a la vez antes de ver el resultado—, en vez de retrasar unos milisegundos conviene esperar a una acción explícita del usuario. Un <code>actionButton</code> combinado con <code>eventReactive</code> hace que el cálculo solo se dispare al pulsarlo, así que ajustar los controles no cuesta nada y el trabajo pesado se ejecuta una única vez:</li>
 </ul>
-<div class="sourceCode" id="cb730"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb730-1"><a href="cuadros-de-mando-dashboards.html#cb730-1" tabindex="-1"></a>actionButton(&quot;dibujar&quot;, &quot;Dibujar gráfica&quot;)</span>
-<span id="cb730-2"><a href="cuadros-de-mando-dashboards.html#cb730-2" tabindex="-1"></a></span>
-<span id="cb730-3"><a href="cuadros-de-mando-dashboards.html#cb730-3" tabindex="-1"></a>seleccion &lt;- eventReactive(input$dibujar, {</span>
-<span id="cb730-4"><a href="cuadros-de-mando-dashboards.html#cb730-4" tabindex="-1"></a>  list(pais = input$pais, anyo_inicio = input$anyo_inicio, anyo_fin = input$anyo_fin)</span>
-<span id="cb730-5"><a href="cuadros-de-mando-dashboards.html#cb730-5" tabindex="-1"></a>})</span>
-<span id="cb730-6"><a href="cuadros-de-mando-dashboards.html#cb730-6" tabindex="-1"></a></span>
-<span id="cb730-7"><a href="cuadros-de-mando-dashboards.html#cb730-7" tabindex="-1"></a>renderPlot({</span>
-<span id="cb730-8"><a href="cuadros-de-mando-dashboards.html#cb730-8" tabindex="-1"></a>  datos &lt;- seleccion()</span>
-<span id="cb730-9"><a href="cuadros-de-mando-dashboards.html#cb730-9" tabindex="-1"></a>  # cálculo costoso usando datos$pais, datos$anyo_inicio, datos$anyo_fin</span>
-<span id="cb730-10"><a href="cuadros-de-mando-dashboards.html#cb730-10" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb731-1"><a href="cuadros-de-mando-dashboards.html#cb731-1" tabindex="-1"></a>actionButton(&quot;dibujar&quot;, &quot;Dibujar gráfica&quot;)</span>
+<span id="cb731-2"><a href="cuadros-de-mando-dashboards.html#cb731-2" tabindex="-1"></a></span>
+<span id="cb731-3"><a href="cuadros-de-mando-dashboards.html#cb731-3" tabindex="-1"></a>seleccion &lt;- eventReactive(input$dibujar, {</span>
+<span id="cb731-4"><a href="cuadros-de-mando-dashboards.html#cb731-4" tabindex="-1"></a>  list(pais = input$pais, anyo_inicio = input$anyo_inicio, anyo_fin = input$anyo_fin)</span>
+<span id="cb731-5"><a href="cuadros-de-mando-dashboards.html#cb731-5" tabindex="-1"></a>})</span>
+<span id="cb731-6"><a href="cuadros-de-mando-dashboards.html#cb731-6" tabindex="-1"></a></span>
+<span id="cb731-7"><a href="cuadros-de-mando-dashboards.html#cb731-7" tabindex="-1"></a>renderPlot({</span>
+<span id="cb731-8"><a href="cuadros-de-mando-dashboards.html#cb731-8" tabindex="-1"></a>  datos &lt;- seleccion()</span>
+<span id="cb731-9"><a href="cuadros-de-mando-dashboards.html#cb731-9" tabindex="-1"></a>  # cálculo costoso usando datos$pais, datos$anyo_inicio, datos$anyo_fin</span>
+<span id="cb731-10"><a href="cuadros-de-mando-dashboards.html#cb731-10" tabindex="-1"></a>})</span></code></pre></div>
 <p>Es el patrón usado en los cuadros de mando de las secciones anteriores (ver la nota sobre su interés en la sección <em>Cuadro de mandos con <code>hchart</code></em>), y conviene especialmente cuando alguno de los inputs es un <code>sliderInput</code>, porque arrastrarlo dispara un evento reactivo por cada valor intermedio.</p>
 <ul>
 <li><strong>Reducir el volumen de datos</strong> que se envían al navegador. Los gráficos interactivos con miles de puntos generan HTML pesado. Si es posible, agregar o muestrear los datos antes de enviarlos al gráfico.</li>

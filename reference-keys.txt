@@ -173,7 +173,7 @@ fig:biplot-factoextra
 fig:kmeans-pca
 tab:kmeans-pca-resumen
 fig:kmeans-pca-yj
-tab:unnamed-chunk-234
+tab:unnamed-chunk-235
 fig:chunk-label
 introducción
 fases-de-un-análisis-exploratorio-de-datos
